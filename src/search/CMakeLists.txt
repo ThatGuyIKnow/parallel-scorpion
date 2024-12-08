@@ -443,6 +443,34 @@ create_fast_downward_library(
 )
 
 create_fast_downward_library(
+    NAME parallel_eager_search
+    HELP "Parallel eager search"
+    SOURCES
+        search_algorithms/parallel_eager_search
+    DEPENDS
+        null_pruning_method
+        ordered_set
+        successor_generator
+    DEPENDENCY_ONLY
+)
+
+
+# create_fast_downward_library(
+#     NAME distributed_hash
+#     HELP "Hash distribution"
+#     SOURCES
+#         hash/distribution_hash
+#     DEPENDS
+#         plugin
+#         operator
+#         domain_transition_graph
+#         successor_generator
+#         utils
+#         state_registry
+#         state
+#     DEPENDENCY_ONLY
+# )
+create_fast_downward_library(
     NAME plugin_iw
     HELP "Iterative width search"
     SOURCES
@@ -511,6 +539,16 @@ create_fast_downward_library(
         search_algorithms/plugin_eager
     DEPENDS
         eager_search
+        search_common
+)
+
+create_fast_downward_library(
+    NAME plugin_parallel_eager
+    HELP "Parallel eager (i.e., normal) best-first search"
+    SOURCES
+        search_algorithms/plugin_parallel_eager
+    DEPENDS
+        parallel_eager_search
         search_common
 )
 
@@ -623,6 +661,24 @@ if(USE_LP)
         target_sources(lp_solver INTERFACE lp/soplex_solver_interface.h lp/soplex_solver_interface.cc)
     endif()
 endif()
+
+# Find MPI package
+find_package(MPI REQUIRED)
+# Check if MPI was found and display a message
+if(MPI_FOUND)
+    message(STATUS "MPI found: Version ${MPI_VERSION} - C++ Compiler: ${MPI_CXX_COMPILER}")
+else()
+    message(FATAL_ERROR "MPI not found. Ensure that MPI is installed and available.")
+endif()
+# Link MPI libraries, handle include paths automatically
+target_link_libraries(${PROJECT_NAME} PRIVATE MPI::MPI_CXX)
+
+# Optionally specify additional compile options or definitions if needed
+target_compile_options(${PROJECT_NAME} PRIVATE ${MPI_CXX_COMPILE_OPTIONS})
+target_compile_definitions(${PROJECT_NAME} PRIVATE ${MPI_CXX_COMPILE_DEFINITIONS})
+
+# Optionally specify include directories
+target_include_directories(${PROJECT_NAME} PRIVATE ${MPI_CXX_INCLUDE_DIRS})
 
 create_fast_downward_library(
     NAME relaxation_heuristic

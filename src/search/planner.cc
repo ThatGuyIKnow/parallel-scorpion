@@ -8,6 +8,7 @@
 #include "utils/timer.h"
 
 #include <iostream>
+#include <unistd.h>
 
 using namespace std;
 using utils::ExitCode;

@@ -14,6 +14,10 @@ namespace exhaustive_search {
 class ExhaustiveSearch;
 }
 
+namespace parallel_eager_search {
+class ParallelEagerSearch;
+}
+
 class StateID {
     friend class breadth_first_search::BreadthFirstSearch;
     friend class exhaustive_search::ExhaustiveSearch;
@@ -24,6 +28,7 @@ class StateID {
     template<typename>
     friend class PerStateArray;
     friend class PerStateBitset;
+    friend class parallel_eager_search::ParallelEagerSearch;
 
     int value;
     explicit StateID(int value_)
