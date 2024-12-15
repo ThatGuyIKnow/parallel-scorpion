@@ -15,6 +15,12 @@ namespace utils {
 class LogProxy;
 }
 
+
+namespace parallel_eager_search {
+class ParallelEagerSearch;
+};
+
+
 class SearchNode {
     State state;
     SearchNodeInfo &info;
@@ -49,6 +55,8 @@ public:
 
 
 class SearchSpace {
+    friend class parallel_eager_search::ParallelEagerSearch;
+
     PerStateInformation<SearchNodeInfo> search_node_infos;
 
     StateRegistry &state_registry;

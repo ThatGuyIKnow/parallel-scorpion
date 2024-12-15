@@ -125,6 +125,7 @@ class StateRegistry : public subscriber::SubscriberService<StateRegistry> {
     friend class parallel_eager_search::ParallelEagerSearch;
 
     struct StateIDSemanticHash {
+      
         const segmented_vector::SegmentedArrayVector<PackedStateBin> &state_data_pool;
         int state_size;
         StateIDSemanticHash(

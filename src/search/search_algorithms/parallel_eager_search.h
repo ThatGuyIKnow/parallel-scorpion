@@ -8,12 +8,16 @@
 #include <memory>
 #include <vector>
 
+#include <mpi.h>
+
 class Evaluator;
 class PruningMethod;
 
 namespace plugins {
 class Feature;
 }
+
+void mpi_arg_min_func(void* inputBuffer, void* outputBuffer, int* len, MPI_Datatype* datatype);
 
 enum ProcessesStatus {ACTIVE, IDLE, PRE_TERMINATION, TERMINATION};
 
@@ -35,18 +39,54 @@ namespace parallel {
         SearchNode node;
         int g;
         int h;
-        OperatorProxy op;
+        OperatorProxy creating_operator;
         int distributed_hash;
         StateID parent_id;
+        StateID id;
+        int sender;
     };
+
+
+    struct StateSemanticHash {
+        int state_size;
+        StateSemanticHash(
+            int state_size)
+            : state_size(state_size) {
+        }
+
+        uint64_t operator()(State state) const {
+            const PackedStateBin *data = state.get_buffer();
+            utils::HashState hash_state;
+            for (int i = 0; i < state_size; ++i) {
+                hash_state.feed(data[i]);
+            }
+            return hash_state.get_hash64();
+        }
+    };
+
+    struct ExternalStateMessage {
+        int state_id;
+        int sender;
+        ExternalStateMessage& operator=(const ExternalStateMessage& other) { 
+            state_id = other.state_id;
+            sender = other.sender;
+            return *this;
+        };
+    };
+
 }
 
 
 
-enum MPIMessageType {NODE, TERMINATE, FOUND_PLAN, ACK, CONSTRUCT_PLAN, STATUS};
+enum MPIMessageType {NODE, TERMINATE, FOUND_GOAL, ACK, CONSTRUCT_PLAN, STATUS};
 
 namespace parallel_eager_search {
 class ParallelEagerSearch : public SearchAlgorithm {
+
+    using NodeMessageMap = phmap::flat_hash_map<int, parallel::ExternalStateMessage>;
+    NodeMessageMap node_messages;
+    MPI_Op MPI_ARG_MIN;
+
     const bool reopen_closed_nodes;
     const unsigned int state_byte_size;
     const unsigned int node_byte_size;
@@ -55,6 +95,8 @@ class ParallelEagerSearch : public SearchAlgorithm {
 	
     unsigned char* mpi_buffer; // used for MPI_Buffer_attach.
     unsigned int awaited_ack = 0;
+    int goal_state_id;
+    int lowest_g = INT_MAX;
     bool plan_found = false;
     std::vector<ProcessesStatus> status_processors;
 
@@ -67,14 +109,28 @@ class ParallelEagerSearch : public SearchAlgorithm {
 
     std::shared_ptr<PruningMethod> pruning_method;
 
+    unsigned int get_assigned_rank(State state);
+    bool lookup_assigned_rank(SearchNode parent, OperatorProxy op, State succ_state);
     void send_node_message();
     void insert_incoming_queue();
     StateID messages_to_id(unsigned char* d, unsigned int d_size);
-    bool detect_termination();
+    SearchStatus detect_termination();
     bool detect_if_plan_found();
+    void construct_plan(SearchNode goal_node);
+    void construct_plan_worker(int constructor_rank);
+    unsigned int select_constructor_rank();
     void retrieve_ack_from_queue();
     void retrieve_nodes_from_queue();   
-    SearchStatus terminate();
+    SearchStatus terminate(SearchStatus status);
+
+    // Handles external node processing
+    bool process_external_node(State &current_state, int &external_state_id, unsigned int &assigned_rank, std::vector<OperatorID> &path);
+
+    // Parses the message received for an external node
+    bool parse_external_message(const std::vector<int> &message, State &current_state, int &external_state_id, unsigned int &assigned_rank, std::vector<OperatorID> &path);
+
+    // Handles internal node processing
+    bool process_internal_node(State &current_state, unsigned int &assigned_rank, int &external_state_id, std::vector<OperatorID> &path);
     void flush_outgoing_buffer(MPIMessageType tag);
     bool is_idle();
     bool check_and_progress_termination(
@@ -82,11 +138,10 @@ class ParallelEagerSearch : public SearchAlgorithm {
         ProcessesStatus next_status, 
         std::vector<ProcessesStatus> statuses);
 
-    void ToMessage(unsigned char* message, parallel::StatusMessage* out);
-    void ToByte(parallel::StatusMessage message, unsigned char* out);
-    void ToByteMessage(unsigned char* out, SearchNode parent,
-		OperatorProxy op, parallel::ProcessorInfo originating_process);
-    parallel::NodeMessage ToNodeMessage(unsigned char* buffer);
+    void to_message(unsigned char* message, parallel::StatusMessage* out);
+    void to_byte(parallel::StatusMessage message, unsigned char* out);
+    std::vector<unsigned char> to_byte_message(SearchNode parent, OperatorProxy op, State succ_state);
+    parallel::NodeMessage to_node_message(unsigned char* buffer, int sender, bool* discard);
 
     void start_f_value_statistics(EvaluationContext &eval_context);
     void update_f_value_statistics(EvaluationContext &eval_context);
