@@ -119,6 +119,8 @@ class DomainTransitionGraph {
     friend class cg_heuristic::CGHeuristic;
     friend class cea_heuristic::ContextEnhancedAdditiveHeuristic;
     friend class DTGFactory;
+    friend class distribution_hash::DistributionHash;
+    friend class distribution_hash::MapBasedHash;
 
     int var;
     std::vector<ValueNode> nodes;
