@@ -347,6 +347,11 @@ def _convert_limits_to_ints(parser, args):
         set_time_limit_in_seconds(parser, args, component)
         set_memory_limit_in_bytes(parser, args, component)
 
+def check_non_negative(value):
+    ivalue = int(value)
+    if ivalue < 0:
+        raise argparse.ArgumentTypeError("%s is an invalid value" % value)
+    return ivalue
 
 def parse_args():
     parser = argparse.ArgumentParser(
@@ -446,6 +451,9 @@ def parse_args():
     driver_other.add_argument(
         "--cleanup", action="store_true",
         help="clean up temporary files (translator output and plan files) and exit")
+
+    parser.add_argument(
+        "-np", help="run the search in parallel", type=check_non_negative, default=0)
 
     parser.add_argument(
         "planner_args", nargs=argparse.REMAINDER,

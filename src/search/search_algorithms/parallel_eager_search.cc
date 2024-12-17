@@ -54,9 +54,9 @@ ParallelEagerSearch::ParallelEagerSearch(
       open_list(open->create_state_open_list()),
       f_evaluator(f_eval),
       preferred_operator_evaluators(preferred),
-      distribution_hash(hash),
       lazy_evaluator(lazy_evaluator),
-      pruning_method(pruning) {
+      pruning_method(pruning), 
+      distribution_hash(hash) {
     if (lazy_evaluator && !lazy_evaluator->does_cache_estimates()) {
         cerr << "lazy_evaluator must cache its estimates" << endl;
         utils::exit_with(utils::ExitCode::SEARCH_INPUT_ERROR);
@@ -72,7 +72,6 @@ void ParallelEagerSearch::initialize() {
 
     set<Evaluator *> evals;
     open_list->get_path_dependent_evaluators(evals);
-
     /*
       Collect path-dependent evaluators that are used for preferred operators
       (in case they are not also used in the open list).
@@ -107,9 +106,6 @@ void ParallelEagerSearch::initialize() {
 
     pruning_method->initialize(task);
 
-
-    MPI_Init(NULL, NULL);
-
     // Get the number of processes
     int world_size;
     MPI_Comm_size(MPI_COMM_WORLD, &world_size);
@@ -142,11 +138,13 @@ void ParallelEagerSearch::initialize() {
 	fill(mpi_buffer, mpi_buffer + buffer_size, 0);
 	MPI_Buffer_attach((void *) mpi_buffer, buffer_size);
 
+    unsigned int d_hash = distribution_hash->hash(initial_state);
+    state_hash_map[initial_state.get_id().value] = d_hash;
     // TO DO: DISTRIBUTION HASH. TO VALIDATE PRA* IMPLEMENTATION, KEEP SIMPLE TO START.
     // srand(42);
 	// unsigned int d_hash = rand();
 
-    if (processor_info.rank == get_assigned_rank(state_registry.get_initial_state())) {
+    if (processor_info.rank == (d_hash % processor_info.world_size)) {
 
     /*
       Note: we consider the initial state as reached by a preferred
@@ -489,14 +487,14 @@ std::vector<unsigned char> ParallelEagerSearch::to_byte_message(SearchNode paren
 
     // Prepare the metadata as integers
     int g = parent.get_g() + get_adjusted_cost(op);
-    std::array<int, 7> info = {
+    int state_id = state.get_id().value;
+    std::array<int, 6> info = {
         g,                               // g-value
         0,                               // Placeholder for future heuristic value
         op.get_id(),                     // Operator ID
-        0,                               // Distributed hash (placeholder)
+        std::bit_cast<int>(state_hash_map[state_id]),        // Distributed hash (placeholder)
         parent.get_state().get_id().value,     // Parent state ID
-        state.get_id().value,            // Current state ID
-        (int)processor_info.rank              // Processor rank
+        state_id,            // Current state ID
     };
 
     // Append the metadata to the vector
@@ -520,8 +518,8 @@ parallel::NodeMessage ParallelEagerSearch::to_node_message(unsigned char* buffer
 
     // Parse the metadata
     const unsigned char* metadata_start = buffer + state_byte_size;
-    std::array<int, 7> info;
-    std::copy(metadata_start, metadata_start + sizeof(int) * 7,
+    std::array<int, 6> info;
+    std::copy(metadata_start, metadata_start + sizeof(int) * 6,
               reinterpret_cast<unsigned char*>(info.data()));
 
     int g = info[0];
@@ -533,6 +531,7 @@ parallel::NodeMessage ParallelEagerSearch::to_node_message(unsigned char* buffer
 
     // Create a SearchNode and validate the path cost
     SearchNode node = search_space.get_node(state);
+    state_hash_map[state.get_id().value] = distributed_hash;
 
     int search_space_g = search_space.get_node(state).get_g();
     if ((search_space_g != -1) && (g > search_space_g)) {
@@ -597,7 +596,7 @@ void ParallelEagerSearch::retrieve_nodes_from_queue() {
             // Add to node messages and the open list
             node_messages.insert_or_assign(
                 state.get_id().value, 
-                parallel::ExternalStateMessage{message.id.value, message.sender});
+                parallel::ExternalStateMessage{message.state_id.value, message.sender});
 
             open_list->insert(eval_context, state.get_id());
         }
@@ -674,7 +673,6 @@ SearchStatus ParallelEagerSearch::terminate(SearchStatus status){
 
     log << "Finalizing process " << processor_info.rank << endl;
 
-	MPI_Finalize();
 	return status;
 }
 
@@ -697,8 +695,15 @@ void ParallelEagerSearch::flush_outgoing_buffer(MPIMessageType tag) {
 }
 
 bool ParallelEagerSearch::lookup_assigned_rank(SearchNode parent, OperatorProxy op, State succ_state) {
-    unsigned int assigned_rank = get_assigned_rank(succ_state);
-    if (assigned_rank != processor_info.rank) {
+    State parent_state = parent.get_state();
+    unsigned int d_hash = distribution_hash->hash_incremental(
+        parent_state, 
+        state_hash_map[parent_state.get_id().value], 
+        op);
+    state_hash_map[succ_state.get_id().value] = d_hash;
+    unsigned int assigned_rank = d_hash % processor_info.world_size;
+
+    if (processor_info.rank != assigned_rank) {
                 std::vector<unsigned char> buffer = to_byte_message(parent, op, succ_state);
         MPI_Bsend(
             buffer.data(), 
@@ -853,6 +858,7 @@ SearchStatus ParallelEagerSearch::step() {
                 continue;
             }
             succ_node.open_new_node(*node, op, get_adjusted_cost(op));
+
 
             bool is_external = lookup_assigned_rank(*node, op, succ_node.get_state());
             if (!is_external) {

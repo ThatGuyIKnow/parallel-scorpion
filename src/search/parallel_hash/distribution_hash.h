@@ -51,7 +51,7 @@ namespace distribution_hash {
 
     class ZobristHash: public MapBasedHash {
     public:
-        ZobristHash(bool is_polynomial);
+        explicit ZobristHash(bool is_polynomial);
         static constexpr const char* hash_name() { return "zobrist"; };
     };
 
@@ -68,7 +68,7 @@ namespace distribution_hash {
     // Well, let's call it AbstractionHash as Abstraction is way too overloaded.
     class AdaptiveAbstractionHash: public MapBasedHash {
     public:
-        explicit AdaptiveAbstractionHash(const double abstraction_ratio, bool is_polynomial);
+        AdaptiveAbstractionHash(const double abstraction_ratio, bool is_polynomial);
         static constexpr const char* hash_name() {return "aabstraction"; };
 
     private:

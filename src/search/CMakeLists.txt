@@ -149,6 +149,8 @@ create_fast_downward_library(
         utils/system_windows
         utils/timer
         utils/tuples
+        utils/mpi_share_stream
+        utils/arguments
     CORE_LIBRARY
 )
 # On Linux, find the rt library for clock_gettime().

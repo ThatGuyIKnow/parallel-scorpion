@@ -6,6 +6,8 @@
 #include "utils/logging.h"
 
 #include <fstream>
+#include <thread>
+#include <chrono>
 #include <iostream>
 #include <sstream>
 
@@ -55,6 +57,7 @@ void PlanManager::save_plan(
         cerr << "Failed to open plan file: " << filename.str() << endl;
         utils::exit_with(utils::ExitCode::SEARCH_INPUT_ERROR);
     }
+    this_thread::sleep_for(chrono::seconds(2));
     OperatorsProxy operators = task_proxy.get_operators();
     for (OperatorID op_id : plan) {
         cout << operators[op_id].get_name() << " (" << operators[op_id].get_cost() << ")" << endl;

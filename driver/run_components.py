@@ -164,12 +164,22 @@ def run_search(args):
             args.search_options.extend(["--internal-plan-file", args.plan_file])
         try:
             print(executable, args.search_options)
-            call.check_call(
-                "search",
-                [executable] + args.search_options,
-                stdin=args.search_input,
-                time_limit=time_limit,
-                memory_limit=memory_limit)
+            if args.np != 0:
+                print(f"PARALLEL ENABLED (NP = {args.np})")
+                call.check_call(
+                    "search",
+                    ['mpirun', '-np', args.np] + 
+                      [executable] + args.search_options,
+                    stdin=args.search_input,
+                    time_limit=time_limit,
+                    memory_limit=memory_limit)
+            else:
+                call.check_call(
+                    "search",
+                    [executable] + args.search_options,
+                    stdin=args.search_input,
+                    time_limit=time_limit,
+                    memory_limit=memory_limit)
         except subprocess.CalledProcessError as err:
             # TODO: if we ever add support for SEARCH_PLAN_FOUND_AND_* directly
             # in the planner, this assertion no longer holds. Furthermore, we

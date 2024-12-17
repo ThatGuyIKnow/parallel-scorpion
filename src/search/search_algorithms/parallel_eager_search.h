@@ -45,7 +45,7 @@ namespace parallel {
         OperatorProxy creating_operator;
         int distributed_hash;
         StateID parent_id;
-        StateID id;
+        StateID state_id;
         int sender;
     };
 
@@ -87,7 +87,9 @@ namespace parallel_eager_search {
 class ParallelEagerSearch : public SearchAlgorithm {
 
     using NodeMessageMap = phmap::flat_hash_map<int, parallel::ExternalStateMessage>;
+    using StateHashMap = phmap::flat_hash_map<int, unsigned int>;
     NodeMessageMap node_messages;
+    StateHashMap state_hash_map;
     MPI_Op MPI_ARG_MIN;
 
     const bool reopen_closed_nodes;
@@ -109,10 +111,12 @@ class ParallelEagerSearch : public SearchAlgorithm {
     std::vector<Evaluator *> path_dependent_evaluators;
     std::vector<std::shared_ptr<Evaluator>> preferred_operator_evaluators;
     std::shared_ptr<Evaluator> lazy_evaluator;
-    std::shared_ptr<distribution_hash::MapBasedHash> distribution_hash;
 
 
     std::shared_ptr<PruningMethod> pruning_method;
+
+    std::shared_ptr<distribution_hash::MapBasedHash> distribution_hash;
+
 
     unsigned int get_assigned_rank(State state);
     bool lookup_assigned_rank(SearchNode parent, OperatorProxy op, State succ_state);
