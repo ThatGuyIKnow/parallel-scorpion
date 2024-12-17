@@ -38,17 +38,25 @@ void mpi_arg_min_func(void* inputBuffer, void* outputBuffer, int* len, MPI_Datat
     }
 }
 namespace parallel_eager_search {
-ParallelEagerSearch::ParallelEagerSearch(const plugins::Options &opts)
-    : SearchAlgorithm(opts),
-      reopen_closed_nodes(opts.get<bool>("reopen_closed")),
+ParallelEagerSearch::ParallelEagerSearch(
+    const shared_ptr<OpenListFactory> &open, bool reopen_closed,
+    const shared_ptr<Evaluator> &f_eval,
+    const vector<shared_ptr<Evaluator>> &preferred,
+    const std::shared_ptr<distribution_hash::MapBasedHash> &hash,
+    const shared_ptr<PruningMethod> &pruning,
+    const shared_ptr<Evaluator> &lazy_evaluator, OperatorCost cost_type,
+    int bound, double max_time, const string &description,
+    utils::Verbosity verbosity
+) : SearchAlgorithm(cost_type, bound, max_time, description, verbosity),
+      reopen_closed_nodes(reopen_closed),
       state_byte_size(state_registry.get_state_size_in_bytes()),
       node_byte_size(state_byte_size + sizeof(int) * 7),
-      open_list(opts.get<shared_ptr<OpenListFactory>>("open")->
-                create_state_open_list()),
-      f_evaluator(opts.get<shared_ptr<Evaluator>>("f_eval", nullptr)),
-      preferred_operator_evaluators(opts.get_list<shared_ptr<Evaluator>>("preferred")),
-      lazy_evaluator(opts.get<shared_ptr<Evaluator>>("lazy_evaluator", nullptr)),
-      pruning_method(opts.get<shared_ptr<PruningMethod>>("pruning")) {
+      open_list(open->create_state_open_list()),
+      f_evaluator(f_eval),
+      preferred_operator_evaluators(preferred),
+      distribution_hash(hash),
+      lazy_evaluator(lazy_evaluator),
+      pruning_method(pruning) {
     if (lazy_evaluator && !lazy_evaluator->does_cache_estimates()) {
         cerr << "lazy_evaluator must cache its estimates" << endl;
         utils::exit_with(utils::ExitCode::SEARCH_INPUT_ERROR);
@@ -224,7 +232,7 @@ bool ParallelEagerSearch::check_and_progress_termination(
         status_processors[processor_info.rank] = processor_info.status;
         to_byte(parallel::StatusMessage{processor_info.status, processor_info.rank}, message_buffer);
 
-        for(int i = 1; i < processor_info.world_size; i++) {
+        for(unsigned int i = 1; i < processor_info.world_size; i++) {
             int rank = (processor_info.rank + i) % processor_info.world_size;
             MPI_Bsend(message_buffer, 2, MPI_BYTE, rank, MPIMessageType::STATUS, MPI_COMM_WORLD);
         }
@@ -254,7 +262,7 @@ void ParallelEagerSearch::construct_plan(SearchNode goal_node) {
     }
 
     int term_signal[] = {1, 0};
-    for (int i = 1; i < processor_info.world_size; i++) {
+    for (unsigned int i = 1; i < processor_info.world_size; i++) {
         int rank = (processor_info.rank + i) % processor_info.world_size;
         MPI_Bsend(term_signal, 2, MPI_INT, rank, MPIMessageType::CONSTRUCT_PLAN, MPI_COMM_WORLD);
     }
@@ -488,7 +496,7 @@ std::vector<unsigned char> ParallelEagerSearch::to_byte_message(SearchNode paren
         0,                               // Distributed hash (placeholder)
         parent.get_state().get_id().value,     // Parent state ID
         state.get_id().value,            // Current state ID
-        processor_info.rank              // Processor rank
+        (int)processor_info.rank              // Processor rank
     };
 
     // Append the metadata to the vector
@@ -583,7 +591,7 @@ void ParallelEagerSearch::retrieve_nodes_from_queue() {
             // Add the state to the search space
             SearchNode search_node = search_space.get_node(state);
             if (search_node.is_new()) {
-                search_node.open(message.node, message.creating_operator, message.g);
+                search_node.open_new_node(message.node, message.creating_operator, message.g);
             }
 
             // Add to node messages and the open list
@@ -782,7 +790,7 @@ SearchStatus ParallelEagerSearch::step() {
         lowest_g = node->get_g();
 
         
-        for(int i = 1; i < processor_info.world_size; i++) {
+        for(unsigned int i = 1; i < processor_info.world_size; i++) {
             int rank = (processor_info.rank + i) % processor_info.world_size;
             MPI_Bsend(NULL, 0, MPI_CHAR, rank, MPIMessageType::FOUND_GOAL, MPI_COMM_WORLD);
         }
@@ -844,7 +852,7 @@ SearchStatus ParallelEagerSearch::step() {
                 statistics.inc_dead_ends();
                 continue;
             }
-            succ_node.open(*node, op, get_adjusted_cost(op));
+            succ_node.open_new_node(*node, op, get_adjusted_cost(op));
 
             bool is_external = lookup_assigned_rank(*node, op, succ_node.get_state());
             if (!is_external) {
@@ -867,7 +875,7 @@ SearchStatus ParallelEagerSearch::step() {
                     */
                     statistics.inc_reopened();
                 }
-                succ_node.reopen(*node, op, get_adjusted_cost(op));
+                succ_node.reopen_closed_node(*node, op, get_adjusted_cost(op));
 
                 EvaluationContext succ_eval_context(
                     succ_state, succ_node.get_g(), is_preferred, &statistics);
@@ -897,7 +905,7 @@ SearchStatus ParallelEagerSearch::step() {
                 // If we do not reopen closed nodes, we just update the parent pointers.
                 // Note that this could cause an incompatibility between
                 // the g-value and the actual path that is traced back.
-                succ_node.update_parent(*node, op, get_adjusted_cost(op));
+                succ_node.update_closed_node_parent(*node, op, get_adjusted_cost(op));
             }
         }
     }
@@ -930,10 +938,5 @@ void ParallelEagerSearch::update_f_value_statistics(EvaluationContext &eval_cont
         int f_value = eval_context.get_evaluator_value(f_evaluator.get());
         statistics.report_f_value_progress(f_value);
     }
-}
-
-void add_options_to_feature(plugins::Feature &feature) {
-    SearchAlgorithm::add_pruning_option(feature);
-    SearchAlgorithm::add_options_to_feature(feature);
 }
 }

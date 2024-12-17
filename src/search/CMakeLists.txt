@@ -417,6 +417,16 @@ create_fast_downward_library(
 )
 
 create_fast_downward_library(
+    NAME distribution_hash
+    HELP "Hash distribution"
+    SOURCES
+        parallel_hash/distribution_hash
+    DEPENDS
+        domain_transition_graph
+        successor_generator
+)
+
+create_fast_downward_library(
     NAME search_common
     HELP "Basic classes used for all search algorithms"
     SOURCES
@@ -452,25 +462,10 @@ create_fast_downward_library(
         null_pruning_method
         ordered_set
         successor_generator
+        distribution_hash
     DEPENDENCY_ONLY
 )
 
-
-# create_fast_downward_library(
-#     NAME distributed_hash
-#     HELP "Hash distribution"
-#     SOURCES
-#         hash/distribution_hash
-#     DEPENDS
-#         plugin
-#         operator
-#         domain_transition_graph
-#         successor_generator
-#         utils
-#         state_registry
-#         state
-#     DEPENDENCY_ONLY
-# )
 create_fast_downward_library(
     NAME plugin_iw
     HELP "Iterative width search"
@@ -550,6 +545,7 @@ create_fast_downward_library(
         search_algorithms/plugin_parallel_eager
     DEPENDS
         parallel_eager_search
+        distribution_hash
         search_common
 )
 
@@ -679,6 +675,7 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE ${MPI_CXX_COMPILE_DEFINITIONS
 
 # Optionally specify include directories
 target_include_directories(${PROJECT_NAME} PRIVATE ${MPI_CXX_INCLUDE_DIRS})
+
 
 create_fast_downward_library(
     NAME relaxation_heuristic

@@ -16,6 +16,10 @@ namespace cg_heuristic {
 class CGHeuristic;
 }
 
+namespace distribution_hash {
+class MapBasedHash;
+}
+
 namespace domain_transition_graph {
 struct LocalAssignment;
 struct ValueNode;
@@ -115,12 +119,12 @@ struct ValueNode {
           reached_by(nullptr) {}
 };
 
+
 class DomainTransitionGraph {
     friend class cg_heuristic::CGHeuristic;
     friend class cea_heuristic::ContextEnhancedAdditiveHeuristic;
-    friend class DTGFactory;
-    friend class distribution_hash::DistributionHash;
     friend class distribution_hash::MapBasedHash;
+    friend class DTGFactory;
 
     int var;
     std::vector<ValueNode> nodes;

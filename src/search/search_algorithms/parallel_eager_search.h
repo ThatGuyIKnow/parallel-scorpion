@@ -4,6 +4,7 @@
 #include "../open_list.h"
 #include "../search_algorithm.h"
 #include "../search_node_info.h"
+#include "../parallel_hash/distribution_hash.h"
 
 #include <memory>
 #include <vector>
@@ -12,6 +13,8 @@
 
 class Evaluator;
 class PruningMethod;
+class OpenListFactory;
+
 
 namespace plugins {
 class Feature;
@@ -106,6 +109,8 @@ class ParallelEagerSearch : public SearchAlgorithm {
     std::vector<Evaluator *> path_dependent_evaluators;
     std::vector<std::shared_ptr<Evaluator>> preferred_operator_evaluators;
     std::shared_ptr<Evaluator> lazy_evaluator;
+    std::shared_ptr<distribution_hash::MapBasedHash> distribution_hash;
+
 
     std::shared_ptr<PruningMethod> pruning_method;
 
@@ -152,8 +157,15 @@ protected:
     virtual SearchStatus step() override;
 
 public:
-    explicit ParallelEagerSearch(const plugins::Options &opts);
-    virtual ~ParallelEagerSearch() = default;
+    explicit ParallelEagerSearch(
+        const std::shared_ptr<OpenListFactory> &open,
+        bool reopen_closed, const std::shared_ptr<Evaluator> &f_eval,
+        const std::vector<std::shared_ptr<Evaluator>> &preferred,
+        const std::shared_ptr<distribution_hash::MapBasedHash> &hash,
+        const std::shared_ptr<PruningMethod> &pruning,
+        const std::shared_ptr<Evaluator> &lazy_evaluator,
+        OperatorCost cost_type, int bound, double max_time,
+        const std::string &description, utils::Verbosity verbosity);
 
     virtual void print_statistics() const override;
 
@@ -161,8 +173,6 @@ public:
 private:
 
 };
-
-extern void add_options_to_feature(plugins::Feature &feature);
 }
 
 #endif
