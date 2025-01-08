@@ -140,9 +140,6 @@ void ParallelEagerSearch::initialize() {
 
     unsigned int d_hash = distribution_hash->hash(initial_state);
     state_hash_map[initial_state.get_id().value] = d_hash;
-    // TO DO: DISTRIBUTION HASH. TO VALIDATE PRA* IMPLEMENTATION, KEEP SIMPLE TO START.
-    // srand(42);
-	// unsigned int d_hash = rand();
 
     if (processor_info.rank == (d_hash % processor_info.world_size)) {
 
@@ -240,20 +237,25 @@ bool ParallelEagerSearch::check_and_progress_termination(
     return false;
 }
 
-
 void ParallelEagerSearch::construct_plan(SearchNode goal_node) {
+    log << "(Process " << processor_info.rank << ") Starting construct_plan." << endl;
+
     State current_state = goal_node.get_state();
     int external_state_id = current_state.get_id().value;
     std::vector<OperatorID> path;
     unsigned int assigned_rank = processor_info.rank;
 
     while (true) {
+        log << "(Process " << processor_info.rank << ") Current state ID: " << external_state_id << ", Assigned rank: " << assigned_rank << endl;
+
         if (processor_info.rank != assigned_rank) {
-            if(process_external_node(current_state, external_state_id, assigned_rank, path)) {
+            if (process_external_node(current_state, external_state_id, assigned_rank, path)) {
+                log << "(Process " << processor_info.rank << ") External node processed, ending loop." << endl;
                 break;
             }
         } else {
             if (process_internal_node(current_state, assigned_rank, external_state_id, path)) {
+                log << "(Process " << processor_info.rank << ") Internal node processed, ending loop." << endl;
                 break;
             }
         }
@@ -263,16 +265,22 @@ void ParallelEagerSearch::construct_plan(SearchNode goal_node) {
     for (unsigned int i = 1; i < processor_info.world_size; i++) {
         int rank = (processor_info.rank + i) % processor_info.world_size;
         MPI_Bsend(term_signal, 2, MPI_INT, rank, MPIMessageType::CONSTRUCT_PLAN, MPI_COMM_WORLD);
+        log << "(Process " << processor_info.rank << ") Sent termination signal to process " << rank << endl;
     }
+
     std::reverse(path.begin(), path.end());
     set_plan(path);
+    log << "(Process " << processor_info.rank << ") Plan constructed and set." << endl;
 }
 
 // Sub-function to handle external nodes
 bool ParallelEagerSearch::process_external_node(State &current_state, int &external_state_id, unsigned int &assigned_rank, std::vector<OperatorID> &path) {
+    log << "(Process " << processor_info.rank << ") Processing external node with state ID: " << external_state_id << endl;
+
     // Send request for the parent node
     int buffer[2] = {0, external_state_id};
     MPI_Send(buffer, 2, MPI_INT, assigned_rank, MPIMessageType::CONSTRUCT_PLAN, MPI_COMM_WORLD);
+    log << "(Process " << processor_info.rank << ") Sent request to process " << assigned_rank << " for state ID: " << external_state_id << endl;
 
     // Probe for message size
     MPI_Status status;
@@ -283,6 +291,7 @@ bool ParallelEagerSearch::process_external_node(State &current_state, int &exter
     // Receive the message
     std::vector<int> message(package_size);
     MPI_Recv(message.data(), package_size, MPI_INT, assigned_rank, MPIMessageType::CONSTRUCT_PLAN, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+    log << "(Process " << processor_info.rank << ") Received message from process " << assigned_rank << endl;
 
     // Parse the received message
     return parse_external_message(message, current_state, external_state_id, assigned_rank, path);
@@ -290,17 +299,21 @@ bool ParallelEagerSearch::process_external_node(State &current_state, int &exter
 
 // Sub-function to parse received messages for external nodes
 bool ParallelEagerSearch::parse_external_message(const std::vector<int> &message, State &current_state, int &external_state_id, unsigned int &assigned_rank, std::vector<OperatorID> &path) {
+    log << "(Process " << processor_info.rank << ") Parsing external message." << endl;
+
     assigned_rank = message[0];
     external_state_id = message[1];
     int segment_length = message[2];
 
     if (assigned_rank == processor_info.rank) {
         current_state = state_registry.lookup_state(StateID(external_state_id));
+        log << "(Process " << processor_info.rank << ") Updated current state from state registry." << endl;
     }
 
     for (int i = 0; i < segment_length; i++) {
         OperatorID op_id = OperatorID(message[3 + i]);
         if (op_id == OperatorID::no_operator) {
+            log << "(Process " << processor_info.rank << ") End of plan segment detected." << endl;
             return true;
         }
         path.push_back(op_id);
@@ -310,50 +323,61 @@ bool ParallelEagerSearch::parse_external_message(const std::vector<int> &message
 
 // Sub-function to process internal nodes
 bool ParallelEagerSearch::process_internal_node(State &current_state, unsigned int &assigned_rank, int &external_state_id, std::vector<OperatorID> &path) {
+    log << "(Process " << processor_info.rank << ") Processing internal node with state ID: " << current_state.get_id().value << endl;
+
     const SearchNodeInfo &info = search_space.search_node_infos[current_state];
     if (info.creating_operator == OperatorID::no_operator) {
         assert(info.parent_state_id == StateID::no_state);
+        log << "(Process " << processor_info.rank << ") Reached root node." << endl;
         return true; // End of plan construction
     }
 
     path.push_back(info.creating_operator);
+    log << "(Process " << processor_info.rank << ") Added operator to path." << endl;
+
     if (node_messages.contains(info.parent_state_id.value)) {
+        log << "(Process " << processor_info.rank << ") Node messages contains ID." << endl;
+
         assigned_rank = node_messages[info.parent_state_id.value].sender;
         external_state_id = node_messages[info.parent_state_id.value].state_id;
+        log << "(Process " << processor_info.rank << ") Parent state is external, assigned to rank " << assigned_rank << endl;
     } else {
         current_state = state_registry.lookup_state(info.parent_state_id);
+        log << "(Process " << processor_info.rank << ") Parent state is internal, updated current state." << endl;
     }
 
     return false;
 }
 
+void ParallelEagerSearch::construct_plan_worker(int constructor_rank) {
+    log << "(Process " << processor_info.rank << ") Starting construct_plan_worker." << endl;
 
-
-void ParallelEagerSearch::construct_plan_worker(int constructor_rank) { 
     unsigned int term_signal;
     int request_state_or_terminate[2];
-    std::vector<int> path; // Use std::vector for safe dynamic memory management
+    std::vector<int> path;
     int assigned_rank = processor_info.rank;
 
     for (;;) {
-                MPI_Recv(&request_state_or_terminate, 2, MPI_INT, constructor_rank, MPIMessageType::CONSTRUCT_PLAN, 
-                 MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-        
+        MPI_Recv(&request_state_or_terminate, 2, MPI_INT, constructor_rank, MPIMessageType::CONSTRUCT_PLAN, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+        log << "(Process " << processor_info.rank << ") Received message from constructor rank " << constructor_rank << endl;
+
         term_signal = request_state_or_terminate[0];
-        
+
         if (term_signal != 0) {
+            log << "(Process " << processor_info.rank << ") Termination signal received." << endl;
             break;
         }
 
         StateID state_id = StateID(request_state_or_terminate[1]);
         State current_state = state_registry.lookup_state(state_id);
         int external_state_id = current_state.get_id().value;
-        
+
         for (;;) {
             const SearchNodeInfo &info = search_space.search_node_infos[current_state];
             if (info.creating_operator == OperatorID::no_operator) {
-                                assert(info.parent_state_id == StateID::no_state);
+                assert(info.parent_state_id == StateID::no_state);
                 path.push_back(OperatorID::no_operator.get_index());
+                log << "(Process " << processor_info.rank << ") Root node reached, ending loop." << endl;
                 break;
             }
             path.push_back(info.creating_operator.get_index());
@@ -361,23 +385,24 @@ void ParallelEagerSearch::construct_plan_worker(int constructor_rank) {
             if (node_messages.contains(current_state.get_id().value)) {
                 assigned_rank = node_messages[current_state.get_id().value].sender;
                 external_state_id = node_messages[current_state.get_id().value].state_id;
+                log << "(Process " << processor_info.rank << ") Transitioned to external node " << external_state_id << " for rank " << assigned_rank << "." << endl;
                 break;
             }
             current_state = state_registry.lookup_state(info.parent_state_id);
+            log << "(Process " << processor_info.rank << ") Transitioned to internal parent node." << endl;
         }
 
         int message_size = 3 + path.size();
         std::vector<int> out_buffer(message_size); // Use std::vector for safe buffer management
 
-        
         out_buffer[0] = assigned_rank;
         out_buffer[1] = external_state_id;
         out_buffer[2] = path.size();
         std::copy(path.begin(), path.end(), out_buffer.begin() + 3); // Copy path into the buffer
 
-        MPI_Send(out_buffer.data(), message_size, MPI_INT, constructor_rank, MPIMessageType::CONSTRUCT_PLAN, 
-                 MPI_COMM_WORLD);
-        
+        MPI_Send(out_buffer.data(), message_size, MPI_INT, constructor_rank, MPIMessageType::CONSTRUCT_PLAN, MPI_COMM_WORLD);
+        log << "(Process " << processor_info.rank << ") Sent constructed plan segment to constructor rank." << endl;
+
         path.clear();
     }
 }
@@ -479,11 +504,10 @@ void ParallelEagerSearch::to_byte(parallel::StatusMessage message, unsigned char
 }   
 std::vector<unsigned char> ParallelEagerSearch::to_byte_message(SearchNode parent, OperatorProxy op, State state) {
     // Create a vector to hold the serialized data
-    std::vector<unsigned char> package(state_byte_size + sizeof(int) * 7);
+    std::vector<unsigned char> package(state_byte_size + sizeof(int) * 6);
 
     // Copy the state buffer into the beginning of the vector
-    const PackedStateBin* state_buffer = state.get_buffer();
-    std::copy(state_buffer, state_buffer + state_byte_size, package.begin());
+    std::copy((unsigned char*)state.get_buffer(), (unsigned char*)state.get_buffer() + state_byte_size, package.begin());
 
     // Prepare the metadata as integers
     int g = parent.get_g() + get_adjusted_cost(op);
@@ -492,7 +516,7 @@ std::vector<unsigned char> ParallelEagerSearch::to_byte_message(SearchNode paren
         g,                               // g-value
         0,                               // Placeholder for future heuristic value
         op.get_id(),                     // Operator ID
-        std::bit_cast<int>(state_hash_map[state_id]),        // Distributed hash (placeholder)
+        std::bit_cast<int>(state_hash_map[state_id]),        // Distributed hash
         parent.get_state().get_id().value,     // Parent state ID
         state_id,            // Current state ID
     };
@@ -510,11 +534,11 @@ std::vector<unsigned char> ParallelEagerSearch::to_byte_message(SearchNode paren
 
 parallel::NodeMessage ParallelEagerSearch::to_node_message(unsigned char* buffer, int sender, bool* discard) {
     // Interpret the buffer for the state
-    const PackedStateBin* state_buffer = reinterpret_cast<const PackedStateBin*>(buffer);
-    state_registry.state_data_pool.push_back(state_buffer);
-
+    state_registry.state_data_pool.push_back(reinterpret_cast<const PackedStateBin*>(buffer));
     StateID id = state_registry.insert_id_or_pop_state();
     State state = state_registry.lookup_state(id);
+
+    state.unpack();
 
     // Parse the metadata
     const unsigned char* metadata_start = buffer + state_byte_size;
@@ -533,12 +557,13 @@ parallel::NodeMessage ParallelEagerSearch::to_node_message(unsigned char* buffer
     SearchNode node = search_space.get_node(state);
     state_hash_map[state.get_id().value] = distributed_hash;
 
-    int search_space_g = search_space.get_node(state).get_g();
-    if ((search_space_g != -1) && (g > search_space_g)) {
+    int search_space_g = node.get_g();
+    if (((search_space_g != -1) && (g > search_space_g) )|| node.is_dead_end()) {
         *discard = true;
     } else {
         search_space.search_node_infos[state].creating_operator = OperatorID(op_id);
         search_space.search_node_infos[state].g = g;
+        search_space.search_node_infos[state].parent_state_id = parent_id;
     }
 
     parallel::NodeMessage parsed_message = {
@@ -578,7 +603,7 @@ void ParallelEagerSearch::retrieve_nodes_from_queue() {
             parallel::NodeMessage message = to_node_message(buffer, sender, &discard);
 
             // Validate if the node is a dead end
-            if (discard || message.node.is_dead_end()) {
+            if (discard) {
                 continue;
             }
 
@@ -696,15 +721,17 @@ void ParallelEagerSearch::flush_outgoing_buffer(MPIMessageType tag) {
 
 bool ParallelEagerSearch::lookup_assigned_rank(SearchNode parent, OperatorProxy op, State succ_state) {
     State parent_state = parent.get_state();
-    unsigned int d_hash = distribution_hash->hash_incremental(
-        parent_state, 
-        state_hash_map[parent_state.get_id().value], 
-        op);
+    // unsigned int d_hash = distribution_hash->hash_incremental(
+    //     parent_state, 
+    //     state_hash_map[parent_state.get_id().value], 
+    //     op);
+    unsigned int d_hash = distribution_hash->hash(succ_state);
     state_hash_map[succ_state.get_id().value] = d_hash;
     unsigned int assigned_rank = d_hash % processor_info.world_size;
 
     if (processor_info.rank != assigned_rank) {
-                std::vector<unsigned char> buffer = to_byte_message(parent, op, succ_state);
+        std::vector<unsigned char> buffer = to_byte_message(parent, op, succ_state);
+
         MPI_Bsend(
             buffer.data(), 
             node_byte_size, 
@@ -718,52 +745,47 @@ bool ParallelEagerSearch::lookup_assigned_rank(SearchNode parent, OperatorProxy 
     }
     return false;
 }
-
 SearchStatus ParallelEagerSearch::step() {
+    
+
     retrieve_ack_from_queue();
+    
+
     retrieve_nodes_from_queue();
-    // update_incumbent();
+    
 
     SearchStatus status = detect_termination();
     if(status != SearchStatus::IN_PROGRESS) {
+        
         return terminate(status);
     }
 
     optional<SearchNode> node;
     while (true) {
         if (open_list->empty()) {
+            
             return IN_PROGRESS;
         }
         StateID id = open_list->remove_min();
+        
+
         State s = state_registry.lookup_state(id);
+        
+
         node.emplace(search_space.get_node(s));
 
-        if (node->is_closed())
+        if (node->is_closed()) {
+            
             continue;
+        }
 
-        /*
-          We can pass calculate_preferred=false here since preferred
-          operators are computed when the state is expanded.
-        */
         EvaluationContext eval_context(s, node->get_g(), false, &statistics);
 
         if (lazy_evaluator) {
-            /*
-              With lazy evaluators (and only with these) we can have dead nodes
-              in the open list.
-`
-              For example, consider a state s that is reached twice before it is expanded.
-              The first time we insert it into the open list, we compute a finite
-              heuristic value. The second time we insert it, the cached value is reused.
-
-              During first expansion, the heuristic value is recomputed and might become
-              infinite, for example because the reevaluation uses a stronger heuristic or
-              because the heuristic is path-dependent and we have accumulated more
-              information in the meantime. Then upon second expansion we have a dead-end
-              node which we must ignore.
-            */
-            if (node->is_dead_end())
+            if (node->is_dead_end()) {
+                log << "(Process " << processor_info.rank << ")" << "NOTE: Node is a dead end. Continuing." << endl;
                 continue;
+            }
 
             if (lazy_evaluator->is_estimate_cached(s)) {
                 int old_h = lazy_evaluator->get_cached_estimate(s);
@@ -771,46 +793,51 @@ SearchStatus ParallelEagerSearch::step() {
                 if (open_list->is_dead_end(eval_context)) {
                     node->mark_as_dead_end();
                     statistics.inc_dead_ends();
+                    log << "(Process " << processor_info.rank << ")" << "NOTE: Node marked as dead end." << endl;
                     continue;
                 }
                 if (new_h != old_h) {
                     open_list->insert(eval_context, id);
+                    log << "(Process " << processor_info.rank << ")" << "NOTE: Updated heuristic value and reinserted into open list." << endl;
                     continue;
                 }
             }
         }
 
         node->close();
+        log << "(Process " << processor_info.rank << ")" << "NOTE: Node closed." << endl;
         assert(!node->is_dead_end());
         update_f_value_statistics(eval_context);
         statistics.inc_expanded();
+        log << "(Process " << processor_info.rank << ")" << "NOTE: Node expanded." << endl;
         break;
     }
 
     const State &s = node->get_state();
-    if (task_properties::is_goal_state(task_proxy, s)){
-        log << "Solution found by process " << processor_info.rank << "!" << endl;
+    log << "(Process " << processor_info.rank << ")" << "NOTE: State gotten." << endl;
+    if (task_properties::is_goal_state(task_proxy, s)) {
+        log << "(Process " << processor_info.rank << ")" << "NOTE: Goal state found." << endl;
         plan_found = true;
         goal_state_id = s.get_id().value;
         lowest_g = node->get_g();
 
-        
-        for(unsigned int i = 1; i < processor_info.world_size; i++) {
+        for (unsigned int i = 1; i < processor_info.world_size; i++) {
             int rank = (processor_info.rank + i) % processor_info.world_size;
             MPI_Bsend(NULL, 0, MPI_CHAR, rank, MPIMessageType::FOUND_GOAL, MPI_COMM_WORLD);
         }
         return IN_PROGRESS;
     }
+    s.unpack();
+    
+    std::vector<int> vec = s.get_unpacked_values();
+
     std::vector<OperatorID> applicable_ops;
     successor_generator.generate_applicable_ops(s, applicable_ops);
+    log << "(Process " << processor_info.rank << ")" << "NOTE: Generated applicable operators." << endl;
 
-    /*
-      TODO: When preferred operators are in use, a preferred operator will be
-      considered by the preferred operator queues even when it is pruned.
-    */
     pruning_method->prune_operators(s, applicable_ops);
+    log << "(Process " << processor_info.rank << ")" << "NOTE: Pruned operators." << endl;
 
-    // This evaluates the expanded state (again) to get preferred ops
     EvaluationContext eval_context(s, node->get_g(), false, &statistics, true);
     ordered_set::OrderedSet<OperatorID> preferred_operators;
     for (const shared_ptr<Evaluator> &preferred_operator_evaluator : preferred_operator_evaluators) {
@@ -834,18 +861,12 @@ SearchStatus ParallelEagerSearch::step() {
             evaluator->notify_state_transition(s, op_id, succ_state);
         }
 
-        // Previously encountered dead end. Don't re-evaluate.
-        if (succ_node.is_dead_end())
+        if (succ_node.is_dead_end()) {
+            log << "(Process " << processor_info.rank << ")" << "NOTE: Successor node is a dead end. Continuing." << endl;
             continue;
-
+        }
 
         if (succ_node.is_new()) {
-            // We have not seen this state before.
-            // Evaluate and create a new node.
-
-            // Careful: succ_node.get_g() is not available here yet,
-            // hence the stupid computation of succ_g.
-            // TODO: Make this less fragile.
             int succ_g = node->get_g() + get_adjusted_cost(op);
 
             EvaluationContext succ_eval_context(
@@ -855,10 +876,10 @@ SearchStatus ParallelEagerSearch::step() {
             if (open_list->is_dead_end(succ_eval_context)) {
                 succ_node.mark_as_dead_end();
                 statistics.inc_dead_ends();
+                log << "(Process " << processor_info.rank << ")" << "NOTE: Successor node marked as dead end." << endl;
                 continue;
             }
             succ_node.open_new_node(*node, op, get_adjusted_cost(op));
-
 
             bool is_external = lookup_assigned_rank(*node, op, succ_node.get_state());
             if (!is_external) {
@@ -869,16 +890,8 @@ SearchStatus ParallelEagerSearch::step() {
                 reward_progress();
             }
         } else if (succ_node.get_g() > node->get_g() + get_adjusted_cost(op)) {
-            // We found a new cheapest path to an open or closed state.
             if (reopen_closed_nodes) {
                 if (succ_node.is_closed()) {
-                    /*
-                      TODO: It would be nice if we had a way to test
-                      that reopening is expected behaviour, i.e., exit
-                      with an error when this is something where
-                      reopening should not occur (e.g. A* with a
-                      consistent heuristic).
-                    */
                     statistics.inc_reopened();
                 }
                 succ_node.reopen_closed_node(*node, op, get_adjusted_cost(op));
@@ -886,31 +899,13 @@ SearchStatus ParallelEagerSearch::step() {
                 EvaluationContext succ_eval_context(
                     succ_state, succ_node.get_g(), is_preferred, &statistics);
 
-                /*
-                  Note: our old code used to retrieve the h value from
-                  the search node here. Our new code recomputes it as
-                  necessary, thus avoiding the incredible ugliness of
-                  the old "set_evaluator_value" approach, which also
-                  did not generalize properly to settings with more
-                  than one evaluator.
-
-                  Reopening should not happen all that frequently, so
-                  the performance impact of this is hopefully not that
-                  large. In the medium term, we want the evaluators to
-                  remember evaluator values for states themselves if
-                  desired by the user, so that such recomputations
-                  will just involve a look-up by the Evaluator object
-                  rather than a recomputation of the evaluator value
-                  from scratch.
-                */
                 bool is_external = lookup_assigned_rank(*node, op, succ_node.get_state());
                 if (!is_external) {
                     open_list->insert(succ_eval_context, succ_state.get_id());
+
+                    node_messages.erase(succ_state.get_id().value);
                 }
             } else {
-                // If we do not reopen closed nodes, we just update the parent pointers.
-                // Note that this could cause an incompatibility between
-                // the g-value and the actual path that is traced back.
                 succ_node.update_closed_node_parent(*node, op, get_adjusted_cost(op));
             }
         }
