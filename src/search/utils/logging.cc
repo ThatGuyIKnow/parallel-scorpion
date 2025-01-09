@@ -139,12 +139,12 @@ static plugins::TypedEnumPlugin<Verbosity> _enum_plugin({
 
 void Log::add_prefix(std::ostream &os) const {
     os << "[t=";
-    streamsize previous_precision = os.precision(TIMER_PRECISION);
+    streamsize previous_precision = cout.precision(TIMER_PRECISION);
     ios_base::fmtflags previous_flags = os.flags();
     os.setf(ios_base::fixed, ios_base::floatfield);
     os << g_timer;
     os.flags(previous_flags);
-    os.precision(previous_precision);
+    cout.precision(previous_precision);
     os << ", "
            << get_peak_memory_in_kb() << " KB] ";
 }
