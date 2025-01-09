@@ -8,7 +8,11 @@
 #include <memory>
 #include <ostream>
 #include <string>
+#include <sstream>
 #include <vector>
+
+#include <mpi.h>
+
 
 namespace plugins {
 class Options;
@@ -24,6 +28,7 @@ enum class Verbosity {
     DEBUG
 };
 
+
 /*
   Simple line-based logger that prepends time and peak memory info to each line
   of output. Lines should be eventually terminated by endl. Logs are written to
@@ -36,20 +41,38 @@ class Log {
     std::ostream &stream;
     const Verbosity verbosity;
     bool line_has_started;
-    void add_prefix() const;
+    bool sync;
+    void add_prefix(std::ostream &os) const;
+    std::ostringstream sync_stream;
 
-public:
-    explicit Log(Verbosity verbosity)
-        : stream(std::cout), verbosity(verbosity), line_has_started(false) {
-    }
-
-    template<typename T>
-    Log &operator<<(const T &elem) {
+    template <typename T>
+    void internal_log(const T &elem, std::ostream &os) {
         if (!line_has_started) {
             line_has_started = true;
-            add_prefix();
+            add_prefix(os);
         }
-        stream << elem;
+        os << elem;
+    }
+
+    void send_synchronized_message();
+public:
+    void empty();
+
+    explicit Log(Verbosity verbosity)
+        : stream(std::cout), verbosity(verbosity), line_has_started(false), sync(false), sync_stream(std::ostringstream()) {
+    }
+
+    template <typename T>
+    Log &operator<<(const T &elem) {
+        int rank;
+        MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
+        // If we're in sync mode, and not the 0 rank, send to 0 rank.
+        if (sync && rank != 0) {
+            internal_log(elem, sync_stream);
+        } else {
+            internal_log(elem, stream);
+        }
         return *this;
     }
 
@@ -57,6 +80,12 @@ public:
     Log &operator<<(manip_function f) {
         if (f == static_cast<manip_function>(&std::endl)) {
             line_has_started = false;
+
+
+            int rank;
+            MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
+            if (sync && rank != 0) send_synchronized_message();
         }
 
         stream << f;
@@ -66,7 +95,13 @@ public:
     Verbosity get_verbosity() const {
         return verbosity;
     }
+
+    void set_sync(bool value) {
+        sync = value;
+    }
+
 };
+
 
 /*
   This class wraps Log which holds onto the used stream (currently hard-coded
@@ -118,6 +153,14 @@ public:
     // TODO: implement an option for logging warnings.
     bool is_warning() const {
         return true;
+    }
+
+    void set_sync(bool value) {
+        log->set_sync(value);
+    }
+
+    void empty() {
+        log->empty();
     }
 };
 

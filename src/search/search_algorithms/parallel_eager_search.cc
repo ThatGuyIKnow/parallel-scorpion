@@ -666,7 +666,7 @@ SearchStatus ParallelEagerSearch::terminate(SearchStatus status){
 
     if (status == SearchStatus::SOLVED) { 
         MPI_Barrier(MPI_COMM_WORLD);
-        
+        log.set_sync(true);
         unsigned int constructor_rank = select_constructor_rank();
         if (processor_info.rank == constructor_rank){
             log << processor_info.rank << " Started host construction" << endl;

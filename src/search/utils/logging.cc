@@ -11,6 +11,8 @@
 
 using namespace std;
 
+static unsigned int MPI_LOG_MESSAGE = UINT16_MAX;
+
 namespace utils {
 /*
   NOTE: When adding more options to Log, make sure to adapt the if block in
@@ -135,15 +137,68 @@ static plugins::TypedEnumPlugin<Verbosity> _enum_plugin({
         {"debug", "like verbose with additional debug output"}
     });
 
-void Log::add_prefix() const {
-    stream << "[t=";
-    streamsize previous_precision = cout.precision(TIMER_PRECISION);
-    ios_base::fmtflags previous_flags = stream.flags();
-    stream.setf(ios_base::fixed, ios_base::floatfield);
-    stream << g_timer;
-    stream.flags(previous_flags);
-    cout.precision(previous_precision);
-    stream << ", "
+void Log::add_prefix(std::ostream &os) const {
+    os << "[t=";
+    streamsize previous_precision = os.precision(TIMER_PRECISION);
+    ios_base::fmtflags previous_flags = os.flags();
+    os.setf(ios_base::fixed, ios_base::floatfield);
+    os << g_timer;
+    os.flags(previous_flags);
+    os.precision(previous_precision);
+    os << ", "
            << get_peak_memory_in_kb() << " KB] ";
 }
+
+void Log::send_synchronized_message() {
+        std::string message = sync_stream.str();
+
+        // Allocate a buffer for the message to use with MPI_Bsend
+        std::vector<char> buffer(MPI_BSEND_OVERHEAD + message.size());
+        MPI_Buffer_attach(buffer.data(), buffer.size());
+
+        // Perform the buffered send
+        MPI_Bsend(message.data(), message.size(), MPI_CHAR, 0, 
+                    MPI_LOG_MESSAGE, MPI_COMM_WORLD);
+
+        // Detach the buffer after sending
+        void* detachBuffer;
+        int detachSize;
+        MPI_Buffer_detach(&detachBuffer, &detachSize);
+
+        sync_stream.str(""); // Clear the stream
+        sync_stream.clear();
+    }
+
+void Log::empty() {
+        int rank;
+        MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
+        if (rank != 0) {
+            return; // Only rank 0 should process remaining messages
+        }
+
+        int flag = 0;
+        MPI_Status status;
+
+        while (true) {
+            // Check if there are any incoming messages
+            MPI_Iprobe(MPI_ANY_SOURCE, MPI_LOG_MESSAGE, MPI_COMM_WORLD, &flag, &status);
+            if (!flag) {
+                break; // Exit the loop when no more messages are pending
+            }
+
+            // Determine the size of the incoming message
+            int messageSize;
+            MPI_Get_count(&status, MPI_CHAR, &messageSize);
+
+            // Receive the message
+            std::vector<char> recvBuffer(messageSize);
+            MPI_Recv(recvBuffer.data(), messageSize, MPI_CHAR, status.MPI_SOURCE, 
+                     MPI_LOG_MESSAGE, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+
+            // Print the received message
+            std::string message(recvBuffer.begin(), recvBuffer.end());
+            stream << "[Rank " << status.MPI_SOURCE << "] " << message << std::endl;
+        }
+    }
 }

@@ -58,12 +58,18 @@ int main(int argc, const char **argv) {
         search_timer.stop();
         utils::g_timer.stop();
 
-        utils::finalize_mpi(was_initialized);
-
         search_algorithm->save_plan_if_necessary();
         search_algorithm->print_statistics();
         utils::g_log << "Search time: " << search_timer << endl;
         utils::g_log << "Total time: " << utils::g_timer << endl;
+
+        if (was_initialized) {
+            MPI_Barrier(MPI_COMM_WORLD);
+            utils::g_log.empty();
+            utils::g_log.set_sync(false);
+            MPI_Barrier(MPI_COMM_WORLD);
+            MPI_Finalize();
+        }
 
         ExitCode exitcode = ExitCode::SEARCH_UNSOLVED_INCOMPLETE;
         if (search_algorithm->get_status() == SOLVED) {
