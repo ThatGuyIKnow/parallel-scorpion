@@ -7,6 +7,7 @@ import sys
 import custom_parser
 import project
 from downward.reports.absolute import AbsoluteReport
+from downward.suites import build_suite
 from lab.environments import BaselSlurmEnvironment, LocalEnvironment
 from lab.experiment import Experiment
 from lab.parser import Parser
@@ -26,6 +27,7 @@ REMOTE_REPOS_DIR = "/infai/seipp/projects"
 REVISION_CACHE = os.environ.get("DOWNWARD_REVISION_CACHE")
 if project.REMOTE:
     SUITE = project.SUITE_SATISFICING
+    SUITE = build_suite(BENCHMARKS_DIR, SUITE)
     ENV = project.TetralithEnvironment(
         email="olijo92@liu.se",
         extra_options="#SBATCH -A naiss2024-5-421",
@@ -102,9 +104,6 @@ for nicks, algo in CONFIGS:
         # Create a symbolic link and an alias. This is optional. We
         # could also use absolute paths in add_command().
 
-        domain, problem = task.split(':')
-        task = os.path.join(BENCHMARKS_DIR, domain, problem)
-
         run.add_command(
             "solve",
             [sys.executable, "/home/jukebox/Project/parallel-scorpion/fast-downward.py", *DRIVER_OPTIONS, f"{task}", *algo],
@@ -113,10 +112,10 @@ for nicks, algo in CONFIGS:
         )
         # AbsoluteReport needs the following attributes:
         # 'domain', 'problem' and 'algorithm'.
-        domain = os.path.basename(os.path.dirname(task))
-        task_name = os.path.basename(task)
+        domain = task.domain
+        problem = task.problem
         run.set_property("domain", domain)
-        run.set_property("problem", task_name)
+        run.set_property("problem", problem)
         run.set_property("algorithm", " ".join(algo))
         # BaseReport needs the following properties:
         # 'time_limit', 'memory_limit', 'seed'.
@@ -124,7 +123,7 @@ for nicks, algo in CONFIGS:
         run.set_property("memory_limit", MEMORY_LIMIT)
         run.set_property("seed", SEED)
         # Every run has to have a unique id in the form of a list.
-        run.set_property("id", [*algo, domain, task_name])
+        run.set_property("id", [*algo, domain, problem])
 
 # Add step that writes experiment files to disk.
 exp.add_step("build", exp.build)
