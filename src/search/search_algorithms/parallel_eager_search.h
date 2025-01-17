@@ -117,6 +117,7 @@ class ParallelEagerSearch : public SearchAlgorithm {
 
     std::shared_ptr<distribution_hash::MapBasedHash> distribution_hash;
 
+    void send_outgoing_buffer();
 
     unsigned int get_assigned_rank(State state);
     bool lookup_assigned_rank(SearchNode parent, OperatorProxy op, State succ_state);

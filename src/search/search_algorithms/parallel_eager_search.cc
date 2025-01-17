@@ -37,6 +37,7 @@ void mpi_arg_min_func(void* inputBuffer, void* outputBuffer, int* len, MPI_Datat
         output[1] = input[1];
     }
 }
+
 namespace parallel_eager_search {
 ParallelEagerSearch::ParallelEagerSearch(
     const shared_ptr<OpenListFactory> &open, bool reopen_closed,
@@ -177,26 +178,6 @@ void ParallelEagerSearch::print_statistics() const {
     statistics.print_detailed_statistics();
     search_space.print_statistics();
     pruning_method->print_statistics();
-}
-
-unsigned int ParallelEagerSearch::get_assigned_rank(State state) {
-    // Extract the buffer value
-    unsigned int buffer_value = *state.get_buffer();
-
-    // Apply a uniform hash function
-    unsigned int hashed_value = buffer_value;
-    hashed_value ^= hashed_value >> 17;
-    hashed_value *= 0xed5ad4bb;
-    hashed_value ^= hashed_value >> 11;
-    hashed_value *= 0xac4c1b51;
-    hashed_value ^= hashed_value >> 15;
-    hashed_value *= 0x31848bab;
-    hashed_value ^= hashed_value >> 14;
-
-    // Compute the assigned rank
-    unsigned int assigned_rank = hashed_value % processor_info.world_size;
-
-    return assigned_rank;
 }
 
 
@@ -509,12 +490,22 @@ std::vector<unsigned char> ParallelEagerSearch::to_byte_message(SearchNode paren
     // Copy the state buffer into the beginning of the vector
     std::copy((unsigned char*)state.get_buffer(), (unsigned char*)state.get_buffer() + state_byte_size, package.begin());
 
+    
     // Prepare the metadata as integers
     int g = parent.get_g() + get_adjusted_cost(op);
     int state_id = state.get_id().value;
+
+    EvaluationContext eval_context(state, g, false, &statistics);
+    int h = numeric_limits<int>::max();
+    if (lazy_evaluator && lazy_evaluator->is_estimate_cached(state)){
+        log << "IS ESTIMATED ALREADY" << endl;
+        h = eval_context.get_evaluator_value_or_infinity(lazy_evaluator.get());
+    }
+
+    
     std::array<int, 6> info = {
         g,                               // g-value
-        0,                               // Placeholder for future heuristic value
+        h,                               // Placeholder for future heuristic value
         op.get_id(),                     // Operator ID
         std::bit_cast<int>(state_hash_map[state_id]),        // Distributed hash
         parent.get_state().get_id().value,     // Parent state ID
@@ -558,7 +549,11 @@ parallel::NodeMessage ParallelEagerSearch::to_node_message(unsigned char* buffer
     state_hash_map[state.get_id().value] = distributed_hash;
 
     int search_space_g = node.get_g();
-    if (((search_space_g != -1) && (g > search_space_g) )|| node.is_dead_end()) {
+    if (node.is_dead_end()) {
+        node.mark_as_dead_end();
+        *discard = true;
+    }
+    if ((search_space_g != -1) && (g >= search_space_g) ) {
         *discard = true;
     } else {
         search_space.search_node_infos[state].creating_operator = OperatorID(op_id);
@@ -580,54 +575,74 @@ parallel::NodeMessage ParallelEagerSearch::to_node_message(unsigned char* buffer
     return parsed_message;
 }
 
-
 void ParallelEagerSearch::retrieve_nodes_from_queue() {
     MPI_Status mpi_status;
     int has_received = 0;
-    unsigned char* buffer = new unsigned char[node_byte_size];
 
+    // Dynamic buffer for variable-sized messages (initially empty)
+    std::vector<unsigned char> buffer;
 
+    int serialized_size = state_byte_size + sizeof(int) * 6;
     do {
         MPI_Iprobe(MPI_ANY_SOURCE, MPIMessageType::NODE, MPI_COMM_WORLD, 
                    &has_received, &mpi_status);
 
         if (has_received) {
             int sender = mpi_status.MPI_SOURCE;
-            bool discard = false;
 
-            // Receive the node message
-            MPI_Recv(buffer, node_byte_size, MPI_BYTE, sender, MPIMessageType::NODE, 
+            // Get the size of the incoming message
+            int message_size = 0;
+            MPI_Get_count(&mpi_status, MPI_BYTE, &message_size);
+
+            // Resize the buffer based on the message size
+            buffer.resize(message_size);
+
+            // Receive the full message
+            MPI_Recv(buffer.data(), message_size, MPI_BYTE, sender, MPIMessageType::NODE, 
                      MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 
-            // Process the received node message
-            parallel::NodeMessage message = to_node_message(buffer, sender, &discard);
+            // Process the received message
+            size_t offset = 0; // Keep track of the parsing position in the buffer
+            while (offset < buffer.size()) {
+                bool discard = false;
 
-            // Validate if the node is a dead end
-            if (discard) {
-                continue;
+                // Extract the next single serialized node message
+                parallel::NodeMessage message = to_node_message(buffer.data() + offset, sender, &discard);
+
+                // Move the offset forward by the size of one serialized node
+                offset += serialized_size;
+
+                // Validate if the node is a dead end and discard it if necessary
+                if (discard) {
+                    continue;
+                }
+
+                State state = message.node.get_state();
+
+                EvaluationContext eval_context(
+                    state, message.g, false, &statistics);
+    
+                if (lazy_evaluator){
+                    EvaluatorCache cache = eval_context.get_cache();
+                    cache[lazy_evaluator.get()].set_evaluator_value(message.h);
+                }// Add the state to the search space
+                SearchNode search_node = search_space.get_node(state);
+                if (search_node.is_new()) {
+                    search_node.open_new_node(message.node, message.creating_operator, message.g);
+                }
+
+                // Add to node messages and the open list
+                node_messages.insert_or_assign(
+                    state.get_id().value, 
+                    parallel::ExternalStateMessage{message.state_id.value, message.sender});
+
+                open_list->insert(eval_context, state.get_id());
             }
 
-            State state = message.node.get_state();
-
-            EvaluationContext eval_context(
-                state, message.g, false, &statistics);
-
-            // Add the state to the search space
-            SearchNode search_node = search_space.get_node(state);
-            if (search_node.is_new()) {
-                search_node.open_new_node(message.node, message.creating_operator, message.g);
-            }
-
-            // Add to node messages and the open list
-            node_messages.insert_or_assign(
-                state.get_id().value, 
-                parallel::ExternalStateMessage{message.state_id.value, message.sender});
-
-            open_list->insert(eval_context, state.get_id());
+            // Ensure the message is fully parsed
+            assert(offset == buffer.size());
         }
     } while (has_received);
-
-    delete[] buffer;
 }
 
 
@@ -718,9 +733,12 @@ void ParallelEagerSearch::flush_outgoing_buffer(MPIMessageType tag) {
 		}
 	}
 }
+// Add a buffer structure as part of the class or function's context to hold outgoing messages.
+std::unordered_map<int, std::vector<unsigned char>> outgoing_buffers;
 
 bool ParallelEagerSearch::lookup_assigned_rank(SearchNode parent, OperatorProxy op, State succ_state) {
     State parent_state = parent.get_state();
+    // Uncomment if needed:
     // unsigned int d_hash = distribution_hash->hash_incremental(
     //     parent_state, 
     //     state_hash_map[parent_state.get_id().value], 
@@ -730,21 +748,70 @@ bool ParallelEagerSearch::lookup_assigned_rank(SearchNode parent, OperatorProxy 
     unsigned int assigned_rank = d_hash % processor_info.world_size;
 
     if (processor_info.rank != assigned_rank) {
+        // Serialize the parent, operator, and successor state into a byte buffer
         std::vector<unsigned char> buffer = to_byte_message(parent, op, succ_state);
 
-        MPI_Bsend(
-            buffer.data(), 
-            node_byte_size, 
-            MPI_BYTE, 
-            assigned_rank, 
-            MPIMessageType::NODE, 
-            MPI_COMM_WORLD);
-            
+        // Store the data in an outgoing buffer for the assigned rank
+        // Append the data to the buffer for better batching
+        outgoing_buffers[assigned_rank].insert(
+            outgoing_buffers[assigned_rank].end(), 
+            buffer.begin(), 
+            buffer.end()
+        );
+
         ++awaited_ack;
         return true;
     }
     return false;
 }
+
+
+// New function to send all buffered messages
+void ParallelEagerSearch::send_outgoing_buffer() {
+    for (auto &[target_rank, buffer] : outgoing_buffers) {
+        if (!buffer.empty()) {
+            MPI_Send(
+                buffer.data(),
+                buffer.size(),
+                MPI_BYTE,
+                target_rank,
+                MPIMessageType::NODE,
+                MPI_COMM_WORLD
+            );
+            // Clear the buffer after sending
+            buffer.clear();
+        }
+    }
+}
+
+// bool ParallelEagerSearch::lookup_assigned_rank(SearchNode parent, OperatorProxy op, State succ_state) {
+//     State parent_state = parent.get_state();
+//     // unsigned int d_hash = distribution_hash->hash_incremental(
+//     //     parent_state, 
+//     //     state_hash_map[parent_state.get_id().value], 
+//     //     op);
+//     unsigned int d_hash = distribution_hash->hash(succ_state);
+//     state_hash_map[succ_state.get_id().value] = d_hash;
+//     unsigned int assigned_rank = d_hash % processor_info.world_size;
+
+//     if (processor_info.rank != assigned_rank) {
+//         std::vector<unsigned char> buffer = to_byte_message(parent, op, succ_state);
+
+//         MPI_Bsend(
+//             buffer.data(), 
+//             node_byte_size, 
+//             MPI_BYTE, 
+//             assigned_rank, 
+//             MPIMessageType::NODE, 
+//             MPI_COMM_WORLD);
+            
+//         ++awaited_ack;
+//         return true;
+//     }
+//     return false;
+// }
+
+
 SearchStatus ParallelEagerSearch::step() {
     
 
@@ -756,26 +823,23 @@ SearchStatus ParallelEagerSearch::step() {
 
     SearchStatus status = detect_termination();
     if(status != SearchStatus::IN_PROGRESS) {
-        
+        log << "(Process " << processor_info.rank << ")" << "Termination detected." << endl;
         return terminate(status);
     }
 
     optional<SearchNode> node;
     while (true) {
         if (open_list->empty()) {
-            
             return IN_PROGRESS;
         }
         StateID id = open_list->remove_min();
         
-
         State s = state_registry.lookup_state(id);
         
 
         node.emplace(search_space.get_node(s));
 
         if (node->is_closed()) {
-            
             continue;
         }
 
@@ -827,9 +891,6 @@ SearchStatus ParallelEagerSearch::step() {
         }
         return IN_PROGRESS;
     }
-    s.unpack();
-    
-    std::vector<int> vec = s.get_unpacked_values();
 
     std::vector<OperatorID> applicable_ops;
     successor_generator.generate_applicable_ops(s, applicable_ops);
@@ -847,13 +908,21 @@ SearchStatus ParallelEagerSearch::step() {
     }
 
     for (OperatorID op_id : applicable_ops) {
+        log << "(Process " << processor_info.rank << ")" << "NOTE: OPERATOR " << op_id << endl;
         OperatorProxy op = task_proxy.get_operators()[op_id];
         if ((node->get_real_g() + op.get_cost()) >= bound)
             continue;
 
+
         State succ_state = state_registry.get_successor_state(s, op);
         statistics.inc_generated();
         bool is_preferred = preferred_operators.contains(op_id);
+
+
+        bool is_external = lookup_assigned_rank(*node, op, succ_state);
+        if (is_external) {
+            continue;
+        } 
 
         SearchNode succ_node = search_space.get_node(succ_state);
 
@@ -880,11 +949,7 @@ SearchStatus ParallelEagerSearch::step() {
                 continue;
             }
             succ_node.open_new_node(*node, op, get_adjusted_cost(op));
-
-            bool is_external = lookup_assigned_rank(*node, op, succ_node.get_state());
-            if (!is_external) {
-                open_list->insert(succ_eval_context, succ_state.get_id());
-            }
+            open_list->insert(succ_eval_context, succ_state.get_id());
             if (search_progress.check_progress(succ_eval_context)) {
                 statistics.print_checkpoint_line(succ_node.get_g());
                 reward_progress();
@@ -899,17 +964,15 @@ SearchStatus ParallelEagerSearch::step() {
                 EvaluationContext succ_eval_context(
                     succ_state, succ_node.get_g(), is_preferred, &statistics);
 
-                bool is_external = lookup_assigned_rank(*node, op, succ_node.get_state());
-                if (!is_external) {
-                    open_list->insert(succ_eval_context, succ_state.get_id());
+                open_list->insert(succ_eval_context, succ_state.get_id());
 
-                    node_messages.erase(succ_state.get_id().value);
-                }
+                node_messages.erase(succ_state.get_id().value);
             } else {
                 succ_node.update_closed_node_parent(*node, op, get_adjusted_cost(op));
             }
         }
     }
+    send_outgoing_buffer();
 
     return IN_PROGRESS;
 }

@@ -37,6 +37,10 @@ def parse_exit_code(content, props):
     if not outcome.explained:
         props.add_unexplained_error(outcome.msg)
 
+def sum_peak_memory(content, props):
+    key = "peak_memory"
+    props['total_' + key] = sum(props.get(key), start=0)
+
 class CommonParser(Parser):
     def add_repeated_pattern(
         self, name, regex, file="run.log", required=False, type=int
@@ -87,6 +91,8 @@ def get_parser():
         r"Peak memory: (\d+) KB",
         type=int,
     )
+    parser.add_function(sum_peak_memory)
+
     parser.add_repeated_pattern(
         "actual_search_time",
         r"Actual search time: (\d+\.\d+)s",

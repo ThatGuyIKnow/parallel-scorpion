@@ -9,3 +9,6 @@ __pycache__/
 /misc/autodoc/downward-xmlrpc.secret
 /build
 /.vscode
+/.venv
+.python-version
+uv.lock

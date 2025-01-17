@@ -3,7 +3,7 @@ import platform
 import re
 import subprocess
 import sys
-from collections import defaultdict
+from collections import defaultdict, namedtuple
 from pathlib import Path
 
 from downward.experiment import FastDownwardExperiment
@@ -29,6 +29,19 @@ assert (
     and TetralithEnvironment
 )
 
+
+User = namedtuple(
+    "User",
+    [
+        "scp_login",
+        "remote_repo",
+    ],
+)
+
+oliver_dfsplan = User(
+    scp_login="x_olijo@tetralith.nsc.liu.se",
+    remote_repo="/proj/dfsplan/users/x_olijo/beluga",
+)
 
 DIR = Path(__file__).resolve().parent
 SCRIPT = Path(sys.argv[0]).resolve()
