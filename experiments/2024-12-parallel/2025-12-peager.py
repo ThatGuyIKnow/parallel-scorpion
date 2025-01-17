@@ -21,8 +21,6 @@ USER = project.oliver_dfsplan
 
 REPO = project.get_repo_base()
 BENCHMARKS_DIR = os.environ["DOWNWARD_BENCHMARKS"]
-SCP_LOGIN = "myname@myserver.com"
-REMOTE_REPOS_DIR = "/infai/seipp/projects"
 # If REVISION_CACHE is None, the default "./data/revision-cache/" is used.
 REVISION_CACHE = os.environ.get("DOWNWARD_REVISION_CACHE")
 if project.REMOTE:
