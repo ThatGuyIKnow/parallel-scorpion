@@ -25,7 +25,6 @@ BENCHMARKS_DIR = os.environ["DOWNWARD_BENCHMARKS"]
 REVISION_CACHE = os.environ.get("DOWNWARD_REVISION_CACHE")
 if project.REMOTE:
     SUITE = project.SUITE_SATISFICING
-    SUITE = build_suite(BENCHMARKS_DIR, SUITE)
     ENV = project.TetralithEnvironment(
         email="olijo92@liu.se",
         extra_options="#SBATCH -A naiss2024-5-421",
@@ -34,6 +33,7 @@ if project.REMOTE:
 else:
     SUITE = ["depot:p01.pddl", "grid:prob01.pddl", "gripper:prob01.pddl"]
     ENV = project.LocalEnvironment(processes=1)
+SUITE = build_suite(BENCHMARKS_DIR, SUITE)
 
 CONFIGS = [
     ("001-hda", ["--evaluator", "h=ff()" ,"--search", "peager(tiebreaking([sum([g(), h]), h], unsafe_pruning=false), reopen_closed=true, f_eval=sum([g(), h]), hash=zobrist())"])
@@ -101,7 +101,8 @@ for nicks, algo in CONFIGS:
         run = exp.add_run()
         # Create a symbolic link and an alias. This is optional. We
         # could also use absolute paths in add_command().
-
+        print(task)
+        run.add_resource("task", task, symlink=True)
         run.add_command(
             "solve",
             [sys.executable, "/home/jukebox/Project/parallel-scorpion/fast-downward.py", *DRIVER_OPTIONS, f"{task}", *algo],
