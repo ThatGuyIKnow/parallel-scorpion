@@ -16,6 +16,7 @@ from lab.reports import Attribute
 SEED = 2018
 TIME_LIMIT = 1800
 MEMORY_LIMIT = 2048
+PROCCESSORS_ALLOCATED = 8
 
 USER = project.oliver_dfsplan
 
@@ -27,7 +28,7 @@ if project.REMOTE:
     SUITE = project.SUITE_SATISFICING
     ENV = project.TetralithEnvironment(
         email="olijo92@liu.se",
-        extra_options="#SBATCH -A naiss2024-5-421",
+        extra_options=f"#SBATCH -A naiss2024-5-421 -t 15 -c {PROCCESSORS_ALLOCATED} -t 15",
         memory_per_cpu="9G",
     )
 else:
@@ -39,7 +40,7 @@ CONFIGS = [
     ("001-hda", ["--evaluator", "h=ff()" ,"--search", "peager(tiebreaking([sum([g(), h]), h], unsafe_pruning=false), reopen_closed=true, f_eval=sum([g(), h]), hash=zobrist())"])
 ]
 BUILD_OPTIONS = []
-DRIVER_OPTIONS = ["--overall-time-limit", "5m", "-np", "4"  ]
+DRIVER_OPTIONS = ["--overall-time-limit", "15m", "-np", PROCCESSORS_ALLOCATED  ]
 REV_NICKS = [
     ("hda", ""),
 ]
