@@ -172,7 +172,7 @@ class StateRegistry : public subscriber::SubscriberService<StateRegistry> {
 
     std::unique_ptr<State> cached_initial_state;
 
-    StateID insert_id_or_pop_state();
+    virtual StateID insert_id_or_pop_state();
     int get_bins_per_state() const;
 public:
     explicit StateRegistry(const TaskProxy &task_proxy);
