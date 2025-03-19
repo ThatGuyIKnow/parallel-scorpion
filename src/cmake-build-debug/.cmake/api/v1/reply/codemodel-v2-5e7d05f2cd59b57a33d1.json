@@ -1,0 +1,189 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "preprocess_h2",
+					"jsonFile" : "directory-preprocess_h2-Debug-8559d442ceb65a55681f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "preprocess_h2",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "search",
+					"childIndexes" : 
+					[
+						3
+					],
+					"jsonFile" : "directory-search-Debug-a6fd05ccaa1369684523.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "search",
+					"targetIndexes" : 
+					[
+						1,
+						2
+					]
+				},
+				{
+					"build" : "search/sdac_parser/boost_dependencies/libs",
+					"jsonFile" : "directory-search.sdac_parser.boost_dependencies.libs-Debug-c6f6fa3f5ae3e0bd1fa5.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 3,
+					"source" : "search/sdac_parser/boost_dependencies/libs",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "fast-downward",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "preprocess-h2",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						3
+					],
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "downward",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						2
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "MiniBoost",
+					"parentIndex" : 2,
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "MiniBoost::@9fcb57245b4d23122d5a",
+					"jsonFile" : "target-MiniBoost-Debug-b4f1e414755d4667a9be.json",
+					"name" : "MiniBoost",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "downward::@b3e4e3481926c17d0075",
+					"jsonFile" : "target-downward-Debug-99dd289186ca0e9bdb42.json",
+					"name" : "downward",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libcudd::@b3e4e3481926c17d0075",
+					"jsonFile" : "target-libcudd-Debug-881e3c17c87f08cafd5a.json",
+					"name" : "libcudd",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "preprocess-h2::@cd56074f41c5c38dc1c5",
+					"jsonFile" : "target-preprocess-h2-Debug-b37ce56874489b57c8e7.json",
+					"name" : "preprocess-h2",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "translate::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-translate-Debug-5ce14e9b594dadca8908.json",
+					"name" : "translate",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug",
+		"source" : "/home/workbox/Projects/state-compression-scorpion/src"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

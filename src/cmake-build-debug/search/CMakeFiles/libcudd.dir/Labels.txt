@@ -1,0 +1,13 @@
+# Target labels
+ libcudd
+# Source files and their labels
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/CMakeFiles/libcudd
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/CMakeFiles/libcudd.rule
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/CMakeFiles/libcudd-complete.rule
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/libcudd-prefix/src/libcudd-stamp/libcudd-build.rule
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/libcudd-prefix/src/libcudd-stamp/libcudd-configure.rule
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/libcudd-prefix/src/libcudd-stamp/libcudd-download.rule
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/libcudd-prefix/src/libcudd-stamp/libcudd-install.rule
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/libcudd-prefix/src/libcudd-stamp/libcudd-mkdir.rule
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/libcudd-prefix/src/libcudd-stamp/libcudd-patch.rule
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/libcudd-prefix/src/libcudd-stamp/libcudd-update.rule

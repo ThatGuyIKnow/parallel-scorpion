@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "search/sdac_parser/boost_dependencies/libs",
+		"source" : "search/sdac_parser/boost_dependencies/libs"
+	}
+}

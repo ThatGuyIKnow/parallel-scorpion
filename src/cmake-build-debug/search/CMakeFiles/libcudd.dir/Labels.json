@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/CMakeFiles/libcudd"
+		},
+		{
+			"file" : "/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/CMakeFiles/libcudd.rule"
+		},
+		{
+			"file" : "/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/CMakeFiles/libcudd-complete.rule"
+		},
+		{
+			"file" : "/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/libcudd-prefix/src/libcudd-stamp/libcudd-build.rule"
+		},
+		{
+			"file" : "/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/libcudd-prefix/src/libcudd-stamp/libcudd-configure.rule"
+		},
+		{
+			"file" : "/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/libcudd-prefix/src/libcudd-stamp/libcudd-download.rule"
+		},
+		{
+			"file" : "/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/libcudd-prefix/src/libcudd-stamp/libcudd-install.rule"
+		},
+		{
+			"file" : "/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/libcudd-prefix/src/libcudd-stamp/libcudd-mkdir.rule"
+		},
+		{
+			"file" : "/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/libcudd-prefix/src/libcudd-stamp/libcudd-patch.rule"
+		},
+		{
+			"file" : "/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/libcudd-prefix/src/libcudd-stamp/libcudd-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"libcudd"
+		],
+		"name" : "libcudd"
+	}
+}

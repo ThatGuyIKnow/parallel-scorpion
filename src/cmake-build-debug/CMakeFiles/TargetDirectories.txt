@@ -1,0 +1,13 @@
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles/translate.dir
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/preprocess_h2/CMakeFiles/preprocess-h2.dir
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/preprocess_h2/CMakeFiles/edit_cache.dir
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/preprocess_h2/CMakeFiles/rebuild_cache.dir
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/CMakeFiles/downward.dir
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/CMakeFiles/libcudd.dir
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/CMakeFiles/edit_cache.dir
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/CMakeFiles/rebuild_cache.dir
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/sdac_parser/boost_dependencies/libs/CMakeFiles/MiniBoost.dir
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/sdac_parser/boost_dependencies/libs/CMakeFiles/edit_cache.dir
+/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/sdac_parser/boost_dependencies/libs/CMakeFiles/rebuild_cache.dir
