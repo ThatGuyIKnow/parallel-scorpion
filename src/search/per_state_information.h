@@ -1,7 +1,7 @@
 #ifndef PER_STATE_INFORMATION_H
 #define PER_STATE_INFORMATION_H
 
-#include "state_registry.h"
+#include "state_registry/state_registry.h"
 
 #include "algorithms/segmented_vector.h"
 #include "algorithms/subscriber.h"

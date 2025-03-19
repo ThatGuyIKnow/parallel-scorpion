@@ -77,6 +77,8 @@ create_fast_downward_library(
         per_state_information
         per_task_information
         plan_manager
+        state_registry/state_registry
+        state_registry/vector_state_registry
         pruning_method
         search_algorithm
         search_node_info
@@ -84,7 +86,6 @@ create_fast_downward_library(
         search_space
         search_statistics
         state_id
-        state_registry
         task_id
         task_proxy
     DEPENDS
@@ -152,6 +153,8 @@ create_fast_downward_library(
         utils/tuples
     CORE_LIBRARY
 )
+
+
 # On Linux, find the rt library for clock_gettime().
 if(UNIX AND NOT APPLE)
     target_link_libraries(utils INTERFACE rt)

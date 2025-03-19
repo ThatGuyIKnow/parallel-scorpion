@@ -1,7 +1,7 @@
 #include "task_proxy.h"
 
 #include "axioms.h"
-#include "state_registry.h"
+#include "state_registry/state_registry.h"
 
 #include "task_utils/causal_graph.h"
 #include "task_utils/task_properties.h"

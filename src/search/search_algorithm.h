@@ -7,11 +7,12 @@
 #include "search_progress.h"
 #include "search_space.h"
 #include "search_statistics.h"
-#include "state_registry.h"
+#include "state_registry/state_registry.h"
 #include "task_proxy.h"
 
 #include "utils/logging.h"
 
+#include <memory>
 #include <vector>
 
 namespace plugins {
@@ -43,7 +44,7 @@ protected:
 
     mutable utils::LogProxy log;
     PlanManager plan_manager;
-    StateRegistry state_registry;
+    std::shared_ptr<StateRegistry> state_registry;
     const successor_generator::SuccessorGenerator &successor_generator;
     SearchSpace search_space;
     SearchProgress search_progress;

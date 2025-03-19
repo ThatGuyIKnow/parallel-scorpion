@@ -3,6 +3,7 @@
 
 #include "operator_id.h"
 #include "state_id.h"
+#include <memory>
 
 // For documentation on classes relevant to storing and working with registered
 // states see the file state_registry.h.
@@ -13,6 +14,7 @@ struct SearchNodeInfo {
     unsigned int status : 2;
     int g : 30;
     StateID parent_state_id;
+    std::shared_ptr<SearchNodeInfo> parent_node_info;
     OperatorID creating_operator;
     int real_g;
 

@@ -1,6 +1,6 @@
 #include "root_task.h"
 
-#include "../state_registry.h"
+#include "../state_registry/state_registry.h"
 
 #include "../plugins/plugin.h"
 #include "../utils/collections.h"

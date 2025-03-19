@@ -5,6 +5,7 @@
 
 #include "algorithms/ordered_set.h"
 #include "plugins/plugin.h"
+#include "state_registry/vector_state_registry.h"
 #include "task_utils/successor_generator.h"
 #include "task_utils/task_properties.h"
 #include "tasks/root_task.h"
@@ -48,7 +49,7 @@ SearchAlgorithm::SearchAlgorithm(
       task(tasks::g_root_task),
       task_proxy(*task),
       log(utils::get_log_for_verbosity(verbosity)),
-      state_registry(task_proxy),
+      state_registry(std::make_shared<VectorStateRegistry>(task_proxy)),
       successor_generator(get_successor_generator(task_proxy, log)),
       search_space(state_registry, log),
       statistics(log),
@@ -71,7 +72,7 @@ SearchAlgorithm::SearchAlgorithm(const plugins::Options &opts) // TODO options o
       task_proxy(*task),
       log(utils::get_log_for_verbosity(
               opts.get<utils::Verbosity>("verbosity"))),
-      state_registry(task_proxy),
+      state_registry(std::make_shared<VectorStateRegistry>(task_proxy)),
       successor_generator(get_successor_generator(task_proxy, log)),
       search_space(state_registry, log),
       statistics(log),

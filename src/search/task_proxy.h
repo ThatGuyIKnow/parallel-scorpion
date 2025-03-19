@@ -687,16 +687,16 @@ public:
 
     // This method is meant to be called only by the state registry.
     State create_state(
-        const StateRegistry &registry, StateID id,
+        const StateRegistry *registry, StateID id,
         const PackedStateBin *buffer) const {
-        return State(*task, registry, id, buffer);
+        return State(*task, *registry, id, buffer);
     }
 
     // This method is meant to be called only by the state registry.
     State create_state(
-        const StateRegistry &registry, StateID id,
+        const StateRegistry *registry, StateID id,
         const PackedStateBin *buffer, std::vector<int> &&state_values) const {
-        return State(*task, registry, id, buffer, std::move(state_values));
+        return State(*task, *registry, id, buffer, std::move(state_values));
     }
 
     State get_initial_state() const {
