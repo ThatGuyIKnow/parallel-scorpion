@@ -10,10 +10,10 @@ using namespace std;
 
 VectorStateRegistry::VectorStateRegistry(const TaskProxy &task_proxy)
     : StateRegistry(task_proxy),
-      state_data_pool(get_bins_per_state(state_packer)),
+      state_data_pool(get_bins_per_state()),
       registered_states(
-          StateIDSemanticHash(state_data_pool, get_bins_per_state(state_packer)),
-          StateIDSemanticEqual(state_data_pool, get_bins_per_state(state_packer))) {
+          StateIDSemanticHash(state_data_pool, get_bins_per_state()),
+          StateIDSemanticEqual(state_data_pool, get_bins_per_state())) {
 }
 
 StateID VectorStateRegistry::insert_id_or_pop_state() {

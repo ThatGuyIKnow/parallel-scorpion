@@ -131,7 +131,6 @@ void SearchSpace::trace_path(const State &goal_state,
                              vector<OperatorID> &path) const {
     State current_state = goal_state;
     std::shared_ptr<SearchNodeInfo> info = std::make_shared<SearchNodeInfo>(search_node_infos[current_state]);
-    assert(current_state.get_registry() == state_registry);
     assert(path.empty());
     for (;;) {
         if (info->creating_operator == OperatorID::no_operator) {

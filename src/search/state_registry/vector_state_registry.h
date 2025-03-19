@@ -3,21 +3,16 @@
 
 #include "state_registry.h"
 
-#include "../abstract_task.h"
 #include "../axioms.h"
 #include "../state_id.h"
 
 #include "../algorithms/int_hash_set.h"
 #include "../algorithms/int_packer.h"
 #include "../algorithms/segmented_vector.h"
-#include "../algorithms/subscriber.h"
 #include "../utils/hash.h"
 
 #include <set>
 
-namespace int_packer {
-class IntPacker;
-}
 
 using PackedStateBin = int_packer::IntPacker::Bin;
 

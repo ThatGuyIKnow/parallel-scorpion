@@ -101,9 +101,9 @@ create_fast_downward_library(
 )
 
 create_fast_downward_library(
-    NAME plugins
-    HELP "Plugin definition"
-    SOURCES
+        NAME plugins
+        HELP "Plugin definition"
+        SOURCES
         plugins/any
         plugins/bounds
         plugins/doc_printer
@@ -114,7 +114,7 @@ create_fast_downward_library(
         plugins/registry
         plugins/registry_types
         plugins/types
-    CORE_LIBRARY
+        CORE_LIBRARY
 )
 
 create_fast_downward_library(

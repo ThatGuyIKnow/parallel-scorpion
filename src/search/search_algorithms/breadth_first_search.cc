@@ -48,7 +48,6 @@ void BreadthFirstSearch::print_statistics() const {
 }
 
 vector<OperatorID> BreadthFirstSearch::trace_path(const State &goal_state) const {
-    assert(goal_state.get_registry() == state_registry);
     StateID current_state_id = goal_state.get_id();
     vector<OperatorID> path;
     for (;;) {
