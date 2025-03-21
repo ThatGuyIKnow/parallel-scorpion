@@ -1,24 +1,17 @@
 #ifndef SYMBOLIC_SYM_VARIABLES_H
 #define SYMBOLIC_SYM_VARIABLES_H
 
-#include "sym_bucket.h"
-
 #include "sym_axiom/sym_axiom_compilation.h"
 #include "../tasks/root_task.h"
-#include "../utils/timer.h"
-#include "../sdac_parser/catamorph/expression.h"
-#include "../sdac_parser/catamorph/catamorph.h"
-
-#include <cassert>
-#include <fstream>
-#include <iostream>
-#include <map>
-#include <math.h>
+#include "../plugins/plugin.h"
 #include <memory>
 #include <set>
-#include <sstream>
 #include <string>
 #include <vector>
+
+
+
+
 
 class GlobalState;
 
@@ -75,7 +68,8 @@ class SymVariables {
     void init(const std::vector<int> &v_order);
 
 public:
-    SymVariables(const options::Options &opts,
+    SymVariables(const bool gamer_ordering,
+                 const bool dynamic_reordering,
                  const std::shared_ptr<AbstractTask> &task,
                  long cache_size = 16000000L);
 
@@ -177,7 +171,8 @@ public:
     void to_dot(const BDD &bdd, const std::string &file_name) const;
     void to_dot(const ADD &bdd, const std::string &file_name) const;
 
-    static void add_options_to_parser(options::OptionParser &parser);
+    static void add_options_to_parser(
+    plugins::Feature &feature);
 
     void print_options() const;
 

@@ -13,8 +13,8 @@ public:
     virtual bool contains_state(const State &state) const = 0;
     virtual void print() const = 0;
 
-    static void add_options_to_parser(options::OptionParser &parser);
+    static void add_options_to_parser(plugins::Feature &feature);
 };
-extern void add_closed_list_options_to_parser(options::OptionParser &parser);
+extern void add_closed_list_options_to_parser(plugins::Feature &feature);
 
 #endif

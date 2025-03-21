@@ -20,15 +20,18 @@
 using namespace std;
 
 namespace eager_search {
-EagerSearch::EagerSearch(const Options &opts)
-    : SearchEngine(opts),
-      reopen_closed_nodes(opts.get<bool>("reopen_closed")),
-      open_list(opts.get<shared_ptr<OpenListFactory>>("open")->
-                create_state_open_list()),
-      f_evaluator(opts.get<shared_ptr<Evaluator>>("f_eval", nullptr)),
-      preferred_operator_evaluators(opts.get_list<shared_ptr<Evaluator>>("preferred")),
-      lazy_evaluator(opts.get<shared_ptr<Evaluator>>("lazy_evaluator", nullptr)),
-      pruning_method(opts.get<shared_ptr<PruningMethod>>("pruning")){
+EagerSearch::EagerSearch(const bool reopen_closed,
+                         const shared_ptr<OpenListFactory> &open, const shared_ptr<Evaluator> f_eval,
+                         const vector<shared_ptr<Evaluator>> preferred, const shared_ptr<Evaluator> lazy_eval,
+                         const shared_ptr<PruningMethod> pruning, const OperatorCost cost_type,
+                         const double max_time, const int bound)
+    : SearchEngine(cost_type, max_time, bound),
+      reopen_closed_nodes(reopen_closed),
+      open_list(open->create_state_open_list()),
+      f_evaluator(f_eval),
+      preferred_operator_evaluators(preferred),
+      lazy_evaluator(lazy_evaluator),
+      pruning_method(pruning){
     if (lazy_evaluator && !lazy_evaluator->does_cache_estimates()) {
         cerr << "lazy_evaluator must cache its estimates" << endl;
         utils::exit_with(utils::ExitCode::SEARCH_INPUT_ERROR);
@@ -309,8 +312,8 @@ void EagerSearch::update_f_value_statistics(EvaluationContext &eval_context) {
     }
 }
 
-void add_options_to_parser(OptionParser &parser) {
-    SearchEngine::add_pruning_option(parser);
-    SearchEngine::add_options_to_parser(parser);
+void add_options_to_parser(plugins::Feature &feature) {
+    SearchEngine::add_pruning_option(feature);
+    SearchEngine::add_options_to_parser(feature);
 }
 }

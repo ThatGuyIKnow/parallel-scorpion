@@ -28,27 +28,27 @@ StateID OpenStateRegistry::insert_id_or_pop_state()
     }
 
     StateID id(last_id);
-    pair<int, bool> result = registered_states.insert(id.value);
+    auto result = registered_states.insert(id.value);
     bool is_new_entry = result.second;
     if (!is_new_entry) {
         state_data_pool.pop_back();
     }
     assert(registered_states.size() + unused_ids.size() == state_data_pool.size());
-    return StateID(result.first);
+    return StateID(*result.first);
 }
 
 std::pair<StateID, bool> OpenStateRegistry::try_insert_unused_id()
 {
     int id = unused_ids.top();
 
-    pair<int, bool> result = registered_states.insert(id);
+    auto result = registered_states.insert(id);
     bool is_new_entry = result.second;
     
     if(is_new_entry){
         unused_ids.pop();
     }
     assert(registered_states.size() + unused_ids.size() == state_data_pool.size());
-    return std::pair<StateID, bool>(StateID(result.first), is_new_entry);
+    return std::pair<StateID, bool>(StateID(*result.first), is_new_entry);
 }
 
 
@@ -56,8 +56,8 @@ void OpenStateRegistry::unregister_state(State &state)
 {
     assert(state.get_registry() == this);
     StateID id = state.get_id();
-    registered_states.erase(id.value);
-    unused_ids.push(id.value);
+    registered_states.erase(id.get_value());
+    unused_ids.push(id.get_value());
     state.registry = nullptr;
     state.buffer = nullptr;
     state.id = StateID::no_state;
@@ -90,5 +90,4 @@ void OpenStateRegistry::register_state(State &state)
 void OpenStateRegistry::print_statistics(utils::LogProxy &log) const {
     log << "Number of registered states: " << registered_size() << endl;
     log << "Max number of registered states: " << size() << endl;
-    registered_states.print_statistics(log);
 }

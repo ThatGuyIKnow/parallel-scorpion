@@ -1,14 +1,17 @@
 #include "bdd_closed_list.h"
 
 #include "../utils/logging.h"
-#include "../option_parser.h"
-#include "../plugin.h"
+#include "../plugins/plugin.h"
 
 
 using namespace std;
 
 namespace bdd_closed_list {
-BddClosedList::BddClosedList(const options::Options &opts) : sym_vars(opts, tasks::g_root_task, opts.get<int>("cache_size", 16000000L)), full_print(opts.get<bool>("full_print")) {
+BddClosedList::BddClosedList(
+    const int cache_size, 
+    const bool full_print,
+    const bool gamer_ordering,
+    const bool dynamic_ordering) : sym_vars(gamer_ordering, dynamic_ordering, tasks::g_root_task, cache_size), full_print(full_print) {
     sym_vars.init();
     closed_list = sym_vars.zeroBDD();
     // Fast evaluation
@@ -49,30 +52,41 @@ void BddClosedList::print() const {
         sym_vars.to_dot(closed_list, "closed_list.dot");
 }
 
-static shared_ptr<ClosedList> _parse(OptionParser &parser) {
-    parser.document_synopsis(
-        "Closed list using BDD data structure",
-        "");
-    parser.add_option<int>(
+
+void BddClosedList::add_options_to_parser(
+    plugins::Feature &feature) {
+    feature.add_option<int>(
         "cache_size",
         "the cache size used for the BDD",
-        OptionParser::NONE);
-    parser.add_option<bool>(
+        "16000000");
+    feature.add_option<bool>(
         "full_print",
-        "will print() create a .dot file",
+        "print",
         "false");
-    symbolic::SymVariables::add_options_to_parser(parser);
-
-    ClosedList::add_options_to_parser(parser);
-    Options opts = parser.parse();
-
-    if (parser.dry_run()) {
-        return nullptr;
-    }
-
-    return std::make_shared<BddClosedList>(opts);
 }
 
+class BddClosedListFeature
+    : public plugins::TypedFeature<ClosedList, BddClosedList> {
+public:
+    BddClosedListFeature() : TypedFeature("bdd") {
+        document_title("BDDBased Closed List");
 
-static Plugin<ClosedList> _plugin("bdd", _parse);
+        BddClosedList::add_options_to_parser(*this);
+        symbolic::SymVariables::add_options_to_parser(*this);
+    }
+
+    virtual shared_ptr<BddClosedList>
+    create_component(const plugins::Options &opts) const override {
+        
+        return plugins::make_shared_from_arg_tuples<BddClosedList>(
+            opts.get<int>("cache_size", 16000000L),
+            opts.get<bool>("full_print"),
+            opts.get<bool>("gamer_ordering"),
+            opts.get<bool>("dynamic_reordering")
+        );
+    }
+};
+
+
+static plugins::FeaturePlugin<BddClosedListFeature> _plugin;
 }

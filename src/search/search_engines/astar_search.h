@@ -86,7 +86,7 @@ class AstarOpenList {
     vector<shared_ptr<Evaluator>> evaluators;
 
 public:
-    explicit AstarOpenList(const Options &opts);
+    explicit AstarOpenList(const vector<shared_ptr<Evaluator>> evals);
 
     bool empty() const;
     void insert(EvaluationContext &eval_context,
@@ -96,8 +96,8 @@ public:
     bool is_dead_end(EvaluationContext &eval_context) const;
 };
 
-AstarOpenList::AstarOpenList(const Options &opts) :
-      size(0), evaluators(opts.get_list<shared_ptr<Evaluator>>("evals")) {
+AstarOpenList::AstarOpenList(const vector<shared_ptr<Evaluator>> evals) :
+      size(0), evaluators(evals) {
 }
 
 void AstarOpenList::insert(
@@ -160,6 +160,7 @@ public:
     explicit AstarSearch(const options::Options &opts);
 
     void save_plan_if_necessary() override;
+    void AstarSearch::add_option_to_parser();
 
     virtual void print_statistics() const override;
 };

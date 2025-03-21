@@ -90,13 +90,10 @@ void
 MMout_of_memory(size_t size)
 {
     (void) fflush(stdout);
-    (void) fprintf(stdout,
+    (void) fprintf(stderr,
                    "\nCUDD: out of memory allocating %" PRIszt " bytes\n",
 		   (size_t) size);
-    (void) fprintf(stdout,
-                   "\nMemory limit has been reached.\n");
-    (void) 
-    exit(22); // Out of Memory of Fast Downward
+    exit(1);
 }
 
 /**

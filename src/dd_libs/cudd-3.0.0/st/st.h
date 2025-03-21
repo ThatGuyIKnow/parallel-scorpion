@@ -1,5 +1,5 @@
 /**
-  @file
+  @file 
 
   @ingroup st
 
@@ -174,7 +174,7 @@ typedef int (*st_hash_arg_t)(void const *, int, void const *);
   @see st_lookup
 
 */
-#define st_is_member(table, key) st_lookup(table, key, (void **)0)
+#define st_is_member(table,key) st_lookup(table,key,(void **) 0)
 
 
 /**
@@ -199,7 +199,7 @@ typedef int (*st_hash_arg_t)(void const *, int, void const *);
 
 */
 #define st_foreach_item(table, gen, key, value) \
-    for (gen = st_init_gen(table); st_gen(gen, key, value) || (st_free_gen(gen), 0);)
+    for(gen=st_init_gen(table); st_gen(gen,key,value) || (st_free_gen(gen),0);)
 
 
 /**
@@ -226,7 +226,7 @@ typedef int (*st_hash_arg_t)(void const *, int, void const *);
 
 */
 #define st_foreach_item_int(table, gen, key, value) \
-    for (gen = st_init_gen(table); st_gen_int(gen, key, value) || (st_free_gen(gen), 0);)
+    for(gen=st_init_gen(table); st_gen_int(gen,key,value) || (st_free_gen(gen),0);)
 
 /*---------------------------------------------------------------------------*/
 /* Function prototypes                                                       */
@@ -236,31 +236,31 @@ typedef int (*st_hash_arg_t)(void const *, int, void const *);
 extern "C" {
 #endif
 
-st_table *st_init_table_with_params(st_compare_t, st_hash_t, int, int, double, int);
-st_table *st_init_table(st_compare_t, st_hash_t);
-st_table *st_init_table_with_params_and_arg(st_compare_arg_t, st_hash_arg_t, void const *, int, int, double, int);
-st_table *st_init_table_with_arg(st_compare_arg_t, st_hash_arg_t, void const *);
-void st_free_table(st_table *);
-int st_lookup(st_table *, void const *, void **);
-int st_lookup_int(st_table *, void const *, int *);
-int st_insert(st_table *, void *, void *);
-int st_add_direct(st_table *, void *, void *);
-int st_find_or_add(st_table *, void *, void ***);
-int st_find(st_table *, void const *, void ***);
-st_table *st_copy(st_table const *);
-int st_delete(st_table *, void **, void **);
-int st_delete_int(st_table *, void **, int *);
+st_table *st_init_table_with_params (st_compare_t, st_hash_t, int, int, double, int);
+st_table *st_init_table (st_compare_t, st_hash_t);
+st_table *st_init_table_with_params_and_arg (st_compare_arg_t, st_hash_arg_t, void const *, int, int, double, int);
+    st_table *st_init_table_with_arg (st_compare_arg_t, st_hash_arg_t, void const *);
+void st_free_table (st_table *);
+int st_lookup (st_table *, void const *, void **);
+int st_lookup_int (st_table *, void const *, int *);
+int st_insert (st_table *, void *, void *);
+int st_add_direct (st_table *, void *, void *);
+int st_find_or_add (st_table *, void *, void ***);
+int st_find (st_table *, void const *, void ***);
+st_table *st_copy (st_table const *);
+int st_delete (st_table *, void **, void **);
+int st_delete_int (st_table *, void **, int *);
 int st_count(st_table const *);
-int st_foreach(st_table *, st_foreach_t, void *);
-int st_strhash(void const *, int);
-int st_numhash(void const *, int);
-int st_ptrhash(void const *, int);
-int st_numcmp(void const *, void const *);
-int st_ptrcmp(void const *, void const *);
-st_generator *st_init_gen(st_table const *);
-int st_gen(st_generator *, void **, void **);
-int st_gen_int(st_generator *, void **, int *);
-void st_free_gen(st_generator *);
+int st_foreach (st_table *, st_foreach_t, void *);
+int st_strhash (void const *, int);
+int st_numhash (void const *, int);
+int st_ptrhash (void const *, int);
+int st_numcmp (void const *, void const *);
+int st_ptrcmp (void const *, void const *);
+st_generator *st_init_gen (st_table const *);
+int st_gen (st_generator *, void **, void **);
+int st_gen_int (st_generator *, void **, int *);
+void st_free_gen (st_generator *);
 
 #ifdef __cplusplus
 } /* end of extern "C" */

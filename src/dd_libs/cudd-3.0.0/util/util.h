@@ -133,7 +133,7 @@
 /**
  * @brief Type-decorated NULL (for documentation).
  */
-#define NIL(type)               ((type *)0)
+#define NIL(type)		((type *) 0)
 
 /* #define USE_MM */		/* choose default memory allocator */
 
@@ -157,16 +157,16 @@
 
 #if defined(USE_MM)
 /* Assumes the memory manager is default one. */
-#define ALLOC(type, num)        \
-    ((type *)malloc(sizeof(type) * (num)))
-#define REALLOC(type, obj, num) \
-    ((type *)realloc(obj, sizeof(type) * (num)))
+#define ALLOC(type, num)	\
+    ((type *) malloc(sizeof(type) * (num)))
+#define REALLOC(type, obj, num)	\
+    ((type *) realloc(obj, sizeof(type) * (num)))
 #else
 /* Use replacements that call MMoutOfMemory if allocation fails. */
-#define ALLOC(type, num)        \
-    ((type *)MMalloc(sizeof(type) * (size_t)(num)))
-#define REALLOC(type, obj, num) \
-    ((type *)MMrealloc((obj), sizeof(type) * (size_t)(num)))
+#define ALLOC(type, num)	\
+    ((type *) MMalloc(sizeof(type) * (size_t) (num)))
+#define REALLOC(type, obj, num)	\
+    ((type *) MMrealloc((obj), sizeof(type) * (size_t) (num)))
 #endif
 /* In any case, set to zero the pointer to freed memory. */
 #define FREE(obj) (free(obj), (obj) = 0)
@@ -174,26 +174,26 @@
 /**
  * @brief Prints message and terminates execution.
  */
-#define fail(why) { \
-        (void)fprintf(stderr, "Fatal error: file %s, line %d\n%s\n", \
-                      __FILE__, __LINE__, why); \
-        (void)fflush(stdout); \
-        abort(); \
+#define fail(why) {\
+    (void) fprintf(stderr, "Fatal error: file %s, line %d\n%s\n",\
+	__FILE__, __LINE__, why);\
+    (void) fflush(stdout);\
+    abort();\
 }
 
 /* These arguably do NOT belong in util.h */
 /**
  * @brief Computes the absolute value of its argument.
  */
-#define ABS(a)                  ((a) < 0 ? -(a) : (a))
+#define ABS(a)			((a) < 0 ? -(a) : (a))
 /**
  * @brief Computes the maximum of its two arguments.
  */
-#define MAX(a, b)                ((a) > (b) ? (a) : (b))
+#define MAX(a,b)		((a) > (b) ? (a) : (b))
 /**
  * @brief Computes the minimum of its two arguments.
  */
-#define MIN(a, b)                ((a) < (b) ? (a) : (b))
+#define MIN(a,b)		((a) < (b) ? (a) : (b))
 
 /**
  * @brief Type of comparison functions for util_qsort.
@@ -220,9 +220,9 @@ extern char *util_print_time(unsigned long);
 extern char *util_strsav(char const *);
 extern char *util_tilde_expand(char const *);
 extern size_t getSoftDataLimit(void);
-extern void util_qsort(void *vbase, int n, int size, QSFP compar);
-extern int util_pipefork(char *const *argv, FILE **toCommand,
-                         FILE **fromCommand, int *pid);
+extern void util_qsort (void *vbase, int n, int size, QSFP compar);
+extern int util_pipefork(char * const * argv, FILE ** toCommand,
+                         FILE ** fromCommand, int * pid);
 #ifdef __cplusplus
 }
 #endif

@@ -209,7 +209,7 @@ public:
                          double quality1 = 1.0, double quality0 = 1.0) const;
     BDD ExistAbstract(const BDD& cube, unsigned int limit = 0) const;
     BDD XorExistAbstract(const BDD& g, const BDD& cube) const;
-    BDD UnivAbstract(const BDD& cube, unsigned int limit = 0) const;
+    BDD UnivAbstract(const BDD& cube) const;
     BDD BooleanDiff(int x) const;
     bool VarIsDependent(const BDD& var) const;
     double Correlation(const BDD& g) const;
@@ -286,6 +286,7 @@ public:
     ZDD PortToZdd() const;
     void PrintFactoredForm(char const * const * inames = 0, FILE * fp = stdout) const;
     std::string FactoredFormString(char const * const * inames = 0) const;
+
 }; // BDD
 
 
@@ -326,7 +327,6 @@ public:
     ADD ExistAbstract(const ADD& cube) const;
     ADD UnivAbstract(const ADD& cube) const;
     ADD OrAbstract(const ADD& cube) const;
-    ADD MinAbstract(const ADD& cube) const;
     ADD Plus(const ADD& g) const;
     ADD Times(const ADD& g) const;
     ADD Threshold(const ADD& g) const;
@@ -343,17 +343,6 @@ public:
     ADD Nor(const ADD& g) const;
     ADD Xor(const ADD& g) const;
     ADD Xnor(const ADD& g) const;
-
-    ADD Equals(const ADD& g) const;//f op g = 1 if f==g else 0
-    ADD NotEquals(const ADD& g) const;  // f op g = 1 if f!=g else 0
-    ADD GreaterThan(const ADD& g) const; // f op g = 1 if f>g else 0
-    ADD GreaterThanEquals(const ADD& g) const; // f op g = 1 if f>=g else 0
-    ADD LessThan(const ADD& g) const; // f op g = 1 if f<g else 0
-    ADD LessThanEquals(const ADD& g) const; // f op g = 1 if f<=g else 0
-    ADD Pow(const ADD& g) const; // power
-    ADD Mod(const ADD& g) const; // modulo
-    ADD LogXY(const ADD& g) const; // log x base y
-
     ADD Log() const;
     ADD FindMax() const;
     ADD FindMin() const;
@@ -479,8 +468,6 @@ public:
     PFC getHandler(void) const;
     PFC setTimeoutHandler(PFC newHandler) const;
     PFC getTimeoutHandler(void) const;
-    PFC setNodesExceededHandler(PFC newHandler) const;
-    PFC getNodesExceededHandler() const;
     PFC setTerminationHandler(PFC newHandler) const;
     PFC getTerminationHandler(void) const;
     void pushVariableName(std::string s) const;
@@ -758,5 +745,6 @@ public:
     std::string OrderString(void) const;
 
 }; // Cudd
+
 
 #endif

@@ -42,8 +42,3 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/sdac_parser/boost_dependencies/libs/cmake_install.cmake")
-endif()
-

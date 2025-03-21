@@ -22,18 +22,12 @@ using WeightedEval = weighted_evaluator::WeightedEvaluator;
 
 shared_ptr<OpenListFactory> create_standard_scalar_open_list_factory(
     const shared_ptr<Evaluator> &eval, bool pref_only) {
-    Options options;
-    options.set("eval", eval);
-    options.set("pref_only", pref_only);
-    return make_shared<standard_scalar_open_list::BestFirstOpenListFactory>(options);
+    return plugins::make_shared_from_arg_tuples<standard_scalar_open_list::BestFirstOpenListFactory>(eval, pref_only);
 }
 
 static shared_ptr<OpenListFactory> create_alternation_open_list_factory(
     const vector<shared_ptr<OpenListFactory>> &subfactories, int boost) {
-    Options options;
-    options.set("sublists", subfactories);
-    options.set("boost", boost);
-    return make_shared<alternation_open_list::AlternationOpenListFactory>(options);
+    return plugins::make_shared_from_arg_tuples<alternation_open_list::AlternationOpenListFactory>(subfactories, boost);
 }
 
 /*
@@ -90,19 +84,9 @@ static shared_ptr<Evaluator> create_wastar_eval(const Options &options,
     if (w == 1) {
         w_h_eval = h_eval;
     } else {
-        Options weighted_evaluator_options;
-        weighted_evaluator_options.set<utils::Verbosity>(
-            "verbosity", options.get<utils::Verbosity>("verbosity"));
-        weighted_evaluator_options.set<shared_ptr<Evaluator>>("eval", h_eval);
-        weighted_evaluator_options.set<int>("weight", w);
-        w_h_eval = make_shared<WeightedEval>(weighted_evaluator_options);
+        w_h_eval = plugins::make_shared_from_arg_tuples<WeightedEval>(h_eval, w, "", options.get<utils::Verbosity>("verbosity"));
     }
-    Options sum_evaluator_options;
-    sum_evaluator_options.set<utils::Verbosity>(
-        "verbosity", options.get<utils::Verbosity>("verbosity"));
-    sum_evaluator_options.set<vector<shared_ptr<Evaluator>>>(
-        "evals", vector<shared_ptr<Evaluator>>({g_eval, w_h_eval}));
-    return make_shared<SumEval>(sum_evaluator_options);
+    return plugins::make_shared_from_arg_tuples<SumEval>(vector<shared_ptr<Evaluator>>({g_eval, w_h_eval}), "", options.get<utils::Verbosity>("verbosity"));
 }
 
 shared_ptr<OpenListFactory> create_wastar_open_list_factory(
@@ -112,9 +96,7 @@ shared_ptr<OpenListFactory> create_wastar_open_list_factory(
     int w = options.get<int>("w");
 
     Options g_evaluator_options;
-    g_evaluator_options.set<utils::Verbosity>(
-        "verbosity", options.get<utils::Verbosity>("verbosity"));
-    shared_ptr<GEval> g_eval = make_shared<GEval>(g_evaluator_options);
+    shared_ptr<GEval> g_eval = plugins::make_shared_from_arg_tuples<GEval>("", options.get<utils::Verbosity>("verbosity"));
     vector<shared_ptr<Evaluator>> f_evals;
     f_evals.reserve(base_evals.size());
     for (const shared_ptr<Evaluator> &eval : base_evals)
@@ -127,26 +109,13 @@ shared_ptr<OpenListFactory> create_wastar_open_list_factory(
 }
 
 pair<shared_ptr<OpenListFactory>, const shared_ptr<Evaluator>>
-create_astar_open_list_factory_and_f_eval(const Options &opts) {
-    Options g_evaluator_options;
-    g_evaluator_options.set<utils::Verbosity>(
-        "verbosity", opts.get<utils::Verbosity>("verbosity"));
-    shared_ptr<GEval> g = make_shared<GEval>(g_evaluator_options);
-    shared_ptr<Evaluator> h = opts.get<shared_ptr<Evaluator>>("eval");
-    Options f_evaluator_options;
-    f_evaluator_options.set<utils::Verbosity>(
-        "verbosity", opts.get<utils::Verbosity>("verbosity"));
-    f_evaluator_options.set<vector<shared_ptr<Evaluator>>>(
-        "evals", vector<shared_ptr<Evaluator>>({g, h}));
-    shared_ptr<Evaluator> f = make_shared<SumEval>(f_evaluator_options);
-    vector<shared_ptr<Evaluator>> evals = {f, h};
+create_astar_open_list_factory_and_f_eval(const shared_ptr<Evaluator> &eval, const utils::Verbosity verbosity) {
+    shared_ptr<GEval> g = plugins::make_shared_from_arg_tuples<GEval>("", verbosity);
+    shared_ptr<Evaluator> f = plugins::make_shared_from_arg_tuples<SumEval>(vector<shared_ptr<Evaluator>>({g, eval}), "", opts.get<utils::Verbosity>("verbosity"));
+    vector<shared_ptr<Evaluator>> evals = {f, eval};
 
-    Options options;
-    options.set("evals", evals);
-    options.set("pref_only", false);
-    options.set("unsafe_pruning", false);
     shared_ptr<OpenListFactory> open =
-        make_shared<tiebreaking_open_list::TieBreakingOpenListFactory>(options);
+        plugins::make_shared_from_arg_tuples<tiebreaking_open_list::TieBreakingOpenListFactory>(evals, false, false);
     return make_pair(open, f);
 }
 }

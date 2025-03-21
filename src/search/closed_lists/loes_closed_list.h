@@ -25,11 +25,15 @@ class LoesClosedList : public ClosedList {
     vector<size_t> min_entropy_bitorder(size_t num_samples, size_t max_sample_iterations) const;
 
 public:
-    explicit LoesClosedList(const options::Options &opts);
+    explicit LoesClosedList(const bool reuse_treelevels,
+        const bool full_print,
+        const int samples,
+        const int max_sample_iterations);
 
     void add_state(const State &state);
     bool contains_state(const State &state) const;
     void print() const;
+    void add_options_to_parser(plugins::Feature &feature);
 };
 
 extern void add_loes_closed_list_options_to_parser(

@@ -39,7 +39,12 @@ protected:
     virtual SearchStatus step() override;
 
 public:
-    explicit EagerSearch(const options::Options &opts);
+    explicit EagerSearch(const bool reopen_closed,
+                         const shared_ptr<OpenListFactory> &open, const shared_ptr<Evaluator> f_eval,
+                         const vector<shared_ptr<Evaluator>> preferred, const shared_ptr<Evaluator> lazy_eval,
+                         const shared_ptr<PruningMethod> pruning, const OperatorCost cost_type,
+                           const double max_time,
+                           const int bound);
     virtual ~EagerSearch() = default;
 
     virtual void print_statistics() const override;

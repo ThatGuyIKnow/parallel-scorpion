@@ -53,11 +53,18 @@ if (WIN32)
     copy_dlls_to_binary_dir_after_build(downward)
 endif()
 
+if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+    set(CUDD_CXX_FLAGS "${CMAKE_CXX_FLAGS_DEBUG}")
+elseif(${CMAKE_BUILD_TYPE} STREQUAL "Release")
+    set(CUDD_CXX_FLAGS "${CMAKE_CXX_FLAGS_RELEASE}")
+else()
+    message(FATAL_ERROR, "Could not determine build type.")
+endif()
 include(ExternalProject)
-### Boost
-message(STATUS "Building MiniBoost.")
-include_directories(SYSTEM sdac_parser/boost_dependencies)
-add_subdirectory(sdac_parser/boost_dependencies/libs)
+### Boost Comment out
+#message(STATUS "Building MiniBoost.")
+#include_directories(SYSTEM sdac_parser/boost_dependencies)
+#add_subdirectory(sdac_parser/boost_dependencies/libs)
 
 ### Cudd
 include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/../dd_libs/cudd-3.0.0/cudd)
@@ -67,28 +74,28 @@ include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/../dd_libs/cudd-3.0.0/mtr
 if(${CMAKE_SIZEOF_VOID_P} EQUAL 4)
     message(STATUS "Building Cudd with 32-bit.")
     ExternalProject_add(
-        libcudd
-        SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../dd_libs/cudd-3.0.0/
-	CONFIGURE_COMMAND autoreconf ${CMAKE_CURRENT_SOURCE_DIR}/../dd_libs/cudd-3.0.0/ && ${CMAKE_CURRENT_SOURCE_DIR}/../dd_libs/cudd-3.0.0/configure --enable-obj --enable-silent-rules "CFLAGS=-m32 -g -O3 -w" "CXXFLAGS=-m32 -std=c++0x -g ${CUDD_CXX_FLAGS}" "LDFLAGS=-m32"
-        BUILD_COMMAND make
-        INSTALL_COMMAND ""
-        BUILD_IN_SOURCE 0
+            libcudd
+            SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../dd_libs/cudd-3.0.0/
+            CONFIGURE_COMMAND autoreconf ${CMAKE_CURRENT_SOURCE_DIR}/../dd_libs/cudd-3.0.0/ && ${CMAKE_CURRENT_SOURCE_DIR}/../dd_libs/cudd-3.0.0/configure --enable-obj --enable-silent-rules "CFLAGS=-m32 -g -O3 -w" "CXXFLAGS=-m32 -std=c++0x -g ${CUDD_CXX_FLAGS}" "LDFLAGS=-m32"
+            BUILD_COMMAND make
+            INSTALL_COMMAND ""
+            BUILD_IN_SOURCE 1
     )
 elseif(${CMAKE_SIZEOF_VOID_P} EQUAL 8)
     message(STATUS "Building Cudd with 64-bit.")
     ExternalProject_add(
-        libcudd
-        SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../dd_libs/cudd-3.0.0/
-        CONFIGURE_COMMAND autoreconf ${CMAKE_CURRENT_SOURCE_DIR}/../dd_libs/cudd-3.0.0/ && ${CMAKE_CURRENT_SOURCE_DIR}/../dd_libs/cudd-3.0.0/configure --enable-obj --enable-silent-rules "CFLAGS=-m64 -g -O3 -w" "CXXFLAGS=-m64 -std=c++0x -g ${CUDD_CXX_FLAGS}" "LDFLAGS=-m64"
-        BUILD_COMMAND make
-        INSTALL_COMMAND ""
-        BUILD_IN_SOURCE 0
+            libcudd
+            SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../dd_libs/cudd-3.0.0/
+            CONFIGURE_COMMAND autoreconf ${CMAKE_CURRENT_SOURCE_DIR}/../dd_libs/cudd-3.0.0/ && ${CMAKE_CURRENT_SOURCE_DIR}/../dd_libs/cudd-3.0.0/configure --enable-obj --enable-silent-rules "CFLAGS=-m64 -g -O3 -w" "CXXFLAGS=-m64 -std=c++0x -g ${CUDD_CXX_FLAGS}" "LDFLAGS=-m64"
+            BUILD_COMMAND make
+            INSTALL_COMMAND ""
+            BUILD_IN_SOURCE 1
     )
 else()
     message(FATAL_ERROR, "Could not determine bitwidth for Cudd.")
 endif()
-
-add_dependencies(libcudd MiniBoost)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../dd_libs/cudd-3.0.0/)
+#add_dependencies(libcudd MiniBoost)
 add_dependencies(downward libcudd)
 target_link_libraries(downward PRIVATE ${downward_BINARY_DIR}/libcudd-prefix/src/libcudd-build/cudd/.libs/libcudd.a)
 # In the following, we include all source files, grouped into libraries with
@@ -155,6 +162,15 @@ create_fast_downward_library(
 )
 
 create_fast_downward_library(
+        NAME symbolic
+        HELP "Plugin containing the base for symbolic search"
+        SOURCES
+            symbolic/opt_order
+            symbolic/sym_variables
+            symbolic/sym_axiom/sym_axiom_compilation
+)
+
+create_fast_downward_library(
     NAME open_state_registry
     HELP "State registries that can unregister states, used for storing only open states."
     SOURCES
@@ -191,11 +207,12 @@ create_fast_downward_library(
     NAME astarmod_search
     HELP "A* search algorithm"
     SOURCES
-        search_engines/astar_search
+        search_algorithms/astar_search
     DEPENDS 
     	search_common
      	open_state_registry
 )
+
 create_fast_downward_library(
     NAME parser
     HELP "Option parsing"

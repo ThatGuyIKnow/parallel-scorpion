@@ -18,6 +18,7 @@ class StateID {
     friend class breadth_first_search::BreadthFirstSearch;
     friend class exhaustive_search::ExhaustiveSearch;
     friend class StateRegistry;
+    friend class OpenStateRegistry;
     friend std::ostream &operator<<(std::ostream &os, StateID id);
     template<typename>
     friend class PerStateInformation;
@@ -26,9 +27,6 @@ class StateID {
     friend class PerStateBitset;
 
     int value;
-    explicit StateID(int value_)
-        : value(value_) {
-    }
 
     // No implementation to prevent default construction
     StateID();
@@ -36,6 +34,12 @@ public:
     ~StateID() {
     }
 
+    explicit StateID(int value_)
+        : value(value_) {
+    }
+    int get_value() const {
+        return value;
+    }
     static const StateID no_state;
 
     bool operator==(const StateID &other) const {

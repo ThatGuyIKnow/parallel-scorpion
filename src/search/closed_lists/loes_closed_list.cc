@@ -4,8 +4,7 @@
 #include <bits/stdc++.h>
 #include <cmath>
 
-#include "../option_parser.h"
-#include "../plugin.h"
+#include "../plugins/plugin.h"
 #include "../tasks/root_task.h"
 #include "../state_registry.h"
 #include "../task_utils/successor_generator.h"
@@ -136,8 +135,11 @@ static int get_bit_size_for_range(int range) {
 
 //TODO: Figure out how to get task_proxy through other means.
 template<class LoesType>
-LoesClosedList<LoesType>::LoesClosedList(const options::Options &opts) : task_proxy(*tasks::g_root_task), c_list(opts.get<bool>("reuse_treelevels")),
-state_packer(task_properties::g_state_packers[task_proxy]), full_print(opts.get<bool>("full_print"))
+LoesClosedList<LoesType>::LoesClosedList(const bool reuse_treelevels,
+                                         const bool full_print,
+                                         const int samples,
+                                         const int max_sample_iterations) : task_proxy(*tasks::g_root_task), c_list(reuse_treelevels),
+state_packer(task_properties::g_state_packers[task_proxy]), full_print(full_print)
 {
     state_bit_length = 0;
     for (const auto &var : task_proxy.get_variables()) {
@@ -148,10 +150,9 @@ state_packer(task_properties::g_state_packers[task_proxy]), full_print(opts.get<
     }
     bitmap = make_shared<loes::BitMap>(var_bit_lengths);
 
-    int sample_size = opts.get<int>("samples");
+    int sample_size = samples;
     if (sample_size > 0)
     {
-        int max_sample_iterations = opts.get<int>("max_sample_iterations", 10 * sample_size);
         vector<size_t> bit_order = min_entropy_bitorder((size_t) sample_size, max_sample_iterations);
         bitmap = make_shared<loes::BitMap>(var_bit_lengths, bit_order);
     }    
@@ -175,43 +176,102 @@ void LoesClosedList<LoesType>::print() const
     c_list.print(full_print);
 }
 
-void add_loes_closed_list_options_to_parser(options::OptionParser &parser) {
-    parser.add_list_option<shared_ptr<ClosedList>>(
-        "closed list", "one closed list");
-    add_closed_list_options_to_parser(parser);
+    void add_options_to_parser(plugins::Feature &feature) {
+        feature.document_synopsis("Closed list using LOES data structure");
+        feature.add_option<int>(
+            "samples",
+            "number of samples used to calculate optimal bitorder",
+            "0");
+        feature.add_option<int>(
+            "max_sample_iterations",
+            "the max number of iterations tried to get the desired number of samples");
+        feature.add_option<bool>(
+            "reuse_treelevels",
+            "whether LOES reuses treelevels when mergeing, taking more memory but less time.",
+            "true");
+        feature.add_option<bool>(
+            "full_print",
+            "will print() print the full LOES tree.",
+            "false");
 }
+//
+// template<class LoesType>
+// static shared_ptr<ClosedList> _parse(OptionParser &parser) {
+//     parser.document_synopsis(
+//         "Closed list using LOES data structure",
+//         "");
+//     parser.add_option<int>(
+//         "samples",
+//         "number of samples used to calculate optimal bitorder",
+//         "0");
+//     parser.add_option<int>(
+//         "max_sample_iterations",
+//         "the max number of iterations tried to get the desired number of samples",
+//         OptionParser::NONE);
+//     parser.add_option<bool>(
+//         "reuse_treelevels",
+//         "whether LOES reuses treelevels when mergeing, taking more memory but less time.",
+//         "true");
+//     parser.add_option<bool>(
+//         "full_print",
+//         "will print() print the full LOES tree.",
+//         "false");
+//     ClosedList::add_options_to_parser(parser);
+//     Options opts = parser.parse();
+//
+//     if (parser.dry_run()) {
+//         return nullptr;
+//     }
+//
+//     return std::make_shared<loes_closed_list::LoesClosedList<LoesType>>(opts);
+// }
+//
+// static plugins::Plugin<ClosedList> _plugin_loes("loes", _parse<loes::Loes>);
+// static plugins::Plugin<ClosedList> _plugin_cloes("cloes", _parse<loes::Cloes>);
 
-template<class LoesType>
-static shared_ptr<ClosedList> _parse(OptionParser &parser) {
-    parser.document_synopsis(
-        "Closed list using LOES data structure",
-        "");
-    parser.add_option<int>(
-        "samples",
-        "number of samples used to calculate optimal bitorder",
-        "0");
-    parser.add_option<int>(
-        "max_sample_iterations",
-        "the max number of iterations tried to get the desired number of samples",
-        OptionParser::NONE);
-    parser.add_option<bool>(
-        "reuse_treelevels",
-        "whether LOES reuses treelevels when mergeing, taking more memory but less time.",
-        "true");
-    parser.add_option<bool>(
-        "full_print",
-        "will print() print the full LOES tree.",
-        "false");
-    ClosedList::add_options_to_parser(parser);
-    Options opts = parser.parse();
 
-    if (parser.dry_run()) {
-        return nullptr;
+class LoesClosedListFeature
+    : public plugins::TypedFeature<ClosedList, LoesClosedList<loes::Loes>> {
+public:
+    LoesClosedListFeature() : TypedFeature("loes") {
+        document_title("LOES Closed List");
+
+        add_options_to_parser(*this);
     }
 
-    return std::make_shared<loes_closed_list::LoesClosedList<LoesType>>(opts);
-}
+    virtual shared_ptr<LoesClosedList<loes::Loes>>
+    create_component(const plugins::Options &opts) const override {
+        return plugins::make_shared_from_arg_tuples<LoesClosedList<loes::Loes>>(
+            opts.get<int>("samples", 0),
+            opts.get<int>("max_sample_iterations", 10 * opts.get<int>("samples", 0)),
+            opts.get<bool>("reuse_treelevels", true),
+            opts.get<bool>("full_print", false)
+        );
+    }
+};
 
-static Plugin<ClosedList> _plugin_loes("loes", _parse<loes::Loes>);
-static Plugin<ClosedList> _plugin_cloes("cloes", _parse<loes::Cloes>);
+class CLoesClosedListFeature
+    : public plugins::TypedFeature<ClosedList, LoesClosedList<loes::Cloes>> {
+public:
+    CLoesClosedListFeature() : TypedFeature("cloes") {
+        document_title("CLOES Closed List");
+
+        add_options_to_parser(*this);
+    }
+
+    virtual shared_ptr<LoesClosedList<loes::Cloes>>
+    create_component(const plugins::Options &opts) const override {
+        
+        return plugins::make_shared_from_arg_tuples<LoesClosedList<loes::Cloes>>(
+            opts.get<bool>("reuse_treelevels", true),
+            opts.get<bool>("full_print", false),
+            opts.get<int>("samples", 0),
+            opts.get<int>("max_sample_iterations", 10 * opts.get<int>("samples", 0))
+        );
+    }
+};
+
+
+static plugins::FeaturePlugin<LoesClosedListFeature> _loes_plugin;
+static plugins::FeaturePlugin<CLoesClosedListFeature> _cloes_plugin;
 }

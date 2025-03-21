@@ -554,6 +554,7 @@ bool does_fire(const EffectProxy &effect, const State &state);
 
 
 class State {
+    friend class OpenStateRegistry;
     /*
       TODO: We want to try out two things:
         1. having StateID and num_variables next to each other, so that they

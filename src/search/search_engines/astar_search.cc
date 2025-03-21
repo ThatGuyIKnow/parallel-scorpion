@@ -5,7 +5,7 @@
 #include "../evaluator.h"
 #include "../open_list_factory.h"
 #include "../option_parser.h"
-#include "../plugin.h"
+#include "../plugins/plugin.h"
 #include "search_common.h"
 #include "../task_utils/task_properties.h"
 
@@ -73,22 +73,20 @@ void AstarSearch::update_f_value_statistics(EvaluationContext &eval_context) {
 void AstarSearch::create_open_list_and_f_eval(const Options &opts) {
     using GEval = g_evaluator::GEvaluator;
     using SumEval = sum_evaluator::SumEvaluator;
-    Options g_evaluator_options;
-    g_evaluator_options.set<utils::Verbosity>(
-        "verbosity", opts.get<utils::Verbosity>("verbosity"));
-    shared_ptr<GEval> g = make_shared<GEval>(g_evaluator_options);
+
+    shared_ptr<GEval> g = plugins::make_shared_from_arg_tuples<GEval>("verbosity", opts.get<utils::Verbosity>("verbosity"));
+
     shared_ptr<Evaluator> h = opts.get<shared_ptr<Evaluator>>("eval");
-    Options f_evaluator_options;
-    f_evaluator_options.set<utils::Verbosity>(
-        "verbosity", opts.get<utils::Verbosity>("verbosity"));
-    f_evaluator_options.set<vector<shared_ptr<Evaluator>>>(
-        "evals", vector<shared_ptr<Evaluator>>({g, h}));
-    f_evaluator = make_shared<SumEval>(f_evaluator_options);
+
+    f_evaluator = plugins::make_shared_from_arg_tuples<SumEval>(
+        vector<shared_ptr<Evaluator>>{g, h},
+        "", utils::Verbosity(opts.get<utils::Verbosity>("verbosity"))
+    );
     vector<shared_ptr<Evaluator>> evals = {f_evaluator, h};
 
     Options options;
     options.set("evals", evals);
-    open_list =  make_unique<AstarOpenList>(options);
+    open_list = plugins::make_unique_from_arg_tuples<AstarOpenList>(evals);
 }
 
 void AstarSearch::print_statistics() const {
@@ -207,6 +205,11 @@ SearchStatus AstarSearch::step() {
 void AstarSearch::save_plan_if_necessary() {
     // We don't need to save here, as we automatically save plans when we find them.
 }
+
+void AstarSearch::add_option_to_parser() {
+
+}
+
 
 static shared_ptr<SearchEngine> _parse(OptionParser &parser) {
     parser.document_synopsis(

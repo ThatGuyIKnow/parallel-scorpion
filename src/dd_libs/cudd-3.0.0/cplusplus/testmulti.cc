@@ -61,7 +61,7 @@
 class Task {
 public:
     /** Constructor. */
-    Task(int n, std::ostringstream &os) : n(n), os(os) {}
+    Task(int n, std::ostringstream & os) : n(n), os(os) {}
     /** Builds the hidden weight bit function and reorders the variables. */
     void operator()(void) {
         Cudd mgr;
@@ -79,16 +79,16 @@ public:
         std::vector<BDD> t;
         for (int i = 1; i != nvars + 1; ++i) {
             t.clear();
-            t.push_back(oldt.at(0) & !vars.at(i - 1));
+            t.push_back(oldt.at(0) & !vars.at(i-1));
             for (int j = 1; j != i; ++j) {
-                t.push_back(vars.at(i - 1).Ite(oldt.at(j - 1), oldt.at(j)));
+                t.push_back(vars.at(i-1).Ite(oldt.at(j-1), oldt.at(j)));
             }
-            t.push_back(oldt.at(i - 1) & vars.at(i - 1));
+            t.push_back(oldt.at(i-1) & vars.at(i-1));
             oldt = t;
         }
 #if 0
         // Diagnostic print.
-        for (int i = 0; i != nvars + 1; ++i) {
+        for (int i = 0;  i != nvars + 1; ++i) {
             os << "t(" << i << ") = " << t.at(i).FactoredFormString()
                << std::endl;
         }
@@ -96,10 +96,10 @@ public:
         // ...then the multiplexer.
         BDD hwb = mgr.bddZero();
         for (int i = 0; i != nvars; ++i) {
-            hwb |= t.at(i + 1) & vars.at(i);
+            hwb |= t.at(i+1) & vars.at(i);
         }
         mgr.ReduceHeap(CUDD_REORDER_SIFT_CONVERGE);
-
+        
         int nodes = hwb.nodeCount();
         os << nodes << " nodes and ";
         int digits;
@@ -107,7 +107,7 @@ public:
         os << mgr.ApaStringDecimal(digits, apa_minterms) << " minterms\n";
         free(apa_minterms);
         os << "Variable order: " << mgr.OrderString() << "\n";
-        mgr.Srandom(n + 11);
+        mgr.Srandom(n+11);
         os << "A random number from our generator: " << mgr.Random() << "\n";
 #if 0
         // Diagnostic prints.
@@ -117,7 +117,7 @@ public:
     }
 private:
     int n;
-    std::ostringstream &os;
+    std::ostringstream & os;
 };
 
 
@@ -126,7 +126,7 @@ private:
  */
 class joinThreads {
 public:
-    explicit joinThreads(std::vector<std::thread> &t) : threads_(t) {}
+    explicit joinThreads(std::vector<std::thread>& t) : threads_(t) {}
     /** It completes once all threads have been joined. */
     ~joinThreads() {
         for (std::vector<std::thread>::iterator it = threads_.begin();
@@ -135,16 +135,17 @@ public:
                 it->join();
     }
     joinThreads(joinThreads const &) = delete;
-    joinThreads &operator=(joinThreads const &) = delete;
+    joinThreads& operator=(joinThreads const &) = delete;
 private:
-    std::vector<std::thread> &threads_; /**< vector of threads to be joined. */
+    std::vector<std::thread>& threads_; /**< vector of threads to be joined. */
 };
 #endif
 
 /**
   @brief Main program for testmulti.
 */
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
     int nthreads = 4; // default value
 
     // If there's an argument, it's the number of threads.

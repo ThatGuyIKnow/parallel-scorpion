@@ -1,7 +1,6 @@
 #include "sym_variables.h"
 
-#include "../options/option_parser.h"
-#include "../options/options.h"
+#include "../plugins/plugin.h"
 #include "../task_utils/task_properties.h"
 #include "../utils/logging.h"
 #include "opt_order.h"
@@ -9,8 +8,11 @@
 
 #include <fstream>
 #include <iostream>
+#include <mtr.h>
+#include <cuddObj.hh>
 #include <sstream>
 #include <string>
+
 
 using namespace std;
 using options::Options;
@@ -21,15 +23,16 @@ void exceptionError(string /*message*/) {
     throw BDDError();
 }
 
-SymVariables::SymVariables(const Options &opts,
+SymVariables::SymVariables(const bool gamer_ordering,
+                           const bool dynamic_reordering,
                            const shared_ptr<AbstractTask> &task,
                            long cache_size)
     : task_proxy(*task), task(task),
       cudd_init_nodes(cache_size), cudd_init_cache_size(cache_size),
       cudd_init_available_memory(0L),
-      gamer_ordering(opts.get<bool>("gamer_ordering")),
-      dynamic_reordering(opts.get<bool>("dynamic_reordering")),
-      ax_comp(make_shared<SymAxiomCompilation>(this, task)) {}
+      gamer_ordering(gamer_ordering),
+      dynamic_reordering(dynamic_reordering),
+      ax_comp(plugins::make_shared_from_arg_tuples<SymAxiomCompilation>(this, task)) {}
 
 void SymVariables::init() {
     vector<int> var_order;
@@ -303,9 +306,11 @@ void SymVariables::print_options() const {
     utils::g_log << "Dynamic reordering: " << (dynamic_reordering ? "True" : "False") << endl;
 }
 
-void SymVariables::add_options_to_parser(options::OptionParser &parser) {
-    parser.add_option<bool>("gamer_ordering", "Use Gamer ordering optimization",
+void SymVariables::add_options_to_parser(
+    plugins::Feature &feature)  {
+    feature.add_option<bool>("gamer_ordering", "Use Gamer ordering optimization",
                             "true");
-    parser.add_option<bool>("dynamic_reordering", "Enable dynamic group sift reordering.", "false");
+    feature.add_option<bool>("dynamic_reordering", "Enable dynamic group sift reordering.", "false");
+
 }
 }

@@ -8,6 +8,3 @@
 /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/CMakeFiles/libcudd.dir
 /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/CMakeFiles/edit_cache.dir
 /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/CMakeFiles/rebuild_cache.dir
-/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/sdac_parser/boost_dependencies/libs/CMakeFiles/MiniBoost.dir
-/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/sdac_parser/boost_dependencies/libs/CMakeFiles/edit_cache.dir
-/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/sdac_parser/boost_dependencies/libs/CMakeFiles/rebuild_cache.dir

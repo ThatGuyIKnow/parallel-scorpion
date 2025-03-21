@@ -65,23 +65,23 @@ extern "C" {
 
 /**Struct**********************************************************************
  Synopsis    [used in binary mode to store code info of a dd node]
- Description [V , T , E store the mode used to represent variable, Then
+ Description [V , T , E store the mode used to represent variable, Then 
               and Else indexes. An index is either an absolute
-              ( DDDMP_ABSOLUTE_ID ),
-              a relative numbers ( DDDMP_RELATIVE_ID , DDDMP_RELATIVE_1 ) or
+	      ( DDDMP_ABSOLUTE_ID ),
+              a relative numbers ( DDDMP_RELATIVE_ID , DDDMP_RELATIVE_1 ) or 
               a terminal node ( DDDMP_TERMINAL ) .
-              Ecomp is used for the complemented edge attribute.
+	      Ecomp is used for the complemented edge attribute.
              ]
  SideEffect  [none]
- SeeAlso     [DddmpWriteCode DddmpReadCode]
+ SeeAlso     [DddmpWriteCode DddmpReadCode] 
 ******************************************************************************/
 
 struct binary_dd_code {
-    unsigned Unused : 1;
-    unsigned V      : 2;
-    unsigned T      : 2;
-    unsigned Ecompl : 1;
-    unsigned E      : 2;
+  unsigned  Unused : 1;
+  unsigned  V      : 2;
+  unsigned  T      : 2;
+  unsigned  Ecompl : 1;
+  unsigned  E      : 2;
 };
 
 /**Struct*********************************************************************
@@ -93,27 +93,27 @@ struct binary_dd_code {
 ******************************************************************************/
 
 struct Dddmp_Hdr_s {
-    char *ver;
-    char mode;
-    Dddmp_DecompType ddType;
-    Dddmp_VarInfoType varinfo;
-    char *dd;
-    int nnodes;
-    int nVars;
-    int nsuppvars;
-    char **orderedVarNames;
-    char **suppVarNames;
-    int *ids;
-    int *permids;
-    int *auxids;
-    int *cnfids;
-    int nRoots;
-    int *rootids;
-    char **rootnames;
-    int nAddedCnfVar;
-    int nVarsCnf;
-    int nClausesCnf;
-};
+  char *ver;
+  char mode;
+  Dddmp_DecompType ddType;
+  Dddmp_VarInfoType varinfo;
+  char *dd;
+  int nnodes;
+  int nVars;
+  int nsuppvars;
+  char **orderedVarNames;
+  char **suppVarNames;
+  int *ids;
+  int *permids;
+  int *auxids;
+  int *cnfids;
+  int nRoots;
+  int *rootids;
+  char **rootnames;
+  int nAddedCnfVar;
+  int nVarsCnf;
+  int nClausesCnf;  
+};	
 
 /*---------------------------------------------------------------------------*/
 /* Variable declarations                                                     */
@@ -136,10 +136,10 @@ struct Dddmp_Hdr_s {
 ******************************************************************************/
 
 #ifdef ALLOC
-#  define DDDMP_ALLOC(type, num)        ALLOC(type, num)
+#  define DDDMP_ALLOC(type, num)	ALLOC(type,num)
 #else
-#  define DDDMP_ALLOC(type, num)        \
-    ((type *)malloc(sizeof(type) * (num)))
+#  define DDDMP_ALLOC(type, num)	\
+     ((type *) malloc(sizeof(type) * (num)))
 #endif
 
 /**Macro***********************************************************************
@@ -157,8 +157,8 @@ struct Dddmp_Hdr_s {
 #ifdef FREE
 #define DDDMP_FREE(p)  (FREE(p))
 #else
-#define DDDMP_FREE(p)   \
-    ((p) != NULL) ? (free(p)) : 0)
+#define DDDMP_FREE(p)	\
+    ((p)!=NULL)?(free(p)):0)
 #endif
 
 
@@ -198,13 +198,13 @@ extern int DddmpCuddDdArrayStoreBdd(Dddmp_DecompType ddType, DdManager *ddMgr, c
 extern int DddmpCuddBddArrayStore(Dddmp_DecompType ddType, DdManager *ddMgr, char *ddname, int nRoots, DdNode **f, char **rootnames, char **varnames, int *auxids, int mode, Dddmp_VarInfoType varinfo, char *fname, FILE *fp);
 extern int QsortStrcmp(const void *ps1, const void *ps2);
 extern int FindVarname(char *name, char **array, int n);
-extern char *DddmpStrDup(char *str);
-extern char **DddmpStrArrayDup(char **array, int n);
-extern char **DddmpStrArrayRead(FILE *fp, int n);
+extern char * DddmpStrDup(char *str);
+extern char ** DddmpStrArrayDup(char **array, int n);
+extern char ** DddmpStrArrayRead(FILE *fp, int n);
 extern int DddmpStrArrayWrite(FILE *fp, char **array, int n);
 extern void DddmpStrArrayFree(char **array, int n);
-extern int *DddmpIntArrayDup(int *array, int n);
-extern int *DddmpIntArrayRead(FILE *fp, int n);
+extern int * DddmpIntArrayDup(int *array, int n);
+extern int * DddmpIntArrayRead(FILE *fp, int n);
 extern int DddmpIntArrayWrite(FILE *fp, int *array, int n);
 
 /**AutomaticEnd***************************************************************/

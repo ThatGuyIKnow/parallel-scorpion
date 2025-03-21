@@ -1,5 +1,5 @@
 /**
-  @file
+  @file 
 
   @ingroup cstringstream
 
@@ -58,12 +58,12 @@ extern "C" {
 /**
  * @brief Type of a string stream.
  */
-typedef struct _cstringstream *cstringstream;
+typedef struct _cstringstream * cstringstream;
 
 /**
  * @brief Const-qualified version of cstringstream.
  */
-typedef struct _cstringstream const *const_cstringstream;
+typedef struct _cstringstream const * const_cstringstream;
 
 /*---------------------------------------------------------------------------*/
 /* Function prototypes                                                       */
@@ -98,13 +98,13 @@ int resizeStringStream(cstringstream ss, size_t newSize);
  * @brief Writes the size of cstringstream ss to the location pointed by num.
  * @return 0 if succesful or -1 if ss is an invalid pointer.
  */
-int sizeStringStream(const_cstringstream ss, size_t *num);
+int sizeStringStream(const_cstringstream ss, size_t * num);
 /**
  * @brief Writes the i-th element of cstringstream ss to the location
  * pointed by c.
  * @return 0 if successful or -1 otherwise.
  */
-int getStringStream(const_cstringstream ss, size_t i, char *c);
+int getStringStream(const_cstringstream ss, size_t i, char * c);
 /**
  * @brief Adds char c at the end of cstringstream ss.
  * @return 0 if successful or -1 otherwise.
@@ -114,7 +114,7 @@ int appendCharStringStream(cstringstream ss, char c);
  * @brief Adds string s at the end of cstringstream ss.
  * @return 0 if successful or -1 otherwise.
  */
-int appendStringStringStream(cstringstream ss, char const *s);
+int appendStringStringStream(cstringstream ss, char const * s);
 /**
  * @brief Adds int d at the end of cstringstream ss.
  * @return 0 if successful or -1 otherwise.
@@ -153,7 +153,7 @@ int putStringStream(cstringstream ss, size_t index, char c);
  * @details In case of failure, it returns NULL.
  * The returned string must be freed by the caller.
  */
-char *stringFromStringStream(const_cstringstream ss);
+char * stringFromStringStream(const_cstringstream ss);
 
 #ifdef __cplusplus
 }

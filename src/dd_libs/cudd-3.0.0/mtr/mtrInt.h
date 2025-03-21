@@ -1,5 +1,5 @@
 /**
-  @file
+  @file 
 
   @ingroup mtr
 
@@ -66,7 +66,7 @@
 
 #if defined(__GNUC__)
 #define MTR_INLINE __inline__
-# if (__GNUC__ > 2 || __GNUC_MINOR__ >= 7)
+# if (__GNUC__ >2 || __GNUC_MINOR__ >=7)
 #   define MTR_UNUSED __attribute__ ((unused))
 # else
 #   define MTR_UNUSED
@@ -81,9 +81,9 @@
 ** number.
 */
 #if SIZEOF_VOID_P == 8
-#define MTR_MAXHIGH     (((MtrHalfWord) ~0) >> 1)
+#define MTR_MAXHIGH	(((MtrHalfWord) ~0) >> 1)
 #else
-#define MTR_MAXHIGH     ((MtrHalfWord) ~0)
+#define MTR_MAXHIGH	((MtrHalfWord) ~0)
 #endif
 
 /*---------------------------------------------------------------------------*/
@@ -94,7 +94,7 @@
  * @brief unsigned integer half the size of a pointer.
  */
 #if SIZEOF_VOID_P == 8
-typedef uint32_t MtrHalfWord;
+typedef uint32_t   MtrHalfWord;
 #else
 typedef uint16_t MtrHalfWord;
 #endif
@@ -127,9 +127,9 @@ struct MtrNode_ {
 /*---------------------------------------------------------------------------*/
 
 /* Flag manipulation macros */
-#define MTR_SET(node, flag)     (node->flags |= (flag))
-#define MTR_RESET(node, flag)   (node->flags &= ~(flag))
-#define MTR_TEST(node, flag)    (node->flags & (flag))
+#define MTR_SET(node, flag)	(node->flags |= (flag))
+#define MTR_RESET(node, flag)	(node->flags &= ~ (flag))
+#define MTR_TEST(node, flag)	(node->flags & (flag))
 
 
 /** \cond */

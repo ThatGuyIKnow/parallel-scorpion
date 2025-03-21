@@ -160,19 +160,20 @@ class StateRegistry : public subscriber::SubscriberService<StateRegistry> {
       this registry and find their IDs. States are compared/hashed semantically,
       i.e. the actual state data is compared, not the memory location.
     */
-    using StateIDSet = phmap::flat_hash_set<int, StateIDSemanticHash, StateIDSemanticEqual>;
 
     TaskProxy task_proxy;
-    const int_packer::IntPacker &state_packer;
     AxiomEvaluator &axiom_evaluator;
     const int num_variables;
-
-    segmented_vector::SegmentedArrayVector<PackedStateBin> state_data_pool;
-    StateIDSet registered_states;
 
     std::unique_ptr<State> cached_initial_state;
 
     virtual StateID insert_id_or_pop_state();
+protected:
+    using StateIDSet = phmap::flat_hash_set<int, StateIDSemanticHash, StateIDSemanticEqual>;
+    const int_packer::IntPacker &state_packer;
+    segmented_vector::SegmentedArrayVector<PackedStateBin> state_data_pool;
+    StateIDSet registered_states;
+
     int get_bins_per_state() const;
 public:
     explicit StateRegistry(const TaskProxy &task_proxy);
@@ -218,13 +219,13 @@ public:
     /*
       Returns the number of states registered so far.
     */
-    size_t size() const {
+    virtual size_t size() const {
         return registered_states.size();
     }
 
     int get_state_size_in_bytes() const;
 
-    void print_statistics(utils::LogProxy &log) const;
+    virtual void print_statistics(utils::LogProxy &log) const;
 
     class const_iterator {
         using iterator_category = std::forward_iterator_tag;
