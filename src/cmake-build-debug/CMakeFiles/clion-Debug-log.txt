@@ -1,8 +1,32 @@
-/home/workbox/clion-2024.3.4/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/workbox/clion-2024.3.4/bin/ninja/linux/x64/ninja -G Ninja -S /home/workbox/Projects/state-compression-scorpion/src -B /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug
+/home/workbox/clion-2024.3.4/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/workbox/clion-2024.3.4/bin/ninja/linux/x64/ninja -G Ninja -DPython_EXECUTABLE=/home/workbox/Projects/state-compression-scorpion/experiments/closed_lists/.venv/bin/python -DPython3_EXECUTABLE=/home/workbox/Projects/state-compression-scorpion/experiments/closed_lists/.venv/bin/python -S /home/workbox/Projects/state-compression-scorpion/src -B /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test FLAG_FOUND
+-- Performing Test FLAG_FOUND - Success
 Flag '-std=c++20' set for '/usr/bin/c++'
 -- Building for 64-bit.
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
 -- Could NOT find Cplex: Found unsuitable version "CPLEX_VERSION-NOTFOUND", but required is at least "12" (found CPLEX_INCLUDE_DIRS-NOTFOUND)
 -- Building Cudd with 64-bit.
--- Configuring done (0.1s)
--- Generating done (0.0s)
+-- Configuring done (1.0s)
+-- Generating done (0.1s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    Python3_EXECUTABLE
+    Python_EXECUTABLE
+
+
 -- Build files have been written to: /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug

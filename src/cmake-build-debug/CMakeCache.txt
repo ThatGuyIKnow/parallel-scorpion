@@ -389,14 +389,11 @@ LIBRARY_TYPE_BASED_OPEN_LIST_ENABLED:BOOL=ON
 //The weighted evaluator
 LIBRARY_WEIGHTED_EVALUATOR_ENABLED:BOOL=ON
 
-//Value Computed by CMake
-MiniBoost_BINARY_DIR:STATIC=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search/sdac_parser/boost_dependencies/libs
+//No help, variable specified on the command line.
+Python3_EXECUTABLE:UNINITIALIZED=/home/workbox/Projects/state-compression-scorpion/experiments/closed_lists/.venv/bin/python
 
-//Value Computed by CMake
-MiniBoost_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-MiniBoost_SOURCE_DIR:STATIC=/home/workbox/Projects/state-compression-scorpion/src/search/sdac_parser/boost_dependencies/libs
+//No help, variable specified on the command line.
+Python_EXECUTABLE:UNINITIALIZED=/home/workbox/Projects/state-compression-scorpion/experiments/closed_lists/.venv/bin/python
 
 //Enable the libstdc++ debug mode that does additional safety checks.
 // (On Linux systems, g++ and clang++ usually use libstdc++ for

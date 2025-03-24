@@ -1,9 +1,12 @@
 #ifndef SYMBOLIC_SYM_VARIABLES_H
 #define SYMBOLIC_SYM_VARIABLES_H
 
+#include "sym_bucket.h"
+
 #include "sym_axiom/sym_axiom_compilation.h"
 #include "../tasks/root_task.h"
 #include "../plugins/plugin.h"
+
 #include <memory>
 #include <set>
 #include <string>

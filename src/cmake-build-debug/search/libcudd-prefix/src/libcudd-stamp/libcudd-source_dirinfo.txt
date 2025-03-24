@@ -4,6 +4,6 @@
 
 method=source_dir
 command=
-source_dir=/home/workbox/Projects/state-compression-scorpion/src/search/../dd_libs/cudd-3.0.0
+source_dir=/home/workbox/Projects/state-compression-scorpion/src/search/ext/cudd-3.0.0
 work_dir=
 

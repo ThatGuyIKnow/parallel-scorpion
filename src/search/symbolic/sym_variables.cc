@@ -89,7 +89,7 @@ void SymVariables::init(const vector<int> &v_order) {
 
     manager->setHandler(exceptionError);
     manager->setTimeoutHandler(exceptionError);
-    manager->setNodesExceededHandler(exceptionError);
+    // manager->setNodesExceededHandler(exceptionError);
 
     utils::g_log << "Generating binary variables" << endl;
     // Generate binary_variables
