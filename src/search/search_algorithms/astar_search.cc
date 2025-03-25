@@ -85,9 +85,9 @@ void AstarSearch::create_open_list_and_f_eval(const shared_ptr<Evaluator> &eval,
 
     f_evaluator = plugins::make_shared_from_arg_tuples<SumEval>(
         vector<shared_ptr<Evaluator>>{g, eval},
-        "", utils::Verbosity(verbosity)
+        "sum eval", utils::Verbosity(verbosity)
     );
-    vector<shared_ptr<Evaluator>> evals = {f_evaluator, eval};
+    vector evals = {f_evaluator, eval};
 
     open_list = plugins::make_unique_from_arg_tuples<AstarOpenList>(evals);
 }
@@ -218,6 +218,7 @@ public:
                 "A* search");
         document_synopsis(
                 "A* search with open and closed states stored separately.");
+
         add_option<shared_ptr<Evaluator>>(
             "eval",
             "evaluator for h-value. Make sure to use cache_estimates=false.");
@@ -226,8 +227,8 @@ public:
             "closed",
             "list used to store closed nodes.",
             "loes");
+        add_search_algorithm_options_to_feature(*this, "astarmod");
 
-        utils::add_log_options_to_feature(*this);
     }
 
     virtual shared_ptr<AstarSearch> create_component(
