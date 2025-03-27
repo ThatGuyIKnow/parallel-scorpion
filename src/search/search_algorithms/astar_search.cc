@@ -133,6 +133,7 @@ SearchStatus AstarSearch::step() {
     const OpenAstarNode &node = open_node_registry[s];  
 
     if (task_properties::is_goal_state(task_proxy, s)){
+        log << "Found goal!" << endl;
         Plan operator_sequence = { node.creating_operator };
         
         for (shared_ptr<ClosedAstarNode> n = node.parent; n->parent != nullptr; n = n->parent)

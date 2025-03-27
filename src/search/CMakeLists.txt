@@ -45,7 +45,7 @@ report_bitwidth()
 set_up_build_types("Debug;Release")
 set_up_options()
 
-project(downward LANGUAGES CXX)
+project(downward LANGUAGES C CXX)
 add_executable(downward planner.cc)
 
 # On Windows we have to copy all DLLs next to the generated binary.
@@ -149,6 +149,7 @@ create_fast_downward_library(
         closed_list
         closed_lists/bdd_closed_list
         closed_lists/loes_closed_list
+        closed_lists/treedbs_closed_list
     DEPENDS 
     	loes
 )
@@ -213,6 +214,18 @@ create_fast_downward_library(
         utils/tuples
     CORE_LIBRARY
 )
+
+create_fast_downward_library(
+        NAME treedbs
+        HELP "Tree Databases"
+        SOURCES
+            utils/treedbs
+            utils/treedbs/treedbs
+            utils/treedbs/fast_hash
+            utils/treedbs/MurmurHash3
+        CORE_LIBRARY
+)
+
 # On Linux, find the rt library for clock_gettime().
 if(UNIX AND NOT APPLE)
     target_link_libraries(utils INTERFACE rt)

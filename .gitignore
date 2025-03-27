@@ -7,3 +7,7 @@ __pycache__/
 /experiments/*/data/
 /misc/.tox/
 /misc/autodoc/downward-xmlrpc.secret
+/src/cmake-build-debug
+/src/cmake-build-debug
+.idea/workspace.xml
+/src/search/cmake-build-debug

@@ -23,6 +23,12 @@ CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=/home/workbox/Projects/state-compression
 //No help, variable specified on the command line.
 CMAKE_MAKE_PROGRAM:UNINITIALIZED=/home/workbox/clion-2024.3.4/bin/ninja/linux/x64/ninja
 
+//No help, variable specified on the command line.
+Python3_EXECUTABLE:UNINITIALIZED=/home/workbox/Projects/state-compression-scorpion/experiments/closed_lists/.venv/bin/python
+
+//No help, variable specified on the command line.
+Python_EXECUTABLE:UNINITIALIZED=/home/workbox/Projects/state-compression-scorpion/experiments/closed_lists/.venv/bin/python
+
 
 ########################
 # INTERNAL cache entries
