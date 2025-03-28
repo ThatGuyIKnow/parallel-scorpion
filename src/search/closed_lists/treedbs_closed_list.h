@@ -7,7 +7,7 @@
 namespace treedbs_closed_list {
 
     class TreeDBSClosedList  : public ClosedList  {
-        std::shared_ptr<utils::TreeDBSAdapter> dbs;
+        std::shared_ptr<utils::TreeDBS> dbs;
         TaskProxy task_proxy;
         size_t size = 0;
     public:

@@ -9,7 +9,7 @@
 namespace treedbs_closed_list {
 
     TreeDBSClosedList::TreeDBSClosedList() : task_proxy(*tasks::g_root_task){
-        dbs = std::make_shared<utils::TreeDBSAdapter>(task_proxy.get_variables().size());
+        dbs = std::make_shared<utils::TreeDBS>(task_proxy.get_variables().size());
     }
 
 
@@ -22,11 +22,11 @@ namespace treedbs_closed_list {
     bool TreeDBSClosedList::contains_state(const State &state) const {
         state.unpack();
         const std::vector<int>& entry = state.get_unpacked_values();
-        return dbs->lookup(entry);
+        return dbs->contains(entry);
     }
 
     void TreeDBSClosedList::print() const {
-        dbs->info();
+        utils::g_log << "Registry size: " << dbs->size() << std::endl;
     }
 
 
