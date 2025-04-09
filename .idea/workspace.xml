@@ -31,35 +31,55 @@
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DCMAKE_BUILD_TYPE=Debug" BUILD_OPTIONS="-j 9" NO_GENERATOR="true" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1511bf97-b429-4dd0-a8a4-3d89c91e930d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/search/closed_lists/treedbs_closed_list.cc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/search/closed_lists/treedbs_closed_list.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/search/utils/treedbs.cc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/search/utils/treedbs.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/search/utils/treedbs/MurmurHash3.cc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/search/utils/treedbs/MurmurHash3.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/search/utils/treedbs/fast_hash.cc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/search/utils/treedbs/fast_hash.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/search/utils/treedbs/treedbs.cc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/search/utils/treedbs/treedbs.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/search/closed_lists/vector_closed_list.cc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/search/closed_lists/vector_closed_list.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/search/utils/stable_index_hash_map.cc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/search/utils/stable_index_hash_map.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-6239a63e97d5916cff90.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-f6480784d9217e86427e.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/.cmake/api/v1/reply/index-2025-03-24T14-56-42-0774.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/.cmake/api/v1/reply/target-downward-Debug-777086aa38194ea43eeb.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/.cmake/api/v1/reply/target-libcudd-Debug-67f6de50b4c08f2c305f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/run_components.py" beforeDir="false" afterPath="$PROJECT_DIR$/driver/run_components.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/.cmake/api/v1/reply/cache-v2-f641983fd979ff55a58d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmake-build-debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/search/CMakeFiles/downward.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmake-build-debug/search/CMakeFiles/downward.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/search/CMakeFiles/downward.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmake-build-debug/search/CMakeFiles/downward.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/search/CMakeFiles/downward.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmake-build-debug/search/CMakeFiles/downward.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/search/CMakeFiles/downward.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmake-build-debug/search/CMakeFiles/downward.dir/compiler_depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/search/CMakeFiles/downward.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmake-build-debug/search/CMakeFiles/downward.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/search/CMakeFiles/downward.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmake-build-debug/search/CMakeFiles/downward.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/search/CMakeFiles/downward.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmake-build-debug/search/CMakeFiles/downward.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/search/CMakeFiles/libcudd.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmake-build-debug/search/CMakeFiles/libcudd.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/search/CMakeFiles/libcudd.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmake-build-debug/search/CMakeFiles/libcudd.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmake-build-debug/search/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmake-build-debug/search/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/search/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/search/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/search/DownwardFiles.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/search/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/search/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/search/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/search/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/search/search_algorithms/astar_search.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/search/search_algorithms/astar_search.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search/closed_list.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/search/closed_list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search/closed_lists/bdd_closed_list.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/search/closed_lists/bdd_closed_list.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search/closed_lists/bdd_closed_list.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/search/closed_lists/bdd_closed_list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search/closed_lists/loes_closed_list.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/search/closed_lists/loes_closed_list.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search/closed_lists/loes_closed_list.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/search/closed_lists/loes_closed_list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search/closed_lists/treedbs_closed_list.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/search/closed_lists/treedbs_closed_list.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search/closed_lists/treedbs_closed_list.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/search/closed_lists/treedbs_closed_list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search/state_id.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/search/state_id.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search/utils/treedbs.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/search/utils/treedbs.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search/utils/treedbs.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/search/utils/treedbs.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search/utils/treedbs/MurmurHash3.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search/utils/treedbs/MurmurHash3.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search/utils/treedbs/fast_hash.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search/utils/treedbs/fast_hash.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search/utils/treedbs/treedbs.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/search/utils/treedbs/treedbs.h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,20 +94,28 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/search/closed_list.cc" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/search/closed_lists/loes_closed_list.cc" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/search/closed_lists/treedbs_closed_list.cc" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/search/closed_lists/treedbs_closed_list.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/search/loes/cloes.cc" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/search/loes/cloes.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/search/open_state_registry.cc" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/search/state_id.cc" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/search/state_id.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/search/state_id.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/search/state_registry.cc" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/search/state_registry.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/search/task_proxy.cc" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/search/task_proxy.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/search/utils/stable_index_hash_map.cc" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/search/utils/treedbs.cc" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/search/utils/treedbs.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/search/utils/treedbs/treedbs.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
@@ -106,6 +134,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "CMake Application.downward.executor": "Profiler",
+    "CMake Application.treedbs-downward.executor": "Profiler",
+    "CMake Application.vector-downward.executor": "Profiler",
     "RunOnceActivity.RadMigrateCodeStyle": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
@@ -122,7 +153,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "copyright",
+    "settings.editor.selected.configurable": "CMakeSettings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -131,13 +162,11 @@
       <recent name="$PROJECT_DIR$/src/search/search_algorithms" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake Application.preprocess-h2">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
+  <component name="RunManager" selected="CMake Application.treedbs-downward">
+    <configuration name="treedbs-downward" type="CMakeListConfigurationType" factoryName="CMakeListConfigurationFactory">
+      <method v="2" />
     </configuration>
-    <configuration name="downward" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fast-downward" TARGET_NAME="downward" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="fast-downward" RUN_TARGET_NAME="downward">
+    <configuration name="downward" type="CMakeRunConfiguration" factoryName="Application" folderName="downward" PROGRAM_PARAMS="--search astar(ff(cache_estimates=false)) --internal-plan-file sas_plan" REDIRECT_INPUT="true" REDIRECT_INPUT_PATH="$PROJECT_DIR$/test-output.sas" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fast-downward" TARGET_NAME="downward" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="fast-downward" RUN_TARGET_NAME="downward">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -157,11 +186,24 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="treedbs-downward" type="CMakeRunConfiguration" factoryName="Application" folderName="downward" PROGRAM_PARAMS="--search astarmod(ff(cache_estimates=false),treedbs()) --internal-plan-file sas_plan" REDIRECT_INPUT="true" REDIRECT_INPUT_PATH="$PROJECT_DIR$/test1-output.sas" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fast-downward" TARGET_NAME="downward" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="fast-downward" RUN_TARGET_NAME="downward">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="vector-downward" type="CMakeRunConfiguration" factoryName="Application" folderName="downward" PROGRAM_PARAMS="--search astarmod(ff(cache_estimates=false),vector()) --internal-plan-file sas_plan" REDIRECT_INPUT="true" REDIRECT_INPUT_PATH="$PROJECT_DIR$/test1-output.sas" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fast-downward" TARGET_NAME="downward" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="fast-downward" RUN_TARGET_NAME="downward">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="CMake Application.translate" />
-      <item itemvalue="CMake Application.preprocess-h2" />
       <item itemvalue="CMake Application.downward" />
+      <item itemvalue="CMake Application.treedbs-downward" />
+      <item itemvalue="CMake Application.vector-downward" />
       <item itemvalue="CMake Application.libcudd" />
+      <item itemvalue="CMake Application.preprocess-h2" />
+      <item itemvalue="CMake Application.translate" />
+      <item itemvalue="CMake Debug.treedbs-downward" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -185,7 +227,19 @@
       <workItem from="1742825465930" duration="2809000" />
       <workItem from="1742903022905" duration="4476000" />
       <workItem from="1742986827934" duration="8365000" />
-      <workItem from="1743068820535" duration="13183000" />
+      <workItem from="1743068820535" duration="14627000" />
+      <workItem from="1743152470971" duration="5418000" />
+      <workItem from="1743158222349" duration="1718000" />
+      <workItem from="1743160344396" duration="5844000" />
+      <workItem from="1743166462033" duration="7606000" />
+      <workItem from="1743413552030" duration="5109000" />
+      <workItem from="1743502197226" duration="17801000" />
+      <workItem from="1743521923768" duration="11546000" />
+      <workItem from="1743592040058" duration="2936000" />
+      <workItem from="1743595283079" duration="5359000" />
+      <workItem from="1743608097273" duration="9000" />
+      <workItem from="1744184569235" duration="19483000" />
+      <workItem from="1744206576272" duration="6260000" />
     </task>
     <servers />
   </component>
@@ -203,37 +257,36 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/search/task_proxy.cc</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/search/search_engines/plugin_astar.cc</url>
-          <line>5</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/search/search_engines/plugin_astar.cc</url>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/search/closed_list.cc</url>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/search/symbolic/opt_order.h</url>
+        <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/search/utils/stable_index_hash_map.h</url>
           <line>3</line>
-          <option name="timeStamp" value="6" />
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/search/closed_lists/bdd_closed_list.cc</url>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+        <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/search/state_registry.cc</url>
-          <option name="timeStamp" value="11" />
+          <line>70</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/search/closed_lists/treedbs_closed_list.cc</url>
+          <line>12</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/search/closed_lists/treedbs_closed_list.cc</url>
+          <line>14</line>
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="CidrExceptionBreakpoint" />
+      </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="std::distance(_values-&gt;begin(), it)" language="C++" />
+        <watch expression="values.size()" language="C++" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

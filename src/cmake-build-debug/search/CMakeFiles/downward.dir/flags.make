@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/workbox/Projects/state-compression-scorpion/src/search/ext -isystem /home/workbox/Projects/state-compression-scorpion/src/search/sdac_parser/boost_dependencies -isystem /home/workbox/Projects/state-compression-scorpion/src/search/../dd_libs/cudd-3.0.0/cudd -isystem /home/workbox/Projects/state-compression-scorpion/src/search/../dd_libs/cudd-3.0.0/cplusplus -isystem /home/workbox/Projects/state-compression-scorpion/src/search/../dd_libs/cudd-3.0.0/mtr
+CXX_INCLUDES = -I/home/workbox/Projects/state-compression-scorpion/src/search/ext -isystem /home/workbox/Projects/state-compression-scorpion/src/search/ext/cudd-3.0.0/cudd -isystem /home/workbox/Projects/state-compression-scorpion/src/search/ext/cudd-3.0.0/cplusplus -isystem /home/workbox/Projects/state-compression-scorpion/src/search/ext/cudd-3.0.0/mtr
 
 CXX_FLAGS = -g -std=gnu++20 -fdiagnostics-color=always -O3 -g -Wall -Wextra -Wpedantic -Wnon-virtual-dtor -Wfloat-conversion -Wmissing-declarations -Wzero-as-null-pointer-constant
 

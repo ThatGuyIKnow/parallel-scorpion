@@ -1,43 +1,60 @@
-#ifndef C_TREEDBS_H
-#define C_TREEDBS_H
+#ifndef TREEDBS_HPP
+#define TREEDBS_HPP
 
 #include <vector>
 #include <unordered_map>
 #include <memory>
-#include <stack>
+#include <cstddef>
 #include <utility>
+#include <stack>
+
+
+#include "../algorithms/int_packer.h"
+#include "../algorithms/segmented_vector.h"
+#include "hash.h"
+
+#include "stable_index_hash_map.h"
+
+namespace int_packer {
+    class IntPacker;
+}
+
+using PackedStateBin = int_packer::IntPacker::Bin;
+
 
 namespace utils {
-#include <vector>
-#include <unordered_map>
-#include <memory>
-#include <stack>
 
-    class TreeDBS {
-    public:
-        explicit TreeDBS(size_t entryLength);
-
-        void insert(const std::vector<int>& vec);
-        bool contains(const std::vector<int>& vec) const;
-        size_t size() const;
-        void clear();
-
-    private:
-        struct Node {
-            std::unordered_map<size_t, std::unique_ptr<Node>> children;
-            std::vector<int> data; // Only used in leaf nodes
-            bool isLeaf;
-
-            explicit Node(bool leaf = false) : isLeaf(leaf) {}
-        };
-
-        const size_t entryLength;
-        std::unique_ptr<Node> root;
-        size_t itemCount = 0;
-
-        size_t hashVector(const std::vector<int>& vec) const;
-        std::pair<std::vector<int>, std::vector<int>> splitVector(const std::vector<int>& vec) const;
-        bool validateLength(const std::vector<int>& vec) const;
+class TreeDBS {
+    struct Node {
+        std::unique_ptr<Node> left;
+        std::unique_ptr<Node> right;
+        int level = 0;
+        bool isLeaf = false;
+        StableIndexMap entries;
+        StableIndexMap values;
     };
+
+    std::unique_ptr<Node> root;
+    size_t _size;
+    std::unique_ptr<Node> constructTreeHelper(size_t input_size, int level = 0);
+
+    // Iterative helper functions
+    int putRecursively(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end, const std::unique_ptr<Node>& node);
+    int findRecursively(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end, const std::unique_ptr<Node>& node);
+
+
+    size_t splitRange(size_t start, size_t end) const {
+        auto diff = end - start;
+        return diff / 2 + diff % 2 + start;
+    }
+
+public:
+    explicit TreeDBS(size_t size);
+
+    void insert(const std::vector<int>& vec);
+    bool contains(const std::vector<int>& vec);
+    size_t size() const;
+    void print_info() const;
+};
 }
-#endif // TREEDB_H
+#endif // TREEDBS_HPP

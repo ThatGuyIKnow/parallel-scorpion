@@ -38,7 +38,7 @@ void BddClosedList::add_state(const State &state) {
 }
 
 // TODO: We can probably do this much more efficient by travesing the BDD according to the values
-bool BddClosedList::contains_state(const State &state) const {
+bool BddClosedList::contains_state(const State &state) {
     BDD intersection = closed_list * sym_vars.getStateBDD(state);
     // int *inputs = get_binary_description(state);
     // BDD intersection2 = closed_list.Eval(inputs);

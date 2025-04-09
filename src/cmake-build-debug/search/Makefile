@@ -816,6 +816,54 @@ closed_lists/loes_closed_list.cc.s:
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/closed_lists/loes_closed_list.cc.s
 .PHONY : closed_lists/loes_closed_list.cc.s
 
+closed_lists/treedbs_closed_list.o: closed_lists/treedbs_closed_list.cc.o
+.PHONY : closed_lists/treedbs_closed_list.o
+
+# target to build an object file
+closed_lists/treedbs_closed_list.cc.o:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.o
+.PHONY : closed_lists/treedbs_closed_list.cc.o
+
+closed_lists/treedbs_closed_list.i: closed_lists/treedbs_closed_list.cc.i
+.PHONY : closed_lists/treedbs_closed_list.i
+
+# target to preprocess a source file
+closed_lists/treedbs_closed_list.cc.i:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.i
+.PHONY : closed_lists/treedbs_closed_list.cc.i
+
+closed_lists/treedbs_closed_list.s: closed_lists/treedbs_closed_list.cc.s
+.PHONY : closed_lists/treedbs_closed_list.s
+
+# target to generate assembly for a file
+closed_lists/treedbs_closed_list.cc.s:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.s
+.PHONY : closed_lists/treedbs_closed_list.cc.s
+
+closed_lists/vector_closed_list.o: closed_lists/vector_closed_list.cc.o
+.PHONY : closed_lists/vector_closed_list.o
+
+# target to build an object file
+closed_lists/vector_closed_list.cc.o:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.o
+.PHONY : closed_lists/vector_closed_list.cc.o
+
+closed_lists/vector_closed_list.i: closed_lists/vector_closed_list.cc.i
+.PHONY : closed_lists/vector_closed_list.i
+
+# target to preprocess a source file
+closed_lists/vector_closed_list.cc.i:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.i
+.PHONY : closed_lists/vector_closed_list.cc.i
+
+closed_lists/vector_closed_list.s: closed_lists/vector_closed_list.cc.s
+.PHONY : closed_lists/vector_closed_list.s
+
+# target to generate assembly for a file
+closed_lists/vector_closed_list.cc.s:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.s
+.PHONY : closed_lists/vector_closed_list.cc.s
+
 command_line.o: command_line.cc.o
 .PHONY : command_line.o
 
@@ -5664,6 +5712,30 @@ search_algorithm.cc.s:
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/search_algorithm.cc.s
 .PHONY : search_algorithm.cc.s
 
+search_algorithms/astar_search.o: search_algorithms/astar_search.cc.o
+.PHONY : search_algorithms/astar_search.o
+
+# target to build an object file
+search_algorithms/astar_search.cc.o:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/search_algorithms/astar_search.cc.o
+.PHONY : search_algorithms/astar_search.cc.o
+
+search_algorithms/astar_search.i: search_algorithms/astar_search.cc.i
+.PHONY : search_algorithms/astar_search.i
+
+# target to preprocess a source file
+search_algorithms/astar_search.cc.i:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/search_algorithms/astar_search.cc.i
+.PHONY : search_algorithms/astar_search.cc.i
+
+search_algorithms/astar_search.s: search_algorithms/astar_search.cc.s
+.PHONY : search_algorithms/astar_search.s
+
+# target to generate assembly for a file
+search_algorithms/astar_search.cc.s:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/search_algorithms/astar_search.cc.s
+.PHONY : search_algorithms/astar_search.cc.s
+
 search_algorithms/breadth_first_search.o: search_algorithms/breadth_first_search.cc.o
 .PHONY : search_algorithms/breadth_first_search.o
 
@@ -6096,30 +6168,6 @@ search_algorithms/search_common.cc.s:
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/search_algorithms/search_common.cc.s
 .PHONY : search_algorithms/search_common.cc.s
 
-search_engines/astar_search.o: search_engines/astar_search.cc.o
-.PHONY : search_engines/astar_search.o
-
-# target to build an object file
-search_engines/astar_search.cc.o:
-	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/search_engines/astar_search.cc.o
-.PHONY : search_engines/astar_search.cc.o
-
-search_engines/astar_search.i: search_engines/astar_search.cc.i
-.PHONY : search_engines/astar_search.i
-
-# target to preprocess a source file
-search_engines/astar_search.cc.i:
-	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/search_engines/astar_search.cc.i
-.PHONY : search_engines/astar_search.cc.i
-
-search_engines/astar_search.s: search_engines/astar_search.cc.s
-.PHONY : search_engines/astar_search.s
-
-# target to generate assembly for a file
-search_engines/astar_search.cc.s:
-	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/search_engines/astar_search.cc.s
-.PHONY : search_engines/astar_search.cc.s
-
 search_node_info.o: search_node_info.cc.o
 .PHONY : search_node_info.o
 
@@ -6263,6 +6311,102 @@ state_registry.s: state_registry.cc.s
 state_registry.cc.s:
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/state_registry.cc.s
 .PHONY : state_registry.cc.s
+
+symbolic/opt_order.o: symbolic/opt_order.cc.o
+.PHONY : symbolic/opt_order.o
+
+# target to build an object file
+symbolic/opt_order.cc.o:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/symbolic/opt_order.cc.o
+.PHONY : symbolic/opt_order.cc.o
+
+symbolic/opt_order.i: symbolic/opt_order.cc.i
+.PHONY : symbolic/opt_order.i
+
+# target to preprocess a source file
+symbolic/opt_order.cc.i:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/symbolic/opt_order.cc.i
+.PHONY : symbolic/opt_order.cc.i
+
+symbolic/opt_order.s: symbolic/opt_order.cc.s
+.PHONY : symbolic/opt_order.s
+
+# target to generate assembly for a file
+symbolic/opt_order.cc.s:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/symbolic/opt_order.cc.s
+.PHONY : symbolic/opt_order.cc.s
+
+symbolic/sym_axiom/sym_axiom_compilation.o: symbolic/sym_axiom/sym_axiom_compilation.cc.o
+.PHONY : symbolic/sym_axiom/sym_axiom_compilation.o
+
+# target to build an object file
+symbolic/sym_axiom/sym_axiom_compilation.cc.o:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/symbolic/sym_axiom/sym_axiom_compilation.cc.o
+.PHONY : symbolic/sym_axiom/sym_axiom_compilation.cc.o
+
+symbolic/sym_axiom/sym_axiom_compilation.i: symbolic/sym_axiom/sym_axiom_compilation.cc.i
+.PHONY : symbolic/sym_axiom/sym_axiom_compilation.i
+
+# target to preprocess a source file
+symbolic/sym_axiom/sym_axiom_compilation.cc.i:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/symbolic/sym_axiom/sym_axiom_compilation.cc.i
+.PHONY : symbolic/sym_axiom/sym_axiom_compilation.cc.i
+
+symbolic/sym_axiom/sym_axiom_compilation.s: symbolic/sym_axiom/sym_axiom_compilation.cc.s
+.PHONY : symbolic/sym_axiom/sym_axiom_compilation.s
+
+# target to generate assembly for a file
+symbolic/sym_axiom/sym_axiom_compilation.cc.s:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/symbolic/sym_axiom/sym_axiom_compilation.cc.s
+.PHONY : symbolic/sym_axiom/sym_axiom_compilation.cc.s
+
+symbolic/sym_bucket.o: symbolic/sym_bucket.cc.o
+.PHONY : symbolic/sym_bucket.o
+
+# target to build an object file
+symbolic/sym_bucket.cc.o:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/symbolic/sym_bucket.cc.o
+.PHONY : symbolic/sym_bucket.cc.o
+
+symbolic/sym_bucket.i: symbolic/sym_bucket.cc.i
+.PHONY : symbolic/sym_bucket.i
+
+# target to preprocess a source file
+symbolic/sym_bucket.cc.i:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/symbolic/sym_bucket.cc.i
+.PHONY : symbolic/sym_bucket.cc.i
+
+symbolic/sym_bucket.s: symbolic/sym_bucket.cc.s
+.PHONY : symbolic/sym_bucket.s
+
+# target to generate assembly for a file
+symbolic/sym_bucket.cc.s:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/symbolic/sym_bucket.cc.s
+.PHONY : symbolic/sym_bucket.cc.s
+
+symbolic/sym_variables.o: symbolic/sym_variables.cc.o
+.PHONY : symbolic/sym_variables.o
+
+# target to build an object file
+symbolic/sym_variables.cc.o:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/symbolic/sym_variables.cc.o
+.PHONY : symbolic/sym_variables.cc.o
+
+symbolic/sym_variables.i: symbolic/sym_variables.cc.i
+.PHONY : symbolic/sym_variables.i
+
+# target to preprocess a source file
+symbolic/sym_variables.cc.i:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/symbolic/sym_variables.cc.i
+.PHONY : symbolic/sym_variables.cc.i
+
+symbolic/sym_variables.s: symbolic/sym_variables.cc.s
+.PHONY : symbolic/sym_variables.s
+
+# target to generate assembly for a file
+symbolic/sym_variables.cc.s:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/symbolic/sym_variables.cc.s
+.PHONY : symbolic/sym_variables.cc.s
 
 task_proxy.o: task_proxy.cc.o
 .PHONY : task_proxy.o
@@ -6912,6 +7056,30 @@ utils/rng_options.cc.s:
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/utils/rng_options.cc.s
 .PHONY : utils/rng_options.cc.s
 
+utils/stable_index_hash_map.o: utils/stable_index_hash_map.cc.o
+.PHONY : utils/stable_index_hash_map.o
+
+# target to build an object file
+utils/stable_index_hash_map.cc.o:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/utils/stable_index_hash_map.cc.o
+.PHONY : utils/stable_index_hash_map.cc.o
+
+utils/stable_index_hash_map.i: utils/stable_index_hash_map.cc.i
+.PHONY : utils/stable_index_hash_map.i
+
+# target to preprocess a source file
+utils/stable_index_hash_map.cc.i:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/utils/stable_index_hash_map.cc.i
+.PHONY : utils/stable_index_hash_map.cc.i
+
+utils/stable_index_hash_map.s: utils/stable_index_hash_map.cc.s
+.PHONY : utils/stable_index_hash_map.s
+
+# target to generate assembly for a file
+utils/stable_index_hash_map.cc.s:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/utils/stable_index_hash_map.cc.s
+.PHONY : utils/stable_index_hash_map.cc.s
+
 utils/strings.o: utils/strings.cc.o
 .PHONY : utils/strings.o
 
@@ -7032,6 +7200,30 @@ utils/timer.cc.s:
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/utils/timer.cc.s
 .PHONY : utils/timer.cc.s
 
+utils/treedbs.o: utils/treedbs.cc.o
+.PHONY : utils/treedbs.o
+
+# target to build an object file
+utils/treedbs.cc.o:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/utils/treedbs.cc.o
+.PHONY : utils/treedbs.cc.o
+
+utils/treedbs.i: utils/treedbs.cc.i
+.PHONY : utils/treedbs.i
+
+# target to preprocess a source file
+utils/treedbs.cc.i:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/utils/treedbs.cc.i
+.PHONY : utils/treedbs.cc.i
+
+utils/treedbs.s: utils/treedbs.cc.s
+.PHONY : utils/treedbs.s
+
+# target to generate assembly for a file
+utils/treedbs.cc.s:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/utils/treedbs.cc.s
+.PHONY : utils/treedbs.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -7126,6 +7318,12 @@ help:
 	@echo "... closed_lists/loes_closed_list.o"
 	@echo "... closed_lists/loes_closed_list.i"
 	@echo "... closed_lists/loes_closed_list.s"
+	@echo "... closed_lists/treedbs_closed_list.o"
+	@echo "... closed_lists/treedbs_closed_list.i"
+	@echo "... closed_lists/treedbs_closed_list.s"
+	@echo "... closed_lists/vector_closed_list.o"
+	@echo "... closed_lists/vector_closed_list.i"
+	@echo "... closed_lists/vector_closed_list.s"
 	@echo "... command_line.o"
 	@echo "... command_line.i"
 	@echo "... command_line.s"
@@ -7732,6 +7930,9 @@ help:
 	@echo "... search_algorithm.o"
 	@echo "... search_algorithm.i"
 	@echo "... search_algorithm.s"
+	@echo "... search_algorithms/astar_search.o"
+	@echo "... search_algorithms/astar_search.i"
+	@echo "... search_algorithms/astar_search.s"
 	@echo "... search_algorithms/breadth_first_search.o"
 	@echo "... search_algorithms/breadth_first_search.i"
 	@echo "... search_algorithms/breadth_first_search.s"
@@ -7786,9 +7987,6 @@ help:
 	@echo "... search_algorithms/search_common.o"
 	@echo "... search_algorithms/search_common.i"
 	@echo "... search_algorithms/search_common.s"
-	@echo "... search_engines/astar_search.o"
-	@echo "... search_engines/astar_search.i"
-	@echo "... search_engines/astar_search.s"
 	@echo "... search_node_info.o"
 	@echo "... search_node_info.i"
 	@echo "... search_node_info.s"
@@ -7807,6 +8005,18 @@ help:
 	@echo "... state_registry.o"
 	@echo "... state_registry.i"
 	@echo "... state_registry.s"
+	@echo "... symbolic/opt_order.o"
+	@echo "... symbolic/opt_order.i"
+	@echo "... symbolic/opt_order.s"
+	@echo "... symbolic/sym_axiom/sym_axiom_compilation.o"
+	@echo "... symbolic/sym_axiom/sym_axiom_compilation.i"
+	@echo "... symbolic/sym_axiom/sym_axiom_compilation.s"
+	@echo "... symbolic/sym_bucket.o"
+	@echo "... symbolic/sym_bucket.i"
+	@echo "... symbolic/sym_bucket.s"
+	@echo "... symbolic/sym_variables.o"
+	@echo "... symbolic/sym_variables.i"
+	@echo "... symbolic/sym_variables.s"
 	@echo "... task_proxy.o"
 	@echo "... task_proxy.i"
 	@echo "... task_proxy.s"
@@ -7888,6 +8098,9 @@ help:
 	@echo "... utils/rng_options.o"
 	@echo "... utils/rng_options.i"
 	@echo "... utils/rng_options.s"
+	@echo "... utils/stable_index_hash_map.o"
+	@echo "... utils/stable_index_hash_map.i"
+	@echo "... utils/stable_index_hash_map.s"
 	@echo "... utils/strings.o"
 	@echo "... utils/strings.i"
 	@echo "... utils/strings.s"
@@ -7903,6 +8116,9 @@ help:
 	@echo "... utils/timer.o"
 	@echo "... utils/timer.i"
 	@echo "... utils/timer.s"
+	@echo "... utils/treedbs.o"
+	@echo "... utils/treedbs.i"
+	@echo "... utils/treedbs.s"
 .PHONY : help
 
 

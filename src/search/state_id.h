@@ -11,7 +11,11 @@ class BreadthFirstSearch;
 }
 
 namespace exhaustive_search {
-class ExhaustiveSearch;
+    class ExhaustiveSearch;
+}
+
+namespace vector_closed_list {
+    class VectorClosedList;
 }
 
 class StateID {
@@ -19,6 +23,7 @@ class StateID {
     friend class exhaustive_search::ExhaustiveSearch;
     friend class StateRegistry;
     friend class OpenStateRegistry;
+    friend class VectorClosedList;
     friend std::ostream &operator<<(std::ostream &os, StateID id);
     template<typename>
     friend class PerStateInformation;

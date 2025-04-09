@@ -147,6 +147,7 @@ create_fast_downward_library(
     HELP "Closed lists"
     SOURCES
         closed_list
+        closed_lists/vector_closed_list
         closed_lists/bdd_closed_list
         closed_lists/loes_closed_list
         closed_lists/treedbs_closed_list
@@ -219,10 +220,8 @@ create_fast_downward_library(
         NAME treedbs
         HELP "Tree Databases"
         SOURCES
+            utils/stable_index_hash_map
             utils/treedbs
-            utils/treedbs/treedbs
-            utils/treedbs/fast_hash
-            utils/treedbs/MurmurHash3
         CORE_LIBRARY
 )
 

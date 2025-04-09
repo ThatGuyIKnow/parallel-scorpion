@@ -10,7 +10,7 @@ class ClosedList {
 public:
     virtual ~ClosedList() {}
     virtual void add_state(const State &state) = 0;
-    virtual bool contains_state(const State &state) const = 0;
+    virtual bool contains_state(const State &state) = 0;
     virtual void print() const = 0;
 
     static void add_options_to_parser(plugins::Feature &feature);

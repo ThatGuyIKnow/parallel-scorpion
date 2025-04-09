@@ -12,3 +12,4 @@ __pycache__/
 .idea/workspace.xml
 /src/search/cmake-build-debug
 /src/cmake-build-debug
+/src/cmake-build-debug

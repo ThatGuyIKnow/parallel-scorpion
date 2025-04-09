@@ -587,10 +587,66 @@ search/CMakeFiles/downward.dir/plugins/types.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/downward.dir/plugins/types.cc.s"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workbox/Projects/state-compression-scorpion/src/search/plugins/types.cc -o CMakeFiles/downward.dir/plugins/types.cc.s
 
+search/CMakeFiles/downward.dir/symbolic/opt_order.cc.o: search/CMakeFiles/downward.dir/flags.make
+search/CMakeFiles/downward.dir/symbolic/opt_order.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/symbolic/opt_order.cc
+search/CMakeFiles/downward.dir/symbolic/opt_order.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object search/CMakeFiles/downward.dir/symbolic/opt_order.cc.o"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/symbolic/opt_order.cc.o -MF CMakeFiles/downward.dir/symbolic/opt_order.cc.o.d -o CMakeFiles/downward.dir/symbolic/opt_order.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/symbolic/opt_order.cc
+
+search/CMakeFiles/downward.dir/symbolic/opt_order.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/downward.dir/symbolic/opt_order.cc.i"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/workbox/Projects/state-compression-scorpion/src/search/symbolic/opt_order.cc > CMakeFiles/downward.dir/symbolic/opt_order.cc.i
+
+search/CMakeFiles/downward.dir/symbolic/opt_order.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/downward.dir/symbolic/opt_order.cc.s"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workbox/Projects/state-compression-scorpion/src/search/symbolic/opt_order.cc -o CMakeFiles/downward.dir/symbolic/opt_order.cc.s
+
+search/CMakeFiles/downward.dir/symbolic/sym_axiom/sym_axiom_compilation.cc.o: search/CMakeFiles/downward.dir/flags.make
+search/CMakeFiles/downward.dir/symbolic/sym_axiom/sym_axiom_compilation.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/symbolic/sym_axiom/sym_axiom_compilation.cc
+search/CMakeFiles/downward.dir/symbolic/sym_axiom/sym_axiom_compilation.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object search/CMakeFiles/downward.dir/symbolic/sym_axiom/sym_axiom_compilation.cc.o"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/symbolic/sym_axiom/sym_axiom_compilation.cc.o -MF CMakeFiles/downward.dir/symbolic/sym_axiom/sym_axiom_compilation.cc.o.d -o CMakeFiles/downward.dir/symbolic/sym_axiom/sym_axiom_compilation.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/symbolic/sym_axiom/sym_axiom_compilation.cc
+
+search/CMakeFiles/downward.dir/symbolic/sym_axiom/sym_axiom_compilation.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/downward.dir/symbolic/sym_axiom/sym_axiom_compilation.cc.i"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/workbox/Projects/state-compression-scorpion/src/search/symbolic/sym_axiom/sym_axiom_compilation.cc > CMakeFiles/downward.dir/symbolic/sym_axiom/sym_axiom_compilation.cc.i
+
+search/CMakeFiles/downward.dir/symbolic/sym_axiom/sym_axiom_compilation.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/downward.dir/symbolic/sym_axiom/sym_axiom_compilation.cc.s"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workbox/Projects/state-compression-scorpion/src/search/symbolic/sym_axiom/sym_axiom_compilation.cc -o CMakeFiles/downward.dir/symbolic/sym_axiom/sym_axiom_compilation.cc.s
+
+search/CMakeFiles/downward.dir/symbolic/sym_bucket.cc.o: search/CMakeFiles/downward.dir/flags.make
+search/CMakeFiles/downward.dir/symbolic/sym_bucket.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/symbolic/sym_bucket.cc
+search/CMakeFiles/downward.dir/symbolic/sym_bucket.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object search/CMakeFiles/downward.dir/symbolic/sym_bucket.cc.o"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/symbolic/sym_bucket.cc.o -MF CMakeFiles/downward.dir/symbolic/sym_bucket.cc.o.d -o CMakeFiles/downward.dir/symbolic/sym_bucket.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/symbolic/sym_bucket.cc
+
+search/CMakeFiles/downward.dir/symbolic/sym_bucket.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/downward.dir/symbolic/sym_bucket.cc.i"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/workbox/Projects/state-compression-scorpion/src/search/symbolic/sym_bucket.cc > CMakeFiles/downward.dir/symbolic/sym_bucket.cc.i
+
+search/CMakeFiles/downward.dir/symbolic/sym_bucket.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/downward.dir/symbolic/sym_bucket.cc.s"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workbox/Projects/state-compression-scorpion/src/search/symbolic/sym_bucket.cc -o CMakeFiles/downward.dir/symbolic/sym_bucket.cc.s
+
+search/CMakeFiles/downward.dir/symbolic/sym_variables.cc.o: search/CMakeFiles/downward.dir/flags.make
+search/CMakeFiles/downward.dir/symbolic/sym_variables.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/symbolic/sym_variables.cc
+search/CMakeFiles/downward.dir/symbolic/sym_variables.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object search/CMakeFiles/downward.dir/symbolic/sym_variables.cc.o"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/symbolic/sym_variables.cc.o -MF CMakeFiles/downward.dir/symbolic/sym_variables.cc.o.d -o CMakeFiles/downward.dir/symbolic/sym_variables.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/symbolic/sym_variables.cc
+
+search/CMakeFiles/downward.dir/symbolic/sym_variables.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/downward.dir/symbolic/sym_variables.cc.i"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/workbox/Projects/state-compression-scorpion/src/search/symbolic/sym_variables.cc > CMakeFiles/downward.dir/symbolic/sym_variables.cc.i
+
+search/CMakeFiles/downward.dir/symbolic/sym_variables.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/downward.dir/symbolic/sym_variables.cc.s"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workbox/Projects/state-compression-scorpion/src/search/symbolic/sym_variables.cc -o CMakeFiles/downward.dir/symbolic/sym_variables.cc.s
+
 search/CMakeFiles/downward.dir/closed_list.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/closed_list.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/closed_list.cc
 search/CMakeFiles/downward.dir/closed_list.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object search/CMakeFiles/downward.dir/closed_list.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object search/CMakeFiles/downward.dir/closed_list.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/closed_list.cc.o -MF CMakeFiles/downward.dir/closed_list.cc.o.d -o CMakeFiles/downward.dir/closed_list.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/closed_list.cc
 
 search/CMakeFiles/downward.dir/closed_list.cc.i: cmake_force
@@ -601,10 +657,24 @@ search/CMakeFiles/downward.dir/closed_list.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/downward.dir/closed_list.cc.s"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workbox/Projects/state-compression-scorpion/src/search/closed_list.cc -o CMakeFiles/downward.dir/closed_list.cc.s
 
+search/CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.o: search/CMakeFiles/downward.dir/flags.make
+search/CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/closed_lists/vector_closed_list.cc
+search/CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object search/CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.o"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.o -MF CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.o.d -o CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/closed_lists/vector_closed_list.cc
+
+search/CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.i"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/workbox/Projects/state-compression-scorpion/src/search/closed_lists/vector_closed_list.cc > CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.i
+
+search/CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.s"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workbox/Projects/state-compression-scorpion/src/search/closed_lists/vector_closed_list.cc -o CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.s
+
 search/CMakeFiles/downward.dir/closed_lists/bdd_closed_list.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/closed_lists/bdd_closed_list.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/closed_lists/bdd_closed_list.cc
 search/CMakeFiles/downward.dir/closed_lists/bdd_closed_list.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object search/CMakeFiles/downward.dir/closed_lists/bdd_closed_list.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object search/CMakeFiles/downward.dir/closed_lists/bdd_closed_list.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/closed_lists/bdd_closed_list.cc.o -MF CMakeFiles/downward.dir/closed_lists/bdd_closed_list.cc.o.d -o CMakeFiles/downward.dir/closed_lists/bdd_closed_list.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/closed_lists/bdd_closed_list.cc
 
 search/CMakeFiles/downward.dir/closed_lists/bdd_closed_list.cc.i: cmake_force
@@ -618,7 +688,7 @@ search/CMakeFiles/downward.dir/closed_lists/bdd_closed_list.cc.s: cmake_force
 search/CMakeFiles/downward.dir/closed_lists/loes_closed_list.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/closed_lists/loes_closed_list.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/closed_lists/loes_closed_list.cc
 search/CMakeFiles/downward.dir/closed_lists/loes_closed_list.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object search/CMakeFiles/downward.dir/closed_lists/loes_closed_list.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object search/CMakeFiles/downward.dir/closed_lists/loes_closed_list.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/closed_lists/loes_closed_list.cc.o -MF CMakeFiles/downward.dir/closed_lists/loes_closed_list.cc.o.d -o CMakeFiles/downward.dir/closed_lists/loes_closed_list.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/closed_lists/loes_closed_list.cc
 
 search/CMakeFiles/downward.dir/closed_lists/loes_closed_list.cc.i: cmake_force
@@ -629,10 +699,24 @@ search/CMakeFiles/downward.dir/closed_lists/loes_closed_list.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/downward.dir/closed_lists/loes_closed_list.cc.s"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workbox/Projects/state-compression-scorpion/src/search/closed_lists/loes_closed_list.cc -o CMakeFiles/downward.dir/closed_lists/loes_closed_list.cc.s
 
+search/CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.o: search/CMakeFiles/downward.dir/flags.make
+search/CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/closed_lists/treedbs_closed_list.cc
+search/CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object search/CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.o"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.o -MF CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.o.d -o CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/closed_lists/treedbs_closed_list.cc
+
+search/CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.i"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/workbox/Projects/state-compression-scorpion/src/search/closed_lists/treedbs_closed_list.cc > CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.i
+
+search/CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.s"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workbox/Projects/state-compression-scorpion/src/search/closed_lists/treedbs_closed_list.cc -o CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.s
+
 search/CMakeFiles/downward.dir/loes/cloes.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/loes/cloes.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/loes/cloes.cc
 search/CMakeFiles/downward.dir/loes/cloes.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object search/CMakeFiles/downward.dir/loes/cloes.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object search/CMakeFiles/downward.dir/loes/cloes.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/loes/cloes.cc.o -MF CMakeFiles/downward.dir/loes/cloes.cc.o.d -o CMakeFiles/downward.dir/loes/cloes.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/loes/cloes.cc
 
 search/CMakeFiles/downward.dir/loes/cloes.cc.i: cmake_force
@@ -646,7 +730,7 @@ search/CMakeFiles/downward.dir/loes/cloes.cc.s: cmake_force
 search/CMakeFiles/downward.dir/loes/loes.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/loes/loes.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/loes/loes.cc
 search/CMakeFiles/downward.dir/loes/loes.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object search/CMakeFiles/downward.dir/loes/loes.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object search/CMakeFiles/downward.dir/loes/loes.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/loes/loes.cc.o -MF CMakeFiles/downward.dir/loes/loes.cc.o.d -o CMakeFiles/downward.dir/loes/loes.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/loes/loes.cc
 
 search/CMakeFiles/downward.dir/loes/loes.cc.i: cmake_force
@@ -660,7 +744,7 @@ search/CMakeFiles/downward.dir/loes/loes.cc.s: cmake_force
 search/CMakeFiles/downward.dir/loes/merge_container.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/loes/merge_container.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/loes/merge_container.cc
 search/CMakeFiles/downward.dir/loes/merge_container.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object search/CMakeFiles/downward.dir/loes/merge_container.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object search/CMakeFiles/downward.dir/loes/merge_container.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/loes/merge_container.cc.o -MF CMakeFiles/downward.dir/loes/merge_container.cc.o.d -o CMakeFiles/downward.dir/loes/merge_container.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/loes/merge_container.cc
 
 search/CMakeFiles/downward.dir/loes/merge_container.cc.i: cmake_force
@@ -671,24 +755,24 @@ search/CMakeFiles/downward.dir/loes/merge_container.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/downward.dir/loes/merge_container.cc.s"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workbox/Projects/state-compression-scorpion/src/search/loes/merge_container.cc -o CMakeFiles/downward.dir/loes/merge_container.cc.s
 
-search/CMakeFiles/downward.dir/search_engines/astar_search.cc.o: search/CMakeFiles/downward.dir/flags.make
-search/CMakeFiles/downward.dir/search_engines/astar_search.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_engines/astar_search.cc
-search/CMakeFiles/downward.dir/search_engines/astar_search.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object search/CMakeFiles/downward.dir/search_engines/astar_search.cc.o"
-	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_engines/astar_search.cc.o -MF CMakeFiles/downward.dir/search_engines/astar_search.cc.o.d -o CMakeFiles/downward.dir/search_engines/astar_search.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_engines/astar_search.cc
+search/CMakeFiles/downward.dir/search_algorithms/astar_search.cc.o: search/CMakeFiles/downward.dir/flags.make
+search/CMakeFiles/downward.dir/search_algorithms/astar_search.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/astar_search.cc
+search/CMakeFiles/downward.dir/search_algorithms/astar_search.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/astar_search.cc.o"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/astar_search.cc.o -MF CMakeFiles/downward.dir/search_algorithms/astar_search.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/astar_search.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/astar_search.cc
 
-search/CMakeFiles/downward.dir/search_engines/astar_search.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/downward.dir/search_engines/astar_search.cc.i"
-	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/workbox/Projects/state-compression-scorpion/src/search/search_engines/astar_search.cc > CMakeFiles/downward.dir/search_engines/astar_search.cc.i
+search/CMakeFiles/downward.dir/search_algorithms/astar_search.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/downward.dir/search_algorithms/astar_search.cc.i"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/astar_search.cc > CMakeFiles/downward.dir/search_algorithms/astar_search.cc.i
 
-search/CMakeFiles/downward.dir/search_engines/astar_search.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/downward.dir/search_engines/astar_search.cc.s"
-	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workbox/Projects/state-compression-scorpion/src/search/search_engines/astar_search.cc -o CMakeFiles/downward.dir/search_engines/astar_search.cc.s
+search/CMakeFiles/downward.dir/search_algorithms/astar_search.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/downward.dir/search_algorithms/astar_search.cc.s"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/astar_search.cc -o CMakeFiles/downward.dir/search_algorithms/astar_search.cc.s
 
 search/CMakeFiles/downward.dir/search_algorithms/search_common.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_algorithms/search_common.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/search_common.cc
 search/CMakeFiles/downward.dir/search_algorithms/search_common.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/search_common.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/search_common.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/search_common.cc.o -MF CMakeFiles/downward.dir/search_algorithms/search_common.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/search_common.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/search_common.cc
 
 search/CMakeFiles/downward.dir/search_algorithms/search_common.cc.i: cmake_force
@@ -702,7 +786,7 @@ search/CMakeFiles/downward.dir/search_algorithms/search_common.cc.s: cmake_force
 search/CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/open_lists/alternation_open_list.cc
 search/CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object search/CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object search/CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.o -MF CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.o.d -o CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/open_lists/alternation_open_list.cc
 
 search/CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.i: cmake_force
@@ -716,7 +800,7 @@ search/CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.s: cmake_forc
 search/CMakeFiles/downward.dir/evaluators/g_evaluator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluators/g_evaluator.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/evaluators/g_evaluator.cc
 search/CMakeFiles/downward.dir/evaluators/g_evaluator.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object search/CMakeFiles/downward.dir/evaluators/g_evaluator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object search/CMakeFiles/downward.dir/evaluators/g_evaluator.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/evaluators/g_evaluator.cc.o -MF CMakeFiles/downward.dir/evaluators/g_evaluator.cc.o.d -o CMakeFiles/downward.dir/evaluators/g_evaluator.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/evaluators/g_evaluator.cc
 
 search/CMakeFiles/downward.dir/evaluators/g_evaluator.cc.i: cmake_force
@@ -730,7 +814,7 @@ search/CMakeFiles/downward.dir/evaluators/g_evaluator.cc.s: cmake_force
 search/CMakeFiles/downward.dir/evaluators/subcategory.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluators/subcategory.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/evaluators/subcategory.cc
 search/CMakeFiles/downward.dir/evaluators/subcategory.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object search/CMakeFiles/downward.dir/evaluators/subcategory.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object search/CMakeFiles/downward.dir/evaluators/subcategory.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/evaluators/subcategory.cc.o -MF CMakeFiles/downward.dir/evaluators/subcategory.cc.o.d -o CMakeFiles/downward.dir/evaluators/subcategory.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/evaluators/subcategory.cc
 
 search/CMakeFiles/downward.dir/evaluators/subcategory.cc.i: cmake_force
@@ -744,7 +828,7 @@ search/CMakeFiles/downward.dir/evaluators/subcategory.cc.s: cmake_force
 search/CMakeFiles/downward.dir/open_lists/best_first_open_list.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/open_lists/best_first_open_list.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/open_lists/best_first_open_list.cc
 search/CMakeFiles/downward.dir/open_lists/best_first_open_list.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object search/CMakeFiles/downward.dir/open_lists/best_first_open_list.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object search/CMakeFiles/downward.dir/open_lists/best_first_open_list.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/open_lists/best_first_open_list.cc.o -MF CMakeFiles/downward.dir/open_lists/best_first_open_list.cc.o.d -o CMakeFiles/downward.dir/open_lists/best_first_open_list.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/open_lists/best_first_open_list.cc
 
 search/CMakeFiles/downward.dir/open_lists/best_first_open_list.cc.i: cmake_force
@@ -758,7 +842,7 @@ search/CMakeFiles/downward.dir/open_lists/best_first_open_list.cc.s: cmake_force
 search/CMakeFiles/downward.dir/evaluators/sum_evaluator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluators/sum_evaluator.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/evaluators/sum_evaluator.cc
 search/CMakeFiles/downward.dir/evaluators/sum_evaluator.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object search/CMakeFiles/downward.dir/evaluators/sum_evaluator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object search/CMakeFiles/downward.dir/evaluators/sum_evaluator.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/evaluators/sum_evaluator.cc.o -MF CMakeFiles/downward.dir/evaluators/sum_evaluator.cc.o.d -o CMakeFiles/downward.dir/evaluators/sum_evaluator.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/evaluators/sum_evaluator.cc
 
 search/CMakeFiles/downward.dir/evaluators/sum_evaluator.cc.i: cmake_force
@@ -772,7 +856,7 @@ search/CMakeFiles/downward.dir/evaluators/sum_evaluator.cc.s: cmake_force
 search/CMakeFiles/downward.dir/evaluators/combining_evaluator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluators/combining_evaluator.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/evaluators/combining_evaluator.cc
 search/CMakeFiles/downward.dir/evaluators/combining_evaluator.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object search/CMakeFiles/downward.dir/evaluators/combining_evaluator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object search/CMakeFiles/downward.dir/evaluators/combining_evaluator.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/evaluators/combining_evaluator.cc.o -MF CMakeFiles/downward.dir/evaluators/combining_evaluator.cc.o.d -o CMakeFiles/downward.dir/evaluators/combining_evaluator.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/evaluators/combining_evaluator.cc
 
 search/CMakeFiles/downward.dir/evaluators/combining_evaluator.cc.i: cmake_force
@@ -786,7 +870,7 @@ search/CMakeFiles/downward.dir/evaluators/combining_evaluator.cc.s: cmake_force
 search/CMakeFiles/downward.dir/open_lists/tiebreaking_open_list.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/open_lists/tiebreaking_open_list.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/open_lists/tiebreaking_open_list.cc
 search/CMakeFiles/downward.dir/open_lists/tiebreaking_open_list.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object search/CMakeFiles/downward.dir/open_lists/tiebreaking_open_list.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object search/CMakeFiles/downward.dir/open_lists/tiebreaking_open_list.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/open_lists/tiebreaking_open_list.cc.o -MF CMakeFiles/downward.dir/open_lists/tiebreaking_open_list.cc.o.d -o CMakeFiles/downward.dir/open_lists/tiebreaking_open_list.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/open_lists/tiebreaking_open_list.cc
 
 search/CMakeFiles/downward.dir/open_lists/tiebreaking_open_list.cc.i: cmake_force
@@ -800,7 +884,7 @@ search/CMakeFiles/downward.dir/open_lists/tiebreaking_open_list.cc.s: cmake_forc
 search/CMakeFiles/downward.dir/evaluators/weighted_evaluator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluators/weighted_evaluator.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/evaluators/weighted_evaluator.cc
 search/CMakeFiles/downward.dir/evaluators/weighted_evaluator.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object search/CMakeFiles/downward.dir/evaluators/weighted_evaluator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object search/CMakeFiles/downward.dir/evaluators/weighted_evaluator.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/evaluators/weighted_evaluator.cc.o -MF CMakeFiles/downward.dir/evaluators/weighted_evaluator.cc.o.d -o CMakeFiles/downward.dir/evaluators/weighted_evaluator.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/evaluators/weighted_evaluator.cc
 
 search/CMakeFiles/downward.dir/evaluators/weighted_evaluator.cc.i: cmake_force
@@ -814,7 +898,7 @@ search/CMakeFiles/downward.dir/evaluators/weighted_evaluator.cc.s: cmake_force
 search/CMakeFiles/downward.dir/open_state_registry.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/open_state_registry.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/open_state_registry.cc
 search/CMakeFiles/downward.dir/open_state_registry.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object search/CMakeFiles/downward.dir/open_state_registry.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object search/CMakeFiles/downward.dir/open_state_registry.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/open_state_registry.cc.o -MF CMakeFiles/downward.dir/open_state_registry.cc.o.d -o CMakeFiles/downward.dir/open_state_registry.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/open_state_registry.cc
 
 search/CMakeFiles/downward.dir/open_state_registry.cc.i: cmake_force
@@ -828,7 +912,7 @@ search/CMakeFiles/downward.dir/open_state_registry.cc.s: cmake_force
 search/CMakeFiles/downward.dir/parser/abstract_syntax_tree.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/parser/abstract_syntax_tree.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/parser/abstract_syntax_tree.cc
 search/CMakeFiles/downward.dir/parser/abstract_syntax_tree.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object search/CMakeFiles/downward.dir/parser/abstract_syntax_tree.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object search/CMakeFiles/downward.dir/parser/abstract_syntax_tree.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/parser/abstract_syntax_tree.cc.o -MF CMakeFiles/downward.dir/parser/abstract_syntax_tree.cc.o.d -o CMakeFiles/downward.dir/parser/abstract_syntax_tree.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/parser/abstract_syntax_tree.cc
 
 search/CMakeFiles/downward.dir/parser/abstract_syntax_tree.cc.i: cmake_force
@@ -842,7 +926,7 @@ search/CMakeFiles/downward.dir/parser/abstract_syntax_tree.cc.s: cmake_force
 search/CMakeFiles/downward.dir/parser/decorated_abstract_syntax_tree.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/parser/decorated_abstract_syntax_tree.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/parser/decorated_abstract_syntax_tree.cc
 search/CMakeFiles/downward.dir/parser/decorated_abstract_syntax_tree.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object search/CMakeFiles/downward.dir/parser/decorated_abstract_syntax_tree.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object search/CMakeFiles/downward.dir/parser/decorated_abstract_syntax_tree.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/parser/decorated_abstract_syntax_tree.cc.o -MF CMakeFiles/downward.dir/parser/decorated_abstract_syntax_tree.cc.o.d -o CMakeFiles/downward.dir/parser/decorated_abstract_syntax_tree.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/parser/decorated_abstract_syntax_tree.cc
 
 search/CMakeFiles/downward.dir/parser/decorated_abstract_syntax_tree.cc.i: cmake_force
@@ -856,7 +940,7 @@ search/CMakeFiles/downward.dir/parser/decorated_abstract_syntax_tree.cc.s: cmake
 search/CMakeFiles/downward.dir/parser/lexical_analyzer.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/parser/lexical_analyzer.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/parser/lexical_analyzer.cc
 search/CMakeFiles/downward.dir/parser/lexical_analyzer.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object search/CMakeFiles/downward.dir/parser/lexical_analyzer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object search/CMakeFiles/downward.dir/parser/lexical_analyzer.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/parser/lexical_analyzer.cc.o -MF CMakeFiles/downward.dir/parser/lexical_analyzer.cc.o.d -o CMakeFiles/downward.dir/parser/lexical_analyzer.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/parser/lexical_analyzer.cc
 
 search/CMakeFiles/downward.dir/parser/lexical_analyzer.cc.i: cmake_force
@@ -870,7 +954,7 @@ search/CMakeFiles/downward.dir/parser/lexical_analyzer.cc.s: cmake_force
 search/CMakeFiles/downward.dir/parser/syntax_analyzer.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/parser/syntax_analyzer.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/parser/syntax_analyzer.cc
 search/CMakeFiles/downward.dir/parser/syntax_analyzer.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object search/CMakeFiles/downward.dir/parser/syntax_analyzer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object search/CMakeFiles/downward.dir/parser/syntax_analyzer.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/parser/syntax_analyzer.cc.o -MF CMakeFiles/downward.dir/parser/syntax_analyzer.cc.o.d -o CMakeFiles/downward.dir/parser/syntax_analyzer.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/parser/syntax_analyzer.cc
 
 search/CMakeFiles/downward.dir/parser/syntax_analyzer.cc.i: cmake_force
@@ -884,7 +968,7 @@ search/CMakeFiles/downward.dir/parser/syntax_analyzer.cc.s: cmake_force
 search/CMakeFiles/downward.dir/parser/token_stream.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/parser/token_stream.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/parser/token_stream.cc
 search/CMakeFiles/downward.dir/parser/token_stream.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object search/CMakeFiles/downward.dir/parser/token_stream.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object search/CMakeFiles/downward.dir/parser/token_stream.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/parser/token_stream.cc.o -MF CMakeFiles/downward.dir/parser/token_stream.cc.o.d -o CMakeFiles/downward.dir/parser/token_stream.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/parser/token_stream.cc
 
 search/CMakeFiles/downward.dir/parser/token_stream.cc.i: cmake_force
@@ -898,7 +982,7 @@ search/CMakeFiles/downward.dir/parser/token_stream.cc.s: cmake_force
 search/CMakeFiles/downward.dir/utils/countdown_timer.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/countdown_timer.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/utils/countdown_timer.cc
 search/CMakeFiles/downward.dir/utils/countdown_timer.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object search/CMakeFiles/downward.dir/utils/countdown_timer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object search/CMakeFiles/downward.dir/utils/countdown_timer.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/utils/countdown_timer.cc.o -MF CMakeFiles/downward.dir/utils/countdown_timer.cc.o.d -o CMakeFiles/downward.dir/utils/countdown_timer.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/utils/countdown_timer.cc
 
 search/CMakeFiles/downward.dir/utils/countdown_timer.cc.i: cmake_force
@@ -912,7 +996,7 @@ search/CMakeFiles/downward.dir/utils/countdown_timer.cc.s: cmake_force
 search/CMakeFiles/downward.dir/utils/component_errors.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/component_errors.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/utils/component_errors.cc
 search/CMakeFiles/downward.dir/utils/component_errors.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object search/CMakeFiles/downward.dir/utils/component_errors.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object search/CMakeFiles/downward.dir/utils/component_errors.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/utils/component_errors.cc.o -MF CMakeFiles/downward.dir/utils/component_errors.cc.o.d -o CMakeFiles/downward.dir/utils/component_errors.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/utils/component_errors.cc
 
 search/CMakeFiles/downward.dir/utils/component_errors.cc.i: cmake_force
@@ -926,7 +1010,7 @@ search/CMakeFiles/downward.dir/utils/component_errors.cc.s: cmake_force
 search/CMakeFiles/downward.dir/utils/exceptions.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/exceptions.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/utils/exceptions.cc
 search/CMakeFiles/downward.dir/utils/exceptions.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object search/CMakeFiles/downward.dir/utils/exceptions.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object search/CMakeFiles/downward.dir/utils/exceptions.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/utils/exceptions.cc.o -MF CMakeFiles/downward.dir/utils/exceptions.cc.o.d -o CMakeFiles/downward.dir/utils/exceptions.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/utils/exceptions.cc
 
 search/CMakeFiles/downward.dir/utils/exceptions.cc.i: cmake_force
@@ -940,7 +1024,7 @@ search/CMakeFiles/downward.dir/utils/exceptions.cc.s: cmake_force
 search/CMakeFiles/downward.dir/utils/logging.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/logging.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/utils/logging.cc
 search/CMakeFiles/downward.dir/utils/logging.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object search/CMakeFiles/downward.dir/utils/logging.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object search/CMakeFiles/downward.dir/utils/logging.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/utils/logging.cc.o -MF CMakeFiles/downward.dir/utils/logging.cc.o.d -o CMakeFiles/downward.dir/utils/logging.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/utils/logging.cc
 
 search/CMakeFiles/downward.dir/utils/logging.cc.i: cmake_force
@@ -954,7 +1038,7 @@ search/CMakeFiles/downward.dir/utils/logging.cc.s: cmake_force
 search/CMakeFiles/downward.dir/utils/markup.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/markup.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/utils/markup.cc
 search/CMakeFiles/downward.dir/utils/markup.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object search/CMakeFiles/downward.dir/utils/markup.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object search/CMakeFiles/downward.dir/utils/markup.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/utils/markup.cc.o -MF CMakeFiles/downward.dir/utils/markup.cc.o.d -o CMakeFiles/downward.dir/utils/markup.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/utils/markup.cc
 
 search/CMakeFiles/downward.dir/utils/markup.cc.i: cmake_force
@@ -968,7 +1052,7 @@ search/CMakeFiles/downward.dir/utils/markup.cc.s: cmake_force
 search/CMakeFiles/downward.dir/utils/math.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/math.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/utils/math.cc
 search/CMakeFiles/downward.dir/utils/math.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object search/CMakeFiles/downward.dir/utils/math.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object search/CMakeFiles/downward.dir/utils/math.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/utils/math.cc.o -MF CMakeFiles/downward.dir/utils/math.cc.o.d -o CMakeFiles/downward.dir/utils/math.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/utils/math.cc
 
 search/CMakeFiles/downward.dir/utils/math.cc.i: cmake_force
@@ -982,7 +1066,7 @@ search/CMakeFiles/downward.dir/utils/math.cc.s: cmake_force
 search/CMakeFiles/downward.dir/utils/memory.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/memory.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/utils/memory.cc
 search/CMakeFiles/downward.dir/utils/memory.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object search/CMakeFiles/downward.dir/utils/memory.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object search/CMakeFiles/downward.dir/utils/memory.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/utils/memory.cc.o -MF CMakeFiles/downward.dir/utils/memory.cc.o.d -o CMakeFiles/downward.dir/utils/memory.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/utils/memory.cc
 
 search/CMakeFiles/downward.dir/utils/memory.cc.i: cmake_force
@@ -996,7 +1080,7 @@ search/CMakeFiles/downward.dir/utils/memory.cc.s: cmake_force
 search/CMakeFiles/downward.dir/utils/rng.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/rng.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/utils/rng.cc
 search/CMakeFiles/downward.dir/utils/rng.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object search/CMakeFiles/downward.dir/utils/rng.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building CXX object search/CMakeFiles/downward.dir/utils/rng.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/utils/rng.cc.o -MF CMakeFiles/downward.dir/utils/rng.cc.o.d -o CMakeFiles/downward.dir/utils/rng.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/utils/rng.cc
 
 search/CMakeFiles/downward.dir/utils/rng.cc.i: cmake_force
@@ -1010,7 +1094,7 @@ search/CMakeFiles/downward.dir/utils/rng.cc.s: cmake_force
 search/CMakeFiles/downward.dir/utils/rng_options.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/rng_options.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/utils/rng_options.cc
 search/CMakeFiles/downward.dir/utils/rng_options.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object search/CMakeFiles/downward.dir/utils/rng_options.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building CXX object search/CMakeFiles/downward.dir/utils/rng_options.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/utils/rng_options.cc.o -MF CMakeFiles/downward.dir/utils/rng_options.cc.o.d -o CMakeFiles/downward.dir/utils/rng_options.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/utils/rng_options.cc
 
 search/CMakeFiles/downward.dir/utils/rng_options.cc.i: cmake_force
@@ -1024,7 +1108,7 @@ search/CMakeFiles/downward.dir/utils/rng_options.cc.s: cmake_force
 search/CMakeFiles/downward.dir/utils/strings.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/strings.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/utils/strings.cc
 search/CMakeFiles/downward.dir/utils/strings.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object search/CMakeFiles/downward.dir/utils/strings.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building CXX object search/CMakeFiles/downward.dir/utils/strings.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/utils/strings.cc.o -MF CMakeFiles/downward.dir/utils/strings.cc.o.d -o CMakeFiles/downward.dir/utils/strings.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/utils/strings.cc
 
 search/CMakeFiles/downward.dir/utils/strings.cc.i: cmake_force
@@ -1038,7 +1122,7 @@ search/CMakeFiles/downward.dir/utils/strings.cc.s: cmake_force
 search/CMakeFiles/downward.dir/utils/system.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/system.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/utils/system.cc
 search/CMakeFiles/downward.dir/utils/system.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object search/CMakeFiles/downward.dir/utils/system.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building CXX object search/CMakeFiles/downward.dir/utils/system.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/utils/system.cc.o -MF CMakeFiles/downward.dir/utils/system.cc.o.d -o CMakeFiles/downward.dir/utils/system.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/utils/system.cc
 
 search/CMakeFiles/downward.dir/utils/system.cc.i: cmake_force
@@ -1052,7 +1136,7 @@ search/CMakeFiles/downward.dir/utils/system.cc.s: cmake_force
 search/CMakeFiles/downward.dir/utils/system_unix.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/system_unix.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/utils/system_unix.cc
 search/CMakeFiles/downward.dir/utils/system_unix.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object search/CMakeFiles/downward.dir/utils/system_unix.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building CXX object search/CMakeFiles/downward.dir/utils/system_unix.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/utils/system_unix.cc.o -MF CMakeFiles/downward.dir/utils/system_unix.cc.o.d -o CMakeFiles/downward.dir/utils/system_unix.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/utils/system_unix.cc
 
 search/CMakeFiles/downward.dir/utils/system_unix.cc.i: cmake_force
@@ -1066,7 +1150,7 @@ search/CMakeFiles/downward.dir/utils/system_unix.cc.s: cmake_force
 search/CMakeFiles/downward.dir/utils/system_windows.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/system_windows.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/utils/system_windows.cc
 search/CMakeFiles/downward.dir/utils/system_windows.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object search/CMakeFiles/downward.dir/utils/system_windows.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building CXX object search/CMakeFiles/downward.dir/utils/system_windows.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/utils/system_windows.cc.o -MF CMakeFiles/downward.dir/utils/system_windows.cc.o.d -o CMakeFiles/downward.dir/utils/system_windows.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/utils/system_windows.cc
 
 search/CMakeFiles/downward.dir/utils/system_windows.cc.i: cmake_force
@@ -1080,7 +1164,7 @@ search/CMakeFiles/downward.dir/utils/system_windows.cc.s: cmake_force
 search/CMakeFiles/downward.dir/utils/timer.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/timer.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/utils/timer.cc
 search/CMakeFiles/downward.dir/utils/timer.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building CXX object search/CMakeFiles/downward.dir/utils/timer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building CXX object search/CMakeFiles/downward.dir/utils/timer.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/utils/timer.cc.o -MF CMakeFiles/downward.dir/utils/timer.cc.o.d -o CMakeFiles/downward.dir/utils/timer.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/utils/timer.cc
 
 search/CMakeFiles/downward.dir/utils/timer.cc.i: cmake_force
@@ -1091,10 +1175,38 @@ search/CMakeFiles/downward.dir/utils/timer.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/downward.dir/utils/timer.cc.s"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workbox/Projects/state-compression-scorpion/src/search/utils/timer.cc -o CMakeFiles/downward.dir/utils/timer.cc.s
 
+search/CMakeFiles/downward.dir/utils/stable_index_hash_map.cc.o: search/CMakeFiles/downward.dir/flags.make
+search/CMakeFiles/downward.dir/utils/stable_index_hash_map.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/utils/stable_index_hash_map.cc
+search/CMakeFiles/downward.dir/utils/stable_index_hash_map.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building CXX object search/CMakeFiles/downward.dir/utils/stable_index_hash_map.cc.o"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/utils/stable_index_hash_map.cc.o -MF CMakeFiles/downward.dir/utils/stable_index_hash_map.cc.o.d -o CMakeFiles/downward.dir/utils/stable_index_hash_map.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/utils/stable_index_hash_map.cc
+
+search/CMakeFiles/downward.dir/utils/stable_index_hash_map.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/downward.dir/utils/stable_index_hash_map.cc.i"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/workbox/Projects/state-compression-scorpion/src/search/utils/stable_index_hash_map.cc > CMakeFiles/downward.dir/utils/stable_index_hash_map.cc.i
+
+search/CMakeFiles/downward.dir/utils/stable_index_hash_map.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/downward.dir/utils/stable_index_hash_map.cc.s"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workbox/Projects/state-compression-scorpion/src/search/utils/stable_index_hash_map.cc -o CMakeFiles/downward.dir/utils/stable_index_hash_map.cc.s
+
+search/CMakeFiles/downward.dir/utils/treedbs.cc.o: search/CMakeFiles/downward.dir/flags.make
+search/CMakeFiles/downward.dir/utils/treedbs.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/utils/treedbs.cc
+search/CMakeFiles/downward.dir/utils/treedbs.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building CXX object search/CMakeFiles/downward.dir/utils/treedbs.cc.o"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/utils/treedbs.cc.o -MF CMakeFiles/downward.dir/utils/treedbs.cc.o.d -o CMakeFiles/downward.dir/utils/treedbs.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/utils/treedbs.cc
+
+search/CMakeFiles/downward.dir/utils/treedbs.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/downward.dir/utils/treedbs.cc.i"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/workbox/Projects/state-compression-scorpion/src/search/utils/treedbs.cc > CMakeFiles/downward.dir/utils/treedbs.cc.i
+
+search/CMakeFiles/downward.dir/utils/treedbs.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/downward.dir/utils/treedbs.cc.s"
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workbox/Projects/state-compression-scorpion/src/search/utils/treedbs.cc -o CMakeFiles/downward.dir/utils/treedbs.cc.s
+
 search/CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/open_lists/epsilon_greedy_open_list.cc
 search/CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building CXX object search/CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object search/CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.o -MF CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.o.d -o CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/open_lists/epsilon_greedy_open_list.cc
 
 search/CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.i: cmake_force
@@ -1108,7 +1220,7 @@ search/CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.s: cmake_f
 search/CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/open_lists/pareto_open_list.cc
 search/CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building CXX object search/CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building CXX object search/CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.o -MF CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.o.d -o CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/open_lists/pareto_open_list.cc
 
 search/CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.i: cmake_force
@@ -1122,7 +1234,7 @@ search/CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.s: cmake_force
 search/CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/open_lists/type_based_open_list.cc
 search/CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building CXX object search/CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building CXX object search/CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.o -MF CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.o.d -o CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/open_lists/type_based_open_list.cc
 
 search/CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.i: cmake_force
@@ -1136,7 +1248,7 @@ search/CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.s: cmake_force
 search/CMakeFiles/downward.dir/evaluators/const_evaluator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluators/const_evaluator.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/evaluators/const_evaluator.cc
 search/CMakeFiles/downward.dir/evaluators/const_evaluator.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building CXX object search/CMakeFiles/downward.dir/evaluators/const_evaluator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building CXX object search/CMakeFiles/downward.dir/evaluators/const_evaluator.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/evaluators/const_evaluator.cc.o -MF CMakeFiles/downward.dir/evaluators/const_evaluator.cc.o.d -o CMakeFiles/downward.dir/evaluators/const_evaluator.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/evaluators/const_evaluator.cc
 
 search/CMakeFiles/downward.dir/evaluators/const_evaluator.cc.i: cmake_force
@@ -1150,7 +1262,7 @@ search/CMakeFiles/downward.dir/evaluators/const_evaluator.cc.s: cmake_force
 search/CMakeFiles/downward.dir/evaluators/max_evaluator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluators/max_evaluator.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/evaluators/max_evaluator.cc
 search/CMakeFiles/downward.dir/evaluators/max_evaluator.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building CXX object search/CMakeFiles/downward.dir/evaluators/max_evaluator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building CXX object search/CMakeFiles/downward.dir/evaluators/max_evaluator.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/evaluators/max_evaluator.cc.o -MF CMakeFiles/downward.dir/evaluators/max_evaluator.cc.o.d -o CMakeFiles/downward.dir/evaluators/max_evaluator.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/evaluators/max_evaluator.cc
 
 search/CMakeFiles/downward.dir/evaluators/max_evaluator.cc.i: cmake_force
@@ -1164,7 +1276,7 @@ search/CMakeFiles/downward.dir/evaluators/max_evaluator.cc.s: cmake_force
 search/CMakeFiles/downward.dir/evaluators/pref_evaluator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluators/pref_evaluator.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/evaluators/pref_evaluator.cc
 search/CMakeFiles/downward.dir/evaluators/pref_evaluator.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building CXX object search/CMakeFiles/downward.dir/evaluators/pref_evaluator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building CXX object search/CMakeFiles/downward.dir/evaluators/pref_evaluator.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/evaluators/pref_evaluator.cc.o -MF CMakeFiles/downward.dir/evaluators/pref_evaluator.cc.o.d -o CMakeFiles/downward.dir/evaluators/pref_evaluator.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/evaluators/pref_evaluator.cc
 
 search/CMakeFiles/downward.dir/evaluators/pref_evaluator.cc.i: cmake_force
@@ -1178,7 +1290,7 @@ search/CMakeFiles/downward.dir/evaluators/pref_evaluator.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pruning/limited_pruning.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pruning/limited_pruning.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pruning/limited_pruning.cc
 search/CMakeFiles/downward.dir/pruning/limited_pruning.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building CXX object search/CMakeFiles/downward.dir/pruning/limited_pruning.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building CXX object search/CMakeFiles/downward.dir/pruning/limited_pruning.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pruning/limited_pruning.cc.o -MF CMakeFiles/downward.dir/pruning/limited_pruning.cc.o.d -o CMakeFiles/downward.dir/pruning/limited_pruning.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pruning/limited_pruning.cc
 
 search/CMakeFiles/downward.dir/pruning/limited_pruning.cc.i: cmake_force
@@ -1192,7 +1304,7 @@ search/CMakeFiles/downward.dir/pruning/limited_pruning.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_atom_centric.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_atom_centric.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pruning/stubborn_sets_atom_centric.cc
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_atom_centric.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets_atom_centric.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets_atom_centric.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pruning/stubborn_sets_atom_centric.cc.o -MF CMakeFiles/downward.dir/pruning/stubborn_sets_atom_centric.cc.o.d -o CMakeFiles/downward.dir/pruning/stubborn_sets_atom_centric.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pruning/stubborn_sets_atom_centric.cc
 
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_atom_centric.cc.i: cmake_force
@@ -1206,7 +1318,7 @@ search/CMakeFiles/downward.dir/pruning/stubborn_sets_atom_centric.cc.s: cmake_fo
 search/CMakeFiles/downward.dir/pruning/stubborn_sets.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pruning/stubborn_sets.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pruning/stubborn_sets.cc
 search/CMakeFiles/downward.dir/pruning/stubborn_sets.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pruning/stubborn_sets.cc.o -MF CMakeFiles/downward.dir/pruning/stubborn_sets.cc.o.d -o CMakeFiles/downward.dir/pruning/stubborn_sets.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pruning/stubborn_sets.cc
 
 search/CMakeFiles/downward.dir/pruning/stubborn_sets.cc.i: cmake_force
@@ -1220,7 +1332,7 @@ search/CMakeFiles/downward.dir/pruning/stubborn_sets.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_simple.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_simple.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pruning/stubborn_sets_simple.cc
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_simple.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets_simple.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets_simple.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pruning/stubborn_sets_simple.cc.o -MF CMakeFiles/downward.dir/pruning/stubborn_sets_simple.cc.o.d -o CMakeFiles/downward.dir/pruning/stubborn_sets_simple.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pruning/stubborn_sets_simple.cc
 
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_simple.cc.i: cmake_force
@@ -1234,7 +1346,7 @@ search/CMakeFiles/downward.dir/pruning/stubborn_sets_simple.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_action_centric.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_action_centric.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pruning/stubborn_sets_action_centric.cc
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_action_centric.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets_action_centric.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets_action_centric.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pruning/stubborn_sets_action_centric.cc.o -MF CMakeFiles/downward.dir/pruning/stubborn_sets_action_centric.cc.o.d -o CMakeFiles/downward.dir/pruning/stubborn_sets_action_centric.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pruning/stubborn_sets_action_centric.cc
 
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_action_centric.cc.i: cmake_force
@@ -1248,7 +1360,7 @@ search/CMakeFiles/downward.dir/pruning/stubborn_sets_action_centric.cc.s: cmake_
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_ec.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_ec.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pruning/stubborn_sets_ec.cc
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_ec.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets_ec.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets_ec.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pruning/stubborn_sets_ec.cc.o -MF CMakeFiles/downward.dir/pruning/stubborn_sets_ec.cc.o.d -o CMakeFiles/downward.dir/pruning/stubborn_sets_ec.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pruning/stubborn_sets_ec.cc
 
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_ec.cc.i: cmake_force
@@ -1262,7 +1374,7 @@ search/CMakeFiles/downward.dir/pruning/stubborn_sets_ec.cc.s: cmake_force
 search/CMakeFiles/downward.dir/search_algorithms/iterative_width_search.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_algorithms/iterative_width_search.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/iterative_width_search.cc
 search/CMakeFiles/downward.dir/search_algorithms/iterative_width_search.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/iterative_width_search.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/iterative_width_search.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/iterative_width_search.cc.o -MF CMakeFiles/downward.dir/search_algorithms/iterative_width_search.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/iterative_width_search.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/iterative_width_search.cc
 
 search/CMakeFiles/downward.dir/search_algorithms/iterative_width_search.cc.i: cmake_force
@@ -1276,7 +1388,7 @@ search/CMakeFiles/downward.dir/search_algorithms/iterative_width_search.cc.s: cm
 search/CMakeFiles/downward.dir/novelty/novelty_table.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/novelty/novelty_table.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/novelty/novelty_table.cc
 search/CMakeFiles/downward.dir/novelty/novelty_table.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building CXX object search/CMakeFiles/downward.dir/novelty/novelty_table.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building CXX object search/CMakeFiles/downward.dir/novelty/novelty_table.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/novelty/novelty_table.cc.o -MF CMakeFiles/downward.dir/novelty/novelty_table.cc.o.d -o CMakeFiles/downward.dir/novelty/novelty_table.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/novelty/novelty_table.cc
 
 search/CMakeFiles/downward.dir/novelty/novelty_table.cc.i: cmake_force
@@ -1290,7 +1402,7 @@ search/CMakeFiles/downward.dir/novelty/novelty_table.cc.s: cmake_force
 search/CMakeFiles/downward.dir/search_algorithms/plugin_astar.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_algorithms/plugin_astar.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/plugin_astar.cc
 search/CMakeFiles/downward.dir/search_algorithms/plugin_astar.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/plugin_astar.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/plugin_astar.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/plugin_astar.cc.o -MF CMakeFiles/downward.dir/search_algorithms/plugin_astar.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/plugin_astar.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/plugin_astar.cc
 
 search/CMakeFiles/downward.dir/search_algorithms/plugin_astar.cc.i: cmake_force
@@ -1304,7 +1416,7 @@ search/CMakeFiles/downward.dir/search_algorithms/plugin_astar.cc.s: cmake_force
 search/CMakeFiles/downward.dir/search_algorithms/eager_search.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_algorithms/eager_search.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/eager_search.cc
 search/CMakeFiles/downward.dir/search_algorithms/eager_search.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/eager_search.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/eager_search.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/eager_search.cc.o -MF CMakeFiles/downward.dir/search_algorithms/eager_search.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/eager_search.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/eager_search.cc
 
 search/CMakeFiles/downward.dir/search_algorithms/eager_search.cc.i: cmake_force
@@ -1318,7 +1430,7 @@ search/CMakeFiles/downward.dir/search_algorithms/eager_search.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pruning/null_pruning_method.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pruning/null_pruning_method.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pruning/null_pruning_method.cc
 search/CMakeFiles/downward.dir/pruning/null_pruning_method.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building CXX object search/CMakeFiles/downward.dir/pruning/null_pruning_method.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building CXX object search/CMakeFiles/downward.dir/pruning/null_pruning_method.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pruning/null_pruning_method.cc.o -MF CMakeFiles/downward.dir/pruning/null_pruning_method.cc.o.d -o CMakeFiles/downward.dir/pruning/null_pruning_method.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pruning/null_pruning_method.cc
 
 search/CMakeFiles/downward.dir/pruning/null_pruning_method.cc.i: cmake_force
@@ -1332,7 +1444,7 @@ search/CMakeFiles/downward.dir/pruning/null_pruning_method.cc.s: cmake_force
 search/CMakeFiles/downward.dir/search_algorithms/breadth_first_search.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_algorithms/breadth_first_search.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/breadth_first_search.cc
 search/CMakeFiles/downward.dir/search_algorithms/breadth_first_search.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/breadth_first_search.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/breadth_first_search.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/breadth_first_search.cc.o -MF CMakeFiles/downward.dir/search_algorithms/breadth_first_search.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/breadth_first_search.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/breadth_first_search.cc
 
 search/CMakeFiles/downward.dir/search_algorithms/breadth_first_search.cc.i: cmake_force
@@ -1346,7 +1458,7 @@ search/CMakeFiles/downward.dir/search_algorithms/breadth_first_search.cc.s: cmak
 search/CMakeFiles/downward.dir/search_algorithms/exhaustive_search.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_algorithms/exhaustive_search.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/exhaustive_search.cc
 search/CMakeFiles/downward.dir/search_algorithms/exhaustive_search.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/exhaustive_search.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/exhaustive_search.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/exhaustive_search.cc.o -MF CMakeFiles/downward.dir/search_algorithms/exhaustive_search.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/exhaustive_search.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/exhaustive_search.cc
 
 search/CMakeFiles/downward.dir/search_algorithms/exhaustive_search.cc.i: cmake_force
@@ -1360,7 +1472,7 @@ search/CMakeFiles/downward.dir/search_algorithms/exhaustive_search.cc.s: cmake_f
 search/CMakeFiles/downward.dir/search_algorithms/idastar_search.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_algorithms/idastar_search.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/idastar_search.cc
 search/CMakeFiles/downward.dir/search_algorithms/idastar_search.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/idastar_search.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/idastar_search.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/idastar_search.cc.o -MF CMakeFiles/downward.dir/search_algorithms/idastar_search.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/idastar_search.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/idastar_search.cc
 
 search/CMakeFiles/downward.dir/search_algorithms/idastar_search.cc.i: cmake_force
@@ -1374,7 +1486,7 @@ search/CMakeFiles/downward.dir/search_algorithms/idastar_search.cc.s: cmake_forc
 search/CMakeFiles/downward.dir/search_algorithms/iterative_deepening_search.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_algorithms/iterative_deepening_search.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/iterative_deepening_search.cc
 search/CMakeFiles/downward.dir/search_algorithms/iterative_deepening_search.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/iterative_deepening_search.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/iterative_deepening_search.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/iterative_deepening_search.cc.o -MF CMakeFiles/downward.dir/search_algorithms/iterative_deepening_search.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/iterative_deepening_search.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/iterative_deepening_search.cc
 
 search/CMakeFiles/downward.dir/search_algorithms/iterative_deepening_search.cc.i: cmake_force
@@ -1388,7 +1500,7 @@ search/CMakeFiles/downward.dir/search_algorithms/iterative_deepening_search.cc.s
 search/CMakeFiles/downward.dir/task_utils/incremental_successor_generator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/task_utils/incremental_successor_generator.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/task_utils/incremental_successor_generator.cc
 search/CMakeFiles/downward.dir/task_utils/incremental_successor_generator.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building CXX object search/CMakeFiles/downward.dir/task_utils/incremental_successor_generator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building CXX object search/CMakeFiles/downward.dir/task_utils/incremental_successor_generator.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/task_utils/incremental_successor_generator.cc.o -MF CMakeFiles/downward.dir/task_utils/incremental_successor_generator.cc.o.d -o CMakeFiles/downward.dir/task_utils/incremental_successor_generator.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/task_utils/incremental_successor_generator.cc
 
 search/CMakeFiles/downward.dir/task_utils/incremental_successor_generator.cc.i: cmake_force
@@ -1402,7 +1514,7 @@ search/CMakeFiles/downward.dir/task_utils/incremental_successor_generator.cc.s: 
 search/CMakeFiles/downward.dir/search_algorithms/depth_first_search.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_algorithms/depth_first_search.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/depth_first_search.cc
 search/CMakeFiles/downward.dir/search_algorithms/depth_first_search.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/depth_first_search.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/depth_first_search.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/depth_first_search.cc.o -MF CMakeFiles/downward.dir/search_algorithms/depth_first_search.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/depth_first_search.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/depth_first_search.cc
 
 search/CMakeFiles/downward.dir/search_algorithms/depth_first_search.cc.i: cmake_force
@@ -1416,7 +1528,7 @@ search/CMakeFiles/downward.dir/search_algorithms/depth_first_search.cc.s: cmake_
 search/CMakeFiles/downward.dir/search_algorithms/plugin_eager.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_algorithms/plugin_eager.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/plugin_eager.cc
 search/CMakeFiles/downward.dir/search_algorithms/plugin_eager.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/plugin_eager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/plugin_eager.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/plugin_eager.cc.o -MF CMakeFiles/downward.dir/search_algorithms/plugin_eager.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/plugin_eager.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/plugin_eager.cc
 
 search/CMakeFiles/downward.dir/search_algorithms/plugin_eager.cc.i: cmake_force
@@ -1430,7 +1542,7 @@ search/CMakeFiles/downward.dir/search_algorithms/plugin_eager.cc.s: cmake_force
 search/CMakeFiles/downward.dir/search_algorithms/plugin_eager_greedy.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_algorithms/plugin_eager_greedy.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/plugin_eager_greedy.cc
 search/CMakeFiles/downward.dir/search_algorithms/plugin_eager_greedy.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/plugin_eager_greedy.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/plugin_eager_greedy.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/plugin_eager_greedy.cc.o -MF CMakeFiles/downward.dir/search_algorithms/plugin_eager_greedy.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/plugin_eager_greedy.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/plugin_eager_greedy.cc
 
 search/CMakeFiles/downward.dir/search_algorithms/plugin_eager_greedy.cc.i: cmake_force
@@ -1444,7 +1556,7 @@ search/CMakeFiles/downward.dir/search_algorithms/plugin_eager_greedy.cc.s: cmake
 search/CMakeFiles/downward.dir/search_algorithms/plugin_eager_wastar.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_algorithms/plugin_eager_wastar.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/plugin_eager_wastar.cc
 search/CMakeFiles/downward.dir/search_algorithms/plugin_eager_wastar.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/plugin_eager_wastar.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/plugin_eager_wastar.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/plugin_eager_wastar.cc.o -MF CMakeFiles/downward.dir/search_algorithms/plugin_eager_wastar.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/plugin_eager_wastar.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/plugin_eager_wastar.cc
 
 search/CMakeFiles/downward.dir/search_algorithms/plugin_eager_wastar.cc.i: cmake_force
@@ -1458,7 +1570,7 @@ search/CMakeFiles/downward.dir/search_algorithms/plugin_eager_wastar.cc.s: cmake
 search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/plugin_lazy.cc
 search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy.cc.o -MF CMakeFiles/downward.dir/search_algorithms/plugin_lazy.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/plugin_lazy.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/plugin_lazy.cc
 
 search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy.cc.i: cmake_force
@@ -1472,7 +1584,7 @@ search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy.cc.s: cmake_force
 search/CMakeFiles/downward.dir/search_algorithms/lazy_search.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_algorithms/lazy_search.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/lazy_search.cc
 search/CMakeFiles/downward.dir/search_algorithms/lazy_search.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/lazy_search.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/lazy_search.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/lazy_search.cc.o -MF CMakeFiles/downward.dir/search_algorithms/lazy_search.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/lazy_search.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/lazy_search.cc
 
 search/CMakeFiles/downward.dir/search_algorithms/lazy_search.cc.i: cmake_force
@@ -1486,7 +1598,7 @@ search/CMakeFiles/downward.dir/search_algorithms/lazy_search.cc.s: cmake_force
 search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy_greedy.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy_greedy.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/plugin_lazy_greedy.cc
 search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy_greedy.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy_greedy.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy_greedy.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy_greedy.cc.o -MF CMakeFiles/downward.dir/search_algorithms/plugin_lazy_greedy.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/plugin_lazy_greedy.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/plugin_lazy_greedy.cc
 
 search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy_greedy.cc.i: cmake_force
@@ -1500,7 +1612,7 @@ search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy_greedy.cc.s: cmake_
 search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy_wastar.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy_wastar.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/plugin_lazy_wastar.cc
 search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy_wastar.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy_wastar.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy_wastar.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy_wastar.cc.o -MF CMakeFiles/downward.dir/search_algorithms/plugin_lazy_wastar.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/plugin_lazy_wastar.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/plugin_lazy_wastar.cc
 
 search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy_wastar.cc.i: cmake_force
@@ -1514,7 +1626,7 @@ search/CMakeFiles/downward.dir/search_algorithms/plugin_lazy_wastar.cc.s: cmake_
 search/CMakeFiles/downward.dir/search_algorithms/enforced_hill_climbing_search.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_algorithms/enforced_hill_climbing_search.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/enforced_hill_climbing_search.cc
 search/CMakeFiles/downward.dir/search_algorithms/enforced_hill_climbing_search.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/enforced_hill_climbing_search.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/enforced_hill_climbing_search.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/enforced_hill_climbing_search.cc.o -MF CMakeFiles/downward.dir/search_algorithms/enforced_hill_climbing_search.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/enforced_hill_climbing_search.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/enforced_hill_climbing_search.cc
 
 search/CMakeFiles/downward.dir/search_algorithms/enforced_hill_climbing_search.cc.i: cmake_force
@@ -1528,7 +1640,7 @@ search/CMakeFiles/downward.dir/search_algorithms/enforced_hill_climbing_search.c
 search/CMakeFiles/downward.dir/search_algorithms/iterated_search.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_algorithms/iterated_search.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/iterated_search.cc
 search/CMakeFiles/downward.dir/search_algorithms/iterated_search.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/iterated_search.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building CXX object search/CMakeFiles/downward.dir/search_algorithms/iterated_search.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/search_algorithms/iterated_search.cc.o -MF CMakeFiles/downward.dir/search_algorithms/iterated_search.cc.o.d -o CMakeFiles/downward.dir/search_algorithms/iterated_search.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/search_algorithms/iterated_search.cc
 
 search/CMakeFiles/downward.dir/search_algorithms/iterated_search.cc.i: cmake_force
@@ -1542,7 +1654,7 @@ search/CMakeFiles/downward.dir/search_algorithms/iterated_search.cc.s: cmake_for
 search/CMakeFiles/downward.dir/heuristics/additive_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/additive_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/additive_heuristic.cc
 search/CMakeFiles/downward.dir/heuristics/additive_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building CXX object search/CMakeFiles/downward.dir/heuristics/additive_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building CXX object search/CMakeFiles/downward.dir/heuristics/additive_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/heuristics/additive_heuristic.cc.o -MF CMakeFiles/downward.dir/heuristics/additive_heuristic.cc.o.d -o CMakeFiles/downward.dir/heuristics/additive_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/additive_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/additive_heuristic.cc.i: cmake_force
@@ -1556,7 +1668,7 @@ search/CMakeFiles/downward.dir/heuristics/additive_heuristic.cc.s: cmake_force
 search/CMakeFiles/downward.dir/heuristics/relaxation_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/relaxation_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/relaxation_heuristic.cc
 search/CMakeFiles/downward.dir/heuristics/relaxation_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building CXX object search/CMakeFiles/downward.dir/heuristics/relaxation_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building CXX object search/CMakeFiles/downward.dir/heuristics/relaxation_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/heuristics/relaxation_heuristic.cc.o -MF CMakeFiles/downward.dir/heuristics/relaxation_heuristic.cc.o.d -o CMakeFiles/downward.dir/heuristics/relaxation_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/relaxation_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/relaxation_heuristic.cc.i: cmake_force
@@ -1570,7 +1682,7 @@ search/CMakeFiles/downward.dir/heuristics/relaxation_heuristic.cc.s: cmake_force
 search/CMakeFiles/downward.dir/tasks/default_value_axioms_task.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/tasks/default_value_axioms_task.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/tasks/default_value_axioms_task.cc
 search/CMakeFiles/downward.dir/tasks/default_value_axioms_task.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building CXX object search/CMakeFiles/downward.dir/tasks/default_value_axioms_task.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building CXX object search/CMakeFiles/downward.dir/tasks/default_value_axioms_task.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/tasks/default_value_axioms_task.cc.o -MF CMakeFiles/downward.dir/tasks/default_value_axioms_task.cc.o.d -o CMakeFiles/downward.dir/tasks/default_value_axioms_task.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/tasks/default_value_axioms_task.cc
 
 search/CMakeFiles/downward.dir/tasks/default_value_axioms_task.cc.i: cmake_force
@@ -1584,7 +1696,7 @@ search/CMakeFiles/downward.dir/tasks/default_value_axioms_task.cc.s: cmake_force
 search/CMakeFiles/downward.dir/tasks/cost_adapted_task.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/tasks/cost_adapted_task.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/tasks/cost_adapted_task.cc
 search/CMakeFiles/downward.dir/tasks/cost_adapted_task.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building CXX object search/CMakeFiles/downward.dir/tasks/cost_adapted_task.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building CXX object search/CMakeFiles/downward.dir/tasks/cost_adapted_task.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/tasks/cost_adapted_task.cc.o -MF CMakeFiles/downward.dir/tasks/cost_adapted_task.cc.o.d -o CMakeFiles/downward.dir/tasks/cost_adapted_task.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/tasks/cost_adapted_task.cc
 
 search/CMakeFiles/downward.dir/tasks/cost_adapted_task.cc.i: cmake_force
@@ -1598,7 +1710,7 @@ search/CMakeFiles/downward.dir/tasks/cost_adapted_task.cc.s: cmake_force
 search/CMakeFiles/downward.dir/tasks/delegating_task.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/tasks/delegating_task.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/tasks/delegating_task.cc
 search/CMakeFiles/downward.dir/tasks/delegating_task.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building CXX object search/CMakeFiles/downward.dir/tasks/delegating_task.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building CXX object search/CMakeFiles/downward.dir/tasks/delegating_task.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/tasks/delegating_task.cc.o -MF CMakeFiles/downward.dir/tasks/delegating_task.cc.o.d -o CMakeFiles/downward.dir/tasks/delegating_task.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/tasks/delegating_task.cc
 
 search/CMakeFiles/downward.dir/tasks/delegating_task.cc.i: cmake_force
@@ -1612,7 +1724,7 @@ search/CMakeFiles/downward.dir/tasks/delegating_task.cc.s: cmake_force
 search/CMakeFiles/downward.dir/tasks/root_task.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/tasks/root_task.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/tasks/root_task.cc
 search/CMakeFiles/downward.dir/tasks/root_task.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building CXX object search/CMakeFiles/downward.dir/tasks/root_task.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building CXX object search/CMakeFiles/downward.dir/tasks/root_task.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/tasks/root_task.cc.o -MF CMakeFiles/downward.dir/tasks/root_task.cc.o.d -o CMakeFiles/downward.dir/tasks/root_task.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/tasks/root_task.cc
 
 search/CMakeFiles/downward.dir/tasks/root_task.cc.i: cmake_force
@@ -1626,7 +1738,7 @@ search/CMakeFiles/downward.dir/tasks/root_task.cc.s: cmake_force
 search/CMakeFiles/downward.dir/algorithms/sccs.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/algorithms/sccs.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/algorithms/sccs.cc
 search/CMakeFiles/downward.dir/algorithms/sccs.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building CXX object search/CMakeFiles/downward.dir/algorithms/sccs.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building CXX object search/CMakeFiles/downward.dir/algorithms/sccs.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/algorithms/sccs.cc.o -MF CMakeFiles/downward.dir/algorithms/sccs.cc.o.d -o CMakeFiles/downward.dir/algorithms/sccs.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/algorithms/sccs.cc
 
 search/CMakeFiles/downward.dir/algorithms/sccs.cc.i: cmake_force
@@ -1640,7 +1752,7 @@ search/CMakeFiles/downward.dir/algorithms/sccs.cc.s: cmake_force
 search/CMakeFiles/downward.dir/heuristics/blind_search_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/blind_search_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/blind_search_heuristic.cc
 search/CMakeFiles/downward.dir/heuristics/blind_search_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building CXX object search/CMakeFiles/downward.dir/heuristics/blind_search_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building CXX object search/CMakeFiles/downward.dir/heuristics/blind_search_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/heuristics/blind_search_heuristic.cc.o -MF CMakeFiles/downward.dir/heuristics/blind_search_heuristic.cc.o.d -o CMakeFiles/downward.dir/heuristics/blind_search_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/blind_search_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/blind_search_heuristic.cc.i: cmake_force
@@ -1654,7 +1766,7 @@ search/CMakeFiles/downward.dir/heuristics/blind_search_heuristic.cc.s: cmake_for
 search/CMakeFiles/downward.dir/heuristics/cea_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/cea_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/cea_heuristic.cc
 search/CMakeFiles/downward.dir/heuristics/cea_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building CXX object search/CMakeFiles/downward.dir/heuristics/cea_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building CXX object search/CMakeFiles/downward.dir/heuristics/cea_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/heuristics/cea_heuristic.cc.o -MF CMakeFiles/downward.dir/heuristics/cea_heuristic.cc.o.d -o CMakeFiles/downward.dir/heuristics/cea_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/cea_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/cea_heuristic.cc.i: cmake_force
@@ -1668,7 +1780,7 @@ search/CMakeFiles/downward.dir/heuristics/cea_heuristic.cc.s: cmake_force
 search/CMakeFiles/downward.dir/heuristics/domain_transition_graph.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/domain_transition_graph.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/domain_transition_graph.cc
 search/CMakeFiles/downward.dir/heuristics/domain_transition_graph.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building CXX object search/CMakeFiles/downward.dir/heuristics/domain_transition_graph.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building CXX object search/CMakeFiles/downward.dir/heuristics/domain_transition_graph.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/heuristics/domain_transition_graph.cc.o -MF CMakeFiles/downward.dir/heuristics/domain_transition_graph.cc.o.d -o CMakeFiles/downward.dir/heuristics/domain_transition_graph.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/domain_transition_graph.cc
 
 search/CMakeFiles/downward.dir/heuristics/domain_transition_graph.cc.i: cmake_force
@@ -1682,7 +1794,7 @@ search/CMakeFiles/downward.dir/heuristics/domain_transition_graph.cc.s: cmake_fo
 search/CMakeFiles/downward.dir/heuristics/cg_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/cg_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/cg_heuristic.cc
 search/CMakeFiles/downward.dir/heuristics/cg_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building CXX object search/CMakeFiles/downward.dir/heuristics/cg_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building CXX object search/CMakeFiles/downward.dir/heuristics/cg_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/heuristics/cg_heuristic.cc.o -MF CMakeFiles/downward.dir/heuristics/cg_heuristic.cc.o.d -o CMakeFiles/downward.dir/heuristics/cg_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/cg_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/cg_heuristic.cc.i: cmake_force
@@ -1696,7 +1808,7 @@ search/CMakeFiles/downward.dir/heuristics/cg_heuristic.cc.s: cmake_force
 search/CMakeFiles/downward.dir/heuristics/cg_cache.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/cg_cache.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/cg_cache.cc
 search/CMakeFiles/downward.dir/heuristics/cg_cache.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building CXX object search/CMakeFiles/downward.dir/heuristics/cg_cache.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Building CXX object search/CMakeFiles/downward.dir/heuristics/cg_cache.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/heuristics/cg_cache.cc.o -MF CMakeFiles/downward.dir/heuristics/cg_cache.cc.o.d -o CMakeFiles/downward.dir/heuristics/cg_cache.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/cg_cache.cc
 
 search/CMakeFiles/downward.dir/heuristics/cg_cache.cc.i: cmake_force
@@ -1710,7 +1822,7 @@ search/CMakeFiles/downward.dir/heuristics/cg_cache.cc.s: cmake_force
 search/CMakeFiles/downward.dir/heuristics/ff_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/ff_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/ff_heuristic.cc
 search/CMakeFiles/downward.dir/heuristics/ff_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building CXX object search/CMakeFiles/downward.dir/heuristics/ff_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Building CXX object search/CMakeFiles/downward.dir/heuristics/ff_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/heuristics/ff_heuristic.cc.o -MF CMakeFiles/downward.dir/heuristics/ff_heuristic.cc.o.d -o CMakeFiles/downward.dir/heuristics/ff_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/ff_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/ff_heuristic.cc.i: cmake_force
@@ -1724,7 +1836,7 @@ search/CMakeFiles/downward.dir/heuristics/ff_heuristic.cc.s: cmake_force
 search/CMakeFiles/downward.dir/heuristics/goal_count_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/goal_count_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/goal_count_heuristic.cc
 search/CMakeFiles/downward.dir/heuristics/goal_count_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building CXX object search/CMakeFiles/downward.dir/heuristics/goal_count_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Building CXX object search/CMakeFiles/downward.dir/heuristics/goal_count_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/heuristics/goal_count_heuristic.cc.o -MF CMakeFiles/downward.dir/heuristics/goal_count_heuristic.cc.o.d -o CMakeFiles/downward.dir/heuristics/goal_count_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/goal_count_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/goal_count_heuristic.cc.i: cmake_force
@@ -1738,7 +1850,7 @@ search/CMakeFiles/downward.dir/heuristics/goal_count_heuristic.cc.s: cmake_force
 search/CMakeFiles/downward.dir/heuristics/hm_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/hm_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/hm_heuristic.cc
 search/CMakeFiles/downward.dir/heuristics/hm_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building CXX object search/CMakeFiles/downward.dir/heuristics/hm_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_128) "Building CXX object search/CMakeFiles/downward.dir/heuristics/hm_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/heuristics/hm_heuristic.cc.o -MF CMakeFiles/downward.dir/heuristics/hm_heuristic.cc.o.d -o CMakeFiles/downward.dir/heuristics/hm_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/hm_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/hm_heuristic.cc.i: cmake_force
@@ -1752,7 +1864,7 @@ search/CMakeFiles/downward.dir/heuristics/hm_heuristic.cc.s: cmake_force
 search/CMakeFiles/downward.dir/heuristics/lm_cut_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/lm_cut_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/lm_cut_heuristic.cc
 search/CMakeFiles/downward.dir/heuristics/lm_cut_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building CXX object search/CMakeFiles/downward.dir/heuristics/lm_cut_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_129) "Building CXX object search/CMakeFiles/downward.dir/heuristics/lm_cut_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/heuristics/lm_cut_heuristic.cc.o -MF CMakeFiles/downward.dir/heuristics/lm_cut_heuristic.cc.o.d -o CMakeFiles/downward.dir/heuristics/lm_cut_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/lm_cut_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/lm_cut_heuristic.cc.i: cmake_force
@@ -1766,7 +1878,7 @@ search/CMakeFiles/downward.dir/heuristics/lm_cut_heuristic.cc.s: cmake_force
 search/CMakeFiles/downward.dir/heuristics/lm_cut_landmarks.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/lm_cut_landmarks.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/lm_cut_landmarks.cc
 search/CMakeFiles/downward.dir/heuristics/lm_cut_landmarks.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building CXX object search/CMakeFiles/downward.dir/heuristics/lm_cut_landmarks.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_130) "Building CXX object search/CMakeFiles/downward.dir/heuristics/lm_cut_landmarks.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/heuristics/lm_cut_landmarks.cc.o -MF CMakeFiles/downward.dir/heuristics/lm_cut_landmarks.cc.o.d -o CMakeFiles/downward.dir/heuristics/lm_cut_landmarks.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/lm_cut_landmarks.cc
 
 search/CMakeFiles/downward.dir/heuristics/lm_cut_landmarks.cc.i: cmake_force
@@ -1780,7 +1892,7 @@ search/CMakeFiles/downward.dir/heuristics/lm_cut_landmarks.cc.s: cmake_force
 search/CMakeFiles/downward.dir/heuristics/max_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/max_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/max_heuristic.cc
 search/CMakeFiles/downward.dir/heuristics/max_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building CXX object search/CMakeFiles/downward.dir/heuristics/max_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_131) "Building CXX object search/CMakeFiles/downward.dir/heuristics/max_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/heuristics/max_heuristic.cc.o -MF CMakeFiles/downward.dir/heuristics/max_heuristic.cc.o.d -o CMakeFiles/downward.dir/heuristics/max_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/heuristics/max_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/max_heuristic.cc.i: cmake_force
@@ -1794,7 +1906,7 @@ search/CMakeFiles/downward.dir/heuristics/max_heuristic.cc.s: cmake_force
 search/CMakeFiles/downward.dir/cartesian_abstractions/abstraction.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cartesian_abstractions/abstraction.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/abstraction.cc
 search/CMakeFiles/downward.dir/cartesian_abstractions/abstraction.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/abstraction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_132) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/abstraction.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cartesian_abstractions/abstraction.cc.o -MF CMakeFiles/downward.dir/cartesian_abstractions/abstraction.cc.o.d -o CMakeFiles/downward.dir/cartesian_abstractions/abstraction.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/abstraction.cc
 
 search/CMakeFiles/downward.dir/cartesian_abstractions/abstraction.cc.i: cmake_force
@@ -1808,7 +1920,7 @@ search/CMakeFiles/downward.dir/cartesian_abstractions/abstraction.cc.s: cmake_fo
 search/CMakeFiles/downward.dir/cartesian_abstractions/abstract_state.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cartesian_abstractions/abstract_state.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/abstract_state.cc
 search/CMakeFiles/downward.dir/cartesian_abstractions/abstract_state.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/abstract_state.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_133) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/abstract_state.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cartesian_abstractions/abstract_state.cc.o -MF CMakeFiles/downward.dir/cartesian_abstractions/abstract_state.cc.o.d -o CMakeFiles/downward.dir/cartesian_abstractions/abstract_state.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/abstract_state.cc
 
 search/CMakeFiles/downward.dir/cartesian_abstractions/abstract_state.cc.i: cmake_force
@@ -1822,7 +1934,7 @@ search/CMakeFiles/downward.dir/cartesian_abstractions/abstract_state.cc.s: cmake
 search/CMakeFiles/downward.dir/cartesian_abstractions/additive_cartesian_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cartesian_abstractions/additive_cartesian_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/additive_cartesian_heuristic.cc
 search/CMakeFiles/downward.dir/cartesian_abstractions/additive_cartesian_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/additive_cartesian_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_134) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/additive_cartesian_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cartesian_abstractions/additive_cartesian_heuristic.cc.o -MF CMakeFiles/downward.dir/cartesian_abstractions/additive_cartesian_heuristic.cc.o.d -o CMakeFiles/downward.dir/cartesian_abstractions/additive_cartesian_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/additive_cartesian_heuristic.cc
 
 search/CMakeFiles/downward.dir/cartesian_abstractions/additive_cartesian_heuristic.cc.i: cmake_force
@@ -1836,7 +1948,7 @@ search/CMakeFiles/downward.dir/cartesian_abstractions/additive_cartesian_heurist
 search/CMakeFiles/downward.dir/cartesian_abstractions/cartesian_heuristic_function.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cartesian_abstractions/cartesian_heuristic_function.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/cartesian_heuristic_function.cc
 search/CMakeFiles/downward.dir/cartesian_abstractions/cartesian_heuristic_function.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/cartesian_heuristic_function.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_135) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/cartesian_heuristic_function.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cartesian_abstractions/cartesian_heuristic_function.cc.o -MF CMakeFiles/downward.dir/cartesian_abstractions/cartesian_heuristic_function.cc.o.d -o CMakeFiles/downward.dir/cartesian_abstractions/cartesian_heuristic_function.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/cartesian_heuristic_function.cc
 
 search/CMakeFiles/downward.dir/cartesian_abstractions/cartesian_heuristic_function.cc.i: cmake_force
@@ -1850,7 +1962,7 @@ search/CMakeFiles/downward.dir/cartesian_abstractions/cartesian_heuristic_functi
 search/CMakeFiles/downward.dir/cartesian_abstractions/cartesian_set.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cartesian_abstractions/cartesian_set.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/cartesian_set.cc
 search/CMakeFiles/downward.dir/cartesian_abstractions/cartesian_set.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_128) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/cartesian_set.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_136) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/cartesian_set.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cartesian_abstractions/cartesian_set.cc.o -MF CMakeFiles/downward.dir/cartesian_abstractions/cartesian_set.cc.o.d -o CMakeFiles/downward.dir/cartesian_abstractions/cartesian_set.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/cartesian_set.cc
 
 search/CMakeFiles/downward.dir/cartesian_abstractions/cartesian_set.cc.i: cmake_force
@@ -1864,7 +1976,7 @@ search/CMakeFiles/downward.dir/cartesian_abstractions/cartesian_set.cc.s: cmake_
 search/CMakeFiles/downward.dir/cartesian_abstractions/cegar.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cartesian_abstractions/cegar.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/cegar.cc
 search/CMakeFiles/downward.dir/cartesian_abstractions/cegar.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_129) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/cegar.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_137) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/cegar.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cartesian_abstractions/cegar.cc.o -MF CMakeFiles/downward.dir/cartesian_abstractions/cegar.cc.o.d -o CMakeFiles/downward.dir/cartesian_abstractions/cegar.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/cegar.cc
 
 search/CMakeFiles/downward.dir/cartesian_abstractions/cegar.cc.i: cmake_force
@@ -1878,7 +1990,7 @@ search/CMakeFiles/downward.dir/cartesian_abstractions/cegar.cc.s: cmake_force
 search/CMakeFiles/downward.dir/cartesian_abstractions/cost_saturation.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cartesian_abstractions/cost_saturation.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/cost_saturation.cc
 search/CMakeFiles/downward.dir/cartesian_abstractions/cost_saturation.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_130) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/cost_saturation.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_138) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/cost_saturation.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cartesian_abstractions/cost_saturation.cc.o -MF CMakeFiles/downward.dir/cartesian_abstractions/cost_saturation.cc.o.d -o CMakeFiles/downward.dir/cartesian_abstractions/cost_saturation.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/cost_saturation.cc
 
 search/CMakeFiles/downward.dir/cartesian_abstractions/cost_saturation.cc.i: cmake_force
@@ -1892,7 +2004,7 @@ search/CMakeFiles/downward.dir/cartesian_abstractions/cost_saturation.cc.s: cmak
 search/CMakeFiles/downward.dir/cartesian_abstractions/flaw.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cartesian_abstractions/flaw.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/flaw.cc
 search/CMakeFiles/downward.dir/cartesian_abstractions/flaw.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_131) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/flaw.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_139) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/flaw.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cartesian_abstractions/flaw.cc.o -MF CMakeFiles/downward.dir/cartesian_abstractions/flaw.cc.o.d -o CMakeFiles/downward.dir/cartesian_abstractions/flaw.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/flaw.cc
 
 search/CMakeFiles/downward.dir/cartesian_abstractions/flaw.cc.i: cmake_force
@@ -1906,7 +2018,7 @@ search/CMakeFiles/downward.dir/cartesian_abstractions/flaw.cc.s: cmake_force
 search/CMakeFiles/downward.dir/cartesian_abstractions/flaw_search.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cartesian_abstractions/flaw_search.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/flaw_search.cc
 search/CMakeFiles/downward.dir/cartesian_abstractions/flaw_search.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_132) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/flaw_search.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_140) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/flaw_search.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cartesian_abstractions/flaw_search.cc.o -MF CMakeFiles/downward.dir/cartesian_abstractions/flaw_search.cc.o.d -o CMakeFiles/downward.dir/cartesian_abstractions/flaw_search.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/flaw_search.cc
 
 search/CMakeFiles/downward.dir/cartesian_abstractions/flaw_search.cc.i: cmake_force
@@ -1920,7 +2032,7 @@ search/CMakeFiles/downward.dir/cartesian_abstractions/flaw_search.cc.s: cmake_fo
 search/CMakeFiles/downward.dir/cartesian_abstractions/match_tree.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cartesian_abstractions/match_tree.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/match_tree.cc
 search/CMakeFiles/downward.dir/cartesian_abstractions/match_tree.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_133) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/match_tree.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_141) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/match_tree.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cartesian_abstractions/match_tree.cc.o -MF CMakeFiles/downward.dir/cartesian_abstractions/match_tree.cc.o.d -o CMakeFiles/downward.dir/cartesian_abstractions/match_tree.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/match_tree.cc
 
 search/CMakeFiles/downward.dir/cartesian_abstractions/match_tree.cc.i: cmake_force
@@ -1934,7 +2046,7 @@ search/CMakeFiles/downward.dir/cartesian_abstractions/match_tree.cc.s: cmake_for
 search/CMakeFiles/downward.dir/cartesian_abstractions/refinement_hierarchy.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cartesian_abstractions/refinement_hierarchy.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/refinement_hierarchy.cc
 search/CMakeFiles/downward.dir/cartesian_abstractions/refinement_hierarchy.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_134) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/refinement_hierarchy.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_142) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/refinement_hierarchy.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cartesian_abstractions/refinement_hierarchy.cc.o -MF CMakeFiles/downward.dir/cartesian_abstractions/refinement_hierarchy.cc.o.d -o CMakeFiles/downward.dir/cartesian_abstractions/refinement_hierarchy.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/refinement_hierarchy.cc
 
 search/CMakeFiles/downward.dir/cartesian_abstractions/refinement_hierarchy.cc.i: cmake_force
@@ -1948,7 +2060,7 @@ search/CMakeFiles/downward.dir/cartesian_abstractions/refinement_hierarchy.cc.s:
 search/CMakeFiles/downward.dir/cartesian_abstractions/split_selector.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cartesian_abstractions/split_selector.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/split_selector.cc
 search/CMakeFiles/downward.dir/cartesian_abstractions/split_selector.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_135) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/split_selector.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_143) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/split_selector.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cartesian_abstractions/split_selector.cc.o -MF CMakeFiles/downward.dir/cartesian_abstractions/split_selector.cc.o.d -o CMakeFiles/downward.dir/cartesian_abstractions/split_selector.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/split_selector.cc
 
 search/CMakeFiles/downward.dir/cartesian_abstractions/split_selector.cc.i: cmake_force
@@ -1962,7 +2074,7 @@ search/CMakeFiles/downward.dir/cartesian_abstractions/split_selector.cc.s: cmake
 search/CMakeFiles/downward.dir/cartesian_abstractions/shortest_paths.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cartesian_abstractions/shortest_paths.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/shortest_paths.cc
 search/CMakeFiles/downward.dir/cartesian_abstractions/shortest_paths.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_136) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/shortest_paths.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_144) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/shortest_paths.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cartesian_abstractions/shortest_paths.cc.o -MF CMakeFiles/downward.dir/cartesian_abstractions/shortest_paths.cc.o.d -o CMakeFiles/downward.dir/cartesian_abstractions/shortest_paths.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/shortest_paths.cc
 
 search/CMakeFiles/downward.dir/cartesian_abstractions/shortest_paths.cc.i: cmake_force
@@ -1976,7 +2088,7 @@ search/CMakeFiles/downward.dir/cartesian_abstractions/shortest_paths.cc.s: cmake
 search/CMakeFiles/downward.dir/cartesian_abstractions/subtask_generators.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cartesian_abstractions/subtask_generators.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/subtask_generators.cc
 search/CMakeFiles/downward.dir/cartesian_abstractions/subtask_generators.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_137) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/subtask_generators.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_145) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/subtask_generators.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cartesian_abstractions/subtask_generators.cc.o -MF CMakeFiles/downward.dir/cartesian_abstractions/subtask_generators.cc.o.d -o CMakeFiles/downward.dir/cartesian_abstractions/subtask_generators.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/subtask_generators.cc
 
 search/CMakeFiles/downward.dir/cartesian_abstractions/subtask_generators.cc.i: cmake_force
@@ -1990,7 +2102,7 @@ search/CMakeFiles/downward.dir/cartesian_abstractions/subtask_generators.cc.s: c
 search/CMakeFiles/downward.dir/cartesian_abstractions/transition_rewirer.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cartesian_abstractions/transition_rewirer.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/transition_rewirer.cc
 search/CMakeFiles/downward.dir/cartesian_abstractions/transition_rewirer.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_138) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/transition_rewirer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_146) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/transition_rewirer.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cartesian_abstractions/transition_rewirer.cc.o -MF CMakeFiles/downward.dir/cartesian_abstractions/transition_rewirer.cc.o.d -o CMakeFiles/downward.dir/cartesian_abstractions/transition_rewirer.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/transition_rewirer.cc
 
 search/CMakeFiles/downward.dir/cartesian_abstractions/transition_rewirer.cc.i: cmake_force
@@ -2004,7 +2116,7 @@ search/CMakeFiles/downward.dir/cartesian_abstractions/transition_rewirer.cc.s: c
 search/CMakeFiles/downward.dir/cartesian_abstractions/transition_system.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cartesian_abstractions/transition_system.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/transition_system.cc
 search/CMakeFiles/downward.dir/cartesian_abstractions/transition_system.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_139) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/transition_system.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_147) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/transition_system.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cartesian_abstractions/transition_system.cc.o -MF CMakeFiles/downward.dir/cartesian_abstractions/transition_system.cc.o.d -o CMakeFiles/downward.dir/cartesian_abstractions/transition_system.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/transition_system.cc
 
 search/CMakeFiles/downward.dir/cartesian_abstractions/transition_system.cc.i: cmake_force
@@ -2018,7 +2130,7 @@ search/CMakeFiles/downward.dir/cartesian_abstractions/transition_system.cc.s: cm
 search/CMakeFiles/downward.dir/cartesian_abstractions/utils.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cartesian_abstractions/utils.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/utils.cc
 search/CMakeFiles/downward.dir/cartesian_abstractions/utils.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_140) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/utils.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_148) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/utils.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cartesian_abstractions/utils.cc.o -MF CMakeFiles/downward.dir/cartesian_abstractions/utils.cc.o.d -o CMakeFiles/downward.dir/cartesian_abstractions/utils.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/utils.cc
 
 search/CMakeFiles/downward.dir/cartesian_abstractions/utils.cc.i: cmake_force
@@ -2032,7 +2144,7 @@ search/CMakeFiles/downward.dir/cartesian_abstractions/utils.cc.s: cmake_force
 search/CMakeFiles/downward.dir/cartesian_abstractions/utils_landmarks.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cartesian_abstractions/utils_landmarks.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/utils_landmarks.cc
 search/CMakeFiles/downward.dir/cartesian_abstractions/utils_landmarks.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_141) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/utils_landmarks.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_149) "Building CXX object search/CMakeFiles/downward.dir/cartesian_abstractions/utils_landmarks.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cartesian_abstractions/utils_landmarks.cc.o -MF CMakeFiles/downward.dir/cartesian_abstractions/utils_landmarks.cc.o.d -o CMakeFiles/downward.dir/cartesian_abstractions/utils_landmarks.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cartesian_abstractions/utils_landmarks.cc
 
 search/CMakeFiles/downward.dir/cartesian_abstractions/utils_landmarks.cc.i: cmake_force
@@ -2046,7 +2158,7 @@ search/CMakeFiles/downward.dir/cartesian_abstractions/utils_landmarks.cc.s: cmak
 search/CMakeFiles/downward.dir/tasks/domain_abstracted_task.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/tasks/domain_abstracted_task.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/tasks/domain_abstracted_task.cc
 search/CMakeFiles/downward.dir/tasks/domain_abstracted_task.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_142) "Building CXX object search/CMakeFiles/downward.dir/tasks/domain_abstracted_task.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_150) "Building CXX object search/CMakeFiles/downward.dir/tasks/domain_abstracted_task.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/tasks/domain_abstracted_task.cc.o -MF CMakeFiles/downward.dir/tasks/domain_abstracted_task.cc.o.d -o CMakeFiles/downward.dir/tasks/domain_abstracted_task.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/tasks/domain_abstracted_task.cc
 
 search/CMakeFiles/downward.dir/tasks/domain_abstracted_task.cc.i: cmake_force
@@ -2060,7 +2172,7 @@ search/CMakeFiles/downward.dir/tasks/domain_abstracted_task.cc.s: cmake_force
 search/CMakeFiles/downward.dir/tasks/domain_abstracted_task_factory.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/tasks/domain_abstracted_task_factory.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/tasks/domain_abstracted_task_factory.cc
 search/CMakeFiles/downward.dir/tasks/domain_abstracted_task_factory.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_143) "Building CXX object search/CMakeFiles/downward.dir/tasks/domain_abstracted_task_factory.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_151) "Building CXX object search/CMakeFiles/downward.dir/tasks/domain_abstracted_task_factory.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/tasks/domain_abstracted_task_factory.cc.o -MF CMakeFiles/downward.dir/tasks/domain_abstracted_task_factory.cc.o.d -o CMakeFiles/downward.dir/tasks/domain_abstracted_task_factory.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/tasks/domain_abstracted_task_factory.cc
 
 search/CMakeFiles/downward.dir/tasks/domain_abstracted_task_factory.cc.i: cmake_force
@@ -2074,7 +2186,7 @@ search/CMakeFiles/downward.dir/tasks/domain_abstracted_task_factory.cc.s: cmake_
 search/CMakeFiles/downward.dir/tasks/inverted_task.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/tasks/inverted_task.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/tasks/inverted_task.cc
 search/CMakeFiles/downward.dir/tasks/inverted_task.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_144) "Building CXX object search/CMakeFiles/downward.dir/tasks/inverted_task.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_152) "Building CXX object search/CMakeFiles/downward.dir/tasks/inverted_task.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/tasks/inverted_task.cc.o -MF CMakeFiles/downward.dir/tasks/inverted_task.cc.o.d -o CMakeFiles/downward.dir/tasks/inverted_task.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/tasks/inverted_task.cc
 
 search/CMakeFiles/downward.dir/tasks/inverted_task.cc.i: cmake_force
@@ -2088,7 +2200,7 @@ search/CMakeFiles/downward.dir/tasks/inverted_task.cc.s: cmake_force
 search/CMakeFiles/downward.dir/tasks/modified_goals_task.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/tasks/modified_goals_task.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/tasks/modified_goals_task.cc
 search/CMakeFiles/downward.dir/tasks/modified_goals_task.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_145) "Building CXX object search/CMakeFiles/downward.dir/tasks/modified_goals_task.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_153) "Building CXX object search/CMakeFiles/downward.dir/tasks/modified_goals_task.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/tasks/modified_goals_task.cc.o -MF CMakeFiles/downward.dir/tasks/modified_goals_task.cc.o.d -o CMakeFiles/downward.dir/tasks/modified_goals_task.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/tasks/modified_goals_task.cc
 
 search/CMakeFiles/downward.dir/tasks/modified_goals_task.cc.i: cmake_force
@@ -2102,7 +2214,7 @@ search/CMakeFiles/downward.dir/tasks/modified_goals_task.cc.s: cmake_force
 search/CMakeFiles/downward.dir/tasks/modified_operator_costs_task.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/tasks/modified_operator_costs_task.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/tasks/modified_operator_costs_task.cc
 search/CMakeFiles/downward.dir/tasks/modified_operator_costs_task.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_146) "Building CXX object search/CMakeFiles/downward.dir/tasks/modified_operator_costs_task.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_154) "Building CXX object search/CMakeFiles/downward.dir/tasks/modified_operator_costs_task.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/tasks/modified_operator_costs_task.cc.o -MF CMakeFiles/downward.dir/tasks/modified_operator_costs_task.cc.o.d -o CMakeFiles/downward.dir/tasks/modified_operator_costs_task.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/tasks/modified_operator_costs_task.cc
 
 search/CMakeFiles/downward.dir/tasks/modified_operator_costs_task.cc.i: cmake_force
@@ -2116,7 +2228,7 @@ search/CMakeFiles/downward.dir/tasks/modified_operator_costs_task.cc.s: cmake_fo
 search/CMakeFiles/downward.dir/landmarks/exploration.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/landmarks/exploration.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/exploration.cc
 search/CMakeFiles/downward.dir/landmarks/exploration.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_147) "Building CXX object search/CMakeFiles/downward.dir/landmarks/exploration.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_155) "Building CXX object search/CMakeFiles/downward.dir/landmarks/exploration.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/landmarks/exploration.cc.o -MF CMakeFiles/downward.dir/landmarks/exploration.cc.o.d -o CMakeFiles/downward.dir/landmarks/exploration.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/exploration.cc
 
 search/CMakeFiles/downward.dir/landmarks/exploration.cc.i: cmake_force
@@ -2130,7 +2242,7 @@ search/CMakeFiles/downward.dir/landmarks/exploration.cc.s: cmake_force
 search/CMakeFiles/downward.dir/landmarks/landmark.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/landmarks/landmark.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark.cc
 search/CMakeFiles/downward.dir/landmarks/landmark.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_148) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_156) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/landmarks/landmark.cc.o -MF CMakeFiles/downward.dir/landmarks/landmark.cc.o.d -o CMakeFiles/downward.dir/landmarks/landmark.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark.cc
 
 search/CMakeFiles/downward.dir/landmarks/landmark.cc.i: cmake_force
@@ -2144,7 +2256,7 @@ search/CMakeFiles/downward.dir/landmarks/landmark.cc.s: cmake_force
 search/CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_algorithms.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_algorithms.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_cost_partitioning_algorithms.cc
 search/CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_algorithms.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_149) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_algorithms.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_157) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_algorithms.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_algorithms.cc.o -MF CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_algorithms.cc.o.d -o CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_algorithms.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_cost_partitioning_algorithms.cc
 
 search/CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_algorithms.cc.i: cmake_force
@@ -2158,7 +2270,7 @@ search/CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_algorithms.c
 search/CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_cost_partitioning_heuristic.cc
 search/CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_150) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_158) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_heuristic.cc.o -MF CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_heuristic.cc.o.d -o CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_cost_partitioning_heuristic.cc
 
 search/CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_heuristic.cc.i: cmake_force
@@ -2172,7 +2284,7 @@ search/CMakeFiles/downward.dir/landmarks/landmark_cost_partitioning_heuristic.cc
 search/CMakeFiles/downward.dir/landmarks/landmark_factory.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/landmarks/landmark_factory.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_factory.cc
 search/CMakeFiles/downward.dir/landmarks/landmark_factory.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_151) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_159) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/landmarks/landmark_factory.cc.o -MF CMakeFiles/downward.dir/landmarks/landmark_factory.cc.o.d -o CMakeFiles/downward.dir/landmarks/landmark_factory.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_factory.cc
 
 search/CMakeFiles/downward.dir/landmarks/landmark_factory.cc.i: cmake_force
@@ -2186,7 +2298,7 @@ search/CMakeFiles/downward.dir/landmarks/landmark_factory.cc.s: cmake_force
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_h_m.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_h_m.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_factory_h_m.cc
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_h_m.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_152) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_h_m.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_160) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_h_m.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/landmarks/landmark_factory_h_m.cc.o -MF CMakeFiles/downward.dir/landmarks/landmark_factory_h_m.cc.o.d -o CMakeFiles/downward.dir/landmarks/landmark_factory_h_m.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_factory_h_m.cc
 
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_h_m.cc.i: cmake_force
@@ -2200,7 +2312,7 @@ search/CMakeFiles/downward.dir/landmarks/landmark_factory_h_m.cc.s: cmake_force
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_reasonable_orders_hps.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_reasonable_orders_hps.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_factory_reasonable_orders_hps.cc
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_reasonable_orders_hps.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_153) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_reasonable_orders_hps.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_161) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_reasonable_orders_hps.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/landmarks/landmark_factory_reasonable_orders_hps.cc.o -MF CMakeFiles/downward.dir/landmarks/landmark_factory_reasonable_orders_hps.cc.o.d -o CMakeFiles/downward.dir/landmarks/landmark_factory_reasonable_orders_hps.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_factory_reasonable_orders_hps.cc
 
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_reasonable_orders_hps.cc.i: cmake_force
@@ -2214,7 +2326,7 @@ search/CMakeFiles/downward.dir/landmarks/landmark_factory_reasonable_orders_hps.
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_merged.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_merged.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_factory_merged.cc
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_merged.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_154) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_merged.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_162) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_merged.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/landmarks/landmark_factory_merged.cc.o -MF CMakeFiles/downward.dir/landmarks/landmark_factory_merged.cc.o.d -o CMakeFiles/downward.dir/landmarks/landmark_factory_merged.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_factory_merged.cc
 
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_merged.cc.i: cmake_force
@@ -2228,7 +2340,7 @@ search/CMakeFiles/downward.dir/landmarks/landmark_factory_merged.cc.s: cmake_for
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_relaxation.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_relaxation.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_factory_relaxation.cc
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_relaxation.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_155) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_relaxation.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_163) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_relaxation.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/landmarks/landmark_factory_relaxation.cc.o -MF CMakeFiles/downward.dir/landmarks/landmark_factory_relaxation.cc.o.d -o CMakeFiles/downward.dir/landmarks/landmark_factory_relaxation.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_factory_relaxation.cc
 
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_relaxation.cc.i: cmake_force
@@ -2242,7 +2354,7 @@ search/CMakeFiles/downward.dir/landmarks/landmark_factory_relaxation.cc.s: cmake
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_exhaust.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_exhaust.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_factory_rpg_exhaust.cc
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_exhaust.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_156) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_exhaust.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_164) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_exhaust.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_exhaust.cc.o -MF CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_exhaust.cc.o.d -o CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_exhaust.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_factory_rpg_exhaust.cc
 
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_exhaust.cc.i: cmake_force
@@ -2256,7 +2368,7 @@ search/CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_exhaust.cc.s: cmak
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_sasp.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_sasp.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_factory_rpg_sasp.cc
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_sasp.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_157) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_sasp.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_165) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_sasp.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_sasp.cc.o -MF CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_sasp.cc.o.d -o CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_sasp.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_factory_rpg_sasp.cc
 
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_sasp.cc.i: cmake_force
@@ -2270,7 +2382,7 @@ search/CMakeFiles/downward.dir/landmarks/landmark_factory_rpg_sasp.cc.s: cmake_f
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_zhu_givan.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_zhu_givan.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_factory_zhu_givan.cc
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_zhu_givan.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_158) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_zhu_givan.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_166) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_factory_zhu_givan.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/landmarks/landmark_factory_zhu_givan.cc.o -MF CMakeFiles/downward.dir/landmarks/landmark_factory_zhu_givan.cc.o.d -o CMakeFiles/downward.dir/landmarks/landmark_factory_zhu_givan.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_factory_zhu_givan.cc
 
 search/CMakeFiles/downward.dir/landmarks/landmark_factory_zhu_givan.cc.i: cmake_force
@@ -2284,7 +2396,7 @@ search/CMakeFiles/downward.dir/landmarks/landmark_factory_zhu_givan.cc.s: cmake_
 search/CMakeFiles/downward.dir/landmarks/landmark_graph.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/landmarks/landmark_graph.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_graph.cc
 search/CMakeFiles/downward.dir/landmarks/landmark_graph.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_159) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_graph.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_167) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_graph.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/landmarks/landmark_graph.cc.o -MF CMakeFiles/downward.dir/landmarks/landmark_graph.cc.o.d -o CMakeFiles/downward.dir/landmarks/landmark_graph.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_graph.cc
 
 search/CMakeFiles/downward.dir/landmarks/landmark_graph.cc.i: cmake_force
@@ -2298,7 +2410,7 @@ search/CMakeFiles/downward.dir/landmarks/landmark_graph.cc.s: cmake_force
 search/CMakeFiles/downward.dir/landmarks/landmark_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/landmarks/landmark_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_heuristic.cc
 search/CMakeFiles/downward.dir/landmarks/landmark_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_160) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_168) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/landmarks/landmark_heuristic.cc.o -MF CMakeFiles/downward.dir/landmarks/landmark_heuristic.cc.o.d -o CMakeFiles/downward.dir/landmarks/landmark_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_heuristic.cc
 
 search/CMakeFiles/downward.dir/landmarks/landmark_heuristic.cc.i: cmake_force
@@ -2312,7 +2424,7 @@ search/CMakeFiles/downward.dir/landmarks/landmark_heuristic.cc.s: cmake_force
 search/CMakeFiles/downward.dir/landmarks/landmark_status_manager.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/landmarks/landmark_status_manager.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_status_manager.cc
 search/CMakeFiles/downward.dir/landmarks/landmark_status_manager.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_161) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_status_manager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_169) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_status_manager.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/landmarks/landmark_status_manager.cc.o -MF CMakeFiles/downward.dir/landmarks/landmark_status_manager.cc.o.d -o CMakeFiles/downward.dir/landmarks/landmark_status_manager.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_status_manager.cc
 
 search/CMakeFiles/downward.dir/landmarks/landmark_status_manager.cc.i: cmake_force
@@ -2326,7 +2438,7 @@ search/CMakeFiles/downward.dir/landmarks/landmark_status_manager.cc.s: cmake_for
 search/CMakeFiles/downward.dir/landmarks/landmark_sum_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/landmarks/landmark_sum_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_sum_heuristic.cc
 search/CMakeFiles/downward.dir/landmarks/landmark_sum_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_162) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_sum_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_170) "Building CXX object search/CMakeFiles/downward.dir/landmarks/landmark_sum_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/landmarks/landmark_sum_heuristic.cc.o -MF CMakeFiles/downward.dir/landmarks/landmark_sum_heuristic.cc.o.d -o CMakeFiles/downward.dir/landmarks/landmark_sum_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/landmark_sum_heuristic.cc
 
 search/CMakeFiles/downward.dir/landmarks/landmark_sum_heuristic.cc.i: cmake_force
@@ -2340,7 +2452,7 @@ search/CMakeFiles/downward.dir/landmarks/landmark_sum_heuristic.cc.s: cmake_forc
 search/CMakeFiles/downward.dir/landmarks/util.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/landmarks/util.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/util.cc
 search/CMakeFiles/downward.dir/landmarks/util.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_163) "Building CXX object search/CMakeFiles/downward.dir/landmarks/util.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_171) "Building CXX object search/CMakeFiles/downward.dir/landmarks/util.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/landmarks/util.cc.o -MF CMakeFiles/downward.dir/landmarks/util.cc.o.d -o CMakeFiles/downward.dir/landmarks/util.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/landmarks/util.cc
 
 search/CMakeFiles/downward.dir/landmarks/util.cc.i: cmake_force
@@ -2354,7 +2466,7 @@ search/CMakeFiles/downward.dir/landmarks/util.cc.s: cmake_force
 search/CMakeFiles/downward.dir/lp/lp_internals.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/lp/lp_internals.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/lp/lp_internals.cc
 search/CMakeFiles/downward.dir/lp/lp_internals.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_164) "Building CXX object search/CMakeFiles/downward.dir/lp/lp_internals.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_172) "Building CXX object search/CMakeFiles/downward.dir/lp/lp_internals.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/lp/lp_internals.cc.o -MF CMakeFiles/downward.dir/lp/lp_internals.cc.o.d -o CMakeFiles/downward.dir/lp/lp_internals.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/lp/lp_internals.cc
 
 search/CMakeFiles/downward.dir/lp/lp_internals.cc.i: cmake_force
@@ -2368,7 +2480,7 @@ search/CMakeFiles/downward.dir/lp/lp_internals.cc.s: cmake_force
 search/CMakeFiles/downward.dir/lp/lp_solver.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/lp/lp_solver.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/lp/lp_solver.cc
 search/CMakeFiles/downward.dir/lp/lp_solver.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_165) "Building CXX object search/CMakeFiles/downward.dir/lp/lp_solver.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_173) "Building CXX object search/CMakeFiles/downward.dir/lp/lp_solver.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/lp/lp_solver.cc.o -MF CMakeFiles/downward.dir/lp/lp_solver.cc.o.d -o CMakeFiles/downward.dir/lp/lp_solver.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/lp/lp_solver.cc
 
 search/CMakeFiles/downward.dir/lp/lp_solver.cc.i: cmake_force
@@ -2382,7 +2494,7 @@ search/CMakeFiles/downward.dir/lp/lp_solver.cc.s: cmake_force
 search/CMakeFiles/downward.dir/cost_saturation/abstraction.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/abstraction.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/abstraction.cc
 search/CMakeFiles/downward.dir/cost_saturation/abstraction.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_166) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/abstraction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_174) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/abstraction.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/abstraction.cc.o -MF CMakeFiles/downward.dir/cost_saturation/abstraction.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/abstraction.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/abstraction.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/abstraction.cc.i: cmake_force
@@ -2396,7 +2508,7 @@ search/CMakeFiles/downward.dir/cost_saturation/abstraction.cc.s: cmake_force
 search/CMakeFiles/downward.dir/cost_saturation/abstraction_generator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/abstraction_generator.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/abstraction_generator.cc
 search/CMakeFiles/downward.dir/cost_saturation/abstraction_generator.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_167) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/abstraction_generator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_175) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/abstraction_generator.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/abstraction_generator.cc.o -MF CMakeFiles/downward.dir/cost_saturation/abstraction_generator.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/abstraction_generator.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/abstraction_generator.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/abstraction_generator.cc.i: cmake_force
@@ -2410,7 +2522,7 @@ search/CMakeFiles/downward.dir/cost_saturation/abstraction_generator.cc.s: cmake
 search/CMakeFiles/downward.dir/cost_saturation/canonical_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/canonical_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/canonical_heuristic.cc
 search/CMakeFiles/downward.dir/cost_saturation/canonical_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_168) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/canonical_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_176) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/canonical_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/canonical_heuristic.cc.o -MF CMakeFiles/downward.dir/cost_saturation/canonical_heuristic.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/canonical_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/canonical_heuristic.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/canonical_heuristic.cc.i: cmake_force
@@ -2424,7 +2536,7 @@ search/CMakeFiles/downward.dir/cost_saturation/canonical_heuristic.cc.s: cmake_f
 search/CMakeFiles/downward.dir/cost_saturation/cartesian_abstraction_generator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/cartesian_abstraction_generator.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/cartesian_abstraction_generator.cc
 search/CMakeFiles/downward.dir/cost_saturation/cartesian_abstraction_generator.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_169) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/cartesian_abstraction_generator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_177) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/cartesian_abstraction_generator.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/cartesian_abstraction_generator.cc.o -MF CMakeFiles/downward.dir/cost_saturation/cartesian_abstraction_generator.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/cartesian_abstraction_generator.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/cartesian_abstraction_generator.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/cartesian_abstraction_generator.cc.i: cmake_force
@@ -2438,7 +2550,7 @@ search/CMakeFiles/downward.dir/cost_saturation/cartesian_abstraction_generator.c
 search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/cost_partitioning_heuristic.cc
 search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_170) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_178) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic.cc.o -MF CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/cost_partitioning_heuristic.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic.cc.i: cmake_force
@@ -2452,7 +2564,7 @@ search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic.cc.s:
 search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic_collection_generator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic_collection_generator.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/cost_partitioning_heuristic_collection_generator.cc
 search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic_collection_generator.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_171) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic_collection_generator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_179) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic_collection_generator.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic_collection_generator.cc.o -MF CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic_collection_generator.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic_collection_generator.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/cost_partitioning_heuristic_collection_generator.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic_collection_generator.cc.i: cmake_force
@@ -2466,7 +2578,7 @@ search/CMakeFiles/downward.dir/cost_saturation/cost_partitioning_heuristic_colle
 search/CMakeFiles/downward.dir/cost_saturation/diversifier.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/diversifier.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/diversifier.cc
 search/CMakeFiles/downward.dir/cost_saturation/diversifier.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_172) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/diversifier.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_180) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/diversifier.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/diversifier.cc.o -MF CMakeFiles/downward.dir/cost_saturation/diversifier.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/diversifier.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/diversifier.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/diversifier.cc.i: cmake_force
@@ -2480,7 +2592,7 @@ search/CMakeFiles/downward.dir/cost_saturation/diversifier.cc.s: cmake_force
 search/CMakeFiles/downward.dir/cost_saturation/explicit_abstraction.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/explicit_abstraction.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/explicit_abstraction.cc
 search/CMakeFiles/downward.dir/cost_saturation/explicit_abstraction.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_173) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/explicit_abstraction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_181) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/explicit_abstraction.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/explicit_abstraction.cc.o -MF CMakeFiles/downward.dir/cost_saturation/explicit_abstraction.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/explicit_abstraction.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/explicit_abstraction.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/explicit_abstraction.cc.i: cmake_force
@@ -2494,7 +2606,7 @@ search/CMakeFiles/downward.dir/cost_saturation/explicit_abstraction.cc.s: cmake_
 search/CMakeFiles/downward.dir/cost_saturation/explicit_projection_factory.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/explicit_projection_factory.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/explicit_projection_factory.cc
 search/CMakeFiles/downward.dir/cost_saturation/explicit_projection_factory.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_174) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/explicit_projection_factory.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_182) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/explicit_projection_factory.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/explicit_projection_factory.cc.o -MF CMakeFiles/downward.dir/cost_saturation/explicit_projection_factory.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/explicit_projection_factory.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/explicit_projection_factory.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/explicit_projection_factory.cc.i: cmake_force
@@ -2508,7 +2620,7 @@ search/CMakeFiles/downward.dir/cost_saturation/explicit_projection_factory.cc.s:
 search/CMakeFiles/downward.dir/cost_saturation/greedy_order_utils.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/greedy_order_utils.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/greedy_order_utils.cc
 search/CMakeFiles/downward.dir/cost_saturation/greedy_order_utils.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_175) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/greedy_order_utils.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_183) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/greedy_order_utils.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/greedy_order_utils.cc.o -MF CMakeFiles/downward.dir/cost_saturation/greedy_order_utils.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/greedy_order_utils.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/greedy_order_utils.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/greedy_order_utils.cc.i: cmake_force
@@ -2522,7 +2634,7 @@ search/CMakeFiles/downward.dir/cost_saturation/greedy_order_utils.cc.s: cmake_fo
 search/CMakeFiles/downward.dir/cost_saturation/max_cost_partitioning_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/max_cost_partitioning_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/max_cost_partitioning_heuristic.cc
 search/CMakeFiles/downward.dir/cost_saturation/max_cost_partitioning_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_176) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/max_cost_partitioning_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_184) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/max_cost_partitioning_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/max_cost_partitioning_heuristic.cc.o -MF CMakeFiles/downward.dir/cost_saturation/max_cost_partitioning_heuristic.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/max_cost_partitioning_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/max_cost_partitioning_heuristic.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/max_cost_partitioning_heuristic.cc.i: cmake_force
@@ -2536,7 +2648,7 @@ search/CMakeFiles/downward.dir/cost_saturation/max_cost_partitioning_heuristic.c
 search/CMakeFiles/downward.dir/cost_saturation/max_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/max_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/max_heuristic.cc
 search/CMakeFiles/downward.dir/cost_saturation/max_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_177) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/max_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_185) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/max_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/max_heuristic.cc.o -MF CMakeFiles/downward.dir/cost_saturation/max_heuristic.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/max_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/max_heuristic.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/max_heuristic.cc.i: cmake_force
@@ -2550,7 +2662,7 @@ search/CMakeFiles/downward.dir/cost_saturation/max_heuristic.cc.s: cmake_force
 search/CMakeFiles/downward.dir/cost_saturation/optimal_cost_partitioning_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/optimal_cost_partitioning_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/optimal_cost_partitioning_heuristic.cc
 search/CMakeFiles/downward.dir/cost_saturation/optimal_cost_partitioning_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_178) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/optimal_cost_partitioning_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_186) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/optimal_cost_partitioning_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/optimal_cost_partitioning_heuristic.cc.o -MF CMakeFiles/downward.dir/cost_saturation/optimal_cost_partitioning_heuristic.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/optimal_cost_partitioning_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/optimal_cost_partitioning_heuristic.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/optimal_cost_partitioning_heuristic.cc.i: cmake_force
@@ -2564,7 +2676,7 @@ search/CMakeFiles/downward.dir/cost_saturation/optimal_cost_partitioning_heurist
 search/CMakeFiles/downward.dir/cost_saturation/order_generator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/order_generator.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/order_generator.cc
 search/CMakeFiles/downward.dir/cost_saturation/order_generator.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_179) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/order_generator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_187) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/order_generator.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/order_generator.cc.o -MF CMakeFiles/downward.dir/cost_saturation/order_generator.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/order_generator.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/order_generator.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/order_generator.cc.i: cmake_force
@@ -2578,7 +2690,7 @@ search/CMakeFiles/downward.dir/cost_saturation/order_generator.cc.s: cmake_force
 search/CMakeFiles/downward.dir/cost_saturation/order_generator_dynamic_greedy.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/order_generator_dynamic_greedy.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/order_generator_dynamic_greedy.cc
 search/CMakeFiles/downward.dir/cost_saturation/order_generator_dynamic_greedy.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_180) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/order_generator_dynamic_greedy.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_188) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/order_generator_dynamic_greedy.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/order_generator_dynamic_greedy.cc.o -MF CMakeFiles/downward.dir/cost_saturation/order_generator_dynamic_greedy.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/order_generator_dynamic_greedy.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/order_generator_dynamic_greedy.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/order_generator_dynamic_greedy.cc.i: cmake_force
@@ -2592,7 +2704,7 @@ search/CMakeFiles/downward.dir/cost_saturation/order_generator_dynamic_greedy.cc
 search/CMakeFiles/downward.dir/cost_saturation/order_generator_greedy.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/order_generator_greedy.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/order_generator_greedy.cc
 search/CMakeFiles/downward.dir/cost_saturation/order_generator_greedy.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_181) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/order_generator_greedy.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_189) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/order_generator_greedy.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/order_generator_greedy.cc.o -MF CMakeFiles/downward.dir/cost_saturation/order_generator_greedy.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/order_generator_greedy.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/order_generator_greedy.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/order_generator_greedy.cc.i: cmake_force
@@ -2606,7 +2718,7 @@ search/CMakeFiles/downward.dir/cost_saturation/order_generator_greedy.cc.s: cmak
 search/CMakeFiles/downward.dir/cost_saturation/order_generator_random.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/order_generator_random.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/order_generator_random.cc
 search/CMakeFiles/downward.dir/cost_saturation/order_generator_random.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_182) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/order_generator_random.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_190) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/order_generator_random.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/order_generator_random.cc.o -MF CMakeFiles/downward.dir/cost_saturation/order_generator_random.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/order_generator_random.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/order_generator_random.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/order_generator_random.cc.i: cmake_force
@@ -2620,7 +2732,7 @@ search/CMakeFiles/downward.dir/cost_saturation/order_generator_random.cc.s: cmak
 search/CMakeFiles/downward.dir/cost_saturation/order_optimizer.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/order_optimizer.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/order_optimizer.cc
 search/CMakeFiles/downward.dir/cost_saturation/order_optimizer.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_183) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/order_optimizer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_191) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/order_optimizer.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/order_optimizer.cc.o -MF CMakeFiles/downward.dir/cost_saturation/order_optimizer.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/order_optimizer.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/order_optimizer.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/order_optimizer.cc.i: cmake_force
@@ -2634,7 +2746,7 @@ search/CMakeFiles/downward.dir/cost_saturation/order_optimizer.cc.s: cmake_force
 search/CMakeFiles/downward.dir/cost_saturation/pho_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/pho_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/pho_heuristic.cc
 search/CMakeFiles/downward.dir/cost_saturation/pho_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_184) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/pho_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_192) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/pho_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/pho_heuristic.cc.o -MF CMakeFiles/downward.dir/cost_saturation/pho_heuristic.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/pho_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/pho_heuristic.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/pho_heuristic.cc.i: cmake_force
@@ -2648,7 +2760,7 @@ search/CMakeFiles/downward.dir/cost_saturation/pho_heuristic.cc.s: cmake_force
 search/CMakeFiles/downward.dir/cost_saturation/plugin_group.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/plugin_group.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/plugin_group.cc
 search/CMakeFiles/downward.dir/cost_saturation/plugin_group.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_185) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/plugin_group.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_193) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/plugin_group.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/plugin_group.cc.o -MF CMakeFiles/downward.dir/cost_saturation/plugin_group.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/plugin_group.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/plugin_group.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/plugin_group.cc.i: cmake_force
@@ -2662,7 +2774,7 @@ search/CMakeFiles/downward.dir/cost_saturation/plugin_group.cc.s: cmake_force
 search/CMakeFiles/downward.dir/cost_saturation/projection.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/projection.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/projection.cc
 search/CMakeFiles/downward.dir/cost_saturation/projection.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_186) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/projection.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_194) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/projection.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/projection.cc.o -MF CMakeFiles/downward.dir/cost_saturation/projection.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/projection.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/projection.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/projection.cc.i: cmake_force
@@ -2676,7 +2788,7 @@ search/CMakeFiles/downward.dir/cost_saturation/projection.cc.s: cmake_force
 search/CMakeFiles/downward.dir/cost_saturation/projection_generator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/projection_generator.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/projection_generator.cc
 search/CMakeFiles/downward.dir/cost_saturation/projection_generator.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_187) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/projection_generator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_195) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/projection_generator.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/projection_generator.cc.o -MF CMakeFiles/downward.dir/cost_saturation/projection_generator.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/projection_generator.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/projection_generator.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/projection_generator.cc.i: cmake_force
@@ -2690,7 +2802,7 @@ search/CMakeFiles/downward.dir/cost_saturation/projection_generator.cc.s: cmake_
 search/CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/saturated_cost_partitioning_heuristic.cc
 search/CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_188) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_196) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_heuristic.cc.o -MF CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_heuristic.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/saturated_cost_partitioning_heuristic.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_heuristic.cc.i: cmake_force
@@ -2704,7 +2816,7 @@ search/CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_heuri
 search/CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_online_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_online_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/saturated_cost_partitioning_online_heuristic.cc
 search/CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_online_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_189) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_online_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_197) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_online_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_online_heuristic.cc.o -MF CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_online_heuristic.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_online_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/saturated_cost_partitioning_online_heuristic.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_online_heuristic.cc.i: cmake_force
@@ -2718,7 +2830,7 @@ search/CMakeFiles/downward.dir/cost_saturation/saturated_cost_partitioning_onlin
 search/CMakeFiles/downward.dir/cost_saturation/uniform_cost_partitioning_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/uniform_cost_partitioning_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/uniform_cost_partitioning_heuristic.cc
 search/CMakeFiles/downward.dir/cost_saturation/uniform_cost_partitioning_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_190) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/uniform_cost_partitioning_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_198) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/uniform_cost_partitioning_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/uniform_cost_partitioning_heuristic.cc.o -MF CMakeFiles/downward.dir/cost_saturation/uniform_cost_partitioning_heuristic.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/uniform_cost_partitioning_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/uniform_cost_partitioning_heuristic.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/uniform_cost_partitioning_heuristic.cc.i: cmake_force
@@ -2732,7 +2844,7 @@ search/CMakeFiles/downward.dir/cost_saturation/uniform_cost_partitioning_heurist
 search/CMakeFiles/downward.dir/cost_saturation/unsolvability_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/unsolvability_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/unsolvability_heuristic.cc
 search/CMakeFiles/downward.dir/cost_saturation/unsolvability_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_191) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/unsolvability_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_199) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/unsolvability_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/unsolvability_heuristic.cc.o -MF CMakeFiles/downward.dir/cost_saturation/unsolvability_heuristic.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/unsolvability_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/unsolvability_heuristic.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/unsolvability_heuristic.cc.i: cmake_force
@@ -2746,7 +2858,7 @@ search/CMakeFiles/downward.dir/cost_saturation/unsolvability_heuristic.cc.s: cma
 search/CMakeFiles/downward.dir/cost_saturation/utils.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/utils.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/utils.cc
 search/CMakeFiles/downward.dir/cost_saturation/utils.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_192) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/utils.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_200) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/utils.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/utils.cc.o -MF CMakeFiles/downward.dir/cost_saturation/utils.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/utils.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/utils.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/utils.cc.i: cmake_force
@@ -2760,7 +2872,7 @@ search/CMakeFiles/downward.dir/cost_saturation/utils.cc.s: cmake_force
 search/CMakeFiles/downward.dir/cost_saturation/zero_one_cost_partitioning_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/cost_saturation/zero_one_cost_partitioning_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/zero_one_cost_partitioning_heuristic.cc
 search/CMakeFiles/downward.dir/cost_saturation/zero_one_cost_partitioning_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_193) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/zero_one_cost_partitioning_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_201) "Building CXX object search/CMakeFiles/downward.dir/cost_saturation/zero_one_cost_partitioning_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/cost_saturation/zero_one_cost_partitioning_heuristic.cc.o -MF CMakeFiles/downward.dir/cost_saturation/zero_one_cost_partitioning_heuristic.cc.o.d -o CMakeFiles/downward.dir/cost_saturation/zero_one_cost_partitioning_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/cost_saturation/zero_one_cost_partitioning_heuristic.cc
 
 search/CMakeFiles/downward.dir/cost_saturation/zero_one_cost_partitioning_heuristic.cc.i: cmake_force
@@ -2774,7 +2886,7 @@ search/CMakeFiles/downward.dir/cost_saturation/zero_one_cost_partitioning_heuris
 search/CMakeFiles/downward.dir/pdbs/abstract_operator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/abstract_operator.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/abstract_operator.cc
 search/CMakeFiles/downward.dir/pdbs/abstract_operator.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_194) "Building CXX object search/CMakeFiles/downward.dir/pdbs/abstract_operator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_202) "Building CXX object search/CMakeFiles/downward.dir/pdbs/abstract_operator.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/abstract_operator.cc.o -MF CMakeFiles/downward.dir/pdbs/abstract_operator.cc.o.d -o CMakeFiles/downward.dir/pdbs/abstract_operator.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/abstract_operator.cc
 
 search/CMakeFiles/downward.dir/pdbs/abstract_operator.cc.i: cmake_force
@@ -2788,7 +2900,7 @@ search/CMakeFiles/downward.dir/pdbs/abstract_operator.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/canonical_pdbs.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/canonical_pdbs.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/canonical_pdbs.cc
 search/CMakeFiles/downward.dir/pdbs/canonical_pdbs.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_195) "Building CXX object search/CMakeFiles/downward.dir/pdbs/canonical_pdbs.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_203) "Building CXX object search/CMakeFiles/downward.dir/pdbs/canonical_pdbs.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/canonical_pdbs.cc.o -MF CMakeFiles/downward.dir/pdbs/canonical_pdbs.cc.o.d -o CMakeFiles/downward.dir/pdbs/canonical_pdbs.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/canonical_pdbs.cc
 
 search/CMakeFiles/downward.dir/pdbs/canonical_pdbs.cc.i: cmake_force
@@ -2802,7 +2914,7 @@ search/CMakeFiles/downward.dir/pdbs/canonical_pdbs.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/canonical_pdbs_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/canonical_pdbs_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/canonical_pdbs_heuristic.cc
 search/CMakeFiles/downward.dir/pdbs/canonical_pdbs_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_196) "Building CXX object search/CMakeFiles/downward.dir/pdbs/canonical_pdbs_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_204) "Building CXX object search/CMakeFiles/downward.dir/pdbs/canonical_pdbs_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/canonical_pdbs_heuristic.cc.o -MF CMakeFiles/downward.dir/pdbs/canonical_pdbs_heuristic.cc.o.d -o CMakeFiles/downward.dir/pdbs/canonical_pdbs_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/canonical_pdbs_heuristic.cc
 
 search/CMakeFiles/downward.dir/pdbs/canonical_pdbs_heuristic.cc.i: cmake_force
@@ -2816,7 +2928,7 @@ search/CMakeFiles/downward.dir/pdbs/canonical_pdbs_heuristic.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/cegar.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/cegar.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/cegar.cc
 search/CMakeFiles/downward.dir/pdbs/cegar.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_197) "Building CXX object search/CMakeFiles/downward.dir/pdbs/cegar.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_205) "Building CXX object search/CMakeFiles/downward.dir/pdbs/cegar.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/cegar.cc.o -MF CMakeFiles/downward.dir/pdbs/cegar.cc.o.d -o CMakeFiles/downward.dir/pdbs/cegar.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/cegar.cc
 
 search/CMakeFiles/downward.dir/pdbs/cegar.cc.i: cmake_force
@@ -2830,7 +2942,7 @@ search/CMakeFiles/downward.dir/pdbs/cegar.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/dominance_pruning.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/dominance_pruning.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/dominance_pruning.cc
 search/CMakeFiles/downward.dir/pdbs/dominance_pruning.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_198) "Building CXX object search/CMakeFiles/downward.dir/pdbs/dominance_pruning.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_206) "Building CXX object search/CMakeFiles/downward.dir/pdbs/dominance_pruning.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/dominance_pruning.cc.o -MF CMakeFiles/downward.dir/pdbs/dominance_pruning.cc.o.d -o CMakeFiles/downward.dir/pdbs/dominance_pruning.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/dominance_pruning.cc
 
 search/CMakeFiles/downward.dir/pdbs/dominance_pruning.cc.i: cmake_force
@@ -2844,7 +2956,7 @@ search/CMakeFiles/downward.dir/pdbs/dominance_pruning.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/incremental_canonical_pdbs.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/incremental_canonical_pdbs.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/incremental_canonical_pdbs.cc
 search/CMakeFiles/downward.dir/pdbs/incremental_canonical_pdbs.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_199) "Building CXX object search/CMakeFiles/downward.dir/pdbs/incremental_canonical_pdbs.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_207) "Building CXX object search/CMakeFiles/downward.dir/pdbs/incremental_canonical_pdbs.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/incremental_canonical_pdbs.cc.o -MF CMakeFiles/downward.dir/pdbs/incremental_canonical_pdbs.cc.o.d -o CMakeFiles/downward.dir/pdbs/incremental_canonical_pdbs.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/incremental_canonical_pdbs.cc
 
 search/CMakeFiles/downward.dir/pdbs/incremental_canonical_pdbs.cc.i: cmake_force
@@ -2858,7 +2970,7 @@ search/CMakeFiles/downward.dir/pdbs/incremental_canonical_pdbs.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/match_tree.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/match_tree.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/match_tree.cc
 search/CMakeFiles/downward.dir/pdbs/match_tree.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_200) "Building CXX object search/CMakeFiles/downward.dir/pdbs/match_tree.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_208) "Building CXX object search/CMakeFiles/downward.dir/pdbs/match_tree.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/match_tree.cc.o -MF CMakeFiles/downward.dir/pdbs/match_tree.cc.o.d -o CMakeFiles/downward.dir/pdbs/match_tree.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/match_tree.cc
 
 search/CMakeFiles/downward.dir/pdbs/match_tree.cc.i: cmake_force
@@ -2872,7 +2984,7 @@ search/CMakeFiles/downward.dir/pdbs/match_tree.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/pattern_cliques.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_cliques.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_cliques.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_cliques.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_201) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_cliques.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_209) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_cliques.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_cliques.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_cliques.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_cliques.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_cliques.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_cliques.cc.i: cmake_force
@@ -2886,7 +2998,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_cliques.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_information.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_information.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_information.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_information.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_202) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_information.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_210) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_information.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_collection_information.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_collection_information.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_collection_information.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_information.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_information.cc.i: cmake_force
@@ -2900,7 +3012,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_collection_information.cc.s: cmake_f
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_combo.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_combo.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_combo.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_combo.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_203) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_combo.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_211) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_combo.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_combo.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_collection_generator_combo.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_collection_generator_combo.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_combo.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_combo.cc.i: cmake_force
@@ -2914,7 +3026,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_combo.cc.s: cma
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_disjoint_cegar.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_disjoint_cegar.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_disjoint_cegar.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_disjoint_cegar.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_204) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_disjoint_cegar.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_212) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_disjoint_cegar.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_disjoint_cegar.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_collection_generator_disjoint_cegar.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_collection_generator_disjoint_cegar.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_disjoint_cegar.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_disjoint_cegar.cc.i: cmake_force
@@ -2928,7 +3040,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_disjoint_cegar.
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_genetic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_genetic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_genetic.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_genetic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_205) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_genetic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_213) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_genetic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_genetic.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_collection_generator_genetic.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_collection_generator_genetic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_genetic.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_genetic.cc.i: cmake_force
@@ -2942,7 +3054,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_genetic.cc.s: c
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_hillclimbing.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_hillclimbing.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_hillclimbing.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_hillclimbing.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_206) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_hillclimbing.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_214) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_hillclimbing.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_hillclimbing.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_collection_generator_hillclimbing.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_collection_generator_hillclimbing.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_hillclimbing.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_hillclimbing.cc.i: cmake_force
@@ -2956,7 +3068,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_hillclimbing.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_manual.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_manual.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_manual.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_manual.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_207) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_manual.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_215) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_manual.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_manual.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_collection_generator_manual.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_collection_generator_manual.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_manual.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_manual.cc.i: cmake_force
@@ -2970,7 +3082,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_manual.cc.s: cm
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_cegar.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_cegar.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_multiple_cegar.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_cegar.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_208) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_cegar.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_216) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_cegar.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_cegar.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_cegar.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_cegar.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_multiple_cegar.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_cegar.cc.i: cmake_force
@@ -2984,7 +3096,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_cegar.
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_random.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_random.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_multiple_random.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_random.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_209) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_random.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_217) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_random.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_random.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_random.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_random.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_multiple_random.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_random.cc.i: cmake_force
@@ -2998,7 +3110,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple_random
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_multiple.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_210) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_218) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_multiple.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple.cc.i: cmake_force
@@ -3012,7 +3124,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_multiple.cc.s: 
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_systematic.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_211) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_219) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_systematic.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic.cc.i: cmake_force
@@ -3026,7 +3138,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic.cc.s
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic_scp.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic_scp.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_systematic_scp.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic_scp.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_212) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic_scp.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_220) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic_scp.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic_scp.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic_scp.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic_scp.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_collection_generator_systematic_scp.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic_scp.cc.i: cmake_force
@@ -3040,7 +3152,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_collection_generator_systematic_scp.
 search/CMakeFiles/downward.dir/pdbs/pattern_database_factory.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_database_factory.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_database_factory.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_database_factory.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_213) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_database_factory.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_221) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_database_factory.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_database_factory.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_database_factory.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_database_factory.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_database_factory.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_database_factory.cc.i: cmake_force
@@ -3054,7 +3166,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_database_factory.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/pattern_database.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_database.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_database.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_database.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_214) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_database.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_222) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_database.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_database.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_database.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_database.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_database.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_database.cc.i: cmake_force
@@ -3068,7 +3180,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_database.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/pattern_evaluator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_evaluator.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_evaluator.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_evaluator.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_215) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_evaluator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_223) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_evaluator.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_evaluator.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_evaluator.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_evaluator.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_evaluator.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_evaluator.cc.i: cmake_force
@@ -3082,7 +3194,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_evaluator.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/pattern_generator_cegar.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_generator_cegar.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_generator_cegar.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_generator_cegar.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_216) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_generator_cegar.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_224) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_generator_cegar.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_generator_cegar.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_generator_cegar.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_generator_cegar.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_generator_cegar.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_generator_cegar.cc.i: cmake_force
@@ -3096,7 +3208,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_generator_cegar.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/pattern_generator_greedy.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_generator_greedy.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_generator_greedy.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_generator_greedy.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_217) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_generator_greedy.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_225) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_generator_greedy.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_generator_greedy.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_generator_greedy.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_generator_greedy.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_generator_greedy.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_generator_greedy.cc.i: cmake_force
@@ -3110,7 +3222,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_generator_greedy.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/pattern_generator_manual.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_generator_manual.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_generator_manual.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_generator_manual.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_218) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_generator_manual.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_226) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_generator_manual.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_generator_manual.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_generator_manual.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_generator_manual.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_generator_manual.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_generator_manual.cc.i: cmake_force
@@ -3124,7 +3236,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_generator_manual.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/pattern_generator_random.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_generator_random.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_generator_random.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_generator_random.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_219) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_generator_random.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_227) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_generator_random.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_generator_random.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_generator_random.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_generator_random.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_generator_random.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_generator_random.cc.i: cmake_force
@@ -3138,7 +3250,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_generator_random.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/pattern_generator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_generator.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_generator.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_generator.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_220) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_generator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_228) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_generator.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_generator.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_generator.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_generator.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_generator.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_generator.cc.i: cmake_force
@@ -3152,7 +3264,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_generator.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/pattern_information.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pattern_information.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_information.cc
 search/CMakeFiles/downward.dir/pdbs/pattern_information.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_221) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_information.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_229) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pattern_information.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pattern_information.cc.o -MF CMakeFiles/downward.dir/pdbs/pattern_information.cc.o.d -o CMakeFiles/downward.dir/pdbs/pattern_information.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pattern_information.cc
 
 search/CMakeFiles/downward.dir/pdbs/pattern_information.cc.i: cmake_force
@@ -3166,7 +3278,7 @@ search/CMakeFiles/downward.dir/pdbs/pattern_information.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/pdb_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/pdb_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pdb_heuristic.cc
 search/CMakeFiles/downward.dir/pdbs/pdb_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_222) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pdb_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_230) "Building CXX object search/CMakeFiles/downward.dir/pdbs/pdb_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/pdb_heuristic.cc.o -MF CMakeFiles/downward.dir/pdbs/pdb_heuristic.cc.o.d -o CMakeFiles/downward.dir/pdbs/pdb_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/pdb_heuristic.cc
 
 search/CMakeFiles/downward.dir/pdbs/pdb_heuristic.cc.i: cmake_force
@@ -3180,7 +3292,7 @@ search/CMakeFiles/downward.dir/pdbs/pdb_heuristic.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/random_pattern.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/random_pattern.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/random_pattern.cc
 search/CMakeFiles/downward.dir/pdbs/random_pattern.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_223) "Building CXX object search/CMakeFiles/downward.dir/pdbs/random_pattern.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_231) "Building CXX object search/CMakeFiles/downward.dir/pdbs/random_pattern.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/random_pattern.cc.o -MF CMakeFiles/downward.dir/pdbs/random_pattern.cc.o.d -o CMakeFiles/downward.dir/pdbs/random_pattern.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/random_pattern.cc
 
 search/CMakeFiles/downward.dir/pdbs/random_pattern.cc.i: cmake_force
@@ -3194,7 +3306,7 @@ search/CMakeFiles/downward.dir/pdbs/random_pattern.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/slim_match_tree.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/slim_match_tree.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/slim_match_tree.cc
 search/CMakeFiles/downward.dir/pdbs/slim_match_tree.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_224) "Building CXX object search/CMakeFiles/downward.dir/pdbs/slim_match_tree.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_232) "Building CXX object search/CMakeFiles/downward.dir/pdbs/slim_match_tree.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/slim_match_tree.cc.o -MF CMakeFiles/downward.dir/pdbs/slim_match_tree.cc.o.d -o CMakeFiles/downward.dir/pdbs/slim_match_tree.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/slim_match_tree.cc
 
 search/CMakeFiles/downward.dir/pdbs/slim_match_tree.cc.i: cmake_force
@@ -3208,7 +3320,7 @@ search/CMakeFiles/downward.dir/pdbs/slim_match_tree.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/subcategory.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/subcategory.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/subcategory.cc
 search/CMakeFiles/downward.dir/pdbs/subcategory.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_225) "Building CXX object search/CMakeFiles/downward.dir/pdbs/subcategory.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_233) "Building CXX object search/CMakeFiles/downward.dir/pdbs/subcategory.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/subcategory.cc.o -MF CMakeFiles/downward.dir/pdbs/subcategory.cc.o.d -o CMakeFiles/downward.dir/pdbs/subcategory.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/subcategory.cc
 
 search/CMakeFiles/downward.dir/pdbs/subcategory.cc.i: cmake_force
@@ -3222,7 +3334,7 @@ search/CMakeFiles/downward.dir/pdbs/subcategory.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/utils.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/utils.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/utils.cc
 search/CMakeFiles/downward.dir/pdbs/utils.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_226) "Building CXX object search/CMakeFiles/downward.dir/pdbs/utils.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_234) "Building CXX object search/CMakeFiles/downward.dir/pdbs/utils.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/utils.cc.o -MF CMakeFiles/downward.dir/pdbs/utils.cc.o.d -o CMakeFiles/downward.dir/pdbs/utils.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/utils.cc
 
 search/CMakeFiles/downward.dir/pdbs/utils.cc.i: cmake_force
@@ -3236,7 +3348,7 @@ search/CMakeFiles/downward.dir/pdbs/utils.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/validation.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/validation.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/validation.cc
 search/CMakeFiles/downward.dir/pdbs/validation.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_227) "Building CXX object search/CMakeFiles/downward.dir/pdbs/validation.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_235) "Building CXX object search/CMakeFiles/downward.dir/pdbs/validation.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/validation.cc.o -MF CMakeFiles/downward.dir/pdbs/validation.cc.o.d -o CMakeFiles/downward.dir/pdbs/validation.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/validation.cc
 
 search/CMakeFiles/downward.dir/pdbs/validation.cc.i: cmake_force
@@ -3250,7 +3362,7 @@ search/CMakeFiles/downward.dir/pdbs/validation.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/zero_one_pdbs.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/zero_one_pdbs.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/zero_one_pdbs.cc
 search/CMakeFiles/downward.dir/pdbs/zero_one_pdbs.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_228) "Building CXX object search/CMakeFiles/downward.dir/pdbs/zero_one_pdbs.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_236) "Building CXX object search/CMakeFiles/downward.dir/pdbs/zero_one_pdbs.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/zero_one_pdbs.cc.o -MF CMakeFiles/downward.dir/pdbs/zero_one_pdbs.cc.o.d -o CMakeFiles/downward.dir/pdbs/zero_one_pdbs.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/zero_one_pdbs.cc
 
 search/CMakeFiles/downward.dir/pdbs/zero_one_pdbs.cc.i: cmake_force
@@ -3264,7 +3376,7 @@ search/CMakeFiles/downward.dir/pdbs/zero_one_pdbs.cc.s: cmake_force
 search/CMakeFiles/downward.dir/pdbs/zero_one_pdbs_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pdbs/zero_one_pdbs_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/zero_one_pdbs_heuristic.cc
 search/CMakeFiles/downward.dir/pdbs/zero_one_pdbs_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_229) "Building CXX object search/CMakeFiles/downward.dir/pdbs/zero_one_pdbs_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_237) "Building CXX object search/CMakeFiles/downward.dir/pdbs/zero_one_pdbs_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/pdbs/zero_one_pdbs_heuristic.cc.o -MF CMakeFiles/downward.dir/pdbs/zero_one_pdbs_heuristic.cc.o.d -o CMakeFiles/downward.dir/pdbs/zero_one_pdbs_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/pdbs/zero_one_pdbs_heuristic.cc
 
 search/CMakeFiles/downward.dir/pdbs/zero_one_pdbs_heuristic.cc.i: cmake_force
@@ -3278,7 +3390,7 @@ search/CMakeFiles/downward.dir/pdbs/zero_one_pdbs_heuristic.cc.s: cmake_force
 search/CMakeFiles/downward.dir/algorithms/max_cliques.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/algorithms/max_cliques.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/algorithms/max_cliques.cc
 search/CMakeFiles/downward.dir/algorithms/max_cliques.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_230) "Building CXX object search/CMakeFiles/downward.dir/algorithms/max_cliques.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_238) "Building CXX object search/CMakeFiles/downward.dir/algorithms/max_cliques.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/algorithms/max_cliques.cc.o -MF CMakeFiles/downward.dir/algorithms/max_cliques.cc.o.d -o CMakeFiles/downward.dir/algorithms/max_cliques.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/algorithms/max_cliques.cc
 
 search/CMakeFiles/downward.dir/algorithms/max_cliques.cc.i: cmake_force
@@ -3292,7 +3404,7 @@ search/CMakeFiles/downward.dir/algorithms/max_cliques.cc.s: cmake_force
 search/CMakeFiles/downward.dir/task_utils/sampling.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/task_utils/sampling.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/task_utils/sampling.cc
 search/CMakeFiles/downward.dir/task_utils/sampling.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_231) "Building CXX object search/CMakeFiles/downward.dir/task_utils/sampling.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_239) "Building CXX object search/CMakeFiles/downward.dir/task_utils/sampling.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/task_utils/sampling.cc.o -MF CMakeFiles/downward.dir/task_utils/sampling.cc.o.d -o CMakeFiles/downward.dir/task_utils/sampling.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/task_utils/sampling.cc
 
 search/CMakeFiles/downward.dir/task_utils/sampling.cc.i: cmake_force
@@ -3306,7 +3418,7 @@ search/CMakeFiles/downward.dir/task_utils/sampling.cc.s: cmake_force
 search/CMakeFiles/downward.dir/task_utils/variable_order_finder.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/task_utils/variable_order_finder.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/task_utils/variable_order_finder.cc
 search/CMakeFiles/downward.dir/task_utils/variable_order_finder.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_232) "Building CXX object search/CMakeFiles/downward.dir/task_utils/variable_order_finder.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_240) "Building CXX object search/CMakeFiles/downward.dir/task_utils/variable_order_finder.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/task_utils/variable_order_finder.cc.o -MF CMakeFiles/downward.dir/task_utils/variable_order_finder.cc.o.d -o CMakeFiles/downward.dir/task_utils/variable_order_finder.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/task_utils/variable_order_finder.cc
 
 search/CMakeFiles/downward.dir/task_utils/variable_order_finder.cc.i: cmake_force
@@ -3320,7 +3432,7 @@ search/CMakeFiles/downward.dir/task_utils/variable_order_finder.cc.s: cmake_forc
 search/CMakeFiles/downward.dir/algorithms/partial_state_tree.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/algorithms/partial_state_tree.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/algorithms/partial_state_tree.cc
 search/CMakeFiles/downward.dir/algorithms/partial_state_tree.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_233) "Building CXX object search/CMakeFiles/downward.dir/algorithms/partial_state_tree.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_241) "Building CXX object search/CMakeFiles/downward.dir/algorithms/partial_state_tree.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/algorithms/partial_state_tree.cc.o -MF CMakeFiles/downward.dir/algorithms/partial_state_tree.cc.o.d -o CMakeFiles/downward.dir/algorithms/partial_state_tree.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/algorithms/partial_state_tree.cc
 
 search/CMakeFiles/downward.dir/algorithms/partial_state_tree.cc.i: cmake_force
@@ -3334,7 +3446,7 @@ search/CMakeFiles/downward.dir/algorithms/partial_state_tree.cc.s: cmake_force
 search/CMakeFiles/downward.dir/merge_and_shrink/distances.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/distances.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/distances.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/distances.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_234) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/distances.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_242) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/distances.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/distances.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/distances.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/distances.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/distances.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/distances.cc.i: cmake_force
@@ -3348,7 +3460,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/distances.cc.s: cmake_force
 search/CMakeFiles/downward.dir/merge_and_shrink/factored_transition_system.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/factored_transition_system.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/factored_transition_system.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/factored_transition_system.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_235) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/factored_transition_system.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_243) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/factored_transition_system.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/factored_transition_system.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/factored_transition_system.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/factored_transition_system.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/factored_transition_system.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/factored_transition_system.cc.i: cmake_force
@@ -3362,7 +3474,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/factored_transition_system.cc.s:
 search/CMakeFiles/downward.dir/merge_and_shrink/fts_factory.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/fts_factory.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/fts_factory.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/fts_factory.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_236) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/fts_factory.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_244) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/fts_factory.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/fts_factory.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/fts_factory.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/fts_factory.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/fts_factory.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/fts_factory.cc.i: cmake_force
@@ -3376,7 +3488,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/fts_factory.cc.s: cmake_force
 search/CMakeFiles/downward.dir/merge_and_shrink/label_reduction.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/label_reduction.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/label_reduction.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/label_reduction.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_237) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/label_reduction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_245) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/label_reduction.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/label_reduction.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/label_reduction.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/label_reduction.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/label_reduction.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/label_reduction.cc.i: cmake_force
@@ -3390,7 +3502,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/label_reduction.cc.s: cmake_forc
 search/CMakeFiles/downward.dir/merge_and_shrink/labels.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/labels.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/labels.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/labels.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_238) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/labels.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_246) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/labels.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/labels.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/labels.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/labels.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/labels.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/labels.cc.i: cmake_force
@@ -3404,7 +3516,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/labels.cc.s: cmake_force
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_algorithm.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_algorithm.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_and_shrink_algorithm.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_algorithm.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_239) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_algorithm.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_247) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_algorithm.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_algorithm.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_algorithm.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_algorithm.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_and_shrink_algorithm.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_algorithm.cc.i: cmake_force
@@ -3418,7 +3530,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_algorithm.cc.s:
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_and_shrink_heuristic.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_240) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_248) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_heuristic.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_heuristic.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_and_shrink_heuristic.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_heuristic.cc.i: cmake_force
@@ -3432,7 +3544,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_heuristic.cc.s:
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_representation.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_representation.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_and_shrink_representation.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_representation.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_241) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_representation.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_249) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_representation.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_representation.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_representation.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_representation.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_and_shrink_representation.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_representation.cc.i: cmake_force
@@ -3446,7 +3558,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_and_shrink_representation.
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_scoring_function.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_242) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_250) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_scoring_function.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function.cc.i: cmake_force
@@ -3460,7 +3572,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function.cc.s: cma
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_dfp.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_dfp.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_scoring_function_dfp.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_dfp.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_243) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_dfp.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_251) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_dfp.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_dfp.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_dfp.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_dfp.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_scoring_function_dfp.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_dfp.cc.i: cmake_force
@@ -3474,7 +3586,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_dfp.cc.s:
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_goal_relevance.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_goal_relevance.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_scoring_function_goal_relevance.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_goal_relevance.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_244) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_goal_relevance.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_252) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_goal_relevance.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_goal_relevance.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_goal_relevance.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_goal_relevance.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_scoring_function_goal_relevance.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_goal_relevance.cc.i: cmake_force
@@ -3488,7 +3600,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_goal_rele
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_scoring_function_miasm.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_245) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_253) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_scoring_function_miasm.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm.cc.i: cmake_force
@@ -3502,7 +3614,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm.cc.
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm_utils.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm_utils.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_scoring_function_miasm_utils.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm_utils.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_246) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm_utils.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_254) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm_utils.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm_utils.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm_utils.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm_utils.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_scoring_function_miasm_utils.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm_utils.cc.i: cmake_force
@@ -3516,7 +3628,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_miasm_uti
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_single_random.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_single_random.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_scoring_function_single_random.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_single_random.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_247) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_single_random.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_255) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_single_random.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_single_random.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_single_random.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_single_random.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_scoring_function_single_random.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_single_random.cc.i: cmake_force
@@ -3530,7 +3642,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_single_ra
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_total_order.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_total_order.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_scoring_function_total_order.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_total_order.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_248) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_total_order.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_256) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_total_order.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_total_order.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_total_order.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_total_order.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_scoring_function_total_order.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_total_order.cc.i: cmake_force
@@ -3544,7 +3656,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_scoring_function_total_ord
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_selector.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_selector.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_selector.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_selector.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_249) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_selector.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_257) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_selector.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_selector.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_selector.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_selector.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_selector.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_selector.cc.i: cmake_force
@@ -3558,7 +3670,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_selector.cc.s: cmake_force
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_selector_score_based_filtering.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_selector_score_based_filtering.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_selector_score_based_filtering.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_selector_score_based_filtering.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_250) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_selector_score_based_filtering.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_258) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_selector_score_based_filtering.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_selector_score_based_filtering.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_selector_score_based_filtering.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_selector_score_based_filtering.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_selector_score_based_filtering.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_selector_score_based_filtering.cc.i: cmake_force
@@ -3572,7 +3684,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_selector_score_based_filte
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_strategy.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_251) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_259) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_strategy.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_strategy.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_strategy.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy.cc.i: cmake_force
@@ -3586,7 +3698,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy.cc.s: cmake_force
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_strategy_factory.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_252) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_260) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_strategy_factory.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory.cc.i: cmake_force
@@ -3600,7 +3712,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory.cc.s: cma
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_precomputed.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_precomputed.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_strategy_factory_precomputed.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_precomputed.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_253) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_precomputed.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_261) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_precomputed.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_precomputed.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_precomputed.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_precomputed.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_strategy_factory_precomputed.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_precomputed.cc.i: cmake_force
@@ -3614,7 +3726,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_precomput
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_sccs.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_sccs.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_strategy_factory_sccs.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_sccs.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_254) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_sccs.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_262) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_sccs.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_sccs.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_sccs.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_sccs.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_strategy_factory_sccs.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_sccs.cc.i: cmake_force
@@ -3628,7 +3740,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_sccs.cc.s
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_stateless.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_stateless.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_strategy_factory_stateless.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_stateless.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_255) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_stateless.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_263) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_stateless.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_stateless.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_stateless.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_stateless.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_strategy_factory_stateless.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_stateless.cc.i: cmake_force
@@ -3642,7 +3754,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_factory_stateless
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_precomputed.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_precomputed.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_strategy_precomputed.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_precomputed.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_256) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_precomputed.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_264) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_precomputed.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_precomputed.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_precomputed.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_precomputed.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_strategy_precomputed.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_precomputed.cc.i: cmake_force
@@ -3656,7 +3768,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_precomputed.cc.s:
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_sccs.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_sccs.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_strategy_sccs.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_sccs.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_257) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_sccs.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_265) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_sccs.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_sccs.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_sccs.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_sccs.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_strategy_sccs.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_sccs.cc.i: cmake_force
@@ -3670,7 +3782,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_sccs.cc.s: cmake_
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_stateless.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_stateless.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_strategy_stateless.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_stateless.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_258) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_stateless.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_266) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_stateless.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_stateless.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_stateless.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_stateless.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_strategy_stateless.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_stateless.cc.i: cmake_force
@@ -3684,7 +3796,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_strategy_stateless.cc.s: c
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_tree.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_259) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_267) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_tree.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_tree.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_tree.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree.cc.i: cmake_force
@@ -3698,7 +3810,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree.cc.s: cmake_force
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_tree_factory.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_260) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_268) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_tree_factory.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory.cc.i: cmake_force
@@ -3712,7 +3824,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory.cc.s: cmake_f
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory_linear.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory_linear.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_tree_factory_linear.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory_linear.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_261) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory_linear.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_269) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory_linear.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory_linear.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory_linear.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory_linear.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/merge_tree_factory_linear.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory_linear.cc.i: cmake_force
@@ -3726,7 +3838,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/merge_tree_factory_linear.cc.s: 
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_bisimulation.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_bisimulation.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/shrink_bisimulation.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_bisimulation.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_262) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/shrink_bisimulation.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_270) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/shrink_bisimulation.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/shrink_bisimulation.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/shrink_bisimulation.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/shrink_bisimulation.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/shrink_bisimulation.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_bisimulation.cc.i: cmake_force
@@ -3740,7 +3852,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/shrink_bisimulation.cc.s: cmake_
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_bucket_based.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_bucket_based.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/shrink_bucket_based.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_bucket_based.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_263) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/shrink_bucket_based.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_271) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/shrink_bucket_based.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/shrink_bucket_based.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/shrink_bucket_based.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/shrink_bucket_based.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/shrink_bucket_based.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_bucket_based.cc.i: cmake_force
@@ -3754,7 +3866,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/shrink_bucket_based.cc.s: cmake_
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_fh.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_fh.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/shrink_fh.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_fh.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_264) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/shrink_fh.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_272) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/shrink_fh.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/shrink_fh.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/shrink_fh.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/shrink_fh.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/shrink_fh.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_fh.cc.i: cmake_force
@@ -3768,7 +3880,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/shrink_fh.cc.s: cmake_force
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_random.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_random.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/shrink_random.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_random.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_265) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/shrink_random.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_273) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/shrink_random.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/shrink_random.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/shrink_random.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/shrink_random.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/shrink_random.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_random.cc.i: cmake_force
@@ -3782,7 +3894,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/shrink_random.cc.s: cmake_force
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_strategy.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_strategy.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/shrink_strategy.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_strategy.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_266) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/shrink_strategy.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_274) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/shrink_strategy.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/shrink_strategy.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/shrink_strategy.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/shrink_strategy.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/shrink_strategy.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/shrink_strategy.cc.i: cmake_force
@@ -3796,7 +3908,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/shrink_strategy.cc.s: cmake_forc
 search/CMakeFiles/downward.dir/merge_and_shrink/transition_system.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/transition_system.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/transition_system.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/transition_system.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_267) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/transition_system.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_275) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/transition_system.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/transition_system.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/transition_system.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/transition_system.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/transition_system.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/transition_system.cc.i: cmake_force
@@ -3810,7 +3922,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/transition_system.cc.s: cmake_fo
 search/CMakeFiles/downward.dir/merge_and_shrink/types.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/types.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/types.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/types.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_268) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/types.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_276) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/types.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/types.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/types.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/types.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/types.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/types.cc.i: cmake_force
@@ -3824,7 +3936,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/types.cc.s: cmake_force
 search/CMakeFiles/downward.dir/merge_and_shrink/utils.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/merge_and_shrink/utils.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/utils.cc
 search/CMakeFiles/downward.dir/merge_and_shrink/utils.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_269) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/utils.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_277) "Building CXX object search/CMakeFiles/downward.dir/merge_and_shrink/utils.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/merge_and_shrink/utils.cc.o -MF CMakeFiles/downward.dir/merge_and_shrink/utils.cc.o.d -o CMakeFiles/downward.dir/merge_and_shrink/utils.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/merge_and_shrink/utils.cc
 
 search/CMakeFiles/downward.dir/merge_and_shrink/utils.cc.i: cmake_force
@@ -3838,7 +3950,7 @@ search/CMakeFiles/downward.dir/merge_and_shrink/utils.cc.s: cmake_force
 search/CMakeFiles/downward.dir/algorithms/equivalence_relation.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/algorithms/equivalence_relation.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/algorithms/equivalence_relation.cc
 search/CMakeFiles/downward.dir/algorithms/equivalence_relation.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_270) "Building CXX object search/CMakeFiles/downward.dir/algorithms/equivalence_relation.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_278) "Building CXX object search/CMakeFiles/downward.dir/algorithms/equivalence_relation.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/algorithms/equivalence_relation.cc.o -MF CMakeFiles/downward.dir/algorithms/equivalence_relation.cc.o.d -o CMakeFiles/downward.dir/algorithms/equivalence_relation.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/algorithms/equivalence_relation.cc
 
 search/CMakeFiles/downward.dir/algorithms/equivalence_relation.cc.i: cmake_force
@@ -3852,7 +3964,7 @@ search/CMakeFiles/downward.dir/algorithms/equivalence_relation.cc.s: cmake_force
 search/CMakeFiles/downward.dir/operator_counting/constraint_generator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/operator_counting/constraint_generator.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/operator_counting/constraint_generator.cc
 search/CMakeFiles/downward.dir/operator_counting/constraint_generator.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_271) "Building CXX object search/CMakeFiles/downward.dir/operator_counting/constraint_generator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_279) "Building CXX object search/CMakeFiles/downward.dir/operator_counting/constraint_generator.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/operator_counting/constraint_generator.cc.o -MF CMakeFiles/downward.dir/operator_counting/constraint_generator.cc.o.d -o CMakeFiles/downward.dir/operator_counting/constraint_generator.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/operator_counting/constraint_generator.cc
 
 search/CMakeFiles/downward.dir/operator_counting/constraint_generator.cc.i: cmake_force
@@ -3866,7 +3978,7 @@ search/CMakeFiles/downward.dir/operator_counting/constraint_generator.cc.s: cmak
 search/CMakeFiles/downward.dir/operator_counting/delete_relaxation_if_constraints.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/operator_counting/delete_relaxation_if_constraints.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/operator_counting/delete_relaxation_if_constraints.cc
 search/CMakeFiles/downward.dir/operator_counting/delete_relaxation_if_constraints.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_272) "Building CXX object search/CMakeFiles/downward.dir/operator_counting/delete_relaxation_if_constraints.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_280) "Building CXX object search/CMakeFiles/downward.dir/operator_counting/delete_relaxation_if_constraints.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/operator_counting/delete_relaxation_if_constraints.cc.o -MF CMakeFiles/downward.dir/operator_counting/delete_relaxation_if_constraints.cc.o.d -o CMakeFiles/downward.dir/operator_counting/delete_relaxation_if_constraints.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/operator_counting/delete_relaxation_if_constraints.cc
 
 search/CMakeFiles/downward.dir/operator_counting/delete_relaxation_if_constraints.cc.i: cmake_force
@@ -3880,7 +3992,7 @@ search/CMakeFiles/downward.dir/operator_counting/delete_relaxation_if_constraint
 search/CMakeFiles/downward.dir/operator_counting/delete_relaxation_rr_constraints.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/operator_counting/delete_relaxation_rr_constraints.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/operator_counting/delete_relaxation_rr_constraints.cc
 search/CMakeFiles/downward.dir/operator_counting/delete_relaxation_rr_constraints.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_273) "Building CXX object search/CMakeFiles/downward.dir/operator_counting/delete_relaxation_rr_constraints.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_281) "Building CXX object search/CMakeFiles/downward.dir/operator_counting/delete_relaxation_rr_constraints.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/operator_counting/delete_relaxation_rr_constraints.cc.o -MF CMakeFiles/downward.dir/operator_counting/delete_relaxation_rr_constraints.cc.o.d -o CMakeFiles/downward.dir/operator_counting/delete_relaxation_rr_constraints.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/operator_counting/delete_relaxation_rr_constraints.cc
 
 search/CMakeFiles/downward.dir/operator_counting/delete_relaxation_rr_constraints.cc.i: cmake_force
@@ -3894,7 +4006,7 @@ search/CMakeFiles/downward.dir/operator_counting/delete_relaxation_rr_constraint
 search/CMakeFiles/downward.dir/operator_counting/lm_cut_constraints.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/operator_counting/lm_cut_constraints.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/operator_counting/lm_cut_constraints.cc
 search/CMakeFiles/downward.dir/operator_counting/lm_cut_constraints.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_274) "Building CXX object search/CMakeFiles/downward.dir/operator_counting/lm_cut_constraints.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_282) "Building CXX object search/CMakeFiles/downward.dir/operator_counting/lm_cut_constraints.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/operator_counting/lm_cut_constraints.cc.o -MF CMakeFiles/downward.dir/operator_counting/lm_cut_constraints.cc.o.d -o CMakeFiles/downward.dir/operator_counting/lm_cut_constraints.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/operator_counting/lm_cut_constraints.cc
 
 search/CMakeFiles/downward.dir/operator_counting/lm_cut_constraints.cc.i: cmake_force
@@ -3908,7 +4020,7 @@ search/CMakeFiles/downward.dir/operator_counting/lm_cut_constraints.cc.s: cmake_
 search/CMakeFiles/downward.dir/operator_counting/operator_counting_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/operator_counting/operator_counting_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/operator_counting/operator_counting_heuristic.cc
 search/CMakeFiles/downward.dir/operator_counting/operator_counting_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_275) "Building CXX object search/CMakeFiles/downward.dir/operator_counting/operator_counting_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_283) "Building CXX object search/CMakeFiles/downward.dir/operator_counting/operator_counting_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/operator_counting/operator_counting_heuristic.cc.o -MF CMakeFiles/downward.dir/operator_counting/operator_counting_heuristic.cc.o.d -o CMakeFiles/downward.dir/operator_counting/operator_counting_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/operator_counting/operator_counting_heuristic.cc
 
 search/CMakeFiles/downward.dir/operator_counting/operator_counting_heuristic.cc.i: cmake_force
@@ -3922,7 +4034,7 @@ search/CMakeFiles/downward.dir/operator_counting/operator_counting_heuristic.cc.
 search/CMakeFiles/downward.dir/operator_counting/pho_abstraction_constraints.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/operator_counting/pho_abstraction_constraints.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/operator_counting/pho_abstraction_constraints.cc
 search/CMakeFiles/downward.dir/operator_counting/pho_abstraction_constraints.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_276) "Building CXX object search/CMakeFiles/downward.dir/operator_counting/pho_abstraction_constraints.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_284) "Building CXX object search/CMakeFiles/downward.dir/operator_counting/pho_abstraction_constraints.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/operator_counting/pho_abstraction_constraints.cc.o -MF CMakeFiles/downward.dir/operator_counting/pho_abstraction_constraints.cc.o.d -o CMakeFiles/downward.dir/operator_counting/pho_abstraction_constraints.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/operator_counting/pho_abstraction_constraints.cc
 
 search/CMakeFiles/downward.dir/operator_counting/pho_abstraction_constraints.cc.i: cmake_force
@@ -3936,7 +4048,7 @@ search/CMakeFiles/downward.dir/operator_counting/pho_abstraction_constraints.cc.
 search/CMakeFiles/downward.dir/operator_counting/pho_constraints.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/operator_counting/pho_constraints.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/operator_counting/pho_constraints.cc
 search/CMakeFiles/downward.dir/operator_counting/pho_constraints.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_277) "Building CXX object search/CMakeFiles/downward.dir/operator_counting/pho_constraints.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_285) "Building CXX object search/CMakeFiles/downward.dir/operator_counting/pho_constraints.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/operator_counting/pho_constraints.cc.o -MF CMakeFiles/downward.dir/operator_counting/pho_constraints.cc.o.d -o CMakeFiles/downward.dir/operator_counting/pho_constraints.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/operator_counting/pho_constraints.cc
 
 search/CMakeFiles/downward.dir/operator_counting/pho_constraints.cc.i: cmake_force
@@ -3950,7 +4062,7 @@ search/CMakeFiles/downward.dir/operator_counting/pho_constraints.cc.s: cmake_for
 search/CMakeFiles/downward.dir/operator_counting/state_equation_constraints.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/operator_counting/state_equation_constraints.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/operator_counting/state_equation_constraints.cc
 search/CMakeFiles/downward.dir/operator_counting/state_equation_constraints.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_278) "Building CXX object search/CMakeFiles/downward.dir/operator_counting/state_equation_constraints.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_286) "Building CXX object search/CMakeFiles/downward.dir/operator_counting/state_equation_constraints.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/operator_counting/state_equation_constraints.cc.o -MF CMakeFiles/downward.dir/operator_counting/state_equation_constraints.cc.o.d -o CMakeFiles/downward.dir/operator_counting/state_equation_constraints.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/operator_counting/state_equation_constraints.cc
 
 search/CMakeFiles/downward.dir/operator_counting/state_equation_constraints.cc.i: cmake_force
@@ -3964,7 +4076,7 @@ search/CMakeFiles/downward.dir/operator_counting/state_equation_constraints.cc.s
 search/CMakeFiles/downward.dir/potentials/diverse_potential_heuristics.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/potentials/diverse_potential_heuristics.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/potentials/diverse_potential_heuristics.cc
 search/CMakeFiles/downward.dir/potentials/diverse_potential_heuristics.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_279) "Building CXX object search/CMakeFiles/downward.dir/potentials/diverse_potential_heuristics.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_287) "Building CXX object search/CMakeFiles/downward.dir/potentials/diverse_potential_heuristics.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/potentials/diverse_potential_heuristics.cc.o -MF CMakeFiles/downward.dir/potentials/diverse_potential_heuristics.cc.o.d -o CMakeFiles/downward.dir/potentials/diverse_potential_heuristics.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/potentials/diverse_potential_heuristics.cc
 
 search/CMakeFiles/downward.dir/potentials/diverse_potential_heuristics.cc.i: cmake_force
@@ -3978,7 +4090,7 @@ search/CMakeFiles/downward.dir/potentials/diverse_potential_heuristics.cc.s: cma
 search/CMakeFiles/downward.dir/potentials/potential_function.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/potentials/potential_function.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/potentials/potential_function.cc
 search/CMakeFiles/downward.dir/potentials/potential_function.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_280) "Building CXX object search/CMakeFiles/downward.dir/potentials/potential_function.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_288) "Building CXX object search/CMakeFiles/downward.dir/potentials/potential_function.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/potentials/potential_function.cc.o -MF CMakeFiles/downward.dir/potentials/potential_function.cc.o.d -o CMakeFiles/downward.dir/potentials/potential_function.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/potentials/potential_function.cc
 
 search/CMakeFiles/downward.dir/potentials/potential_function.cc.i: cmake_force
@@ -3992,7 +4104,7 @@ search/CMakeFiles/downward.dir/potentials/potential_function.cc.s: cmake_force
 search/CMakeFiles/downward.dir/potentials/potential_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/potentials/potential_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/potentials/potential_heuristic.cc
 search/CMakeFiles/downward.dir/potentials/potential_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_281) "Building CXX object search/CMakeFiles/downward.dir/potentials/potential_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_289) "Building CXX object search/CMakeFiles/downward.dir/potentials/potential_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/potentials/potential_heuristic.cc.o -MF CMakeFiles/downward.dir/potentials/potential_heuristic.cc.o.d -o CMakeFiles/downward.dir/potentials/potential_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/potentials/potential_heuristic.cc
 
 search/CMakeFiles/downward.dir/potentials/potential_heuristic.cc.i: cmake_force
@@ -4006,7 +4118,7 @@ search/CMakeFiles/downward.dir/potentials/potential_heuristic.cc.s: cmake_force
 search/CMakeFiles/downward.dir/potentials/potential_max_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/potentials/potential_max_heuristic.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/potentials/potential_max_heuristic.cc
 search/CMakeFiles/downward.dir/potentials/potential_max_heuristic.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_282) "Building CXX object search/CMakeFiles/downward.dir/potentials/potential_max_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_290) "Building CXX object search/CMakeFiles/downward.dir/potentials/potential_max_heuristic.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/potentials/potential_max_heuristic.cc.o -MF CMakeFiles/downward.dir/potentials/potential_max_heuristic.cc.o.d -o CMakeFiles/downward.dir/potentials/potential_max_heuristic.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/potentials/potential_max_heuristic.cc
 
 search/CMakeFiles/downward.dir/potentials/potential_max_heuristic.cc.i: cmake_force
@@ -4020,7 +4132,7 @@ search/CMakeFiles/downward.dir/potentials/potential_max_heuristic.cc.s: cmake_fo
 search/CMakeFiles/downward.dir/potentials/potential_optimizer.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/potentials/potential_optimizer.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/potentials/potential_optimizer.cc
 search/CMakeFiles/downward.dir/potentials/potential_optimizer.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_283) "Building CXX object search/CMakeFiles/downward.dir/potentials/potential_optimizer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_291) "Building CXX object search/CMakeFiles/downward.dir/potentials/potential_optimizer.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/potentials/potential_optimizer.cc.o -MF CMakeFiles/downward.dir/potentials/potential_optimizer.cc.o.d -o CMakeFiles/downward.dir/potentials/potential_optimizer.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/potentials/potential_optimizer.cc
 
 search/CMakeFiles/downward.dir/potentials/potential_optimizer.cc.i: cmake_force
@@ -4034,7 +4146,7 @@ search/CMakeFiles/downward.dir/potentials/potential_optimizer.cc.s: cmake_force
 search/CMakeFiles/downward.dir/potentials/sample_based_potential_heuristics.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/potentials/sample_based_potential_heuristics.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/potentials/sample_based_potential_heuristics.cc
 search/CMakeFiles/downward.dir/potentials/sample_based_potential_heuristics.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_284) "Building CXX object search/CMakeFiles/downward.dir/potentials/sample_based_potential_heuristics.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_292) "Building CXX object search/CMakeFiles/downward.dir/potentials/sample_based_potential_heuristics.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/potentials/sample_based_potential_heuristics.cc.o -MF CMakeFiles/downward.dir/potentials/sample_based_potential_heuristics.cc.o.d -o CMakeFiles/downward.dir/potentials/sample_based_potential_heuristics.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/potentials/sample_based_potential_heuristics.cc
 
 search/CMakeFiles/downward.dir/potentials/sample_based_potential_heuristics.cc.i: cmake_force
@@ -4048,7 +4160,7 @@ search/CMakeFiles/downward.dir/potentials/sample_based_potential_heuristics.cc.s
 search/CMakeFiles/downward.dir/potentials/single_potential_heuristics.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/potentials/single_potential_heuristics.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/potentials/single_potential_heuristics.cc
 search/CMakeFiles/downward.dir/potentials/single_potential_heuristics.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_285) "Building CXX object search/CMakeFiles/downward.dir/potentials/single_potential_heuristics.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_293) "Building CXX object search/CMakeFiles/downward.dir/potentials/single_potential_heuristics.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/potentials/single_potential_heuristics.cc.o -MF CMakeFiles/downward.dir/potentials/single_potential_heuristics.cc.o.d -o CMakeFiles/downward.dir/potentials/single_potential_heuristics.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/potentials/single_potential_heuristics.cc
 
 search/CMakeFiles/downward.dir/potentials/single_potential_heuristics.cc.i: cmake_force
@@ -4062,7 +4174,7 @@ search/CMakeFiles/downward.dir/potentials/single_potential_heuristics.cc.s: cmak
 search/CMakeFiles/downward.dir/potentials/subcategory.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/potentials/subcategory.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/potentials/subcategory.cc
 search/CMakeFiles/downward.dir/potentials/subcategory.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_286) "Building CXX object search/CMakeFiles/downward.dir/potentials/subcategory.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_294) "Building CXX object search/CMakeFiles/downward.dir/potentials/subcategory.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/potentials/subcategory.cc.o -MF CMakeFiles/downward.dir/potentials/subcategory.cc.o.d -o CMakeFiles/downward.dir/potentials/subcategory.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/potentials/subcategory.cc
 
 search/CMakeFiles/downward.dir/potentials/subcategory.cc.i: cmake_force
@@ -4076,7 +4188,7 @@ search/CMakeFiles/downward.dir/potentials/subcategory.cc.s: cmake_force
 search/CMakeFiles/downward.dir/potentials/util.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/potentials/util.cc.o: /home/workbox/Projects/state-compression-scorpion/src/search/potentials/util.cc
 search/CMakeFiles/downward.dir/potentials/util.cc.o: search/CMakeFiles/downward.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_287) "Building CXX object search/CMakeFiles/downward.dir/potentials/util.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_295) "Building CXX object search/CMakeFiles/downward.dir/potentials/util.cc.o"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT search/CMakeFiles/downward.dir/potentials/util.cc.o -MF CMakeFiles/downward.dir/potentials/util.cc.o.d -o CMakeFiles/downward.dir/potentials/util.cc.o -c /home/workbox/Projects/state-compression-scorpion/src/search/potentials/util.cc
 
 search/CMakeFiles/downward.dir/potentials/util.cc.i: cmake_force
@@ -4126,13 +4238,19 @@ downward_OBJECTS = \
 "CMakeFiles/downward.dir/plugins/raw_registry.cc.o" \
 "CMakeFiles/downward.dir/plugins/registry.cc.o" \
 "CMakeFiles/downward.dir/plugins/types.cc.o" \
+"CMakeFiles/downward.dir/symbolic/opt_order.cc.o" \
+"CMakeFiles/downward.dir/symbolic/sym_axiom/sym_axiom_compilation.cc.o" \
+"CMakeFiles/downward.dir/symbolic/sym_bucket.cc.o" \
+"CMakeFiles/downward.dir/symbolic/sym_variables.cc.o" \
 "CMakeFiles/downward.dir/closed_list.cc.o" \
+"CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.o" \
 "CMakeFiles/downward.dir/closed_lists/bdd_closed_list.cc.o" \
 "CMakeFiles/downward.dir/closed_lists/loes_closed_list.cc.o" \
+"CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.o" \
 "CMakeFiles/downward.dir/loes/cloes.cc.o" \
 "CMakeFiles/downward.dir/loes/loes.cc.o" \
 "CMakeFiles/downward.dir/loes/merge_container.cc.o" \
-"CMakeFiles/downward.dir/search_engines/astar_search.cc.o" \
+"CMakeFiles/downward.dir/search_algorithms/astar_search.cc.o" \
 "CMakeFiles/downward.dir/search_algorithms/search_common.cc.o" \
 "CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.o" \
 "CMakeFiles/downward.dir/evaluators/g_evaluator.cc.o" \
@@ -4162,6 +4280,8 @@ downward_OBJECTS = \
 "CMakeFiles/downward.dir/utils/system_unix.cc.o" \
 "CMakeFiles/downward.dir/utils/system_windows.cc.o" \
 "CMakeFiles/downward.dir/utils/timer.cc.o" \
+"CMakeFiles/downward.dir/utils/stable_index_hash_map.cc.o" \
+"CMakeFiles/downward.dir/utils/treedbs.cc.o" \
 "CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.o" \
 "CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.o" \
 "CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.o" \
@@ -4417,13 +4537,19 @@ bin/downward: search/CMakeFiles/downward.dir/plugins/plugin_info.cc.o
 bin/downward: search/CMakeFiles/downward.dir/plugins/raw_registry.cc.o
 bin/downward: search/CMakeFiles/downward.dir/plugins/registry.cc.o
 bin/downward: search/CMakeFiles/downward.dir/plugins/types.cc.o
+bin/downward: search/CMakeFiles/downward.dir/symbolic/opt_order.cc.o
+bin/downward: search/CMakeFiles/downward.dir/symbolic/sym_axiom/sym_axiom_compilation.cc.o
+bin/downward: search/CMakeFiles/downward.dir/symbolic/sym_bucket.cc.o
+bin/downward: search/CMakeFiles/downward.dir/symbolic/sym_variables.cc.o
 bin/downward: search/CMakeFiles/downward.dir/closed_list.cc.o
+bin/downward: search/CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.o
 bin/downward: search/CMakeFiles/downward.dir/closed_lists/bdd_closed_list.cc.o
 bin/downward: search/CMakeFiles/downward.dir/closed_lists/loes_closed_list.cc.o
+bin/downward: search/CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.o
 bin/downward: search/CMakeFiles/downward.dir/loes/cloes.cc.o
 bin/downward: search/CMakeFiles/downward.dir/loes/loes.cc.o
 bin/downward: search/CMakeFiles/downward.dir/loes/merge_container.cc.o
-bin/downward: search/CMakeFiles/downward.dir/search_engines/astar_search.cc.o
+bin/downward: search/CMakeFiles/downward.dir/search_algorithms/astar_search.cc.o
 bin/downward: search/CMakeFiles/downward.dir/search_algorithms/search_common.cc.o
 bin/downward: search/CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.o
 bin/downward: search/CMakeFiles/downward.dir/evaluators/g_evaluator.cc.o
@@ -4453,6 +4579,8 @@ bin/downward: search/CMakeFiles/downward.dir/utils/system.cc.o
 bin/downward: search/CMakeFiles/downward.dir/utils/system_unix.cc.o
 bin/downward: search/CMakeFiles/downward.dir/utils/system_windows.cc.o
 bin/downward: search/CMakeFiles/downward.dir/utils/timer.cc.o
+bin/downward: search/CMakeFiles/downward.dir/utils/stable_index_hash_map.cc.o
+bin/downward: search/CMakeFiles/downward.dir/utils/treedbs.cc.o
 bin/downward: search/CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.o
 bin/downward: search/CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.o
 bin/downward: search/CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.o
@@ -4670,7 +4798,7 @@ bin/downward: search/CMakeFiles/downward.dir/potentials/util.cc.o
 bin/downward: search/CMakeFiles/downward.dir/build.make
 bin/downward: search/libcudd-prefix/src/libcudd-build/cudd/.libs/libcudd.a
 bin/downward: search/CMakeFiles/downward.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_288) "Linking CXX executable ../bin/downward"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_296) "Linking CXX executable ../bin/downward"
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug/search && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/downward.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

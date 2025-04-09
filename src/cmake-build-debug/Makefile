@@ -168,19 +168,6 @@ libcudd/fast:
 	$(MAKE) $(MAKESILENT) -f search/CMakeFiles/libcudd.dir/build.make search/CMakeFiles/libcudd.dir/build
 .PHONY : libcudd/fast
 
-#=============================================================================
-# Target rules for targets named MiniBoost
-
-# Build rule for target.
-MiniBoost: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MiniBoost
-.PHONY : MiniBoost
-
-# fast build rule for target.
-MiniBoost/fast:
-	$(MAKE) $(MAKESILENT) -f search/sdac_parser/boost_dependencies/libs/CMakeFiles/MiniBoost.dir/build.make search/sdac_parser/boost_dependencies/libs/CMakeFiles/MiniBoost.dir/build
-.PHONY : MiniBoost/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -191,7 +178,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... libcudd"
 	@echo "... translate"
-	@echo "... MiniBoost"
 	@echo "... downward"
 	@echo "... preprocess-h2"
 .PHONY : help

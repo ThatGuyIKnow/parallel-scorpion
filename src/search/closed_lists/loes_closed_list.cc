@@ -164,7 +164,7 @@ void LoesClosedList<LoesType>::add_state(const State &state) {
 }
 
 template<class LoesType>
-bool LoesClosedList<LoesType>::contains_state(const State &state) const
+bool LoesClosedList<LoesType>::contains_state(const State &state)
 {
     return c_list.contains(state_to_bitstate(state));
 }

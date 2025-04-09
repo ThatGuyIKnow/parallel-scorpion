@@ -31,7 +31,7 @@ public:
         const int max_sample_iterations);
 
     void add_state(const State &state);
-    bool contains_state(const State &state) const;
+    bool contains_state(const State &state);
     void print() const;
     void add_options_to_parser(plugins::Feature &feature);
 };
