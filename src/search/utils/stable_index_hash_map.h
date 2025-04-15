@@ -49,10 +49,6 @@ constexpr typename std::vector<T>::iterator circular_find_first_of(typename std:
 namespace utils {
     class StableIndexMap {
 
-    private:
-        size_t initial_size;
-        float load_factor;
-        size_t max_size;
 
         unsigned int probes = 0;
         unsigned int calls = 0;
@@ -88,9 +84,7 @@ namespace utils {
         int _size = 0;
 
     public:
-        explicit StableIndexMap(size_t initial_size = 100,
-                              float load_factor = 0.75,
-                              size_t max_size = 1000000);
+        explicit StableIndexMap();
 
         // Insert operations
         int insert(const std::vector<int>& vec);

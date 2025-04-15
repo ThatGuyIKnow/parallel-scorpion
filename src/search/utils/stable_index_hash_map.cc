@@ -9,8 +9,7 @@
 
 
 namespace utils {
-    StableIndexMap::StableIndexMap(size_t initial_size, float load_factor, size_t max_size) :
-        initial_size(initial_size), load_factor(load_factor), max_size(max_size) {
+    StableIndexMap::StableIndexMap() {
     }
 
     
@@ -22,17 +21,16 @@ namespace utils {
         return _size++;
     }
 
-    
+
     int StableIndexMap::find_or_insert(const std::vector<int>& value) {
         Entry entry = {value[0], value.size() < 2 ? -1 : value[1]};
         auto it = _values.find(entry);
         if (it != _values.end()) {
             return it->second;
         }
-
-        return insert(value);
+        _values.insert({entry, _size});
+        return _size++;
     }
-
     
     bool StableIndexMap::contains(const std::vector<int>& vec) {
         assert(vec.size() <= 2 && !vec.empty());
@@ -40,8 +38,6 @@ namespace utils {
         Entry entry = {vec[0], vec.size() < 2 ? -1 : vec[1]};
         return _values.contains(entry);
     }
-
-
     
     int StableIndexMap::find(const std::vector<int>& vec) {
         assert(vec.size() <= 2 && !vec.empty());
@@ -61,8 +57,6 @@ namespace utils {
 
     void StableIndexMap::print_info() {
         g_log << "Number of stable index map entries: " << size()
-            << "\nLoad factor: " << load_factor
-            << "\nMax size: " << max_size
             << "\nNumber of probes: " << probes
             << "\nNumber of calls: " << calls
             << "\nNumber of misses: " << std::endl;

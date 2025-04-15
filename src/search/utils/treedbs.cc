@@ -4,93 +4,71 @@
 #include <span>
 
 #include "hash.h"
-#include <stack>
-#include <stdexcept>
-
-#include "logging.h"
 
 namespace utils {
 
 
     TreeDBS::TreeDBS(size_t size) : _size(size) {
         assert(size > 0 && "TreeDBS size must be greater than 0");
-        root = constructTreeHelper(size);
     }
 
-    std::unique_ptr<TreeDBS::Node> TreeDBS::constructTreeHelper(size_t input_size, int level, StableIndexMap entries) {
-        if (input_size <= 2) {
-            return std::make_unique<Node>(nullptr, nullptr, level, true, entries);
-        }
-
-        auto mid = splitRange(0, input_size);
-        assert(mid > 0 && mid < input_size && "Invalid split range");
-
-        auto left= constructTreeHelper(mid, level+1, entries);
-        auto right = constructTreeHelper(input_size - mid, level+1, entries);
-
-        return std::make_unique<Node>(std::move(left), std::move(right), level, false, entries);
-    }
 
     void TreeDBS::insert(const std::vector<int>& vec) {
         assert(vec.size() == _size && "Vector size must match TreeDBS size");
-        putRecursively(vec.begin(), vec.end(), root);
-        //findOrPutIterative(vec, true);
-
+        put(vec.begin(), vec.end());
     }
 
     bool TreeDBS::contains(const std::vector<int>& vec) {
         assert(vec.size() == _size && "Vector size must match TreeDBS size");
 
-        return findRecursively(vec.begin(), vec.end(), root) >= 0;
+        return find(vec.begin(), vec.end()) >= 0;
     }
 
-    size_t TreeDBS::size() const {
-        return root->entries.size();
+    size_t TreeDBS::size() {
+        return entries.size();
     }
 
 
-    int TreeDBS::findRecursively(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end, const std::unique_ptr<Node>& node) {
-        assert(!node->isLeaf || std::distance(begin, end) <= 2 && "Leaf node must have 2 or fewer elements");
+    int TreeDBS::find(const std::vector<int>::const_iterator begin, const std::vector<int>::const_iterator end) {
+        auto count = std::distance(begin, end);
+        if (count <= 2)
+            return entries.find({begin[0], count == 1 ? -1 : begin[1]});
 
-        if (node->isLeaf) {
-            return node->entries.find(std::vector(begin, end));
-        }
-
-        const auto mid = begin + splitRange(0, std::distance(begin, end));
+        auto mid = begin + splitRange(0, count);
         assert(mid > begin && mid < end && "Invalid midpoint calculation");
 
-
-        auto left_index = findRecursively(begin, mid, node->left);
-        if (left_index == -1)
+        auto left = find(begin, mid);
+        if (left == -1)
             return -1;
 
-        auto right_index = findRecursively(mid, end, node->right);
-        if (right_index == -1)
+        auto right = find(mid, end);
+        if (right == -1)
             return -1;
 
-        auto entry = std::vector<int>{left_index, right_index};
-        return node->entries.find(entry);
+        return entries.find({left, right});
     }
 
-    int TreeDBS::putRecursively(const std::vector<int>::const_iterator begin, const std::vector<int>::const_iterator end, const std::unique_ptr<Node>& node) {
-        assert(!node->isLeaf || std::distance(begin, end) <= 2 && "Leaf node must have 2 or fewer elements");
-        if (node->isLeaf) {
-            return node->entries.find_or_insert(std::vector<int>{begin, end});
-        }
+    int TreeDBS::put(const std::vector<int>::const_iterator begin, const std::vector<int>::const_iterator end) {
+        auto count = std::distance(begin, end);
+        if (count <= 2)
+            return entries.find_or_insert({begin[0], count == 1 ? -1 : begin[1]});
 
-        auto mid = begin + splitRange(0, std::distance(begin, end));
+        auto mid = begin + splitRange(0, count);
         assert(mid > begin && mid < end && "Invalid midpoint calculation");
 
-        auto left_index = putRecursively(begin, mid, node->left);
-        auto right_index = putRecursively(mid, end, node->right);
+        auto left = put(begin, mid);
+        if (left == -1)
+            return -1;
+        auto right = put(mid, end);
+        if (right == -1)
+            return -1;
 
-        auto entry = std::vector<int>{left_index, right_index};
-        return node->entries.find_or_insert(entry);
+        return entries.find_or_insert({left, right});
     }
 
 
-    void TreeDBS::print_info() const {
-        root->entries.print_info();
+    void TreeDBS::print_info() {
+        entries.print_info();
     }
 
 } // namespace utils

@@ -15,31 +15,18 @@
 
 #include "stable_index_hash_map.h"
 
-namespace int_packer {
-    class IntPacker;
-}
-
-using PackedStateBin = int_packer::IntPacker::Bin;
-
 
 namespace utils {
 
 class TreeDBS {
-    struct Node {
-        std::unique_ptr<Node> left;
-        std::unique_ptr<Node> right;
-        int level = 0;
-        bool isLeaf = false;
-        StableIndexMap entries;
-    };
-
-    std::unique_ptr<Node> root;
+    StableIndexMap entries;
     size_t _size;
-    std::unique_ptr<Node> constructTreeHelper(size_t input_size, int level = 0, StableIndexMap entries = StableIndexMap());
 
     // Iterative helper functions
-    int putRecursively(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end, const std::unique_ptr<Node>& node);
-    int findRecursively(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end, const std::unique_ptr<Node>& node);
+    int putRecursively(const std::vector<int>::const_iterator begin, const std::vector<int>::const_iterator end, const int index);
+    int findRecursively(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end, int index);
+
+    int put(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end);
 
 
     size_t splitRange(size_t start, size_t end) const {
@@ -52,8 +39,12 @@ public:
 
     void insert(const std::vector<int>& vec);
     bool contains(const std::vector<int>& vec);
-    size_t size() const;
-    void print_info() const;
+    size_t size();
+
+    int find(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end);
+
+    void print_info();
+
 };
 }
 #endif // TREEDBS_HPP
