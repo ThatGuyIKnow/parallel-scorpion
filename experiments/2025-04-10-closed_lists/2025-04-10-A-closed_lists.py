@@ -1,27 +1,45 @@
 #! /usr/bin/env python
 
 import os
+from pathlib import Path
 
-from lab.environments import TetralithEnvironment
+from downward.experiment import FastDownwardExperiment, FastDownwardAlgorithm, FastDownwardRun
+from downward.suites import build_suite
+from downward.cached_revision import CachedFastDownwardRevision
+from lab.experiment import Experiment
+from lab.environments import TetralithEnvironment, LocalEnvironment
 
-import custom_parser
 import project
 
-REPO = project.get_repo_base()
-BENCHMARKS_DIR = os.environ["DOWNWARD_BENCHMARKS"]
-# If REVISION_CACHE is None, the default "./data/revision-cache/" is used.
-REVISION_CACHE = os.environ.get("DOWNWARD_REVISION_CACHE")
+REVISION_CACHE = (
+        os.environ.get("DOWNWARD_REVISION_CACHE") or project.DIR / "data" / "revision-cache"
+)
+BUILD_OPTIONS = []
 if project.REMOTE:
-    SUITE = project.SUITE_OPTIMAL_STRIPS
     ENV = TetralithEnvironment(
         email="olijo92@liu.se",
         extra_options="#SBATCH -A naiss2024-5-421",
         memory_per_cpu="9G",
     )
+    TIME_LIMIT = 15 * 60
+    MEMORY_LIMIT = "8G"
+    SUITE = project.SUITE_OPTIMAL_STRIPS
 else:
-    SUITE = ["depot:p01.pddl", "grid:prob01.pddl", "gripper:prob01.pddl"]
-    ENV = project.LocalEnvironment(processes=2)
+    ENV = LocalEnvironment(processes=3)
+    MEMORY_LIMIT = "4G"
+    TIME_LIMIT = 5 * 60
+    SUITE = build_suite(
+         os.environ.get("DOWNWARD_BENCHMARKS"),
+        ["depot:p01.pddl", "grid:prob01.pddl", "gripper:prob01.pddl"]
+    )
 
+
+DRIVER_OPTIONS = [
+    "--overall-time-limit",
+    f"{TIME_LIMIT}s",
+    "--overall-memory-limit",
+    MEMORY_LIMIT,
+    ]
 CONFIGS = [
     (f"{index:02d}-{h_nick}", ["--search", f"astarmod(ff(cache_estimates=false), {h})"])
     for index, (h_nick, h) in enumerate(
@@ -36,53 +54,56 @@ CONFIGS = [
         start=1,
     )
 ]
-BUILD_OPTIONS = []
-DRIVER_OPTIONS = ["--overall-time-limit", "15m", "--overall-memory-limit", "8G"]
-REV_NICKS = [
-    ("symk-loes", ""),
-]
+REV_NICKS = [("symk-loes", "")]
 ATTRIBUTES = [
-    "error",
-    "run_dir",
-    "search_start_time",
-    "search_start_memory",
-    "total_time",
-    "h_values",
     "coverage",
-    "expansions",
+    "error",
+    "initial_h_value",
+    "last_runlog_line",
     "memory",
-    project.EVALUATIONS_PER_TIME,
+    "plan_length",
+    "planner_exit_code",
+    "planner_time",
+    "planner_wall_clock_time",
+    "run_dir",
+    "total_time",
+    "translator_memory",
+    "translator_time_done",
 ]
 
-exp = project.FastDownwardExperiment(environment=ENV, revision_cache=REVISION_CACHE)
-for config_nick, config in CONFIGS:
-    for rev, rev_nick in REV_NICKS:
-        algo_name = f"{rev_nick}:{config_nick}" if rev_nick else config_nick
-        exp.add_algorithm(
-            algo_name,
-            REPO,
-            rev,
-            config,
-            build_options=BUILD_OPTIONS,
-            driver_options=DRIVER_OPTIONS,
-        )
-exp.add_suite(BENCHMARKS_DIR, SUITE)
+exp = Experiment(environment=ENV)
+for rev, rev_nick in REV_NICKS:
+    cached_rev = CachedFastDownwardRevision(REVISION_CACHE, project.get_repo_base(), rev, BUILD_OPTIONS)
+    cached_rev.cache()
+    exp.add_resource("", cached_rev.path, cached_rev.get_relative_exp_path())
+    for config_nick, config in CONFIGS:
+        algo_name = f"{rev_nick}-{config_nick}" if rev_nick else config_nick
 
-exp.add_parser(exp.EXITCODE_PARSER)
-exp.add_parser(exp.TRANSLATOR_PARSER)
-exp.add_parser(exp.SINGLE_SEARCH_PARSER)
-exp.add_parser(custom_parser.get_parser())
-exp.add_parser(exp.PLANNER_PARSER)
+        bounds = {}
+        for task in SUITE:
+            algo = FastDownwardAlgorithm(
+                algo_name,
+                cached_rev,
+                DRIVER_OPTIONS,
+                config,
+            )
+            run = FastDownwardRun(exp, algo, task)
+            exp.add_run(run)
+
+exp.add_parser(FastDownwardExperiment.EXITCODE_PARSER)
+exp.add_parser(FastDownwardExperiment.TRANSLATOR_PARSER)
+exp.add_parser(FastDownwardExperiment.SINGLE_SEARCH_PARSER)
+exp.add_parser(FastDownwardExperiment.PLANNER_PARSER)
 
 exp.add_step("build", exp.build)
 exp.add_step("start", exp.start_runs)
 exp.add_step("parse", exp.parse)
 exp.add_fetcher(name="fetch")
 
-project.add_absolute_report(
-    exp, attributes=ATTRIBUTES, filter=[project.add_evaluations_per_time]
+project.add_report(
+    exp,
+    attributes=ATTRIBUTES,
 )
 
-
+# Parse the commandline and run the given steps.
 exp.run_steps()
-

@@ -39,6 +39,42 @@ SCRIPT = Path(sys.argv[0]).resolve()
 NODE = platform.node()
 REMOTE = re.match(r"tetralith\d+\.nsc\.liu\.se|n\d+", NODE)
 
+report_names = {
+    AbsoluteReport: "abs",
+    TaskwiseReport: "taskw",
+}
+
+def add_report(
+        exp,
+        report_type=AbsoluteReport,
+        name=None,
+        outfile=None,
+        eval_dir=None,
+        info_attributes=None,
+        error_attributes=None,
+        **kwargs,
+):
+    report = report_type(**kwargs)
+    if info_attributes:
+        report.INFO_ATTRIBUTES = info_attributes
+    if error_attributes:
+        report.ERROR_ATTRIBUTES = error_attributes
+    if name and not outfile:
+        outfile = f"{name}.{report.output_format}"
+    elif outfile and not name:
+        name = Path(outfile).name
+    elif not name and not outfile:
+        name = f"{exp.name}-{report_names[report_type]}"
+        outfile = f"{name}.{report.output_format}"
+    if not Path(outfile).is_absolute():
+        outfile = Path(exp.eval_dir) / outfile
+
+    exp.add_report(report, name=name, outfile=outfile, eval_dir=eval_dir)
+    if not REMOTE:
+        exp.add_step(f"open-{name}", subprocess.call, ["xdg-open", outfile])
+    # exp.add_step(f"publish-{name}", subprocess.call, ["publish", outfile])
+
+
 
 def parse_args():
     ARGPARSER.add_argument("--tex", action="store_true", help="produce LaTeX output")
