@@ -148,6 +148,7 @@ create_fast_downward_library(
     SOURCES
         closed_list
         closed_lists/vector_closed_list
+        closed_lists/unpacked_closed_list
         closed_lists/bdd_closed_list
         closed_lists/loes_closed_list
         closed_lists/treedbs_closed_list

@@ -17,25 +17,18 @@ namespace utils {
         root = constructTreeHelper(size);
     }
 
-    std::unique_ptr<TreeDBS::Node> TreeDBS::constructTreeHelper(size_t input_size, int level) {
-        auto node = std::make_unique<Node>();
-        node ->level = level;
-
+    std::unique_ptr<TreeDBS::Node> TreeDBS::constructTreeHelper(size_t input_size, int level, StableIndexMap entries) {
         if (input_size <= 2) {
-            node->isLeaf = true;
-            return node;
+            return std::make_unique<Node>(nullptr, nullptr, level, true, entries);
         }
 
         auto mid = splitRange(0, input_size);
         assert(mid > 0 && mid < input_size && "Invalid split range");
 
-        auto left= constructTreeHelper(mid, level+1);
-        auto right = constructTreeHelper(input_size - mid, level+1);
-        node->isLeaf = false;
-        node->left = std::move(left);
-        node->right = std::move(right);
+        auto left= constructTreeHelper(mid, level+1, entries);
+        auto right = constructTreeHelper(input_size - mid, level+1, entries);
 
-        return node;
+        return std::make_unique<Node>(std::move(left), std::move(right), level, false, entries);
     }
 
     void TreeDBS::insert(const std::vector<int>& vec) {
@@ -60,7 +53,7 @@ namespace utils {
         assert(!node->isLeaf || std::distance(begin, end) <= 2 && "Leaf node must have 2 or fewer elements");
 
         if (node->isLeaf) {
-            return node->values.find(std::vector(begin, end));
+            return node->entries.find(std::vector(begin, end));
         }
 
         const auto mid = begin + splitRange(0, std::distance(begin, end));
@@ -82,7 +75,7 @@ namespace utils {
     int TreeDBS::putRecursively(const std::vector<int>::const_iterator begin, const std::vector<int>::const_iterator end, const std::unique_ptr<Node>& node) {
         assert(!node->isLeaf || std::distance(begin, end) <= 2 && "Leaf node must have 2 or fewer elements");
         if (node->isLeaf) {
-            return node->values.find_or_insert(std::vector<int>{begin, end});
+            return node->entries.find_or_insert(std::vector<int>{begin, end});
         }
 
         auto mid = begin + splitRange(0, std::distance(begin, end));
@@ -98,7 +91,6 @@ namespace utils {
 
     void TreeDBS::print_info() const {
         root->entries.print_info();
-        root->values.print_info();
     }
 
 } // namespace utils

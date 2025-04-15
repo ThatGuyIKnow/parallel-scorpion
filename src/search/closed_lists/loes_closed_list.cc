@@ -173,7 +173,7 @@ template<class LoesType>
 void LoesClosedList<LoesType>::print() const
 {
     cout << "Closed list contains ";
-    c_list.print(full_print);
+    // c_list.print(full_print);
 }
 
     void add_options_to_parser(plugins::Feature &feature) {
@@ -181,7 +181,7 @@ void LoesClosedList<LoesType>::print() const
         feature.add_option<int>(
             "samples",
             "number of samples used to calculate optimal bitorder",
-            "0");
+            "1000");
         feature.add_option<int>(
             "max_sample_iterations",
             "the max number of iterations tried to get the desired number of samples");

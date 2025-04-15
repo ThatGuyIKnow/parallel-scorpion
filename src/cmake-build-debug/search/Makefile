@@ -840,6 +840,30 @@ closed_lists/treedbs_closed_list.cc.s:
 	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.s
 .PHONY : closed_lists/treedbs_closed_list.cc.s
 
+closed_lists/unpacked_closed_list.o: closed_lists/unpacked_closed_list.cc.o
+.PHONY : closed_lists/unpacked_closed_list.o
+
+# target to build an object file
+closed_lists/unpacked_closed_list.cc.o:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/closed_lists/unpacked_closed_list.cc.o
+.PHONY : closed_lists/unpacked_closed_list.cc.o
+
+closed_lists/unpacked_closed_list.i: closed_lists/unpacked_closed_list.cc.i
+.PHONY : closed_lists/unpacked_closed_list.i
+
+# target to preprocess a source file
+closed_lists/unpacked_closed_list.cc.i:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/closed_lists/unpacked_closed_list.cc.i
+.PHONY : closed_lists/unpacked_closed_list.cc.i
+
+closed_lists/unpacked_closed_list.s: closed_lists/unpacked_closed_list.cc.s
+.PHONY : closed_lists/unpacked_closed_list.s
+
+# target to generate assembly for a file
+closed_lists/unpacked_closed_list.cc.s:
+	cd /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug && $(MAKE) $(MAKESILENT) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/closed_lists/unpacked_closed_list.cc.s
+.PHONY : closed_lists/unpacked_closed_list.cc.s
+
 closed_lists/vector_closed_list.o: closed_lists/vector_closed_list.cc.o
 .PHONY : closed_lists/vector_closed_list.o
 
@@ -7321,6 +7345,9 @@ help:
 	@echo "... closed_lists/treedbs_closed_list.o"
 	@echo "... closed_lists/treedbs_closed_list.i"
 	@echo "... closed_lists/treedbs_closed_list.s"
+	@echo "... closed_lists/unpacked_closed_list.o"
+	@echo "... closed_lists/unpacked_closed_list.i"
+	@echo "... closed_lists/unpacked_closed_list.s"
 	@echo "... closed_lists/vector_closed_list.o"
 	@echo "... closed_lists/vector_closed_list.i"
 	@echo "... closed_lists/vector_closed_list.s"

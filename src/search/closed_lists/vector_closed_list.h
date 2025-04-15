@@ -6,6 +6,7 @@
 
 
 
+using PackedStateBin = int_packer::IntPacker::Bin;
 namespace vector_closed_list {
 
     class VectorClosedList  : public ClosedList  {
@@ -20,7 +21,7 @@ namespace vector_closed_list {
                 : state_size(state_size) {
             }
 
-            uint64_t operator()(PackedStateBin *data) const {
+            uint64_t operator()(std::vector<PackedStateBin> data) const {
                 utils::HashState hash_state;
                 for (int i = 0; i < state_size; ++i) {
                     hash_state.feed(data[i]);
@@ -35,14 +36,14 @@ namespace vector_closed_list {
                 : state_size(state_size) {
             }
 
-            bool operator()(PackedStateBin *lhs, PackedStateBin *rhs) const {
-                return std::equal(lhs, lhs + state_size, rhs);
+            bool operator()(std::vector<PackedStateBin> lhs, std::vector<PackedStateBin> rhs) const {
+                return std::equal(lhs.begin(), lhs.end(), rhs.begin());
             }
         };
 
         StateID insert_id_or_pop_state();
     protected:
-        using StateIDSet = phmap::flat_hash_set<PackedStateBin*, StateIDSemanticHash, StateIDSemanticEqual>;
+        using StateIDSet = phmap::flat_hash_set<std::vector<PackedStateBin>, StateIDSemanticHash, StateIDSemanticEqual>;
         const int_packer::IntPacker &state_packer;
         StateIDSet registered_states;
 

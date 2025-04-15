@@ -161,7 +161,6 @@ def run_search(args):
         if "--help" not in args.search_options:
             args.search_options.extend(["--internal-plan-file", args.plan_file])
         try:
-            sys.exit(0)
             call.check_call(
                 "search",
                 [executable] + args.search_options,

@@ -1,4 +1,4 @@
-/home/workbox/clion-2024.3.4/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/workbox/clion-2024.3.4/bin/ninja/linux/x64/ninja -G Ninja -DPython_EXECUTABLE=/home/workbox/Projects/state-compression-scorpion/experiments/closed_lists/.venv/bin/python -DPython3_EXECUTABLE=/home/workbox/Projects/state-compression-scorpion/experiments/closed_lists/.venv/bin/python -S /home/workbox/Projects/state-compression-scorpion/src/search -B /home/workbox/Projects/state-compression-scorpion/src/search/cmake-build-debug
+/home/workbox/clion-2024.3.4/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_BUILD_TYPE=Debug -DPython_EXECUTABLE=/home/workbox/Projects/state-compression-scorpion/experiments/closed_lists/.venv/bin/python -DPython3_EXECUTABLE=/home/workbox/Projects/state-compression-scorpion/experiments/closed_lists/.venv/bin/python -S /home/workbox/Projects/state-compression-scorpion/src/search -B /home/workbox/Projects/state-compression-scorpion/src/search/cmake-build-debug
 CMake Error at cmake/macros.cmake:26 (if):
   if given arguments:
 

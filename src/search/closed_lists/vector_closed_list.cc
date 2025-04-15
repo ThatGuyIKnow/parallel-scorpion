@@ -18,29 +18,23 @@ namespace vector_closed_list {
     }
     void VectorClosedList::add_state(const State &state) {
         int num_bins = get_bins_per_state();
-        std::unique_ptr<PackedStateBin[]> buffer(new PackedStateBin[num_bins]);
+        std::vector<PackedStateBin> bins(num_bins, 0);
 
-        // Avoid garbage values in half-full bins.
-        std::fill_n(buffer.get(), num_bins, 0);
+        for (int i = 0; i < state.size(); ++i)
+            state_packer.set(bins.data(), i, state[i].get_value());
 
-        for (size_t i = 0; i < state.size(); ++i) {
-            state_packer.set(buffer.get(), i, state[i].get_value());
-        }
-        registered_states.insert(buffer.get());
+        registered_states.insert(bins);
     }
 
 
     bool VectorClosedList::contains_state(const State &state) {
         int num_bins = get_bins_per_state();
-        std::unique_ptr<PackedStateBin[]> buffer(new PackedStateBin[num_bins]);
-        // Avoid garbage values in half-full bins.
-        std::fill_n(buffer.get(), num_bins, 0);
+        std::vector<PackedStateBin> bins(num_bins, 0);
 
-        for (size_t i = 0; i < state.size(); ++i) {
-            state_packer.set(buffer.get(), i, state[i].get_value());
-        }
+        for (int i = 0; i < state.size(); ++i)
+            state_packer.set(bins.data(), i, state[i].get_value());
 
-        return registered_states.find(buffer.get()) != registered_states.end();
+        return registered_states.find(bins) != registered_states.end();
     }
 
     int VectorClosedList::get_bins_per_state() const {

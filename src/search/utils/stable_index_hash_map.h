@@ -12,18 +12,6 @@
 
 #include "hash.h"
 
-
-class Hasher {
-public:
-    size_t hashVector(const std::vector<int>& vec) const {
-        utils::HashState hash_state;
-        for (auto const elem : vec) {
-            hash_state.feed(elem);
-        }
-        return hash_state.get_hash64();
-    };
-};
-
 template<typename T>
 constexpr typename std::vector<T>::iterator circular_find(typename std::vector<T>::iterator start,
                                                           typename std::vector<T>::iterator end,
@@ -60,6 +48,45 @@ constexpr typename std::vector<T>::iterator circular_find_first_of(typename std:
 
 namespace utils {
     class StableIndexMap {
+
+    private:
+        size_t initial_size;
+        float load_factor;
+        size_t max_size;
+
+        unsigned int probes = 0;
+        unsigned int calls = 0;
+        unsigned int misses = 0;
+
+        struct Entry {
+            int left = -1;
+            int right = -1;
+
+            bool operator==(const Entry& rhs) const {
+                return left == rhs.left && right == rhs.right;
+            }
+
+            bool operator==(const std::vector<int>& rhs) const {
+                if (rhs.size() == 1) {
+                    return left == rhs[0];
+                }
+                return left == rhs[0] && right == rhs[1];
+            }
+
+            friend size_t hash_value(const Entry &entry)
+            {
+                utils::HashState hash_state;
+                hash_state.feed(entry.left);
+                hash_state.feed(entry.right);
+                return hash_state.get_hash64();
+            }
+        };
+
+        using StateSet = phmap::flat_hash_map<Entry, int>;
+
+        StateSet _values;
+        int _size = 0;
+
     public:
         explicit StableIndexMap(size_t initial_size = 100,
                               float load_factor = 0.75,
@@ -76,46 +103,7 @@ namespace utils {
 
         void print_info();
 
-
-        std::vector<int> operator[](const int index) {
-            auto entry = _values->operator[](_indices[index]);
-            return {entry.left, entry.right};
-        }
-
         size_t size();
-
-    private:
-        size_t initial_size;
-        float load_factor;
-        size_t max_size;
-
-        unsigned int probes = 0;
-        unsigned int calls = 0;
-        unsigned int misses = 0;
-
-        struct Entry {
-            int left = -1;
-            int right = -1;
-
-            bool operator==(const Entry& rhs) {
-                return left == rhs.left && right == rhs.right;
-            }
-
-            bool operator==(const std::vector<int>& rhs) {
-                if (rhs.size() == 1) {
-                    return left == rhs[0];
-                }
-                return left == rhs[0] && right == rhs[1];
-            }
-        };
-
-        std::vector<int> _indices;
-        std::shared_ptr<std::vector<Entry>> _values;
-        Hasher _hasher;
-
-        void _resize();
-        void _resize(size_t new_size);
-        int _find_stable_index(size_t value);
     };
 }
 #endif // STABLE_INDEX_MAP_H

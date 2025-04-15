@@ -31,12 +31,11 @@ class TreeDBS {
         int level = 0;
         bool isLeaf = false;
         StableIndexMap entries;
-        StableIndexMap values;
     };
 
     std::unique_ptr<Node> root;
     size_t _size;
-    std::unique_ptr<Node> constructTreeHelper(size_t input_size, int level = 0);
+    std::unique_ptr<Node> constructTreeHelper(size_t input_size, int level = 0, StableIndexMap entries = StableIndexMap());
 
     // Iterative helper functions
     int putRecursively(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end, const std::unique_ptr<Node>& node);

@@ -59,6 +59,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/downward.dir/closed_lists/loes_closed_list.cc.o.d"
   "CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.o"
   "CMakeFiles/downward.dir/closed_lists/treedbs_closed_list.cc.o.d"
+  "CMakeFiles/downward.dir/closed_lists/unpacked_closed_list.cc.o"
+  "CMakeFiles/downward.dir/closed_lists/unpacked_closed_list.cc.o.d"
   "CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.o"
   "CMakeFiles/downward.dir/closed_lists/vector_closed_list.cc.o.d"
   "CMakeFiles/downward.dir/command_line.cc.o"

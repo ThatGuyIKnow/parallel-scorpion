@@ -3,6 +3,6 @@ Flag '-std=c++20' set for '/usr/bin/c++'
 -- Building for 64-bit.
 -- Could NOT find Cplex: Found unsuitable version "CPLEX_VERSION-NOTFOUND", but required is at least "12" (found CPLEX_INCLUDE_DIRS-NOTFOUND)
 -- Building Cudd with 64-bit.
--- Configuring done (0.0s)
--- Generating done (0.0s)
+-- Configuring done (0.1s)
+-- Generating done (0.1s)
 -- Build files have been written to: /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug
