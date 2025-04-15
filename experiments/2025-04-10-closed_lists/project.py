@@ -1,4 +1,6 @@
 import contextlib
+import platform
+import re
 import shutil
 import subprocess
 import sys
@@ -34,7 +36,8 @@ DIR = Path(__file__).resolve().parent
 SCRIPT = Path(sys.argv[0]).resolve()
 
 # Cover both the Basel and Linköping clusters for simplicity.
-REMOTE = BaselSlurmEnvironment.is_present() or TetralithEnvironment.is_present()
+NODE = platform.node()
+REMOTE = re.match(r"tetralith\d+\.nsc\.liu\.se|n\d+", NODE)
 
 
 def parse_args():

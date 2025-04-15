@@ -2,6 +2,8 @@
 
 import os
 
+from lab.environments import TetralithEnvironment
+
 import custom_parser
 import project
 
@@ -11,7 +13,11 @@ BENCHMARKS_DIR = os.environ["DOWNWARD_BENCHMARKS"]
 REVISION_CACHE = os.environ.get("DOWNWARD_REVISION_CACHE")
 if project.REMOTE:
     SUITE = project.SUITE_OPTIMAL_STRIPS
-    ENV = project.BaselSlurmEnvironment(email="olijo92@liu.se")
+    ENV = TetralithEnvironment(
+        email="olijo92@liu.se",
+        extra_options="#SBATCH -A naiss2024-5-421",
+        memory_per_cpu="9G",
+    )
 else:
     SUITE = ["depot:p01.pddl", "grid:prob01.pddl", "gripper:prob01.pddl"]
     ENV = project.LocalEnvironment(processes=2)
