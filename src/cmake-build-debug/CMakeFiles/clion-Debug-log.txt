@@ -1,8 +1,0 @@
-/home/workbox/clion-2024.3.4/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_BUILD_TYPE=Debug -DPython_EXECUTABLE=/home/workbox/Projects/state-compression-scorpion/experiments/closed_lists/.venv/bin/python -DPython3_EXECUTABLE=/home/workbox/Projects/state-compression-scorpion/experiments/closed_lists/.venv/bin/python -S /home/workbox/Projects/state-compression-scorpion/src -B /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug
-Flag '-std=c++20' set for '/usr/bin/c++'
--- Building for 64-bit.
--- Could NOT find Cplex: Found unsuitable version "CPLEX_VERSION-NOTFOUND", but required is at least "12" (found CPLEX_INCLUDE_DIRS-NOTFOUND)
--- Building Cudd with 64-bit.
--- Configuring done (0.1s)
--- Generating done (0.1s)
--- Build files have been written to: /home/workbox/Projects/state-compression-scorpion/src/cmake-build-debug
