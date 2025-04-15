@@ -17,7 +17,6 @@ experiments/2025-04-10-closed_lists/.python-version
 experiments/2025-04-10-closed_lists/uv.lock
 experiments/2025-04-10-closed_lists/README.md
 experiments/2025-04-10-closed_lists/pyproject.toml
-experiments/2025-04-10-closed_lists/project.py
 src/cmake-build-debug/search/CMakeFiles/downward.dir/build.make
 src/cmake-build-debug/search/CMakeFiles/downward.dir/cmake_clean.cmake
 src/cmake-build-debug/search/CMakeFiles/downward.dir/compiler_depend.make
