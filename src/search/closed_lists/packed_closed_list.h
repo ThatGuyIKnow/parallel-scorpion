@@ -1,5 +1,5 @@
-#ifndef TREEDBS_CLOSED_LIST_H
-#define TREEDBS_CLOSED_LIST_H
+#ifndef PACKED_CLOSED_LIST_H
+#define PACKED_CLOSED_LIST_H
 
 #include "../utils/treedbs.h"
 #include "../closed_list.h"
@@ -7,9 +7,9 @@
 
 
 using PackedStateBin = int_packer::IntPacker::Bin;
-namespace vector_closed_list {
+namespace packed_closed_list {
 
-    class VectorClosedList  : public ClosedList  {
+    class PackedClosedList  : public ClosedList  {
         TaskProxy task_proxy;
         size_t size = 0;
 
@@ -49,7 +49,7 @@ namespace vector_closed_list {
 
         int get_bins_per_state() const;
     public:
-        VectorClosedList();
+        PackedClosedList();
         void add_state(const State &state) override;
         bool contains_state(const State &state) override;
         void print() const override;
@@ -57,4 +57,4 @@ namespace vector_closed_list {
 
 } // treedbs_closed_list
 
-#endif //TREEDBS_CLOSED_LIST_H
+#endif //PACKED_CLOSED_LIST_H

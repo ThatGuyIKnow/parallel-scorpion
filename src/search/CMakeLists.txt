@@ -147,7 +147,7 @@ create_fast_downward_library(
     HELP "Closed lists"
     SOURCES
         closed_list
-        closed_lists/vector_closed_list
+        closed_lists/packed_closed_list
         closed_lists/unpacked_closed_list
         closed_lists/bdd_closed_list
         closed_lists/loes_closed_list
