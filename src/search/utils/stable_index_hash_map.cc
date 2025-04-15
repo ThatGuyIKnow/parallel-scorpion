@@ -30,7 +30,7 @@ namespace utils {
             return it->second;
         }
 
-        return -1;
+        return insert(value);
     }
 
     
