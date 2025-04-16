@@ -42,17 +42,10 @@ class StableIndexMap {
     int _size = 0;
 
 public:
-    // Insert operations
-    int insert(const std::vector<int> &vec);
-
     int find_or_insert(const std::vector<int> &vec);
-
-    // Access operations
-    bool contains(const std::vector<int> &vec);
     int find(const std::vector<int> &vec);
 
     void print_info();
-
     size_t size();
 };
 }
