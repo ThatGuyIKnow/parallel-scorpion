@@ -1,14 +1,14 @@
 #ifndef UTILS_TREEDBS_H
 #define UTILS_TREEDBS_H
 
-#include <cstddef>
-#include <vector>
-
 #include "hash.h"
 #include "stable_index_hash_map.h"
 
 #include "../algorithms/int_packer.h"
 #include "../algorithms/segmented_vector.h"
+
+#include <cstddef>
+#include <vector>
 
 namespace utils {
 class TreeDBS {
