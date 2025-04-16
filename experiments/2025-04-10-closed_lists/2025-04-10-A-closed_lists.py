@@ -17,6 +17,7 @@ REVISION_CACHE = (
 BUILD_OPTIONS = []
 if project.REMOTE:
     ENV = TetralithEnvironment(
+        setup=TetralithEnvironment.DEFAULT_SETUP,
         email="olijo92@liu.se",
         extra_options="#SBATCH -A naiss2024-5-421",
         memory_per_cpu="9G",

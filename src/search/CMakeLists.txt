@@ -152,7 +152,8 @@ create_fast_downward_library(
         closed_lists/bdd_closed_list
         closed_lists/loes_closed_list
         closed_lists/treedbs_closed_list
-    DEPENDS 
+        closed_lists/packed_treedbs_closed_list
+    DEPENDS
     	loes
 )
 
