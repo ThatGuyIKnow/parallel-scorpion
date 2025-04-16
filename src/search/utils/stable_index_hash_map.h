@@ -15,7 +15,7 @@
 template<typename T>
 constexpr typename std::vector<T>::iterator circular_find(typename std::vector<T>::iterator start,
                                                           typename std::vector<T>::iterator end,
-                                                          const T& value, size_t index) {
+                                                          const T &value, size_t index) {
     // First search from index to end
     auto it = std::find(std::execution::unseq, start + index, end, value);
 
@@ -47,57 +47,54 @@ constexpr typename std::vector<T>::iterator circular_find_first_of(typename std:
 }
 
 namespace utils {
-    class StableIndexMap {
+class StableIndexMap {
+    unsigned int probes = 0;
+    unsigned int calls = 0;
+    unsigned int misses = 0;
 
+    struct Entry {
+        int left = -1;
+        int right = -1;
 
-        unsigned int probes = 0;
-        unsigned int calls = 0;
-        unsigned int misses = 0;
+        bool operator==(const Entry &rhs) const {
+            return left == rhs.left && right == rhs.right;
+        }
 
-        struct Entry {
-            int left = -1;
-            int right = -1;
-
-            bool operator==(const Entry& rhs) const {
-                return left == rhs.left && right == rhs.right;
+        bool operator==(const std::vector<int> &rhs) const {
+            if (rhs.size() == 1) {
+                return left == rhs[0];
             }
+            return left == rhs[0] && right == rhs[1];
+        }
 
-            bool operator==(const std::vector<int>& rhs) const {
-                if (rhs.size() == 1) {
-                    return left == rhs[0];
-                }
-                return left == rhs[0] && right == rhs[1];
-            }
-
-            friend size_t hash_value(const Entry &entry)
-            {
-                utils::HashState hash_state;
-                hash_state.feed(entry.left);
-                hash_state.feed(entry.right);
-                return hash_state.get_hash64();
-            }
-        };
-
-        using StateSet = phmap::flat_hash_map<Entry, int>;
-
-        StateSet _values;
-        int _size = 0;
-
-    public:
-        explicit StableIndexMap();
-
-        // Insert operations
-        int insert(const std::vector<int>& vec);
-
-        int find_or_insert(const std::vector<int>& vec);
-
-        // Access operations
-        bool contains(const std::vector<int>& vec);
-        int find(const std::vector<int>& vec);
-
-        void print_info();
-
-        size_t size();
+        friend size_t hash_value(const Entry &entry) {
+            utils::HashState hash_state;
+            hash_state.feed(entry.left);
+            hash_state.feed(entry.right);
+            return hash_state.get_hash64();
+        }
     };
+
+    using StateSet = phmap::flat_hash_map<Entry, int>;
+
+    StateSet _values;
+    int _size = 0;
+
+public:
+    explicit StableIndexMap();
+
+    // Insert operations
+    int insert(const std::vector<int> &vec);
+
+    int find_or_insert(const std::vector<int> &vec);
+
+    // Access operations
+    bool contains(const std::vector<int> &vec);
+    int find(const std::vector<int> &vec);
+
+    void print_info();
+
+    size_t size();
+};
 }
 #endif // STABLE_INDEX_MAP_H
