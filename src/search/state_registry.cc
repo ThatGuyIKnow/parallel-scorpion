@@ -24,13 +24,10 @@ StateRegistry::StateRegistry(const TaskProxy &task_proxy)
 
 inline static constexpr std::string_view kFilename = "state_data.csv";
 void prepare_file(TaskProxy task_proxy, int num_bins) {
-
-
-    // Only for data extraction -- minimize allocations and open/close cost.
-    // Use std::ofstream with append mode to minimize filesystem overhead.
     std::ofstream outfile(string(kFilename), std::ios::app);
     if (outfile.is_open()) {
         outfile << "index";
+        outfile << "," << "sequence";
         for (std::size_t i = 0; i < num_bins; ++i) {
             outfile << ',' << "buff" << i;
         }
@@ -62,7 +59,7 @@ StateID StateRegistry::insert_id_or_pop_state() {
     auto result = registered_states.insert(id.value);
     bool is_new_entry = result.second;
 
-    constexpr  int mod = 3;
+    constexpr int mod = 3;
     constexpr int max_samples = 1000000;
     constexpr int sample_seq = 100;
 
@@ -87,6 +84,7 @@ StateID StateRegistry::insert_id_or_pop_state() {
             state.unpack();
             const auto buffer = state.get_buffer();
             outfile << insert_counter;
+            outfile << "," << insert_counter;
             for (std::size_t i = 0; i < get_bins_per_state(); ++i) {
                 outfile << ',' << buffer[i];
             }
