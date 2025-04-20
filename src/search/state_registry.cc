@@ -22,6 +22,35 @@ StateRegistry::StateRegistry(const TaskProxy &task_proxy)
           StateIDSemanticEqual(state_data_pool, get_bins_per_state())) {
 }
 
+inline static constexpr std::string_view kFilename = "state_data.csv";
+void prepare_file(TaskProxy task_proxy, int num_bins) {
+
+
+    // Only for data extraction -- minimize allocations and open/close cost.
+    // Use std::ofstream with append mode to minimize filesystem overhead.
+    std::ofstream outfile(string(kFilename), std::ios::app);
+    if (outfile.is_open()) {
+        outfile << "index";
+        for (std::size_t i = 0; i < num_bins; ++i) {
+            outfile << ',' << "buff" << i;
+        }
+        for (std::size_t i = 0; i < task_proxy.get_variables().size(); ++i) {
+            outfile << ',' << "var" << i;
+        }
+        outfile << '\n';
+        outfile << -1;
+        for (std::size_t i = 1; i < num_bins; ++i) {
+            outfile << ',' << 0;
+        }
+        const auto vars = task_proxy.get_variables();
+        for (auto var : vars) {
+            outfile << ',' << var.get_domain_size();
+        }
+        outfile << '\n';
+        // File closes automatically (RAII).
+    }
+}
+
 StateID StateRegistry::insert_id_or_pop_state() {
     /*
       Attempt to insert a StateID for the last state of state_data_pool
@@ -48,9 +77,11 @@ StateID StateRegistry::insert_id_or_pop_state() {
     if (is_new_entry && (insert_counter % sample_mod) < sample_seq && insert_counter < max_mod_samples) {
         // Only for data extraction -- minimize allocations and open/close cost.
 
-        const char* filename = "state_data.csv";
+        if ( access( kFilename.data(), F_OK ) == -1 )
+            prepare_file(task_proxy, state_packer.get_num_bins());
+        
         // Use std::ofstream with append mode to minimize filesystem overhead.
-        std::ofstream outfile(filename, std::ios::app);
+        std::ofstream outfile(string(kFilename), std::ios::app);
         if (outfile.is_open()) {
             const auto& state = lookup_state(StateID(*result.first));
             state.unpack();
@@ -86,32 +117,6 @@ State StateRegistry::lookup_state(
 
 const State &StateRegistry::get_initial_state() {
     if (!cached_initial_state) {
-
-        // Only for data extraction -- minimize allocations and open/close cost.
-        const char* filename = "state_data.csv";
-        // Use std::ofstream with append mode to minimize filesystem overhead.
-        std::ofstream outfile(filename, std::ios::app);
-        if (outfile.is_open()) {
-            outfile << "index";
-            for (std::size_t i = 0; i < get_bins_per_state(); ++i) {
-                outfile << ',' << "buff" << i;
-            }
-            for (std::size_t i = 0; i < task_proxy.get_variables().size(); ++i) {
-                outfile << ',' << "var" << i;
-            }
-            outfile << '\n';
-            outfile << 0;
-            for (std::size_t i = 1; i < get_bins_per_state(); ++i) {
-                outfile << ',' << 0;
-            }
-            outfile << ',' << -1;
-            const auto vars = task_proxy.get_variables();
-            for (auto var : vars) {
-                outfile << ',' << var.get_domain_size();
-            }
-            outfile << '\n';
-            // File closes automatically (RAII).
-        }
         int num_bins = get_bins_per_state();
         unique_ptr<PackedStateBin[]> buffer(new PackedStateBin[num_bins]);
         // Avoid garbage values in half-full bins.
