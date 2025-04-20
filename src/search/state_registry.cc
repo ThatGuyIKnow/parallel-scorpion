@@ -39,7 +39,7 @@ void prepare_file(TaskProxy task_proxy, int num_bins) {
         }
         outfile << '\n';
         outfile << -1;
-        for (std::size_t i = 1; i < num_bins; ++i) {
+        for (std::size_t i = 0; i < num_bins; ++i) {
             outfile << ',' << 0;
         }
         const auto vars = task_proxy.get_variables();
