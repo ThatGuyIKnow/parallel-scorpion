@@ -1,5 +1,7 @@
 #include "state_registry.h"
 
+#include <fstream>
+
 #include "per_state_information.h"
 #include "task_proxy.h"
 
@@ -30,8 +32,44 @@ StateID StateRegistry::insert_id_or_pop_state() {
     StateID id(state_data_pool.size() - 1);
     auto result = registered_states.insert(id.value);
     bool is_new_entry = result.second;
+
+    constexpr  int mod = 3;
+    constexpr int max_samples = 1000000;
+    constexpr int sample_seq = 100;
+
+    constexpr int max_mod_samples = mod * max_samples;
+    constexpr int sample_mod = mod * sample_seq;
+
     if (!is_new_entry) {
         state_data_pool.pop_back();
+    }
+    else
+        insert_counter = std::min(static_cast<size_t>(max_mod_samples + 1), insert_counter + 1);
+    if (is_new_entry && (insert_counter % sample_mod) < sample_seq && insert_counter < max_mod_samples) {
+        // Only for data extraction -- minimize allocations and open/close cost.
+        const char* filename = "state_data.csv";
+        if (filename) {
+
+            // Use std::ofstream with append mode to minimize filesystem overhead.
+            std::ofstream outfile(filename, std::ios::app);
+            if (outfile.is_open()) {
+                const auto& state = lookup_state(StateID(*result.first));
+                state.unpack();
+                const auto buffer = state.get_buffer();
+                outfile << insert_counter;
+                for (std::size_t i = 0; i < get_bins_per_state(); ++i) {
+                    outfile << ',' << buffer[i];
+                }
+
+                vector<int> new_values = state.get_unpacked_values();
+                // Unrolled loop for small fixed-size state vectors can help cache/branch prediction.
+                for (std::size_t i = 0; i < state.size(); ++i) {
+                    outfile << ',' << new_values[i];
+                }
+                outfile << '\n';
+                // File closes automatically (RAII).
+            }
+        }
     }
     assert(registered_states.size() == state_data_pool.size());
     return StateID(*result.first);
@@ -50,6 +88,35 @@ State StateRegistry::lookup_state(
 
 const State &StateRegistry::get_initial_state() {
     if (!cached_initial_state) {
+
+        // Only for data extraction -- minimize allocations and open/close cost.
+        const char* filename = "state_data.csv";
+        task_properties::
+        if (filename) {
+            // Use std::ofstream with append mode to minimize filesystem overhead.
+            std::ofstream outfile(filename, std::ios::app);
+            if (outfile.is_open()) {
+                outfile << "index";
+                for (std::size_t i = 0; i < get_bins_per_state(); ++i) {
+                    outfile << ',' << "buff" << i;
+                }
+                for (std::size_t i = 0; i < task_proxy.get_variables().size(); ++i) {
+                    outfile << ',' << "var" << i;
+                }
+                outfile << '\n';
+                outfile << 0;
+                for (std::size_t i = 1; i < get_bins_per_state(); ++i) {
+                    outfile << ',' << 0;
+                }
+                outfile << ',' << -1;
+                const auto vars = task_proxy.get_variables();
+                for (auto var : vars) {
+                    outfile << ',' << var.get_domain_size();
+                }
+                outfile << '\n';
+                // File closes automatically (RAII).
+            }
+        }
         int num_bins = get_bins_per_state();
         unique_ptr<PackedStateBin[]> buffer(new PackedStateBin[num_bins]);
         // Avoid garbage values in half-full bins.

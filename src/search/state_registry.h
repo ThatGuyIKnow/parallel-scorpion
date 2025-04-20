@@ -173,7 +173,7 @@ protected:
     const int_packer::IntPacker &state_packer;
     segmented_vector::SegmentedArrayVector<PackedStateBin> state_data_pool;
     StateIDSet registered_states;
-
+    size_t insert_counter = 0;
     int get_bins_per_state() const;
 public:
     explicit StateRegistry(const TaskProxy &task_proxy);
