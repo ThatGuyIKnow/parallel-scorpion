@@ -84,7 +84,7 @@ StateID StateRegistry::insert_id_or_pop_state() {
             state.unpack();
             const auto buffer = state.get_buffer();
             outfile << insert_counter;
-            outfile << "," << insert_counter;
+            outfile << "," << std::floor(insert_counter / sample_mod);
             for (std::size_t i = 0; i < get_bins_per_state(); ++i) {
                 outfile << ',' << buffer[i];
             }
