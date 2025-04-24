@@ -139,18 +139,16 @@ std::shared_ptr<T> make_shared_from_arg_tuples(Arguments... arguments) {
             std::tuple<Arguments...>(std::forward<Arguments>(arguments) ...)));
 }
 
-
 template<typename T, typename ... Arguments>
 std::unique_ptr<T> make_unique_from_arg_tuples(Arguments... arguments) {
-    return std::apply(
-        [](auto &&... flattened_args) {
-            return std::make_unique<T>(
-                std::forward<decltype(flattened_args)>(flattened_args) ...);
-        },
-        utils::flatten_tuple(
-            std::tuple<Arguments...>(std::forward<Arguments>(arguments) ...)));
+return std::apply(
+    [](auto &&... flattened_args) {
+        return std::make_unique<T>(
+            std::forward<decltype(flattened_args)>(flattened_args) ...);
+    },
+    utils::flatten_tuple(
+        std::tuple<Arguments...>(std::forward<Arguments>(arguments) ...)));
 }
-
 class Plugin {
 public:
     Plugin();

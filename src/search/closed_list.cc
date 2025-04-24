@@ -1,6 +1,5 @@
 #include "closed_list.h"
 
-#include "plugin.h"
 #include "pdbs/pattern_collection_generator_systematic.h"
 #include "plugins/plugin.h"
 

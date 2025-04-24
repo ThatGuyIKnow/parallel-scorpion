@@ -9,7 +9,6 @@
 #include "../evaluator.h"
 #include "../evaluators/g_evaluator.h"
 #include "../evaluators/sum_evaluator.h"
-#include "../option_parser_util.h"
 
 #include "../utils/hash.h"
 #include "../open_state_registry.h"

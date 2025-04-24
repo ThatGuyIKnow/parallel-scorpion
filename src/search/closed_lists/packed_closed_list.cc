@@ -20,7 +20,7 @@ namespace packed_closed_list {
         int num_bins = get_bins_per_state();
         std::vector<PackedStateBin> bins(num_bins, 0);
 
-        for (int i = 0; i < state.size(); ++i)
+        for (size_t i = 0; i < state.size(); ++i)
             state_packer.set(bins.data(), i, state[i].get_value());
 
         registered_states.insert(bins);
@@ -31,7 +31,7 @@ namespace packed_closed_list {
         int num_bins = get_bins_per_state();
         std::vector<PackedStateBin> bins(num_bins, 0);
 
-        for (int i = 0; i < state.size(); ++i)
+        for (size_t i = 0; i < state.size(); ++i)
             state_packer.set(bins.data(), i, state[i].get_value());
 
         return registered_states.find(bins) != registered_states.end();
@@ -52,9 +52,10 @@ namespace packed_closed_list {
             document_title("Vector Closed List");
         }
 
+
         virtual std::shared_ptr<PackedClosedList>
         create_component(const plugins::Options &opts) const override {
-
+            (void)opts;
             return plugins::make_shared_from_arg_tuples<PackedClosedList>();
         }
     };

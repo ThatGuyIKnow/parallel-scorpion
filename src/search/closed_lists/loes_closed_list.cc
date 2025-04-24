@@ -1,15 +1,15 @@
 #include "loes_closed_list.h"
-#include "../utils/logging.h"
-#include "../task_utils/task_properties.h"
+
 #include <bits/stdc++.h>
 #include <cmath>
 
-#include "../plugins/plugin.h"
+#include "../task_utils/task_properties.h"
 #include "../tasks/root_task.h"
 #include "../state_registry.h"
 #include "../task_utils/successor_generator.h"
 #include "../utils/rng.h"
 #include "../per_state_information.h"
+#include "../plugins/plugin.h"
 
 namespace loes_closed_list{
 template<class LoesType>
@@ -194,41 +194,6 @@ void LoesClosedList<LoesType>::print() const
             "will print() print the full LOES tree.",
             "false");
 }
-//
-// template<class LoesType>
-// static shared_ptr<ClosedList> _parse(OptionParser &parser) {
-//     parser.document_synopsis(
-//         "Closed list using LOES data structure",
-//         "");
-//     parser.add_option<int>(
-//         "samples",
-//         "number of samples used to calculate optimal bitorder",
-//         "0");
-//     parser.add_option<int>(
-//         "max_sample_iterations",
-//         "the max number of iterations tried to get the desired number of samples",
-//         OptionParser::NONE);
-//     parser.add_option<bool>(
-//         "reuse_treelevels",
-//         "whether LOES reuses treelevels when mergeing, taking more memory but less time.",
-//         "true");
-//     parser.add_option<bool>(
-//         "full_print",
-//         "will print() print the full LOES tree.",
-//         "false");
-//     ClosedList::add_options_to_parser(parser);
-//     Options opts = parser.parse();
-//
-//     if (parser.dry_run()) {
-//         return nullptr;
-//     }
-//
-//     return std::make_shared<loes_closed_list::LoesClosedList<LoesType>>(opts);
-// }
-//
-// static plugins::Plugin<ClosedList> _plugin_loes("loes", _parse<loes::Loes>);
-// static plugins::Plugin<ClosedList> _plugin_cloes("cloes", _parse<loes::Cloes>);
-
 
 class LoesClosedListFeature
     : public plugins::TypedFeature<ClosedList, LoesClosedList<loes::Loes>> {
@@ -239,7 +204,7 @@ public:
         add_options_to_parser(*this);
     }
 
-    virtual shared_ptr<LoesClosedList<loes::Loes>>
+    [[nodiscard]] shared_ptr<LoesClosedList<loes::Loes>>
     create_component(const plugins::Options &opts) const override {
         return plugins::make_shared_from_arg_tuples<LoesClosedList<loes::Loes>>(
             opts.get<int>("samples", 0),
@@ -259,7 +224,7 @@ public:
         add_options_to_parser(*this);
     }
 
-    virtual shared_ptr<LoesClosedList<loes::Cloes>>
+    shared_ptr<LoesClosedList<loes::Cloes>>
     create_component(const plugins::Options &opts) const override {
         
         return plugins::make_shared_from_arg_tuples<LoesClosedList<loes::Cloes>>(
@@ -273,5 +238,5 @@ public:
 
 
 static plugins::FeaturePlugin<LoesClosedListFeature> _loes_plugin;
-static plugins::FeaturePlugin<CLoesClosedListFeature> _cloes_plugin;
+[[maybe_unused]] static plugins::FeaturePlugin<CLoesClosedListFeature> _cloes_plugin;
 }

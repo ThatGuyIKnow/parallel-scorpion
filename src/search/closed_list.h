@@ -2,7 +2,6 @@
 #define CLOSED_LIST_H
 
 #include "task_proxy.h"
-#include "options/option_parser.h"
 #include "utils/logging.h"
 
 

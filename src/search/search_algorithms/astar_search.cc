@@ -5,7 +5,6 @@
 #include "../evaluator.h"
 #include "../search_algorithm.h"
 #include "../open_list_factory.h"
-#include "../option_parser.h"
 #include "../plugins/plugin.h"
 #include "search_common.h"
 #include "../task_utils/task_properties.h"
@@ -14,7 +13,6 @@
 
 #include <algorithm>
 #include <cassert>
-#include <optional.hh>
 
 using namespace std;
 

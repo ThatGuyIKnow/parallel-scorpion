@@ -55,7 +55,7 @@ namespace packed_treedbs_closed_list {
 
         virtual std::shared_ptr<PackedTreeDBSClosedList>
         create_component(const plugins::Options &opts) const override {
-
+            (void)opts;
             return plugins::make_shared_from_arg_tuples<PackedTreeDBSClosedList>();
         }
     };

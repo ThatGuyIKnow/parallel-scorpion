@@ -36,8 +36,5 @@ public:
     void add_options_to_parser(plugins::Feature &feature);
 };
 
-extern void add_loes_closed_list_options_to_parser(
-    options::OptionParser &parser);
-}
 
 #endif
