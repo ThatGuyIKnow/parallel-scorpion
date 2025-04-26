@@ -1,4 +1,5 @@
 #include "loes_closed_list.h"
+#include "../plugins/plugin.h"
 
 #include <bits/stdc++.h>
 #include <cmath>
@@ -9,7 +10,6 @@
 #include "../task_utils/successor_generator.h"
 #include "../utils/rng.h"
 #include "../per_state_information.h"
-#include "../plugins/plugin.h"
 
 namespace loes_closed_list{
 template<class LoesType>
