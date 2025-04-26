@@ -45,7 +45,7 @@ report_bitwidth()
 set_up_build_types("Debug;Release")
 set_up_options()
 
-project(downward LANGUAGES C CXX)
+project(downward LANGUAGES CXX)
 add_executable(downward planner.cc)
 
 # On Windows we have to copy all DLLs next to the generated binary.
@@ -182,6 +182,16 @@ create_fast_downward_library(
 )
 
 create_fast_downward_library(
+        NAME treedbs
+        HELP "Tree Databases"
+        SOURCES
+            utils/stable_index_hash_map
+            utils/treedbs
+        CORE_LIBRARY
+)
+
+
+create_fast_downward_library(
     NAME parser
     HELP "Option parsing"
     SOURCES
@@ -217,16 +227,6 @@ create_fast_downward_library(
         utils/tuples
     CORE_LIBRARY
 )
-
-create_fast_downward_library(
-        NAME treedbs
-        HELP "Tree Databases"
-        SOURCES
-            utils/stable_index_hash_map
-            utils/treedbs
-        CORE_LIBRARY
-)
-
 # On Linux, find the rt library for clock_gettime().
 if(UNIX AND NOT APPLE)
     target_link_libraries(utils INTERFACE rt)
@@ -953,6 +953,7 @@ create_fast_downward_library(
         cost_saturation/abstraction
         cost_saturation/abstraction_generator
         cost_saturation/canonical_heuristic
+        cost_saturation/cartesian_abstraction
         cost_saturation/cartesian_abstraction_generator
         cost_saturation/cost_partitioning_heuristic
         cost_saturation/cost_partitioning_heuristic_collection_generator
