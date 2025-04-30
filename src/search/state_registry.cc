@@ -36,7 +36,7 @@ void prepare_file(TaskProxy task_proxy, int num_bins) {
         }
         outfile << '\n';
         outfile << -1;
-        outfile << -1;
+        outfile << ',' << -1;
         for (std::size_t i = 0; i < num_bins; ++i) {
             outfile << ',' << -1;
         }
