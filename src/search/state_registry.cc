@@ -36,15 +36,14 @@ void prepare_file(TaskProxy task_proxy, int num_bins) {
         }
         outfile << '\n';
         outfile << -1;
+        outfile << -1;
         for (std::size_t i = 0; i < num_bins; ++i) {
-            outfile << ',' << 0;
+            outfile << ',' << -1;
         }
-        const auto vars = task_proxy.get_variables();
-        for (auto var : vars) {
-            outfile << ',' << var.get_domain_size();
+        for (std::size_t i = 0; i < task_proxy.get_variables().size(); ++i) {
+            outfile << ',' << task_proxy.get_variables()[i].get_domain_size();
         }
         outfile << '\n';
-        // File closes automatically (RAII).
     }
 }
 
@@ -60,18 +59,23 @@ StateID StateRegistry::insert_id_or_pop_state() {
     bool is_new_entry = result.second;
 
     constexpr int mod = 3;
-    constexpr int max_samples = 1000000;
-    constexpr int sample_seq = 100;
+    constexpr int max_samples = 500000;
+    constexpr int sample_seq = 10;
 
     constexpr int max_mod_samples = mod * max_samples;
     constexpr int sample_mod = mod * sample_seq;
+
+    constexpr int initial_sample = 50;
 
     if (!is_new_entry) {
         state_data_pool.pop_back();
     }
     else
         insert_counter = std::min(static_cast<size_t>(max_mod_samples + 1), insert_counter + 1);
-    if (is_new_entry && (insert_counter % sample_mod) < sample_seq && insert_counter < max_mod_samples) {
+    // only collect samples if the sample is new, and then EITHER collect for the initial tree variable order sampling
+    // OR for the later analysis sampling.
+    if (is_new_entry && (insert_counter < initial_sample ||
+            ((insert_counter % sample_mod) < sample_seq && insert_counter < max_mod_samples))) {
         // Only for data extraction -- minimize allocations and open/close cost.
 
         if ( access( kFilename.data(), F_OK ) == -1 )
@@ -84,7 +88,11 @@ StateID StateRegistry::insert_id_or_pop_state() {
             state.unpack();
             const auto buffer = state.get_buffer();
             outfile << insert_counter;
-            outfile << "," << std::floor(insert_counter / sample_mod);
+            if (insert_counter < initial_sample)
+                outfile << "," << 0;
+            else
+                outfile << "," << std::floor((insert_counter - initial_sample) / sample_mod);
+
             for (std::size_t i = 0; i < get_bins_per_state(); ++i) {
                 outfile << ',' << buffer[i];
             }

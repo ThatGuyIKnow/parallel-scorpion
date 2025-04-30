@@ -1,3 +1,0 @@
-/home/workbox/Projects/state-compression-scorpion/cmake-build-debug/CMakeFiles/state_compression_scorpion.dir
-/home/workbox/Projects/state-compression-scorpion/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/workbox/Projects/state-compression-scorpion/cmake-build-debug/CMakeFiles/rebuild_cache.dir
