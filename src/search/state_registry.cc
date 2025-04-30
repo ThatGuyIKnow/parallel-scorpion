@@ -60,12 +60,12 @@ StateID StateRegistry::insert_id_or_pop_state() {
 
     constexpr int mod = 3;
     constexpr int max_samples = 500000;
-    constexpr int sample_seq = 10;
+    constexpr int sample_seq = 100;
 
     constexpr int max_mod_samples = mod * max_samples;
     constexpr int sample_mod = mod * sample_seq;
 
-    constexpr int initial_sample = 50;
+    constexpr int initial_sample = 50000;
 
     if (!is_new_entry) {
         state_data_pool.pop_back();
@@ -91,7 +91,7 @@ StateID StateRegistry::insert_id_or_pop_state() {
             if (insert_counter < initial_sample)
                 outfile << "," << 0;
             else
-                outfile << "," << std::floor((insert_counter - initial_sample) / sample_mod);
+                outfile << "," << 1 + std::floor((insert_counter - initial_sample) / sample_mod);
 
             for (std::size_t i = 0; i < get_bins_per_state(); ++i) {
                 outfile << ',' << buffer[i];
