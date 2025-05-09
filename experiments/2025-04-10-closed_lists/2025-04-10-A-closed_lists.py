@@ -8,8 +8,13 @@ from downward.suites import build_suite
 from downward.cached_revision import CachedFastDownwardRevision
 from lab.experiment import Experiment
 from lab.environments import TetralithEnvironment, LocalEnvironment
-
+import domains
 import project
+
+
+
+for s in SUITE:
+    print(s)
 
 REVISION_CACHE = (
         os.environ.get("DOWNWARD_REVISION_CACHE") or project.DIR / "data" / "revision-cache"
@@ -24,7 +29,10 @@ if project.REMOTE:
     )
     TIME_LIMIT = 15 * 60
     MEMORY_LIMIT = "8G"
-    SUITE = project.SUITE_OPTIMAL_STRIPS
+    SUITE = build_suite(
+         os.environ.get("DOWNWARD_BENCHMARKS"),
+        project.SUITE_OPTIMAL_STRIPS
+    )
 else:
     ENV = LocalEnvironment(processes=3)
     MEMORY_LIMIT = "4G"

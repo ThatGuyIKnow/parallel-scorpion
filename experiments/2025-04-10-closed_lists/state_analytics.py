@@ -12,6 +12,7 @@ from typing import List, Dict, Any, Union,  Hashable, Set, Sequence, Tuple
 from scipy.stats import entropy
 import random 
 import math
+import sys
 
 @dataclass
 class Run:
@@ -480,13 +481,13 @@ def gather_statistics(run: list) -> list:
     """
     results = []
     order_methods = [
-        ('Identity',                          lambda run: list(range(run.var_df.shape[1]))),
-        ('Greedy Variable Ordering',          lambda run: greedy_variable_ordering_single(run.var_df.values.tolist())),
-        ('Greedy Variable Tree Ordering',     lambda run: greedy_variable_ordering_tree(run.var_df.values.tolist())),
-        ('Greedy Max Entropy Variable Order', lambda run: globally_worst_variable_order(run.var_df.values.tolist())),
-        ('Greedy Mutual Information',         lambda run: greedy_mi_max_variable_order(run.var_df.values.tolist())),
+        ('Identity',                          lambda run: list(range(run.shape[1]))),
+        ('Greedy Variable Ordering',          lambda run: greedy_variable_ordering_single(run.values.tolist())),
+        ('Greedy Variable Tree Ordering',     lambda run: greedy_variable_ordering_tree(run.values.tolist())),
+        # ('Greedy Max Entropy Variable Order', lambda run: globally_worst_variable_order(run.var_df.values.tolist())),
+        ('Greedy Mutual Information',         lambda run: greedy_mi_max_variable_order(run.values.tolist())),
     ]
-
+    
     states_unpacked = run.var_df.values.tolist()
     # Packed states: each state packed per domain_sizes
     states_packed = [pack_values_to_uint32(state, run.domain_sizes) for state in states_unpacked]
@@ -494,9 +495,9 @@ def gather_statistics(run: list) -> list:
     for representation, states in [("unpacked", states_unpacked), ("packed", states_packed)]:
         states = run.var_df.values.tolist()  # States as lists
         for order_name, order_fn in order_methods:
-            ordering = order_fn(run)
+            ordering = order_fn(run.var_df.head(5000))
             compressor = TreeCompressor(ordering)
-            for state in states:
+            for state in states[5000:15000]:
                 compressor.compress(state)
             stats = compressor.compute_tree_statistics()
             results.append({
@@ -527,5 +528,8 @@ def main(run_path=Path()):
     stats_df.to_csv(run_path / "statistics_results.csv", index=False)
     # or: with open("statistics_results.json", "w") as f: json.dump(stats, f, indent=2)
 
-if __name__ == "__main__":  
-    main()
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        main(Path("."))
+    else:
+        main(Path(sys.argv[1]))

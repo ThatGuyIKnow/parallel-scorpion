@@ -3,6 +3,7 @@
 import os
 import sys
 import csv
+from glob import glob
 from pathlib import Path, PosixPath
 from typing import List
 from downward.experiment import FastDownwardExperiment, FastDownwardAlgorithm, FastDownwardRun
@@ -11,7 +12,7 @@ from downward.cached_revision import CachedFastDownwardRevision
 from lab.experiment import Experiment
 from lab.environments import TetralithEnvironment, LocalEnvironment
 import state_analytics
-
+import domains
 import project
 
 def combine_csvs(input_files: List[str], output_file: str, strict_headers: bool = False) -> None:
@@ -63,16 +64,18 @@ def combine_csvs(input_files: List[str], output_file: str, strict_headers: bool 
                     writer.writerow(row)
 
 def combine_results(exp_data: PosixPath):
-    search_glob = map(Path, glob(str(exp_data / "runs-*" / "statistics_results.csv")))
+    print(exp_data)
+    search_glob = map(Path, glob(str(exp_data / "runs-*" / "*" / "statistics_results.csv")))
     
     combine_csvs(search_glob, 'experiment_state_statistics.csv')
-    return dfs
 
 REVISION_CACHE = (
         os.environ.get("DOWNWARD_REVISION_CACHE") or project.DIR / "data" / "revision-cache"
 )
 SCRIPT_DIR = Path(os.path.dirname(os.path.abspath(__file__)))
 BUILD_OPTIONS = []
+
+
 if project.REMOTE:
     ENV = TetralithEnvironment(
         setup=TetralithEnvironment.DEFAULT_SETUP,
@@ -82,7 +85,14 @@ if project.REMOTE:
     )
     TIME_LIMIT = 30 * 60
     MEMORY_LIMIT = "8G"
-    SUITE = project.SUITE_OPTIMAL_STRIPS
+    SUITE = build_suite(
+            os.environ.get("DOWNWARD_BENCHMARKS"),
+        domains.SUITE_IPC_OPTIMAL_STRIPS
+    )
+    SUITE += build_suite(
+            os.path.join(os.environ.get("DOWNWARD_BENCHMARKS"), 'autoscale'),
+        domains.SUITE_AUTOSCALE_OPTIMAL_STRIPS
+    )
 else:
     ENV = LocalEnvironment(processes=3)
     MEMORY_LIMIT = "4G"
@@ -134,9 +144,11 @@ exp.add_parser(FastDownwardExperiment.TRANSLATOR_PARSER)
 exp.add_parser(FastDownwardExperiment.SINGLE_SEARCH_PARSER)
 exp.add_parser(FastDownwardExperiment.PLANNER_PARSER)
 
+
+
 exp.add_step("build", exp.build)
 exp.add_step("start", exp.start_runs)
-exp.add_step("fetch_analytics", combine_results)
+exp.add_step("fetch_analytics", lambda: combine_results(Path(exp.path)))
 
 # Parse the commandline and run the given steps.
 exp.run_steps()
