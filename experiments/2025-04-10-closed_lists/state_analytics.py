@@ -10,9 +10,13 @@ import itertools
 from collections import defaultdict
 from typing import List, Dict, Any, Union,  Hashable, Set, Sequence, Tuple
 from scipy.stats import entropy
+from tqdm import tqdm
 import random 
 import math
+import time
 import sys
+
+from mutual_info import greedy_mi_max_variable_order, greedy_ent_min_variable_order, greedy_ent_single_min_variable_order
 
 @dataclass
 class Run:
@@ -218,42 +222,6 @@ def _mutual_information(states, block1, block2) -> float:
     # MI = H(X) + H(Y) - H(XY)
     return H_X + H_Y - H_XY
 
-def greedy_mi_max_variable_order(states: List[Union[dict,list]], variables: List[Any]=None) -> List[Any]:
-    """
-    Greedily merges variable blocks that have the highest mutual information.
-    
-    Parameters
-    ----------
-    states : list of dict or list
-        States as dicts or lists.
-    variables : list, optional
-        If not provided, inferred from data.
-    
-    Returns
-    -------
-    List[Any]
-        Optimal variable reordering (high shared information earlier).
-    """
-    if not states:
-        return []
-    first = states[0]
-    if variables is None:
-        variables = list(first.keys()) if isinstance(first, dict) else list(range(len(first)))
-    blocks = [[v] for v in variables]
-    while len(blocks) > 1:
-        best_mi = None
-        best_pair = None
-        for i, j in itertools.combinations(range(len(blocks)), 2):
-            mi = _mutual_information(states, blocks[i], blocks[j])
-            if best_mi is None or mi > best_mi:
-                best_mi = mi
-                best_pair = (i, j)
-        # Merge the best pair
-        i, j = best_pair
-        merged_block = blocks[i] + blocks[j]
-        # Remove both, append merged
-        blocks = [blocks[k] for k in range(len(blocks)) if k not in (i,j)] + [merged_block]
-    return blocks[0]
 
 def _states_projection(states, block):
     first = states[0]
@@ -306,109 +274,6 @@ def globally_worst_variable_order(states: List[Union[dict, list]], variables: Li
     return blocks[0]
 
 
-def greedy_variable_ordering_tree(states: List[Union[dict, list]], variables: List[Any] = None) -> List[Any]:
-    """
-    Globally greedy pairwise merging of variable blocks:
-    At each step, merges the pair of variable blocks resulting in the smallest
-    number of unique projected subtrees. Not restricted to adjacent blocks.
-
-    Returns
-    -------
-    List[Any]
-        Variable order maximizing subtree sharing for the supplied states.
-    """
-    if not states:
-        return []
-    if variables is None:
-        first = states[0]
-        variables = list(first.keys()) if isinstance(first, dict) else list(range(len(first)))
-    # Start with each variable as its own block
-    blocks = [[v] for v in variables]
-    while len(blocks) > 1:
-        best_score = None
-        best_i, best_j = None, None
-        for i, j in itertools.combinations(range(len(blocks)), 2):
-            merged = [blocks[k] for k in range(len(blocks)) if k not in (i, j)] + [blocks[i] + blocks[j]]
-            score = _unique_count(states, merged)
-            if best_score is None or score < best_score:
-                best_score = score
-                best_i, best_j = i, j
-        # Merge best pair
-        new_block = blocks[best_i] + blocks[best_j]
-        blocks = [blocks[k] for k in range(len(blocks)) if k not in (best_i, best_j)] + [new_block]
-    return blocks[0]
-    from typing import List, Dict, Any, Sequence, Union
-
-def greedy_variable_ordering_single(
-    states: List[Union[dict, list]],
-    variables: Sequence[Any] = None
-) -> List[Any]:
-    """
-    Greedily order variables to maximize subtree sharing,
-    using variable names/keys rather than relying on index.
-
-    Converts all states to dicts with variable keys for robust access.
-
-    Parameters
-    ----------
-    states : List[dict or list]
-        The collection of states to be compressed.
-    variables : Sequence[Any], optional
-        Which variables to consider. If None, inferred from the first state.
-
-    Returns
-    -------
-    ordering : List[Any]
-        Greedy ordering of variable keys.
-    """
-    if not states:
-        return []
-
-    # Standardize input to list of dicts mapping key/index -> value
-    if isinstance(states[0], dict):
-        states_dicts = [s.copy() for s in states]  # Safe shallow copy
-        if variables is None:
-            variables = list(states_dicts[0].keys())
-    else:
-        if variables is None:
-            variables = list(range(len(states[0])))
-        states_dicts = [{k: v for k, v in zip(variables, s)} for s in states]
-
-    remaining_vars = set(variables)
-    ordering = []
-    sub_states = states_dicts
-
-    while remaining_vars:
-        best_var = None
-        best_score = None
-
-        for var in remaining_vars:
-            groups = {}
-            for s in sub_states:
-                v = s[var]
-                groups.setdefault(v, []).append(s)
-            # Unique sub-states remaining after removing this variable
-            unique_substates = set()
-            for group in groups.values():
-                for g in group:
-                    key_tuple = tuple(
-                        sorted(
-                            (k, g[k]) for k in g if k != var
-                        )
-                    )
-                    unique_substates.add(key_tuple)
-            score = len(unique_substates)
-            if best_score is None or score < best_score:
-                best_var = var
-                best_score = score
-        ordering.append(best_var)
-        remaining_vars.remove(best_var)
-        sub_states = [{k: v for k, v in s.items() if k != best_var}
-                      for s in sub_states]
-
-    return ordering
-
-    
 def pack_values_to_uint32(values: list, domain_sizes: list) -> list:
     """
     Pack a list of integer values into as few uint32s as possible, with each value using
@@ -428,7 +293,7 @@ def pack_values_to_uint32(values: list, domain_sizes: list) -> list:
         bits_used += bits
     if bits_used > 0:
         packed.append(current & 0xFFFFFFFF)
-    return packed
+    return np.array(packed, dtype=np.uint32).view(np.int32).tolist() 
 
 def aggregate_random_order_stats(run, states, representation, n_random=10, random_seed=42):
     """
@@ -469,11 +334,12 @@ def aggregate_random_order_stats(run, states, representation, n_random=10, rando
             "ordering": None,
             **agg_stats,
         })
+    del compressor
     return results
 
 
 
-def gather_statistics(run: list) -> list:
+def gather_statistics(run: list, samples=10000, sample_compress=[10000, 30000]) -> list:
     """
     For each Run, iterates through different variable ordering strategies,
     compresses the states, collects tree and ordering statistics.
@@ -481,25 +347,30 @@ def gather_statistics(run: list) -> list:
     """
     results = []
     order_methods = [
-        ('Identity',                          lambda run: list(range(run.shape[1]))),
-        ('Greedy Variable Ordering',          lambda run: greedy_variable_ordering_single(run.values.tolist())),
-        ('Greedy Variable Tree Ordering',     lambda run: greedy_variable_ordering_tree(run.values.tolist())),
-        # ('Greedy Max Entropy Variable Order', lambda run: globally_worst_variable_order(run.var_df.values.tolist())),
-        ('Greedy Mutual Information',         lambda run: greedy_mi_max_variable_order(run.values.tolist())),
+        ('Identity',                          lambda run: list(range(len(run[0])))),
+        ('Greedy Variable Ordering',          lambda run: greedy_ent_single_min_variable_order(run)),
+        ('Greedy Variable Tree Ordering',     lambda run: greedy_ent_min_variable_order(run)),
+        ('Greedy Mutual Information',         lambda run: greedy_mi_max_variable_order(run)),
     ]
     
-    states_unpacked = run.var_df.values.tolist()
+    states_unpacked = run.var_df.values.tolist()[:samples] + run.var_df.values.tolist()[sample_compress[0]:sample_compress[1]]
     # Packed states: each state packed per domain_sizes
     states_packed = [pack_values_to_uint32(state, run.domain_sizes) for state in states_unpacked]
-    
+    print("Done packing")
     for representation, states in [("unpacked", states_unpacked), ("packed", states_packed)]:
-        states = run.var_df.values.tolist()  # States as lists
         for order_name, order_fn in order_methods:
-            ordering = order_fn(run.var_df.head(5000))
+            start_time = time.time()
+            print(10 * "=" + f"ORDERING {order_name}" + 10 * "=")
+            ordering = order_fn(states[:samples])
+
             compressor = TreeCompressor(ordering)
-            for state in states[5000:15000]:
+            for state in tqdm(states[samples:]):
                 compressor.compress(state)
+            print(f"Finished compressing {order_name}")
             stats = compressor.compute_tree_statistics()
+            print(f"Finished gathering stats {order_name}")
+            print(f"FINISHED {order_name}. It took {time.time() - start_time:.2f}s")
+            
             results.append({
                 "domain": run.domain,
                 "problem": run.problem,
@@ -511,8 +382,9 @@ def gather_statistics(run: list) -> list:
             })
 
         # Aggregate over random orderings
-        agg_random_rows = aggregate_random_order_stats(run, states, representation, n_random=20, random_seed=42)
+        agg_random_rows = aggregate_random_order_stats(run, states[samples:], representation, n_random=20, random_seed=42)
         results.extend(agg_random_rows)
+        del compressor
     
     return results
 
@@ -533,3 +405,4 @@ if __name__ == "__main__":
         main(Path("."))
     else:
         main(Path(sys.argv[1]))
+

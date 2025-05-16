@@ -23,3 +23,4 @@ src/cmake-build-debug/search/CMakeFiles/downward.dir/compiler_depend.make
 src/cmake-build-debug/search/CMakeFiles/downward.dir/DependInfo.cmake
 src/cmake-build-debug/search/CMakeFiles/downward.dir/link.txt
 /.idea
+/experiments/2025-04-10-closed_lists/mutual_info/.ipynb_checkpoints
