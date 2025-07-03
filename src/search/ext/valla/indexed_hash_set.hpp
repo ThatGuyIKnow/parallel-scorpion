@@ -41,7 +41,8 @@ public:
     // Custom hash functor using phmap::HashState (phmap's preferred idiom)
     struct SetHash {
         std::size_t operator()(const std::tuple<Index, Index, Index>& t) const noexcept {
-            auto combined = make_slot(std::get<0>(t), std::get<1>(t));
+            auto combined = murmur3_64_finalizer((uint64_t(std::get<0>(t)) << 32) | std::get<1>(t));
+
             // phmap hashers: combine seed with argument(s)
             return phmap::HashState().combine(0, combined);
         }
