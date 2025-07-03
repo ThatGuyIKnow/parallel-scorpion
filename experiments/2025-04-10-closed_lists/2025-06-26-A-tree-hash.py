@@ -60,7 +60,7 @@ CONFIGS = [
         start=1,
     )
 ]
-REV_NICKS = [("valla", ""),("valla-fmix", ""), ]
+REV_NICKS = [("valla-fmix", "b6729e3282cbce83417ca70971ded222daf6c700"),("valla-fmix", "cf91e009afdf3250c69b47282d19aa12372a834f"), ]
 ATTRIBUTES = [
     "coverage",
     "error",
