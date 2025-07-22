@@ -9,6 +9,10 @@ from downward.cached_revision import CachedFastDownwardRevision
 from lab.experiment import Experiment
 from lab.environments import TetralithEnvironment, LocalEnvironment
 
+from benchmarks import *
+import custom_parser
+from itertools import product
+
 import project
 
 REVISION_CACHE = (
