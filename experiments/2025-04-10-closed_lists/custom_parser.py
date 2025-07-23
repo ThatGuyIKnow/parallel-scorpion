@@ -1,8 +1,20 @@
 import logging
 import re
 
+from lab import tools
 from lab.parser import Parser
 
+
+
+def add_planner_memory_score(content, props):
+    success = props["coverage"] or props["unsolvable"]
+    memory_limit_kb = 8388608  # 8 GB in KB
+    props["score_planner_memory"] = tools.compute_log_score(
+        success,
+        props.get("planner_memory"),
+        lower_bound=2000,
+        upper_bound=memory_limit_kb,
+        )
 
 class CommonParser(Parser):
     def add_repeated_pattern(
@@ -32,6 +44,8 @@ class CommonParser(Parser):
 
 def get_parser():
     parser = CommonParser()
+
+    parser.add_function(add_planner_memory_score)
     parser.add_bottom_up_pattern(
         "search_start_time",
         r"\[t=(.+)s, \d+ KB\] g=0, 1 evaluated, 0 expanded",

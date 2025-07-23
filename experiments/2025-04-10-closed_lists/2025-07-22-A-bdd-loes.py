@@ -118,6 +118,8 @@ exp.add_parser(FastDownwardExperiment.TRANSLATOR_PARSER)
 exp.add_parser(FastDownwardExperiment.SINGLE_SEARCH_PARSER)
 exp.add_parser(FastDownwardExperiment.PLANNER_PARSER)
 
+exp.add_parser(custom_parser.get_parser())
+
 exp.add_step("build", exp.build)
 exp.add_step("start", exp.start_runs)
 exp.add_step("parse", exp.parse)
