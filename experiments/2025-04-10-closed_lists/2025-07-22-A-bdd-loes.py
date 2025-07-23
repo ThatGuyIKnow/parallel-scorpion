@@ -33,7 +33,7 @@ if project.REMOTE:
     base_path = Path(os.environ.get("DOWNWARD_BENCHMARKS")) / "pddl-benchmarks"
 
     SUITE_SPECS = [
-        ("autoscale-benchmarks-main/21.11-optimal-strips", SUITE_AUTOSCALE_OPTIMAL_STRIPS),
+#        ("autoscale-benchmarks-main/21.11-optimal-strips", SUITE_AUTOSCALE_OPTIMAL_STRIPS),
         ("beluga2025", SUITE_BELUGA2025_SCALABILITY_DETERMINISTIC),
         ("pushworld", SUITE_PUSHWORLD),
         ("mine-pddl", SUITE_MINEPDDL),
