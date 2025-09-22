@@ -18,86 +18,154 @@
 #ifndef VALLA_INCLUDE_INDEXED_HASH_SET_HPP_
 #define VALLA_INCLUDE_INDEXED_HASH_SET_HPP_
 
-#include "valla/declarations.hpp"
+#include "valla/concepts.hpp"
+#include "valla/equal_to.hpp"
+#include "valla/hash.hpp"
+#include "valla/utils.hpp"
 
-#include <algorithm>
-#include <cassert>
-#include <cmath>
-#include <iostream>
-#include <stack>
+#include <absl/container/flat_hash_set.h>
+#include <concepts>
+#include <cstddef>
+#include <gtl/phmap.hpp>
+#include <memory>
+#include <mutex>
+#include <oneapi/tbb.h>
+#include <vector>
 
 namespace valla
 {
-/// @brief `IndexedHashSet` encapsulates a bijective function f : Slot -> Index with inverse mapping f^{-1} : Index -> Slot
-/// where the indices in the image are enumerated 0,1,2,... and so on.
+
+template<typename T, std::unsigned_integral I, typename Hash = Hash<T>, typename EqualTo = EqualTo<T>>
 class IndexedHashSet
 {
 public:
-    IndexedHashSet() : m_index_to_slot(), m_uniqueness(0, IndexReferencedSlotHash(m_index_to_slot), IndexReferencedSlotEqualTo(m_index_to_slot)) {}
-    // Uncopieable and unmoveable to avoid dangling references of m_index_to_slot in hash and equal_to.
+    using value_type = T;
+    using index_type = I;
+
+private:
+    struct IndexReferencedHash
+    {
+        using is_transparent = void;
+
+        std::shared_ptr<const tbb::concurrent_vector<T>> vec;
+        Hash hash;
+
+        IndexReferencedHash() : vec(nullptr), hash() {}
+        explicit IndexReferencedHash(std::shared_ptr<const tbb::concurrent_vector<T>> vec) : vec(std::move(vec)), hash() {}
+
+        size_t operator()(I el) const
+        {
+            assert(vec);
+            assert(is_within_bounds(*vec, el));
+            return hash(vec->operator[](el));
+        }
+        size_t operator()(const T& el) const { return hash(el); }
+    };
+
+    struct IndexReferencedEqualTo
+    {
+        using is_transparent = void;
+
+        std::shared_ptr<const tbb::concurrent_vector<T>> vec;
+        EqualTo equal_to;
+
+        IndexReferencedEqualTo() : vec(nullptr), equal_to() {}
+        explicit IndexReferencedEqualTo(std::shared_ptr<const tbb::concurrent_vector<T>> vec) : vec(std::move(vec)), equal_to() {}
+
+        bool operator()(I lhs, I rhs) const
+        {
+            assert(vec);
+            assert(is_within_bounds(*vec, lhs));
+            assert(is_within_bounds(*vec, rhs));
+            return equal_to(vec->operator[](lhs), vec->operator[](rhs));
+        }
+        bool operator()(const T& lhs, I rhs) const
+        {
+            assert(vec);
+            assert(is_within_bounds(*vec, rhs));
+            return equal_to(lhs, (*vec)[rhs]);
+        }
+        bool operator()(I lhs, const T& rhs) const
+        {
+            assert(vec);
+            assert(is_within_bounds(*vec, lhs));
+            return equal_to((*vec)[lhs], rhs);
+        }
+        bool operator()(const T& lhs, const T& rhs) const { return equal_to(lhs, rhs); }
+    };
+
+    size_t stripe_of(const T& slot) { return Hash {}(slot) & (kStripes - 1); }
+
+public:
+    IndexedHashSet() : m_slots(std::make_shared<tbb::concurrent_vector<T>>()), m_uniqueness(0, IndexReferencedHash(m_slots), IndexReferencedEqualTo(m_slots)) {}
+
+    // Moveable but not copieable
     IndexedHashSet(const IndexedHashSet& other) = delete;
     IndexedHashSet& operator=(const IndexedHashSet& other) = delete;
-    IndexedHashSet(IndexedHashSet&& other) = delete;
-    IndexedHashSet& operator=(IndexedHashSet&& other) = delete;
-
-    auto insert(SlotStruct<> slot)
+    IndexedHashSet(IndexedHashSet&& other) : m_slots(std::move(other.m_slots)), m_uniqueness(std::move(other.m_uniqueness)) {}
+    IndexedHashSet& operator=(IndexedHashSet&& other)
     {
-        assert(m_uniqueness.size() != std::numeric_limits<Index>::max() && "IndexedHashSet: Index overflow! The maximum number of slots reached.");
-
-        Index index = m_index_to_slot.size();
-
-        m_index_to_slot.push_back(slot);
-
-        const auto result = m_uniqueness.emplace(index);
-
-        if (!result.second)
-            m_index_to_slot.pop_back();
-
-        return result;
+        if (this != &other)
+        {
+            m_slots = std::move(other.m_slots);
+            m_uniqueness = std::move(other.m_uniqueness);
+        }
+        return *this;
     }
 
-    SlotStruct<> operator[](Index index) const
+    /// @brief Insert a slot uniquely and return its index.
+    /// @param slot
+    /// @return
+    I insert(T slot)
     {
-        assert(index < m_index_to_slot.size() && "Index out of bounds");
+        assert(m_uniqueness.size() != std::numeric_limits<I>::max() && "IndexedHashSet: Index overflow! The maximum number of slots reached.");
 
-        return m_index_to_slot[index];
+        // Lock the stripe associated with the slot, which allows running the following code in parallel for different slots, with low false positive rate.
+        std::lock_guard<std::mutex> lk(stripes[stripe_of(slot)]);
+
+        if (auto it = m_uniqueness.find(slot); it != m_uniqueness.end())
+            return *it;
+
+        auto it = m_slots->push_back(slot);
+        I index = it - m_slots->begin();
+        m_uniqueness.emplace(index);
+
+        return index;
     }
 
-    size_t size() const { return m_index_to_slot.size(); }
+    /// @brief Lookup the slot of the given index.
+    /// Thread-safe if m_slots is a segmented vector.
+    /// @param index
+    /// @return
+    T lookup(I index) const
+    {
+        assert(index < m_slots->size() && "Index out of bounds");
 
-    size_t get_memory_usage() const
+        return m_slots->operator[](index);
+    }
+
+    size_t size() const { return m_slots->size(); }
+
+    size_t mem_usage() const
     {
         size_t usage = 0;
-
-        usage += m_uniqueness.capacity() * (1 + sizeof(Index));
-
-        usage += m_index_to_slot.capacity() * sizeof(Slot);
-
+        usage += m_slots->capacity() * sizeof(T);
+        usage += m_uniqueness.capacity() * (sizeof(I) + sizeof(absl::container_internal::ctrl_t));
         return usage;
     }
 
-    size_t get_occupied_memory_usage() const
-    {
-        size_t usage = 0;
-
-        usage += m_uniqueness.size() * (1 + sizeof(Index));
-
-        usage += m_index_to_slot.size() * sizeof(Slot);
-
-        return usage;
-    }
-
-    ~IndexedHashSet() {
-        utils::g_log << "State set destroyed, size: " << size() << " entries"<< std::endl;
-        utils::g_log << "State set destroyed, size per entry: " << 2 << " blocks"<< std::endl;
-        utils::g_log << "State set destroyed, capacity: " << m_uniqueness.capacity() << " entries" << std::endl;
-        utils::g_log << "State set destroyed, byte size: " << get_occupied_memory_usage() << "B" << std::endl;
-        utils::g_log << "State set destroyed, byte capacity: " << get_memory_usage() << "B" << std::endl;
-    };
 private:
-    std::vector<SlotStruct<>> m_index_to_slot;
-    phmap::flat_hash_set<Index, IndexReferencedSlotHash, IndexReferencedSlotEqualTo> m_uniqueness;
+    std::shared_ptr<tbb::concurrent_vector<T>> m_slots;
+    gtl::parallel_flat_hash_set<I, IndexReferencedHash, IndexReferencedEqualTo, std::allocator<I>, 4, std::mutex> m_uniqueness;
+
+    static constexpr size_t kStripes = 64;
+
+    static_assert((kStripes & (kStripes - 1)) == 0, "kStripes must be a power of 2");
+
+    std::array<std::mutex, kStripes> stripes;
 };
+
+static_assert(IsStableIndexedHashSet<IndexedHashSet<Slot<uint32_t>, uint32_t>>);
 
 }
 

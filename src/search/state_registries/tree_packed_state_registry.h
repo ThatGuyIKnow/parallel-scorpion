@@ -11,99 +11,11 @@
 #include "../algorithms/subscriber.h"
 #include "../utils/hash.h"
 
-#include <valla/declarations.hpp>
-#include <valla/static_tree_compression.hpp>
+#include "valla_adapter.h"
 
 #include <parallel_hashmap/phmap.h>
-
 #include <set>
 
-/*
-  Overview of classes relevant to storing and working with registered states.
-
-  State
-    Objects of this class can represent registered or unregistered states.
-    Registered states contain a pointer to the TreePackedStateRegistry that created them
-    and the ID they have there. Using this data, states can be used to index
-    PerStateInformation objects.
-    In addition, registered states have a pointer to the packed data of a state
-    that is stored in their registry. Values of the state can be accessed
-    through this pointer. For situations where a state's values have to be
-    accessed a lot, the state's data can be unpacked. The unpacked data is
-    stored in a vector<int> to which the state maintains a shared pointer.
-    Unregistered states contain only this unpacked data. Compared to registered
-    states, they are not guaranteed to be reachable and use no form of duplicate
-    detection.
-    Copying states is relatively cheap because the actual data does not have to
-    be copied.
-
-  StateID
-    StateIDs identify states within a state registry.
-    If the registry is known, the ID is sufficient to look up the state, which
-    is why IDs are intended for long term storage (e.g. in open lists).
-    Internally, a StateID is just an integer, so it is cheap to store and copy.
-
-  -------------
-
-  TreePackedStateRegistry
-    The TreePackedStateRegistry allows to create states giving them an ID. IDs from
-    different state registries must not be mixed.
-    The TreePackedStateRegistry also stores the actual state data in a memory friendly way.
-    It uses the following class:
-
-  SegmentedArrayVector<std::vector<int>>
-    This class is used to store the actual (packed) state data for all states
-    while avoiding dynamically allocating each state individually.
-    The index within this vector corresponds to the ID of the state.
-
-  PerStateInformation<T>
-    Associates a value of type T with every state in a given TreePackedStateRegistry.
-    Can be thought of as a very compactly implemented map from State to T.
-    References stay valid as long as the state registry exists. Memory usage is
-    essentially the same as a vector<T> whose size is the number of states in
-    the registry.
-
-
-  ---------------
-  Usage example 1
-  ---------------
-  Problem:
-    A search node contains a state together with some information about how this
-    state was reached and the status of the node. The state data is already
-    stored and should not be duplicated. Open lists should in theory store search
-    nodes but we want to keep the amount of data stored in the open list to a
-    minimum.
-
-  Solution:
-
-    SearchNodeInfo
-      Remaining part of a search node besides the state that needs to be stored.
-
-    SearchNode
-      A SearchNode combines a StateID, a reference to a SearchNodeInfo and
-      OperatorCost. It is generated for easier access and not intended for long
-      term storage. The state data is only stored once an can be accessed
-      through the StateID.
-
-    SearchSpace
-      The SearchSpace uses PerStateInformation<SearchNodeInfo> to map StateIDs to
-      SearchNodeInfos. The open lists only have to store StateIDs which can be
-      used to look up a search node in the SearchSpace on demand.
-
-  ---------------
-  Usage example 2
-  ---------------
-  Problem:
-    In the landmark heuristics each state should store which landmarks are
-    already reached when this state is reached. This should only require
-    additional memory when these heuristics are used.
-
-  Solution:
-    The heuristic object uses an attribute of type PerStateBitset to store for each
-    state and each landmark whether it was reached in this state.
-*/
-
-namespace vs = valla;
 namespace utils {
 class LogProxy;
 }
@@ -113,7 +25,7 @@ using IStateRegistry = StateRegistry;
 class TreePackedStateRegistry :
     public IStateRegistry {
 
-    vs::IndexedHashSet tree_table = vs::IndexedHashSet();
+    vs::IndexedHashSet<std::vector<uint32_t>> tree_table;
 
     const int_packer::IntPacker &state_packer;
     AxiomEvaluator &axiom_evaluator;

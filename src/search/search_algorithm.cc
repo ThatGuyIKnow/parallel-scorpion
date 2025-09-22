@@ -17,13 +17,11 @@
 #include <iostream>
 #include <limits>
 
-#include "state_registries/canonical_tree_state_registry.h"
-#include "state_registries/fixed_tree_packed_state_registry.h"
-#include "state_registries/fixed_tree_unpacked_state_registry.h"
-#include "state_registries/huffman_tree_state_registry.h"
 #include "state_registries/packed_state_registry.h"
 #include "state_registries/tree_packed_state_registry.h"
 #include "state_registries/tree_unpacked_state_registry.h"
+#include "state_registries/htree_packed_state_registry.h"
+#include "state_registries/htree_unpacked_state_registry.h"
 #include "state_registries/unpacked_state_registry.h"
 
 using namespace std;
@@ -192,14 +190,10 @@ std::shared_ptr<StateRegistry> initialize_state_registry(StateRegistryType state
             return std::make_shared<TreePackedStateRegistry>(task_proxy);
         case TREE_UNPACKED:
             return std::make_shared<TreeUnpackedStateRegistry>(task_proxy);
-        case FIXED_TREE_UNPACKED:
-            return std::make_shared<FixedTreeUnpackedStateRegistry>(task_proxy);
-        case FIXED_TREE_PACKED:
-            return std::make_shared<FixedTreePackedStateRegistry>(task_proxy);
-        case HUFFMAN_TREE:
-            return std::make_shared<HuffmanTreeStateRegistry>(task_proxy);
-        case CANONICAL_TREE:
-            return std::make_shared<CanonicalTreeStateRegistry>(task_proxy);
+        case HTREE_PACKED:
+            return std::make_shared<HTreePackedStateRegistry>(task_proxy);
+        case HTREE_UNPACKED:
+            return std::make_shared<HTreeUnpackedStateRegistry>(task_proxy);
         default:
             return std::make_shared<PackedStateRegistry>(task_proxy);
     }

@@ -21,10 +21,8 @@ enum StateRegistryType {
     UNPACKED = 1,
     TREE_PACKED = 2,
     TREE_UNPACKED = 3,
-    FIXED_TREE_UNPACKED = 4,
-    FIXED_TREE_PACKED = 5,
-    HUFFMAN_TREE = 6,
-    CANONICAL_TREE = 7
+    HTREE_PACKED = 4,
+    HTREE_UNPACKED = 5,
 };
 
 class StateRegistry : public subscriber::SubscriberService<StateRegistry>{
