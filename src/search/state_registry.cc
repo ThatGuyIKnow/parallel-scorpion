@@ -7,6 +7,9 @@ static plugins::TypedEnumPlugin<StateRegistryType> _enum_plugin({
     {"unpacked", "state variables are stored in a segmented vector"},
     {"tree_packed", "state variables are packed into integers which are stored in a tree structure"},
     {"tree_unpacked", "state variables are stored in a tree structure"},
-    {"htree_packed", "state variables are packed into integers which are stored in a hash-based tree structure (dtdb_h)"},
-    {"htree_unpacked", "state variables are stored in a hash-based tree structure (dtdb_h)"},
+    {"fixed_tree_unpacked", "state variables are stored in a tree structure with fixed size"},
+    {"fixed_tree_packed", "state variables are stored in a tree structure with fixed size"},
+    {"huffman", "state variables are stored in a tree structure with fixed size, inserted in a huffman tree fashion"},
+    {"canonical", "state variables are stored in a tree structure with fixed size, inserted in a canonical fashion"},
 });
+

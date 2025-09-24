@@ -1,5 +1,5 @@
-#ifndef TREE_PACKED_STATE_REGISTRY_H
-#define TREE_PACKED_STATE_REGISTRY_H
+#ifndef HUFFMAN_TREE_STATE_REGISTRY_H
+#define HUFFMAN_TREE_STATE_REGISTRY_H
 
 #include "../abstract_task.h"
 #include "../axioms.h"
@@ -10,6 +10,7 @@
 #include "../algorithms/segmented_vector.h"
 #include "../algorithms/subscriber.h"
 #include "../utils/hash.h"
+#include "../utils/storage_calc.h"
 
 #include <valla/declarations.hpp>
 #include <valla/static_tree_compression.hpp>
@@ -18,12 +19,16 @@
 
 #include <set>
 
+#include "valla/fixed_hash_set.hpp"
+#include "valla/huffman_tree_compression.hpp"
+#include "valla/subtree_split_index.h"
+
 /*
   Overview of classes relevant to storing and working with registered states.
 
   State
     Objects of this class can represent registered or unregistered states.
-    Registered states contain a pointer to the TreePackedStateRegistry that created them
+    Registered states contain a pointer to the HuffmanTreeStateRegistry that created them
     and the ID they have there. Using this data, states can be used to index
     PerStateInformation objects.
     In addition, registered states have a pointer to the packed data of a state
@@ -45,10 +50,10 @@
 
   -------------
 
-  TreePackedStateRegistry
-    The TreePackedStateRegistry allows to create states giving them an ID. IDs from
+  HuffmanTreeStateRegistry
+    The HuffmanTreeStateRegistry allows to create states giving them an ID. IDs from
     different state registries must not be mixed.
-    The TreePackedStateRegistry also stores the actual state data in a memory friendly way.
+    The HuffmanTreeStateRegistry also stores the actual state data in a memory friendly way.
     It uses the following class:
 
   SegmentedArrayVector<std::vector<int>>
@@ -57,7 +62,7 @@
     The index within this vector corresponds to the ID of the state.
 
   PerStateInformation<T>
-    Associates a value of type T with every state in a given TreePackedStateRegistry.
+    Associates a value of type T with every state in a given HuffmanTreeStateRegistry.
     Can be thought of as a very compactly implemented map from State to T.
     References stay valid as long as the state registry exists. Memory usage is
     essentially the same as a vector<T> whose size is the number of states in
@@ -104,29 +109,45 @@
 */
 
 namespace vs = valla;
+namespace vsh = valla::huffman_tree;
 namespace utils {
 class LogProxy;
 }
 
 
+
 using IStateRegistry = StateRegistry;
-class TreePackedStateRegistry :
+class HuffmanTreeStateRegistry :
     public IStateRegistry {
 
-    vs::IndexedHashSet tree_table = vs::IndexedHashSet();
+    size_t _registered_states = 0;
+
+    const size_t cap = entries_for_mb(70, sizeof(vs::IndexSlot));
+    const size_t grow = entries_for_mb(1100, sizeof(vs::IndexSlot));
+
+    vs::FixedHashSetSlot tree_table = vs::FixedHashSetSlot(cap,
+                                                  vs::Hasher(),
+                                                  vs::SlotEqual(),
+                                                  grow);
+    const vs::MergeSchedule merge_schedule_;
 
     const int_packer::IntPacker &state_packer;
     AxiomEvaluator &axiom_evaluator;
     const int num_variables;
 
-    size_t _registered_states = 0;
     std::unique_ptr<State> cached_initial_state;
-
+    mutable std::vector<vs::Index> tmp_state_values;
 
     StateID insert_id_or_pop_state();
     int get_bins_per_state() const;
+
+
 public:
-    explicit TreePackedStateRegistry(const TaskProxy &task_proxy);
+    void log_merge_schedule(const TaskProxy &task_proxy);
+
+    explicit HuffmanTreeStateRegistry(const TaskProxy &task_proxy);
+
+    std::vector<size_t> get_domain_sizes(const TaskProxy &task_proxy) const;
 
     const TaskProxy &get_task_proxy() const override {
         return task_proxy;
@@ -173,7 +194,6 @@ public:
         return _registered_states;
     }
 
-
     int get_state_size_in_bytes() const;
 
     void print_statistics(utils::LogProxy &log) const override;
@@ -192,11 +212,11 @@ public:
           this, in which case we will add the missing methods.
         */
 
-        friend class TreePackedStateRegistry;
-        const TreePackedStateRegistry &registry;
+        friend class HuffmanTreeStateRegistry;
+        const HuffmanTreeStateRegistry &registry;
         StateID pos;
 
-        const_iterator(const TreePackedStateRegistry &registry, size_t start)
+        const_iterator(const HuffmanTreeStateRegistry &registry, size_t start)
             : registry(registry), pos(start) {
             utils::unused_variable(this->registry);
         }
@@ -224,10 +244,10 @@ public:
         }
     };
     class iterator_impl : public IStateRegistry::const_iterator {
-        const TreePackedStateRegistry *registry_;
+        const HuffmanTreeStateRegistry *registry_;
         size_t idx_;
     public:
-        iterator_impl(const TreePackedStateRegistry *reg, size_t i) : registry_(reg), idx_(i) {}
+        iterator_impl(const HuffmanTreeStateRegistry *reg, size_t i) : registry_(reg), idx_(i) {}
         StateID operator*() const override { return StateID(idx_); }
         const_iterator &operator++() override { ++idx_; return *this; }
         bool operator==(const const_iterator &other) const override {
