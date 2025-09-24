@@ -87,6 +87,9 @@ public:
         return usage;
     }
 
+    // Helper accessor: number of entries the uniqueness set can currently hold without rehashing.
+    size_t entries_capacity() const { return m_uniqueness.capacity(); }
+
     ~IndexedHashSet() {
         utils::g_log << "State set destroyed, size: " << size() << " entries"<< std::endl;
         utils::g_log << "State set destroyed, size per entry: " << 2 << " blocks"<< std::endl;

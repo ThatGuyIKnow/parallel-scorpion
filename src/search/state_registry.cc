@@ -11,5 +11,7 @@ static plugins::TypedEnumPlugin<StateRegistryType> _enum_plugin({
     {"fixed_tree_packed", "state variables are stored in a tree structure with fixed size"},
     {"huffman", "state variables are stored in a tree structure with fixed size, inserted in a huffman tree fashion"},
     {"canonical", "state variables are stored in a tree structure with fixed size, inserted in a canonical fashion"},
+    {"dtdb_h_unpacked", "state variables are stored via DTDB_H with on-demand reconstruction"},
+    {"dtdb_h_packed", "state variables are deduplicated via DTDB_H but buffers are packed for fast access"},
 });
 

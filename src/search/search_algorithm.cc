@@ -25,6 +25,8 @@
 #include "state_registries/tree_packed_state_registry.h"
 #include "state_registries/tree_unpacked_state_registry.h"
 #include "state_registries/unpacked_state_registry.h"
+#include "state_registries/dtdb_h_unpacked_state_registry.h"
+#include "state_registries/dtdb_h_packed_state_registry.h"
 
 using namespace std;
 using utils::ExitCode;
@@ -200,6 +202,10 @@ std::shared_ptr<StateRegistry> initialize_state_registry(StateRegistryType state
             return std::make_shared<HuffmanTreeStateRegistry>(task_proxy);
         case CANONICAL_TREE:
             return std::make_shared<CanonicalTreeStateRegistry>(task_proxy);
+        case DTDB_H_UNPACKED:
+            return std::make_shared<DtdbHUnpackedStateRegistry>(task_proxy);
+        case DTDB_H_PACKED:
+            return std::make_shared<DtdbHPackedStateRegistry>(task_proxy);
         default:
             return std::make_shared<PackedStateRegistry>(task_proxy);
     }
