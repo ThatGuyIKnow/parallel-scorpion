@@ -50,15 +50,6 @@ class DtdbHPackedStateRegistry : public StateRegistry {
         }
     }
 
-    void rebuild_packed_buffer_from_root(PackedStateBin *buffer, valla::Index root) const {
-        std::vector<valla::Index> seq;
-        seq.reserve(num_variables);
-        valla::read_sequence(root, table_, std::back_inserter(seq));
-        for (int i = 0; i < num_variables; ++i) {
-            state_packer.set(buffer, i, static_cast<int>(seq[i]));
-        }
-    }
-
 public:
     explicit DtdbHPackedStateRegistry(const TaskProxy &task_proxy)
         : StateRegistry(task_proxy),
@@ -102,7 +93,7 @@ public:
             // push packed buffer
             std::unique_ptr<PackedStateBin[]> buffer(new PackedStateBin[get_bins_per_state()]);
             std::fill_n(buffer.get(), get_bins_per_state(), 0);
-            rebuild_packed_buffer_from_root(buffer.get(), root);
+            // rebuild_packed_buffer_from_root(buffer.get(), root);
             state_data_pool.push_back(buffer.get());
 
             StateID id = insert_or_get_id(root);
@@ -132,9 +123,6 @@ public:
 
         // build packed buffer for new state
     state_data_pool.push_back(state_data_pool[predecessor.get_id().get_value()]);
-        PackedStateBin *buffer = state_data_pool[state_data_pool.size() - 1];
-        rebuild_packed_buffer_from_root(buffer, root);
-
         StateID id = insert_or_get_id(root);
         return lookup_state(id);
     }
