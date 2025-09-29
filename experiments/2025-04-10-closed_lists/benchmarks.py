@@ -384,5 +384,57 @@ TEST_SUITE_IPC_SATISFICING_STRIPS = [
 ]
 
 SUITE_IPC_LEARNING = [
+    'miconic_ipc2023_learning',
+    'sokoban_ipc2023_learning',
+    'rovers_ipc2023_learning',
+    'blocksworld_ipc2023_learning',
+    'transport_ipc2023_learning',
+    'childsnack_ipc2023_learning',
+    'satellite_ipc2023_learning',
+    'floortile_ipc2023_learning',
+    'spanner_ipc2023_learning',
+    'ferry_ipc2023_learning'
+] 
 
-]
+
+
+
+SUITE_ABSTRACT_CONDITIONAL = [
+    'rubiks-cube', 
+    'ged1-ds1', 
+    'citycar-opt14-adl', 
+    't0-comm', 
+    'cnot-synthesis-lifted-map', 
+    'topspin-factored', 
+    'spider', 
+    'cnot-synthesis-lifted', 
+    't0-grid-push', 
+    'burnt-pancakes-factored', 
+    't0-uts', 
+    'gedp-ds2ndp', 
+    'fsc-hall', 
+    'pancakes-factored', 
+    'nurikabe', 
+    'briefcaseworld', 
+    't0-sortnet', 
+    'matrix-multiplication', 
+    'fsc-grid-a1', 
+    't0-grid-trash', 
+    'caldera-split', 
+    't0-sortnet-alt', 
+    'recharging-robots', 
+    'fsc-blocks', 
+    't0-grid-dispose', 
+    't0-coins', 
+    'settlers', 
+    'fsc-grid-r',
+    'caldera', 
+    'fsc-grid-a2', 
+    'fsc-visualmarker', 
+    'cnot-synthesis-lifted-hard', 
+    't0-adder', 
+    't0-grid-lookandgrab', 
+    'rubiks-cube-factored', 
+    'cavediving-14-adl', 
+    'miconic-simpleadl']
+
