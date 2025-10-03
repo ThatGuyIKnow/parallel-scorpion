@@ -60,11 +60,14 @@ public:
           state_data_pool(get_bins_per_state()),
           cached_initial_state(nullptr) {
         State::get_variable_value = [this](const StateID &id) {
-            std::vector<int> unpacked(num_variables, 0);
-            std::vector<valla::Index> seq;
-            seq.reserve(num_variables);
-            valla::read_sequence(state_roots_[id.get_value()], table_, std::back_inserter(seq));
-            for (int i = 0; i < num_variables; ++i) unpacked[i] = static_cast<int>(seq[i]);
+            std::vector<valla::Index> packed_bins;
+            packed_bins.reserve(get_bins_per_state());
+            valla::read_sequence(state_roots_[id.get_value()], table_, std::back_inserter(packed_bins));
+
+            std::vector<int> unpacked(num_variables);
+            for (int i = 0; i < num_variables; ++i) {
+                unpacked[i] = state_packer.get(packed_bins.data(), i);
+            }
             return unpacked;
         };
     }
@@ -83,18 +86,16 @@ public:
 
     const State &get_initial_state() override {
         if (!cached_initial_state) {
-            std::vector<valla::Index> seq;
-            seq.reserve(num_variables);
             State initial_state = task_proxy.get_initial_state();
-            for (size_t i = 0; i < initial_state.size(); ++i)
-                seq.push_back(static_cast<valla::Index>(initial_state[i].get_value()));
-            const auto root = valla::insert_sequence(seq, table_);
 
-            // push packed buffer
-            std::unique_ptr<PackedStateBin[]> buffer(new PackedStateBin[get_bins_per_state()]);
-            std::fill_n(buffer.get(), get_bins_per_state(), 0);
-            // rebuild_packed_buffer_from_root(buffer.get(), root);
-            state_data_pool.push_back(buffer.get());
+            // Pack state values into bins
+            std::vector<PackedStateBin> buffer(get_bins_per_state(), 0);
+            for (int i = 0; i < num_variables; ++i) {
+                state_packer.set(buffer.data(), i, initial_state[i].get_value());
+            }
+
+            // Insert packed bins into dtdb_h
+            const auto root = valla::insert_sequence(buffer, table_);
 
             StateID id = insert_or_get_id(root);
             cached_initial_state = std::make_unique<State>(lookup_state(id));
@@ -115,16 +116,17 @@ public:
         if (task_properties::has_axioms(task_proxy))
             axiom_evaluator.evaluate(new_values);
 
-        // DTDB insert
-        std::vector<valla::Index> seq;
-        seq.reserve(num_variables);
-        for (int v : new_values) seq.push_back(static_cast<valla::Index>(v));
-        const auto root = valla::insert_sequence(seq, table_);
+        // Pack state values into bins
+        std::vector<PackedStateBin> buffer(get_bins_per_state(), 0);
+        for (int i = 0; i < num_variables; ++i) {
+            state_packer.set(buffer.data(), i, new_values[i]);
+        }
 
-        // build packed buffer for new state
-    state_data_pool.push_back(state_data_pool[predecessor.get_id().get_value()]);
+        // Insert packed bins into dtdb_h
+        const auto root = valla::insert_sequence(buffer, table_);
+
         StateID id = insert_or_get_id(root);
-        return lookup_state(id);
+        return lookup_state(id, std::move(new_values));
     }
 
     size_t size() const override { return state_roots_.size(); }

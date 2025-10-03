@@ -230,7 +230,7 @@ public:
         return the_size;
     }
 
-    size_t capactity() const {
+    size_t capacity() const {
         return segments.size() * elements_per_segment;
     }
 
