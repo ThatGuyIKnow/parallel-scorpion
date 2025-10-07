@@ -39,7 +39,7 @@ if project.REMOTE:
         extra_options="#SBATCH -A naiss2025-22-1329",
         memory_per_cpu="9G",
     )
-    TIME_LIMIT = 5 * 60 * 60 #5 hours
+    TIME_LIMIT = 5 #5 seconds
     MEMORY_LIMIT = "8G"
 
     base_path = Path(os.environ.get("DOWNWARD_BENCHMARKS")) / "pddl-benchmarks"
@@ -66,7 +66,7 @@ if project.REMOTE:
 else:
     ENV = LocalEnvironment(processes=1)
     MEMORY_LIMIT = "6G"
-    TIME_LIMIT = 5 * 60
+    TIME_LIMIT = 5
     SUITE = build_suite(
          os.environ.get("DOWNWARD_BENCHMARKS"),
         ["depot:p01.pddl", "grid:prob01.pddl", "gripper:prob01.pddl"]
@@ -82,11 +82,11 @@ DRIVER_OPTIONS = [
 ]
 state_registries = [
     #    ("unpck", "unpacked"),
-    #    ("pck", "packed"),
+       ("pck", "packed"),
     #    ("static_unpck", "tree_unpacked"),
     #    ("static_pck", "tree_packed"),
     #    ("hash_id_static_unpck", "dtdb_h_unpacked"),
-    ("hash_id_static_pck", "dtdb_h_packed"),
+    # ("hash_id_static_pck", "dtdb_h_packed"),
     # ("fixed_unpck", "fixed_tree_unpacked"),
     # ("fixed_pck", "fixed_tree_packed"),
     # ("huffman_tree", "huffman"),
