@@ -50,12 +50,12 @@ if project.REMOTE:
         ("pushworld", SUITE_PUSHWORLD),
         ("mine-pddl", SUITE_MINEPDDL),
         ("htg-domains", SUITE_HTG),
+        ("ipc2023-learning", SUITE_IPC_LEARNING)
     ]
 
     BASE_SUITES = [
         ("ipc2024-optimal-strips", SUITE_IPC_OPTIMAL_STRIPS),
         ("ipc2024-optimal-adl", SUITE_IPC_OPTIMAL_ADL),
-        ("ipc2023-learning", SUITE_IPC_LEARNING)
     ]
 
     SUITE = []
@@ -75,7 +75,7 @@ else:
 
 
 DRIVER_OPTIONS = [
-    "--overall-time-limit",
+    "--search-time-limit",
     f"{TIME_LIMIT}s",
     "--overall-memory-limit",
     MEMORY_LIMIT,
@@ -95,7 +95,7 @@ state_registries = [
 
 heuristics = [
     ("blind", "blind(cache_estimates=false)"),
-    ("scp", "scp([projections(systematic(2))], saturator=perimstar, max_time=10, diversify=true, max_optimization_time=0, orders=greedy_orders(), cache_estimates=false)")
+    # ("scp", "scp([projections(systematic(2))], saturator=perimstar, max_time=10, diversify=true, max_optimization_time=0, orders=greedy_orders(), cache_estimates=false)")
 ]
 
 CONFIGS = [
