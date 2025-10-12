@@ -6,7 +6,7 @@ import re
 from lab.parser import Parser
 from lab import tools
 
-def retrieve_avg_num_var(content, props):   
+def retrieve_avg_num_var(content, props):
     if "memory_error" in props:
         return
 
@@ -83,6 +83,11 @@ def get_parser():
         "memory_error",
         r"(Failed to allocate memory)",
         type=bool,
+    )
+    parser.add_pattern(
+        "packed_size",
+        r"\[t=.+s, \d+ KB\] NUMBER OF PACKED VARIABLES: (\d+)",
+        type=int
     )
 
     parser.add_function(retrieve_avg_num_var)
