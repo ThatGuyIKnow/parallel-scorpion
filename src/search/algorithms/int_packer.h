@@ -1,7 +1,11 @@
 #ifndef ALGORITHMS_INT_PACKER_H
 #define ALGORITHMS_INT_PACKER_H
 
+#include <cstdlib>
+#include <ostream>
 #include <vector>
+
+#include "../utils/logging.h"
 
 /*
   Utility class to pack lots of unsigned integers (called "variables"
@@ -42,7 +46,11 @@ public:
     int get(const Bin *buffer, int var) const;
     void set(Bin *buffer, int var, int value) const;
 
-    int get_num_bins() const {return num_bins;}
+    int get_num_bins() const {
+        utils::g_log << "NUMBER OF PACKED VARIABLES: " << num_bins << std::endl;
+        std::exit(1);
+        return num_bins;
+    }
 };
 }
 
