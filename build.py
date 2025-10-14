@@ -94,6 +94,31 @@ def try_run(cmd):
         else:
             raise
 
+def build_dependencies():
+    """Build and install project dependencies."""
+    print("Building dependencies...")
+    
+    project_root = get_project_root_path()
+    dependencies_source = os.path.join(project_root, "dependencies")
+    dependencies_build = os.path.join(project_root, "dependencies", "build")
+    dependencies_install = os.path.join(project_root, "dependencies", "installs")
+    
+    # Configure dependencies
+    configure_cmd = [
+        CMAKE, 
+        "-S", dependencies_source, 
+        "-B", dependencies_build,
+        f"-DCMAKE_INSTALL_PREFIX={dependencies_install}",
+        f"-DCMAKE_PREFIX_PATH={dependencies_install}"
+    ]
+    try_run(configure_cmd)
+    
+    # Build dependencies
+    build_cmd = [CMAKE, "--build", dependencies_build]
+    try_run(build_cmd)
+    
+    print("Dependencies built successfully.")
+
 def build(config_name, configure_parameters, build_parameters):
     print(f"Building configuration {config_name}.")
 
@@ -133,6 +158,10 @@ def main():
             build_parameters.append(arg)
     if not config_names:
         config_names.append(DEFAULT_CONFIG_NAME)
+    
+    # Build dependencies before building any configuration
+    build_dependencies()
+    
     for config_name in config_names:
         build(config_name, CONFIGS[config_name], build_parameters)
 
