@@ -1,6 +1,10 @@
 #ifndef TREE_PACKED_STATE_REGISTRY_H
 #define TREE_PACKED_STATE_REGISTRY_H
 
+#include <cstddef>
+#include <cstdint>
+#include <limits>
+
 #include "../abstract_task.h"
 #include "../axioms.h"
 #include "../state_id.h"
@@ -11,10 +15,9 @@
 #include "../algorithms/subscriber.h"
 #include "../utils/hash.h"
 
-#include <valla/declarations.hpp>
-#include <valla/static_tree_compression.hpp>
+#include <valla/valla.hpp>
 
-#include <parallel_hashmap/phmap.h>
+#include <gtl/phmap.hpp>
 
 #include <set>
 
@@ -113,7 +116,9 @@ using IStateRegistry = StateRegistry;
 class TreePackedStateRegistry :
     public IStateRegistry {
 
-    vs::IndexedHashSet tree_table = vs::IndexedHashSet();
+    valla::IndexedHashSet<valla::Slot<uint32_t>, uint32_t> tree_table;
+    gtl::parallel_flat_hash_map<uint32_t, uint32_t> root_forward;
+    std::vector<uint32_t> root_backward;
 
     const int_packer::IntPacker &state_packer;
     AxiomEvaluator &axiom_evaluator;
@@ -122,8 +127,6 @@ class TreePackedStateRegistry :
     size_t _registered_states = 0;
     std::unique_ptr<State> cached_initial_state;
 
-
-    StateID insert_id_or_pop_state();
     int get_bins_per_state() const;
 public:
     explicit TreePackedStateRegistry(const TaskProxy &task_proxy);

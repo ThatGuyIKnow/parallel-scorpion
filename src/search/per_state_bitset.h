@@ -4,7 +4,7 @@
 #include "per_state_array.h"
 
 #include <vector>
-
+#include <limits>
 
 class BitsetMath {
 public:

@@ -1,6 +1,8 @@
 #ifndef PACKED_STATE_REGISTRY_H
 #define PACKED_STATE_REGISTRY_H
 
+#include <limits>
+
 #include "../abstract_task.h"
 #include "../axioms.h"
 #include "../state_id.h"
@@ -11,7 +13,7 @@
 #include "../algorithms/subscriber.h"
 #include "../utils/hash.h"
 
-#include <parallel_hashmap/phmap.h>
+#include <gtl/phmap.hpp>
 
 #include <set>
 
@@ -162,7 +164,7 @@ class PackedStateRegistry :
       this registry and find their IDs. States are compared/hashed semantically,
       i.e. the actual state data is compared, not the memory location.
     */
-    using StateIDSet = phmap::flat_hash_set<int, StateIDSemanticHash, StateIDSemanticEqual>;
+    using StateIDSet = gtl::flat_hash_set<int, StateIDSemanticHash, StateIDSemanticEqual>;
 
     int_packer::IntPacker &state_packer;
     AxiomEvaluator &axiom_evaluator;

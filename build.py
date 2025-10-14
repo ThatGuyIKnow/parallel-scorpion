@@ -97,8 +97,10 @@ def try_run(cmd):
 def build(config_name, configure_parameters, build_parameters):
     print(f"Building configuration {config_name}.")
 
+    prefix_path = os.path.join(get_project_root_path(), "dependencies", "installs")
+
     build_path = get_build_path(config_name)
-    generator_cmd = [CMAKE, "-S", get_src_path(), "-B", build_path]
+    generator_cmd = [CMAKE, "-S", get_src_path(), "-B", build_path, f"-DCMAKE_PREFIX_PATH={prefix_path}"]
     if CMAKE_GENERATOR:
         generator_cmd += ["-G", CMAKE_GENERATOR]
     generator_cmd += configure_parameters

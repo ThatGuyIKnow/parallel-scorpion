@@ -10,13 +10,6 @@
 
 using namespace std;
 
-//constexpr std::vector<int> unpacked_state_variable_reader(const int index, void* context) noexcept {
-//    auto root_table = reinterpret_cast<const vs::RootIndices *>(context);
-//    std::vector<int> state_values;
-//    vs::static_tree::read_state(index, size, *root_table, state_values);
-//    return std::move();
-//}
-
 TreePackedStateRegistry::TreePackedStateRegistry(const TaskProxy &task_proxy)
     : IStateRegistry(task_proxy), state_packer(task_properties::g_state_packers[task_proxy]),
       axiom_evaluator(g_axiom_evaluators[task_proxy]),
@@ -24,48 +17,23 @@ TreePackedStateRegistry::TreePackedStateRegistry(const TaskProxy &task_proxy)
 
 
     State::get_variable_value = [this](const StateID& id) {
-            std::vector<vs::Index> buffer(get_bins_per_state());
-            vs::static_tree::read_state(id.value, get_bins_per_state(), tree_table, buffer);
+            // TODO(Dominik): avoidable allocation
+            static thread_local std::vector<uint32_t> s_buffer;
+            s_buffer.clear();
+            valla::read_sequence(valla::Slot<uint32_t>(root_backward[id.value], get_bins_per_state()), tree_table, std::back_inserter(s_buffer));
 
             std::vector<int> state_data(num_variables);
             for (int i = 0; i < num_variables; ++i) {
-                state_data[i] = state_packer.get(buffer.data(), i);
+                state_data[i] = state_packer.get(s_buffer.data(), i);
             }
 
-            return std::vector<int>{state_data.begin(), state_data.end()};
+            return state_data;
     };
 
 }
 
-StateID TreePackedStateRegistry::insert_id_or_pop_state() {
-    /*
-      Attempt to insert a StateID for the last state of state_data_pool
-      if none is present yet. If this fails (another entry for this state
-      is present), we have to remove the duplicate entry from the
-      state data pool.
-    */
-//    StateID id(state_data_pool.size() - 1);
-//    auto result = registered_states.insert(id.value);
-//    bool is_new_entry = result.second;
-//    if (!is_new_entry) {
-//        state_data_pool.pop_back();
-//    }
-//    assert(registered_states.size() == state_data_pool.size());
-//    return StateID(*result.first);
-    return StateID(0);
-}
-
 State TreePackedStateRegistry::lookup_state(StateID id) const {
-    std::vector<vs::Index> buffer(get_bins_per_state());
-    vs::static_tree::read_state(id.value, get_bins_per_state(), tree_table, buffer);
-
-    std::vector<int> state_values(num_variables);
-    for (int i = 0; i < num_variables; ++i) {
-        state_values[i] = state_packer.get(buffer.data(), i);
-    }
-
-
-    return task_proxy.create_state(*this, id, move(state_values));
+    return task_proxy.create_state(*this, id);
 }
 
 State TreePackedStateRegistry::lookup_state(
@@ -77,14 +45,22 @@ const State &TreePackedStateRegistry::get_initial_state() {
     if (!cached_initial_state) {
         State initial_state = task_proxy.get_initial_state();
 
-
         std::vector<PackedStateBin> buffer(get_bins_per_state());
         auto &tmp = initial_state.get_unpacked_values();
         for (auto i = 0; i < num_variables; ++i) {
             state_packer.set(buffer.data(), i, tmp[i]);
         }
-        auto [index, _] = vs::static_tree::insert(buffer, tree_table);
-        ++_registered_states;
+
+        const auto root = valla::insert_sequence(buffer, tree_table);
+        const auto [iter, success] = root_forward.emplace(root.i1, root_forward.size());
+        const auto index = iter->second;
+        if (success) {
+            root_backward.push_back(root.i1);
+            ++_registered_states;
+        }
+
+        // std::cout << "Insert: " << root.i1 << " " << index << " " << get_bins_per_state() << std::endl;
+
         StateID id = StateID(index);
         cached_initial_state = make_unique<State>(lookup_state(id));
 
@@ -93,40 +69,64 @@ const State &TreePackedStateRegistry::get_initial_state() {
     return *cached_initial_state;
 }
 
-//TODO it would be nice to move the actual state creation (and operator application)
-//     out of the PackedStateRegistry. This could for example be done by global functions
-//     operating on state buffers (unsigned *).
 State TreePackedStateRegistry::get_successor_state(const State &predecessor, const OperatorProxy &op) {
     assert(!op.is_axiom());
+    /*
+      TODO: ideally, we would not modify state_data_pool here and in
+      insert_id_or_pop_state, but only at one place, to avoid errors like
+      buffer becoming a dangling pointer. This used to be a bug before being
+      fixed in https://issues.fast-downward.org/issue1115.
+    */
 
-    std::vector<unsigned> state_values;
-
-    predecessor.unpack();
-    auto& tmp = predecessor.get_unpacked_values();
-    std::vector<vs::Index> new_state_values(tmp.begin(), tmp.end());
+    static thread_local std::vector<uint32_t> s_buffer;
+    s_buffer.clear();
+    valla::read_sequence(valla::Slot<uint32_t>(root_backward[predecessor.get_id().value], get_bins_per_state()), tree_table, std::back_inserter(s_buffer));
 
     /* Experiments for issue348 showed that for tasks with axioms it's faster
        to compute successor states using unpacked data. */
-
-    for (EffectProxy effect : op.get_effects()) {
-        if (does_fire(effect, predecessor)) {
-            FactPair effect_pair = effect.get_fact().get_pair();
-            new_state_values[effect_pair.var] = effect_pair.value;
+    if (task_properties::has_axioms(task_proxy)) {
+        predecessor.unpack();
+        vector<int> new_values = predecessor.get_unpacked_values();
+        for (EffectProxy effect : op.get_effects()) {
+            if (does_fire(effect, predecessor)) {
+                FactPair effect_pair = effect.get_fact().get_pair();
+                new_values[effect_pair.var] = effect_pair.value;
+            }
         }
+        axiom_evaluator.evaluate(new_values);
+        for (size_t i = 0; i < new_values.size(); ++i) {
+            state_packer.set(s_buffer.data(), i, new_values[i]);
+        }
+
+        const auto root = valla::insert_sequence(s_buffer, tree_table);
+        const auto [iter, success] = root_forward.emplace(root.i1, root_forward.size());
+        const auto index = iter->second;
+        if (success) {
+            root_backward.push_back(root.i1);
+            ++_registered_states ;
+        }
+
+        return lookup_state(StateID(index), move(new_values));
+    } else {
+        for (EffectProxy effect : op.get_effects()) {
+            if (does_fire(effect, predecessor)) {
+                FactPair effect_pair = effect.get_fact().get_pair();
+                state_packer.set(s_buffer.data(), effect_pair.var, effect_pair.value);
+            }
+        }
+
+        const auto root = valla::insert_sequence(s_buffer, tree_table);
+        const auto [iter, success] = root_forward.emplace(root.i1, root_forward.size());
+        const auto index = iter->second;
+        if (success) {
+            root_backward.push_back(root.i1);
+            ++_registered_states ;
+        }
+
+        return lookup_state(StateID(index));
     }
-
-    if (task_properties::has_axioms(task_proxy))
-        axiom_evaluator.evaluate(reinterpret_cast<std::vector<int> &>(new_state_values));
-
-    std::vector<vs::Index> buffer(get_bins_per_state());
-    for (auto i = 0; i < num_variables; ++i) {
-        state_packer.set(buffer.data(), i, new_state_values[i]);
-    }
-    auto [index, exists] = vs::static_tree::insert(buffer, tree_table);
-    _registered_states += !exists;
-
-    return lookup_state(StateID(index), {new_state_values.begin(), new_state_values.end()});
 }
+
 
 int TreePackedStateRegistry::get_state_size_in_bytes() const {
     return get_bins_per_state() * sizeof(unsigned);
@@ -140,6 +140,6 @@ void TreePackedStateRegistry::print_statistics(utils::LogProxy &log) const {
     log << "Number of registered states: " << _registered_states << endl;
     log << "Closed list load factor: " << tree_table.size() << endl;
     log << "State size in bytes: " << get_state_size_in_bytes() << endl;
-    log << "State set size: " << tree_table.get_memory_usage() / 1024 << " KB" << endl;
+    log << "State set size: " << tree_table.mem_usage() / 1024 << " KB" << endl;
 
 }

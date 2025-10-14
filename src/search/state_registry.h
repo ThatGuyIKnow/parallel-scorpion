@@ -8,8 +8,6 @@
 #include "algorithms/int_packer.h"
 #include "algorithms/segmented_vector.h"
 
-#include <parallel_hashmap/phmap.h>
-
 #include <set>
 
 #include <cstddef>

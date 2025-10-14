@@ -213,7 +213,7 @@ struct FactPairHash {
     }
 };
 
-using CompactFactMap = phmap::flat_hash_map<FactPair, int, FactPairHash>;
+using CompactFactMap = gtl::flat_hash_map<FactPair, int, FactPairHash>;
 
 static void get_deviation_splits(
     const AbstractState &abs_state,
@@ -304,7 +304,7 @@ unique_ptr<Split> FlawSearch::create_split(
         int num_vars = domain_sizes.size();
         vector<int> unaffected_variables = get_unaffected_variables(op, num_vars);
 
-        phmap::flat_hash_map<int, CompactFactMap> fact_count_by_target;
+        gtl::flat_hash_map<int, CompactFactMap> fact_count_by_target;
         for (size_t i = 0; i < states.size(); ++i) {
             if (!applicable[i]) {
                 continue;

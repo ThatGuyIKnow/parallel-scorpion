@@ -62,13 +62,7 @@ create_fast_downward_library(
     SOURCES
         state_registry
         state_registries/packed_state_registry
-        state_registries/unpacked_state_registry
-        state_registries/tree_unpacked_state_registry
         state_registries/tree_packed_state_registry
-        state_registries/fixed_tree_unpacked_state_registry
-        state_registries/fixed_tree_packed_state_registry
-        state_registries/huffman_tree_state_registry
-        state_registries/canonical_tree_state_registry
     CORE_LIBRARY
 )
 
@@ -1110,4 +1104,40 @@ create_fast_downward_library(
     SOURCES
         algorithms/partial_state_tree
     DEPENDENCY_ONLY
+)
+
+message("${CMAKE_PREFIX_PATH}")
+
+find_package(fmt REQUIRED PATHS ${CMAKE_PREFIX_PATH} NO_DEFAULT_PATH)
+if(fmt_FOUND)
+  message(STATUS "Found fmt: ${fmt_DIR} (found version ${fmt_VERSION})")
+endif()
+
+
+find_package(absl CONFIG REQUIRED PATHS ${CMAKE_PREFIX_PATH} NO_DEFAULT_PATH)
+if(absl_FOUND)
+  message(STATUS "Found absl: ${absl_DIR} (found version ${absl_VERSION})")
+endif()
+
+
+find_package(TBB CONFIG REQUIRED PATHS ${CMAKE_PREFIX_PATH} NO_DEFAULT_PATH)
+if(TBB_FOUND)
+  include_directories(${TBB_INCLUDE_DIRS})
+  message(STATUS "Found TBB: ${TBB_DIR} (found version ${TBB_VERSION})")
+endif()
+
+
+find_package(valla CONFIG COMPONENTS core REQUIRED PATHS ${CMAKE_PREFIX_PATH} NO_DEFAULT_PATH)
+if(valla_FOUND)
+  message(STATUS "Found valla: ${valla_DIR} (found version ${valla_VERSION})")
+endif()
+
+target_link_libraries(downward
+  PUBLIC
+    Threads::Threads
+    valla::core
+    absl::flat_hash_set
+    absl::flat_hash_map  
+    TBB::tbb
+    fmt::fmt
 )
