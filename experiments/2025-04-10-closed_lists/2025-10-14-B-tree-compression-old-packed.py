@@ -85,7 +85,7 @@ state_registries = [
     #    ("unpck", "unpacked"),
     #    ("pck", "packed"),
     #    ("static_unpck", "tree_unpacked"),
-       ("static_pck_dev_dd", "tree_packed"),
+       ("static_pck", "tree_packed"),
     #    ("hash_id_static_unpck", "dtdb_h_unpacked"),
     # ("hash_id_static_pck", "dtdb_h_packed"),
     # ("fixed_unpck", "fixed_tree_unpacked"),
@@ -106,7 +106,7 @@ CONFIGS = [
         start=1,
     )
 ]
-REV_NICKS = [("dev-dd-tree-packed", "")]
+REV_NICKS = [("hash-id", "")]
 ATTRIBUTES = [
     "coverage",
     "error",
