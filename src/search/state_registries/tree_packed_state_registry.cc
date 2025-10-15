@@ -17,7 +17,6 @@ TreePackedStateRegistry::TreePackedStateRegistry(const TaskProxy &task_proxy)
 
 
     State::get_variable_value = [this](const StateID& id) {
-            // TODO(Dominik): avoidable allocation
             static thread_local std::vector<PackedStateBin> s_buffer;
             s_buffer.clear();
             valla::read_sequence(valla::Slot<PackedStateBin>(root_backward[id.value], get_bins_per_state()), tree_table, std::back_inserter(s_buffer));
