@@ -106,7 +106,6 @@
     state and each landmark whether it was reached in this state.
 */
 
-namespace vs = valla;
 namespace utils {
 class LogProxy;
 }
