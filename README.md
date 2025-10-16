@@ -1,4 +1,50 @@
-# Scorpion
+# Scorpion-Tree-Compression
+
+This branch contains code related to evaluating tree compression.
+
+## Installing the Dependencies
+
+Run the following sequence of commands to download, configure, build, and install all dependencies:
+
+1. Configure the dependencies CMake project with the desired installation path:
+
+```console
+cmake -S dependencies -B dependencies/build -DCMAKE_INSTALL_PREFIX=dependencies/installs -DCMAKE_PREFIX_PATH=$PWD/dependencies/installs
+```
+
+2. Download, build, and install all dependencies:
+
+```console
+cmake --build dependencies/build -j$(nproc)
+```
+
+## Building Scorpion
+
+Build scorpion in the usual way using the python cmake wrapper.
+
+```console
+./build.py
+```
+  
+## VSCode
+
+Add the following entries to the `.vscode/settings.json` file, then run `cmake: Configure` to get proper intellisense.
+
+```json
+{
+    "cmake.sourceDirectory": "${workspaceFolder}/src",
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.default.cppStandard": "c++20",
+    "cmake.configureArgs": [
+        "-DCMAKE_PREFIX_PATH=${workspaceFolder}/dependencies/installs"
+    ]
+}
+```  
+
+---
+
+
+# Scorpion (Original)
 
 Scorpion is a classical planning system that extends [Fast
 Downward](https://www.fast-downward.org). The main extensions are:

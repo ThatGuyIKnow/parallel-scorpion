@@ -106,7 +106,6 @@
     state and each landmark whether it was reached in this state.
 */
 
-namespace vs = valla;
 namespace utils {
 class LogProxy;
 }
@@ -116,9 +115,9 @@ using IStateRegistry = StateRegistry;
 class TreePackedStateRegistry :
     public IStateRegistry {
 
-    valla::IndexedHashSet<valla::Slot<uint32_t>, uint32_t> tree_table;
-    gtl::parallel_flat_hash_map<uint32_t, uint32_t> root_forward;
-    std::vector<uint32_t> root_backward;
+    valla::IndexedHashSet<valla::Slot<PackedStateBin>, PackedStateBin> tree_table;
+    gtl::parallel_flat_hash_map<PackedStateBin, PackedStateBin> root_forward;
+    std::vector<PackedStateBin> root_backward;
 
     const int_packer::IntPacker &state_packer;
     AxiomEvaluator &axiom_evaluator;

@@ -17,10 +17,9 @@ TreePackedStateRegistry::TreePackedStateRegistry(const TaskProxy &task_proxy)
 
 
     State::get_variable_value = [this](const StateID& id) {
-            // TODO(Dominik): avoidable allocation
-            static thread_local std::vector<uint32_t> s_buffer;
+            static thread_local std::vector<PackedStateBin> s_buffer;
             s_buffer.clear();
-            valla::read_sequence(valla::Slot<uint32_t>(root_backward[id.value], get_bins_per_state()), tree_table, std::back_inserter(s_buffer));
+            valla::read_sequence(valla::Slot<PackedStateBin>(root_backward[id.value], get_bins_per_state()), tree_table, std::back_inserter(s_buffer));
 
             std::vector<int> state_data(num_variables);
             for (int i = 0; i < num_variables; ++i) {
@@ -78,9 +77,9 @@ State TreePackedStateRegistry::get_successor_state(const State &predecessor, con
       fixed in https://issues.fast-downward.org/issue1115.
     */
 
-    static thread_local std::vector<uint32_t> s_buffer;
+    static thread_local std::vector<PackedStateBin> s_buffer;
     s_buffer.clear();
-    valla::read_sequence(valla::Slot<uint32_t>(root_backward[predecessor.get_id().value], get_bins_per_state()), tree_table, std::back_inserter(s_buffer));
+    valla::read_sequence(valla::Slot<PackedStateBin>(root_backward[predecessor.get_id().value], get_bins_per_state()), tree_table, std::back_inserter(s_buffer));
 
     /* Experiments for issue348 showed that for tasks with axioms it's faster
        to compute successor states using unpacked data. */
