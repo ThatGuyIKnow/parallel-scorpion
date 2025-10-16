@@ -17,8 +17,9 @@
 #include <iostream>
 #include <limits>
 
-#include "state_registries/packed_state_registry.h"
-#include "state_registries/tree_packed_state_registry.h"
+#include "state_registries/packed.h"
+#include "state_registries/dtdb_s_packed.h"
+#include "state_registries/dtdb_h_packed.h"
 
 using namespace std;
 using utils::ExitCode;
@@ -180,8 +181,10 @@ std::shared_ptr<StateRegistry> initialize_state_registry(StateRegistryType state
     switch (state_registry_type) {
         case PACKED:
             return std::make_shared<PackedStateRegistry>(task_proxy);
-        case TREE_PACKED:
-            return std::make_shared<TreePackedStateRegistry>(task_proxy);
+        case DTDB_H_PACKED:
+            return std::make_shared<DTDB_H_PackedStateRegistry>(task_proxy);
+        case DTDB_S_PACKED:
+            return std::make_shared<DTDB_S_PackedStateRegistry>(task_proxy);
         default:
             return std::make_shared<PackedStateRegistry>(task_proxy);
     }

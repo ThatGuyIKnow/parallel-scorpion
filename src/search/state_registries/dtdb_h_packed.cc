@@ -1,4 +1,4 @@
-#include "tree_packed_state_registry.h"
+#include "dtdb_h_packed.h"
 
 #include "../per_state_information.h"
 #include "../task_proxy.h"
@@ -10,7 +10,7 @@
 
 using namespace std;
 
-TreePackedStateRegistry::TreePackedStateRegistry(const TaskProxy &task_proxy)
+DTDB_H_PackedStateRegistry::DTDB_H_PackedStateRegistry(const TaskProxy &task_proxy)
     : IStateRegistry(task_proxy), state_packer(task_properties::g_state_packers[task_proxy]),
       axiom_evaluator(g_axiom_evaluators[task_proxy]),
       num_variables(task_proxy.get_variables().size()) {
@@ -19,7 +19,7 @@ TreePackedStateRegistry::TreePackedStateRegistry(const TaskProxy &task_proxy)
     State::get_variable_value = [this](const StateID& id) {
             static thread_local std::vector<PackedStateBin> s_buffer;
             s_buffer.clear();
-            valla::read_sequence(valla::Slot<PackedStateBin>(root_backward[id.value], get_bins_per_state()), tree_table, std::back_inserter(s_buffer));
+            valla::read_sequence(root_backward[id.value], tree_table, std::back_inserter(s_buffer));
 
             std::vector<int> state_data(num_variables);
             for (int i = 0; i < num_variables; ++i) {
@@ -31,16 +31,16 @@ TreePackedStateRegistry::TreePackedStateRegistry(const TaskProxy &task_proxy)
 
 }
 
-State TreePackedStateRegistry::lookup_state(StateID id) const {
+State DTDB_H_PackedStateRegistry::lookup_state(StateID id) const {
     return task_proxy.create_state(*this, id);
 }
 
-State TreePackedStateRegistry::lookup_state(
+State DTDB_H_PackedStateRegistry::lookup_state(
     StateID id, vector<int> &&state_values) const {
     return task_proxy.create_state(*this, id, move(state_values));
 }
 
-const State &TreePackedStateRegistry::get_initial_state() {
+const State &DTDB_H_PackedStateRegistry::get_initial_state() {
     if (!cached_initial_state) {
         State initial_state = task_proxy.get_initial_state();
 
@@ -51,10 +51,10 @@ const State &TreePackedStateRegistry::get_initial_state() {
         }
 
         const auto root = valla::insert_sequence(buffer, tree_table);
-        const auto [iter, success] = root_forward.emplace(root.i1, root_forward.size());
+        const auto [iter, success] = root_forward.emplace(root, root_forward.size());
         const auto index = iter->second;
         if (success) {
-            root_backward.push_back(root.i1);
+            root_backward.push_back(root);
             ++_registered_states;
         }
 
@@ -68,7 +68,7 @@ const State &TreePackedStateRegistry::get_initial_state() {
     return *cached_initial_state;
 }
 
-State TreePackedStateRegistry::get_successor_state(const State &predecessor, const OperatorProxy &op) {
+State DTDB_H_PackedStateRegistry::get_successor_state(const State &predecessor, const OperatorProxy &op) {
     assert(!op.is_axiom());
     /*
       TODO: ideally, we would not modify state_data_pool here and in
@@ -79,7 +79,7 @@ State TreePackedStateRegistry::get_successor_state(const State &predecessor, con
 
     static thread_local std::vector<PackedStateBin> s_buffer;
     s_buffer.clear();
-    valla::read_sequence(valla::Slot<PackedStateBin>(root_backward[predecessor.get_id().value], get_bins_per_state()), tree_table, std::back_inserter(s_buffer));
+    valla::read_sequence(root_backward[predecessor.get_id().value], tree_table, std::back_inserter(s_buffer));
 
     /* Experiments for issue348 showed that for tasks with axioms it's faster
        to compute successor states using unpacked data. */
@@ -98,10 +98,10 @@ State TreePackedStateRegistry::get_successor_state(const State &predecessor, con
         }
 
         const auto root = valla::insert_sequence(s_buffer, tree_table);
-        const auto [iter, success] = root_forward.emplace(root.i1, root_forward.size());
+        const auto [iter, success] = root_forward.emplace(root, root_forward.size());
         const auto index = iter->second;
         if (success) {
-            root_backward.push_back(root.i1);
+            root_backward.push_back(root);
             ++_registered_states ;
         }
 
@@ -115,10 +115,10 @@ State TreePackedStateRegistry::get_successor_state(const State &predecessor, con
         }
 
         const auto root = valla::insert_sequence(s_buffer, tree_table);
-        const auto [iter, success] = root_forward.emplace(root.i1, root_forward.size());
+        const auto [iter, success] = root_forward.emplace(root, root_forward.size());
         const auto index = iter->second;
         if (success) {
-            root_backward.push_back(root.i1);
+            root_backward.push_back(root);
             ++_registered_states ;
         }
 
@@ -127,14 +127,14 @@ State TreePackedStateRegistry::get_successor_state(const State &predecessor, con
 }
 
 
-int TreePackedStateRegistry::get_state_size_in_bytes() const {
+int DTDB_H_PackedStateRegistry::get_state_size_in_bytes() const {
     return get_bins_per_state() * sizeof(unsigned);
 }
 
-int TreePackedStateRegistry::get_bins_per_state() const {
+int DTDB_H_PackedStateRegistry::get_bins_per_state() const {
     return state_packer.get_num_bins();
 }
-void TreePackedStateRegistry::print_statistics(utils::LogProxy &log) const {
+void DTDB_H_PackedStateRegistry::print_statistics(utils::LogProxy &log) const {
 
     log << "Number of registered states: " << _registered_states << endl;
     log << "Closed list load factor: " << tree_table.size() << endl;

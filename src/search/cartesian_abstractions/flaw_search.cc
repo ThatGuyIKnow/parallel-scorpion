@@ -15,7 +15,7 @@
 #include "../utils/memory.h"
 #include "../utils/rng.h"
 
-#include "../state_registries/packed_state_registry.h"
+#include "../state_registries/packed.h"
 
 using namespace std;
 

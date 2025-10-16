@@ -1,6 +1,8 @@
-#ifndef PACKED_STATE_REGISTRY_H
-#define PACKED_STATE_REGISTRY_H
+#ifndef STATE_REGISTRIES_DTDB_H_PACKED_H
+#define STATE_REGISTRIES_DTDB_H_PACKED_H
 
+#include <cstddef>
+#include <cstdint>
 #include <limits>
 
 #include "../abstract_task.h"
@@ -13,6 +15,8 @@
 #include "../algorithms/subscriber.h"
 #include "../utils/hash.h"
 
+#include <valla/valla.hpp>
+
 #include <gtl/phmap.hpp>
 
 #include <set>
@@ -22,7 +26,7 @@
 
   State
     Objects of this class can represent registered or unregistered states.
-    Registered states contain a pointer to the PackedStateRegistry that created them
+    Registered states contain a pointer to the DTDB_H_PackedStateRegistry that created them
     and the ID they have there. Using this data, states can be used to index
     PerStateInformation objects.
     In addition, registered states have a pointer to the packed data of a state
@@ -42,29 +46,21 @@
     is why IDs are intended for long term storage (e.g. in open lists).
     Internally, a StateID is just an integer, so it is cheap to store and copy.
 
-  PackedStateBin (currently the same as unsigned int)
-    The actual state data is internally represented as a PackedStateBin array.
-    Each PackedStateBin can contain the values of multiple variables.
-    To minimize allocation overhead, the implementation stores the data of many
-    such states in a single large array (see SegmentedArrayVector).
-    PackedStateBin arrays are never manipulated directly but through
-    the task's state packer (see IntPacker).
-
   -------------
 
-  PackedStateRegistry
-    The PackedStateRegistry allows to create states giving them an ID. IDs from
+  DTDB_H_PackedStateRegistry
+    The DTDB_H_PackedStateRegistry allows to create states giving them an ID. IDs from
     different state registries must not be mixed.
-    The PackedStateRegistry also stores the actual state data in a memory friendly way.
+    The DTDB_H_PackedStateRegistry also stores the actual state data in a memory friendly way.
     It uses the following class:
 
-  SegmentedArrayVector<PackedStateBin>
+  SegmentedArrayVector<std::vector<int>>
     This class is used to store the actual (packed) state data for all states
     while avoiding dynamically allocating each state individually.
     The index within this vector corresponds to the ID of the state.
 
   PerStateInformation<T>
-    Associates a value of type T with every state in a given PackedStateRegistry.
+    Associates a value of type T with every state in a given DTDB_H_PackedStateRegistry.
     Can be thought of as a very compactly implemented map from State to T.
     References stay valid as long as the state registry exists. Memory usage is
     essentially the same as a vector<T> whose size is the number of states in
@@ -109,78 +105,32 @@
     The heuristic object uses an attribute of type PerStateBitset to store for each
     state and each landmark whether it was reached in this state.
 */
-namespace int_packer {
-class IntPacker;
-}
 
 namespace utils {
 class LogProxy;
 }
 
-using PackedStateBin = int_packer::IntPacker::Bin;
 
 using IStateRegistry = StateRegistry;
-class PackedStateRegistry :
+class DTDB_H_PackedStateRegistry :
     public IStateRegistry {
-    struct StateIDSemanticHash {
-        const segmented_vector::SegmentedArrayVector<PackedStateBin> &state_data_pool;
-        int state_size;
-        StateIDSemanticHash(
-            const segmented_vector::SegmentedArrayVector<PackedStateBin> &state_data_pool,
-            int state_size)
-            : state_data_pool(state_data_pool),
-              state_size(state_size) {
-        }
 
-        uint64_t operator()(int id) const {
-            const PackedStateBin *data = state_data_pool[id];
-            utils::HashState hash_state;
-            for (int i = 0; i < state_size; ++i) {
-                hash_state.feed(data[i]);
-            }
-            return hash_state.get_hash64();
-        }
-    };
+    valla::SimpleTreeHashIDMap<PackedStateBin, valla::IndexedHashSet<valla::Slot<PackedStateBin>, PackedStateBin>> tree_table;
+    gtl::parallel_flat_hash_map<PackedStateBin, PackedStateBin> root_forward;
+    std::vector<PackedStateBin> root_backward;
 
-    struct StateIDSemanticEqual {
-        const segmented_vector::SegmentedArrayVector<PackedStateBin> &state_data_pool;
-        int state_size;
-        StateIDSemanticEqual(
-            const segmented_vector::SegmentedArrayVector<PackedStateBin> &state_data_pool,
-            int state_size)
-            : state_data_pool(state_data_pool),
-              state_size(state_size) {
-        }
-
-        bool operator()(int lhs, int rhs) const {
-            const PackedStateBin *lhs_data = state_data_pool[lhs];
-            const PackedStateBin *rhs_data = state_data_pool[rhs];
-            return std::equal(lhs_data, lhs_data + state_size, rhs_data);
-        }
-    };
-
-    /*
-      Hash set of StateIDs used to detect states that are already registered in
-      this registry and find their IDs. States are compared/hashed semantically,
-      i.e. the actual state data is compared, not the memory location.
-    */
-    using StateIDSet = gtl::flat_hash_set<int, StateIDSemanticHash, StateIDSemanticEqual>;
-
-    int_packer::IntPacker &state_packer;
+    const int_packer::IntPacker &state_packer;
     AxiomEvaluator &axiom_evaluator;
     const int num_variables;
 
-    segmented_vector::SegmentedArrayVector<PackedStateBin> state_data_pool;
-    StateIDSet registered_states;
-
+    size_t _registered_states = 0;
     std::unique_ptr<State> cached_initial_state;
 
-    StateID insert_id_or_pop_state();
     int get_bins_per_state() const;
 public:
-    explicit PackedStateRegistry(const TaskProxy &task_proxy);
+    explicit DTDB_H_PackedStateRegistry(const TaskProxy &task_proxy);
 
-    const TaskProxy &get_task_proxy() const {
+    const TaskProxy &get_task_proxy() const override {
         return task_proxy;
     }
 
@@ -188,7 +138,7 @@ public:
         return num_variables;
     }
 
-    const int_packer::IntPacker &get_state_packer() const {
+    const int_packer::IntPacker &get_state_packer() const override {
         return state_packer;
     }
 
@@ -222,14 +172,11 @@ public:
       Returns the number of states registered so far.
     */
     size_t size() const override {
-        return registered_states.size();
+        return _registered_states;
     }
 
+
     int get_state_size_in_bytes() const;
-
-    size_t get_memory_usage() const;
-
-    size_t get_occupied_memory_usage() const;
 
     void print_statistics(utils::LogProxy &log) const override;
 
@@ -247,11 +194,11 @@ public:
           this, in which case we will add the missing methods.
         */
 
-        friend class PackedStateRegistry;
-        const PackedStateRegistry &registry;
+        friend class DTDB_H_PackedStateRegistry;
+        const DTDB_H_PackedStateRegistry &registry;
         StateID pos;
 
-        const_iterator(const PackedStateRegistry &registry, size_t start)
+        const_iterator(const DTDB_H_PackedStateRegistry &registry, size_t start)
             : registry(registry), pos(start) {
             utils::unused_variable(this->registry);
         }
@@ -279,17 +226,17 @@ public:
         }
     };
     class iterator_impl : public IStateRegistry::const_iterator {
-        const PackedStateRegistry *registry_;
+        const DTDB_H_PackedStateRegistry *registry_;
         size_t idx_;
     public:
-        iterator_impl(const PackedStateRegistry *reg, size_t i) : registry_(reg), idx_(i) {}
+        iterator_impl(const DTDB_H_PackedStateRegistry *reg, size_t i) : registry_(reg), idx_(i) {}
         StateID operator*() const override { return StateID(idx_); }
-        IStateRegistry::const_iterator &operator++() override { ++idx_; return *this; }
-        bool operator==(const IStateRegistry::const_iterator &other) const override {
+        const_iterator &operator++() override { ++idx_; return *this; }
+        bool operator==(const const_iterator &other) const override {
             auto p = dynamic_cast<const iterator_impl*>(&other);
             return p && registry_ == p->registry_ && idx_ == p->idx_;
         }
-        std::unique_ptr<IStateRegistry::const_iterator> clone() const override {
+        std::unique_ptr<const_iterator> clone() const override {
             return std::make_unique<iterator_impl>(registry_, idx_);
         }
     };

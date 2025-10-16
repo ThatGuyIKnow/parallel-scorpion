@@ -1,5 +1,5 @@
-#ifndef TREE_PACKED_STATE_REGISTRY_H
-#define TREE_PACKED_STATE_REGISTRY_H
+#ifndef STATE_REGISTRIES_DTDB_S_PACKED_H
+#define STATE_REGISTRIES_DTDB_S_PACKED_H
 
 #include <cstddef>
 #include <cstdint>
@@ -26,7 +26,7 @@
 
   State
     Objects of this class can represent registered or unregistered states.
-    Registered states contain a pointer to the TreePackedStateRegistry that created them
+    Registered states contain a pointer to the DTDB_S_PackedStateRegistry that created them
     and the ID they have there. Using this data, states can be used to index
     PerStateInformation objects.
     In addition, registered states have a pointer to the packed data of a state
@@ -48,10 +48,10 @@
 
   -------------
 
-  TreePackedStateRegistry
-    The TreePackedStateRegistry allows to create states giving them an ID. IDs from
+  DTDB_S_PackedStateRegistry
+    The DTDB_S_PackedStateRegistry allows to create states giving them an ID. IDs from
     different state registries must not be mixed.
-    The TreePackedStateRegistry also stores the actual state data in a memory friendly way.
+    The DTDB_S_PackedStateRegistry also stores the actual state data in a memory friendly way.
     It uses the following class:
 
   SegmentedArrayVector<std::vector<int>>
@@ -60,7 +60,7 @@
     The index within this vector corresponds to the ID of the state.
 
   PerStateInformation<T>
-    Associates a value of type T with every state in a given TreePackedStateRegistry.
+    Associates a value of type T with every state in a given DTDB_S_PackedStateRegistry.
     Can be thought of as a very compactly implemented map from State to T.
     References stay valid as long as the state registry exists. Memory usage is
     essentially the same as a vector<T> whose size is the number of states in
@@ -112,7 +112,7 @@ class LogProxy;
 
 
 using IStateRegistry = StateRegistry;
-class TreePackedStateRegistry :
+class DTDB_S_PackedStateRegistry :
     public IStateRegistry {
 
     valla::IndexedHashSet<valla::Slot<PackedStateBin>, PackedStateBin> tree_table;
@@ -128,7 +128,7 @@ class TreePackedStateRegistry :
 
     int get_bins_per_state() const;
 public:
-    explicit TreePackedStateRegistry(const TaskProxy &task_proxy);
+    explicit DTDB_S_PackedStateRegistry(const TaskProxy &task_proxy);
 
     const TaskProxy &get_task_proxy() const override {
         return task_proxy;
@@ -194,11 +194,11 @@ public:
           this, in which case we will add the missing methods.
         */
 
-        friend class TreePackedStateRegistry;
-        const TreePackedStateRegistry &registry;
+        friend class DTDB_S_PackedStateRegistry;
+        const DTDB_S_PackedStateRegistry &registry;
         StateID pos;
 
-        const_iterator(const TreePackedStateRegistry &registry, size_t start)
+        const_iterator(const DTDB_S_PackedStateRegistry &registry, size_t start)
             : registry(registry), pos(start) {
             utils::unused_variable(this->registry);
         }
@@ -226,10 +226,10 @@ public:
         }
     };
     class iterator_impl : public IStateRegistry::const_iterator {
-        const TreePackedStateRegistry *registry_;
+        const DTDB_S_PackedStateRegistry *registry_;
         size_t idx_;
     public:
-        iterator_impl(const TreePackedStateRegistry *reg, size_t i) : registry_(reg), idx_(i) {}
+        iterator_impl(const DTDB_S_PackedStateRegistry *reg, size_t i) : registry_(reg), idx_(i) {}
         StateID operator*() const override { return StateID(idx_); }
         const_iterator &operator++() override { ++idx_; return *this; }
         bool operator==(const const_iterator &other) const override {

@@ -1,4 +1,4 @@
-#include "packed_state_registry.h"
+#include "packed.h"
 
 #include "../per_state_information.h"
 #include "../task_proxy.h"
