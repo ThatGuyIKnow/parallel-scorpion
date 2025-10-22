@@ -13,6 +13,7 @@ import custom_parser
 from lab import environments, tools
 import project
 from itertools import product
+import subprocess
 
 def get_default_data_dir():
     """E.g. "ham/spam/eggs.py" => "ham/spam/data/"."""
@@ -36,27 +37,26 @@ if project.REMOTE:
     ENV = TetralithEnvironment(
         setup=TetralithEnvironment.DEFAULT_SETUP,
         email="olijo92@liu.se",
-        extra_options="#SBATCH -A naiss2025-5-382",
+        extra_options="#SBATCH -A naiss2025-22-1329",
         memory_per_cpu="9G",
     )
-    TIME_LIMIT = 5 * 60 * 60 #5 hours
-    MEMORY_LIMIT = "8G"
+    TIME_LIMIT = 1 * 60 * 60 #15 minutes
+    MEMORY_LIMIT = "4G"
 
-    base_path = Path(os.environ.get("DOWNWARD_BENCHMARKS")) / "abstract-conditional-benchmarks"
+    base_path = Path(os.environ.get("DOWNWARD_BENCHMARKS")) / "pddl-benchmarks"
 
     SUITE_SPECS = [
        # ("autoscale-benchmarks-main/21.11-optimal-strips", SUITE_AUTOSCALE_OPTIMAL_STRIPS),
-       # ("beluga2025", SUITE_BELUGA2025_SCALABILITY_DETERMINISTIC),
-       # ("pushworld", SUITE_PUSHWORLD),
-       # ("mine-pddl", SUITE_MINEPDDL),
-       # ("htg-domains", SUITE_HTG),
-        ("abs-conditional", SUITE_ABSTRACT_CONDITIONAL)
+        ("beluga2025", SUITE_BELUGA2025_SCALABILITY_DETERMINISTIC),
+        ("pushworld", SUITE_PUSHWORLD),
+        ("mine-pddl", SUITE_MINEPDDL),
+        ("htg-domains", SUITE_HTG),
+        ("ipc2023-learning", SUITE_IPC_LEARNING)
     ]
 
     BASE_SUITES = [
-       # ("ipc2024-optimal-strips", SUITE_IPC_OPTIMAL_STRIPS),
-       # ("ipc2024-optimal-adl", SUITE_IPC_OPTIMAL_ADL),
-       # ("ipc2023-learning-track", SUITE_IPC_LEARNING)
+        ("ipc2024-optimal-strips", SUITE_IPC_OPTIMAL_STRIPS),
+        ("ipc2024-optimal-adl", SUITE_IPC_OPTIMAL_ADL),
     ]
 
     SUITE = []
@@ -74,27 +74,28 @@ else:
     )
 
 
+
 DRIVER_OPTIONS = [
     "--overall-time-limit",
     f"{TIME_LIMIT}s",
     "--overall-memory-limit",
     MEMORY_LIMIT,
-    ]
+]
 state_registries = [
-               #("unpck", "unpacked"),
-               ("pck", "packed"),
-               #("static_unpck", "tree_unpacked"),
-               ("static_pck", "tree_packed"),
-               # ("fixed_unpck", "fixed_tree_unpacked"),
-               # ("fixed_pck", "fixed_tree_packed"),
-               # ("huffman_tree", "huffman"),
+    # ("unpck", "unpacked"),
+    ("pck", "packed"),
+    # ("dtdb_s_dev_dd", "dtdb_s_packed"),
+    # ("dtdb_h_dev_dd", "dtdb_h_packed"),
+    # ("fixed_unpck", "fixed_tree_unpacked"),
+    # ("fixed_pck", "fixed_tree_packed"),
+    # ("huffman_tree", "huffman"),
 
-            ]
+]
 
 heuristics = [
-                # ("blind", "blind(cache_estimates=false)"),
-                ("scp", "scp([projections(systematic(2), create_complete_transition_system=true)], saturator=perimstar, max_time=10, diversify=true, max_optimization_time=0, orders=greedy_orders(), cache_estimates=false)")
-            ]
+    ("blind", "blind(cache_estimates=false)"),
+    ("scp", "scp([projections(systematic(2), create_complete_transition_system=true)], saturator=perimstar, max_time=10, diversify=true, max_optimization_time=0, orders=greedy_orders(), cache_estimates=false)")
+]
 
 CONFIGS = [
     (f"{index:02d}-{h_nick}-{s_nick}", ["--search", f"astar({h}, state_registry={s})"])
@@ -103,7 +104,7 @@ CONFIGS = [
         start=1,
     )
 ]
-REV_NICKS = [("reduces_search_node", "")]
+REV_NICKS = [("dev-dd-tree-packed", "")]
 ATTRIBUTES = [
     "coverage",
     "error",
@@ -145,7 +146,7 @@ def build_exp(additional_options=[], nick=None): # this is for running seperate 
         for config_nick, config in CONFIGS:
             print(rev_nick)
             algo_name = f"{rev_nick}-{config_nick}" if rev_nick else config_nick
-    
+
             bounds = {}
             for task in SUITE:
                 algo = FastDownwardAlgorithm(
@@ -153,21 +154,21 @@ def build_exp(additional_options=[], nick=None): # this is for running seperate 
                     cached_rev,
                     DRIVER_OPTIONS,
                     additional_options + config,
-                )
+                    )
                 run = FastDownwardRun(exp, algo, task)
                 exp.add_run(run)
-    
+
     exp.add_parser(FastDownwardExperiment.EXITCODE_PARSER)
     exp.add_parser(FastDownwardExperiment.TRANSLATOR_PARSER)
     exp.add_parser(FastDownwardExperiment.SINGLE_SEARCH_PARSER)
     exp.add_parser(FastDownwardExperiment.PLANNER_PARSER)
     exp.add_parser(custom_parser.get_parser())
-    
+
     exp.add_step("build", exp.build)
     exp.add_step("start", exp.start_runs)
     exp.add_step("parse", exp.parse)
     exp.add_fetcher(name="fetch")
-    
+
     return exp
 
 
@@ -177,4 +178,6 @@ project.add_report(
     exp,
     attributes=ATTRIBUTES
 )
+project.add_compress_exp_dir_step(exp)
+
 exp.run_steps()

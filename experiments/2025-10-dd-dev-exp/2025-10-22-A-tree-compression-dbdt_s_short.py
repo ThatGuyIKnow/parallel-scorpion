@@ -40,8 +40,8 @@ if project.REMOTE:
         extra_options="#SBATCH -A naiss2025-22-1329",
         memory_per_cpu="9G",
     )
-    TIME_LIMIT = 5 * 60 * 60 #15 minutes
-    MEMORY_LIMIT = "8G"
+    TIME_LIMIT = 1 * 60 * 60 #1 hour
+    MEMORY_LIMIT = "4G"
 
     base_path = Path(os.environ.get("DOWNWARD_BENCHMARKS")) / "pddl-benchmarks"
 
@@ -84,8 +84,8 @@ DRIVER_OPTIONS = [
 state_registries = [
     # ("unpck", "unpacked"),
     # ("pck", "packed"),
-    # ("dtdb_s_dev_dd", "dtdb_s_packed"),
-    ("dtdb_h_dev_dd", "dtdb_h_packed"),
+    ("dtdb_s_dev_dd", "dtdb_s_packed"),
+    # ("dtdb_h_dev_dd", "dtdb_h_packed"),
     # ("fixed_unpck", "fixed_tree_unpacked"),
     # ("fixed_pck", "fixed_tree_packed"),
     # ("huffman_tree", "huffman"),
@@ -94,7 +94,7 @@ state_registries = [
 
 heuristics = [
     ("blind", "blind(cache_estimates=false)"),
-    ("scp", "scp([projections(systematic(2))], saturator=perimstar, max_time=10, diversify=true, max_optimization_time=0, orders=greedy_orders(), cache_estimates=false)")
+    ("scp", "scp([projections(systematic(2), create_complete_transition_system=true)], saturator=perimstar, max_time=10, diversify=true, max_optimization_time=0, orders=greedy_orders(), cache_estimates=false)")
 ]
 
 CONFIGS = [
