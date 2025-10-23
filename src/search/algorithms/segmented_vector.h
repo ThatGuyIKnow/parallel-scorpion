@@ -147,6 +147,13 @@ public:
             push_back(entry);
         }
     }
+
+    size_t mem_usage() const {
+        size_t usage = 0;
+        usage += segments.capacity() * sizeof(Entry*);
+        usage += segments.size() * SEGMENT_BYTES;
+        return usage;
+    }
 };
 
 

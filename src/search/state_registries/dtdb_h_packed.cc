@@ -58,8 +58,6 @@ const State &DTDB_H_PackedStateRegistry::get_initial_state() {
             ++_registered_states;
         }
 
-        // std::cout << "Insert: " << root.i1 << " " << index << " " << get_bins_per_state() << std::endl;
-
         StateID id = StateID(index);
         cached_initial_state = make_unique<State>(lookup_state(id));
 
@@ -126,9 +124,12 @@ State DTDB_H_PackedStateRegistry::get_successor_state(const State &predecessor, 
     }
 }
 
-
 int DTDB_H_PackedStateRegistry::get_state_size_in_bytes() const {
-    return get_bins_per_state() * sizeof(unsigned);
+    size_t usage = 0;
+    usage += tree_table.mem_usage();
+    usage += root_forward.capacity() * sizeof(PackedStateBin);
+    usage += root_backward.mem_usage();
+    return usage;
 }
 
 int DTDB_H_PackedStateRegistry::get_bins_per_state() const {
