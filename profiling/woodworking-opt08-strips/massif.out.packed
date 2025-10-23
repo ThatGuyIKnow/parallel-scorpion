@@ -1,0 +1,2761 @@
+desc: --massif-out-file=massif.out.packed
+cmd: ./downward --search astar(blind(), state_registry=packed)
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=275560863
+mem_heap_B=1405891
+mem_heap_extra_B=31029
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=798637725
+mem_heap_B=3199211
+mem_heap_extra_B=35285
+mem_stacks_B=0
+heap_tree=detailed
+n7: 3199211 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 778240 0x1CA878: allocate (new_allocator.h:151)
+  n1: 778240 0x1CA878: allocate (allocator.h:198)
+   n1: 778240 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 778240 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 778240 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 778240 0x1CA878: resize (segmented_vector.h:147)
+       n1: 778240 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 778240 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 770048 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 770048 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 770048 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 770048 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 770048 0x18A3C8: allocate (allocator.h:198)
+   n1: 770048 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 770048 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 770048 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 770048 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 770048 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 770048 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 770048 0x1762D1: main (planner.cc:38)
+ n1: 655372 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 655372 0x18CB4A: allocate (allocator.h:198)
+   n1: 655372 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 655372 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 655372 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 655372 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 655372 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 655372 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 655372 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 655372 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 655372 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 655372 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 655372 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 655372 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 655372 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 655372 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 655372 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 655372 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 655372 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 655372 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 655372 0x1762D1: main (planner.cc:38)
+ n1: 393216 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 393216 0x1B7E27: allocate (allocator.h:198)
+   n1: 393216 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 393216 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 393216 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 393216 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 393216 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 393216 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 393216 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 393216 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 393216 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 393216 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 393216 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 393216 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 385024 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 385024 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 385024 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 294400 0x2665A3: allocate (new_allocator.h:151)
+  n1: 294400 0x2665A3: allocate (allocator.h:198)
+   n1: 294400 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 294400 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 294400 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 294400 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 294400 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 290816 0x2ABF3E: insert (open_list.h:151)
+         n1: 290816 0x2ABF3E: insert (open_list.h:146)
+          n1: 290816 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 290816 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 290816 0x1762D1: main (planner.cc:38)
+        n0: 3584 in 1 place, below massif's threshold (1.00%)
+ n0: 234207 in 1464 places, all below massif's threshold (1.00%)
+ n1: 73728 0x491E38E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+  n1: 73728 0x400571E: call_init.part.0 (dl-init.c:74)
+   n1: 73728 0x4005823: call_init (dl-init.c:120)
+    n1: 73728 0x4005823: _dl_init (dl-init.c:121)
+     n1: 73728 0x401F59F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 73728 0x2: ???
+       n1: 73728 0x1FFEFFFF52: ???
+        n1: 73728 0x1FFEFFFF5D: ???
+         n0: 73728 0x1FFEFFFF66: ???
+#-----------
+snapshot=3
+#-----------
+time=1157373403
+mem_heap_B=4821807
+mem_heap_extra_B=37985
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=1442006754
+mem_heap_B=5521003
+mem_heap_extra_B=39757
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=1854960011
+mem_heap_B=6593419
+mem_heap_extra_B=42869
+mem_stacks_B=0
+heap_tree=detailed
+n7: 6593419 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1736704 0x1CA878: allocate (new_allocator.h:151)
+  n1: 1736704 0x1CA878: allocate (allocator.h:198)
+   n1: 1736704 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 1736704 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 1736704 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 1736704 0x1CA878: resize (segmented_vector.h:147)
+       n1: 1736704 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 1736704 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 1728512 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 1728512 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 1728512 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 1728512 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 1728512 0x18A3C8: allocate (allocator.h:198)
+   n1: 1728512 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 1728512 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 1728512 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 1728512 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 1728512 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 1728512 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 1728512 0x1762D1: main (planner.cc:38)
+ n1: 1310732 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 1310732 0x18CB4A: allocate (allocator.h:198)
+   n1: 1310732 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 1310732 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 1310732 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 1310732 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 1310732 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 1310732 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 1310732 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 1310732 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 1310732 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 1310732 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 1310732 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 1310732 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 1310732 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 1310732 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 1310732 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 1310732 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 1310732 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 1310732 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 1310732 0x1762D1: main (planner.cc:38)
+ n1: 868352 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 868352 0x1B7E27: allocate (allocator.h:198)
+   n1: 868352 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 868352 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 868352 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 868352 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 868352 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 868352 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 868352 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 868352 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 868352 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 868352 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 868352 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 868352 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 860160 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 860160 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 860160 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 628224 0x2665A3: allocate (new_allocator.h:151)
+  n1: 628224 0x2665A3: allocate (allocator.h:198)
+   n1: 628224 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 628224 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 628224 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 628224 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 628224 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 627200 0x2ABF3E: insert (open_list.h:151)
+         n1: 627200 0x2ABF3E: insert (open_list.h:146)
+          n1: 627200 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 627200 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 627200 0x1762D1: main (planner.cc:38)
+        n0: 1024 in 1 place, below massif's threshold (1.00%)
+ n0: 247167 in 1464 places, all below massif's threshold (1.00%)
+ n1: 73728 0x491E38E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+  n1: 73728 0x400571E: call_init.part.0 (dl-init.c:74)
+   n1: 73728 0x4005823: call_init (dl-init.c:120)
+    n1: 73728 0x4005823: _dl_init (dl-init.c:121)
+     n1: 73728 0x401F59F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 73728 0x2: ???
+       n1: 73728 0x1FFEFFFF52: ???
+        n1: 73728 0x1FFEFFFF5D: ???
+         n0: 73728 0x1FFEFFFF66: ???
+#-----------
+snapshot=6
+#-----------
+time=2182270257
+mem_heap_B=8685267
+mem_heap_extra_B=44789
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=2733172467
+mem_heap_B=10141427
+mem_heap_extra_B=48789
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=3128640870
+mem_heap_B=10959291
+mem_heap_extra_B=50925
+mem_stacks_B=0
+heap_tree=detailed
+n6: 10959291 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 2809856 0x1CA878: allocate (new_allocator.h:151)
+  n1: 2809856 0x1CA878: allocate (allocator.h:198)
+   n1: 2809856 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 2809856 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 2809856 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 2809856 0x1CA878: resize (segmented_vector.h:147)
+       n1: 2809856 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 2809856 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 2801664 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 2801664 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 2801664 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 2801664 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 2801664 0x18A3C8: allocate (allocator.h:198)
+   n1: 2801664 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 2801664 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 2801664 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 2801664 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 2801664 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 2801664 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 2801664 0x1762D1: main (planner.cc:38)
+ n1: 2621452 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 2621452 0x18CB4A: allocate (allocator.h:198)
+   n1: 2621452 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 2621452 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 2621452 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 2621452 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 2621452 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 2621452 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 2621452 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 2621452 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 2621452 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 2621452 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 2621452 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 2621452 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 2621452 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 2621452 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 2621452 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 2621452 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 2621452 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 2621452 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 2621452 0x1762D1: main (planner.cc:38)
+ n1: 1409024 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 1409024 0x1B7E27: allocate (allocator.h:198)
+   n1: 1409024 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 1409024 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 1409024 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 1409024 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 1409024 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 1409024 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 1409024 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 1409024 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 1409024 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 1409024 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 1409024 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 1409024 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 1400832 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 1400832 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 1400832 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 977920 0x2665A3: allocate (new_allocator.h:151)
+  n1: 977920 0x2665A3: allocate (allocator.h:198)
+   n1: 977920 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 977920 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 977920 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 977920 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 977920 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 975360 0x2ABF3E: insert (open_list.h:151)
+         n1: 975360 0x2ABF3E: insert (open_list.h:146)
+          n1: 975360 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 975360 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 975360 0x1762D1: main (planner.cc:38)
+        n0: 2560 in 1 place, below massif's threshold (1.00%)
+ n0: 339375 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=9
+#-----------
+time=3458336624
+mem_heap_B=11900859
+mem_heap_extra_B=53597
+mem_stacks_B=0
+heap_tree=detailed
+n6: 11900859 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 3137536 0x1CA878: allocate (new_allocator.h:151)
+  n1: 3137536 0x1CA878: allocate (allocator.h:198)
+   n1: 3137536 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 3137536 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 3137536 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 3137536 0x1CA878: resize (segmented_vector.h:147)
+       n1: 3137536 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 3137536 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 3129344 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 3129344 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 3129344 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 3129344 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 3129344 0x18A3C8: allocate (allocator.h:198)
+   n1: 3129344 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 3129344 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 3129344 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 3129344 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 3129344 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 3129344 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 3129344 0x1762D1: main (planner.cc:38)
+ n1: 2621452 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 2621452 0x18CB4A: allocate (allocator.h:198)
+   n1: 2621452 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 2621452 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 2621452 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 2621452 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 2621452 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 2621452 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 2621452 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 2621452 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 2621452 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 2621452 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 2621452 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 2621452 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 2621452 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 2621452 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 2621452 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 2621452 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 2621452 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 2621452 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 2621452 0x1762D1: main (planner.cc:38)
+ n1: 1572864 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 1572864 0x1B7E27: allocate (allocator.h:198)
+   n1: 1572864 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 1572864 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 1572864 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 1572864 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 1572864 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 1572864 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 1572864 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 1572864 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 1572864 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 1572864 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 1572864 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 1572864 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 1564672 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 1564672 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 1564672 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 1097728 0x2665A3: allocate (new_allocator.h:151)
+  n1: 1097728 0x2665A3: allocate (allocator.h:198)
+   n1: 1097728 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 1097728 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 1097728 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 1097728 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 1097728 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 1095168 0x2ABF3E: insert (open_list.h:151)
+         n1: 1095168 0x2ABF3E: insert (open_list.h:146)
+          n1: 1095168 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 1095168 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 1095168 0x1762D1: main (planner.cc:38)
+        n0: 2560 in 1 place, below massif's threshold (1.00%)
+ n0: 341935 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=10
+#-----------
+time=3862795621
+mem_heap_B=12672651
+mem_heap_extra_B=55229
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=4410576274
+mem_heap_B=16580651
+mem_heap_extra_B=62693
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=4807456761
+mem_heap_B=17431599
+mem_heap_extra_B=64809
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=5105115708
+mem_heap_B=18061163
+mem_heap_extra_B=66301
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=5465655314
+mem_heap_B=19022395
+mem_heap_extra_B=69077
+mem_stacks_B=0
+heap_tree=detailed
+n6: 19022395 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 5242892 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 5242892 0x18CB4A: allocate (allocator.h:198)
+   n1: 5242892 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 5242892 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 5242892 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 5242892 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 5242892 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 5242892 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 5242892 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 5242892 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 5242892 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 5242892 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 5242892 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 5242892 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 5242892 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 5242892 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 5242892 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 5242892 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 5242892 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 5242892 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 5242892 0x1762D1: main (planner.cc:38)
+ n1: 4726784 0x1CA878: allocate (new_allocator.h:151)
+  n1: 4726784 0x1CA878: allocate (allocator.h:198)
+   n1: 4726784 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 4726784 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 4726784 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 4726784 0x1CA878: resize (segmented_vector.h:147)
+       n1: 4726784 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 4726784 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 4718592 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 4718592 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 4718592 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 4718592 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 4718592 0x18A3C8: allocate (allocator.h:198)
+   n1: 4718592 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 4718592 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 4718592 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 4718592 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 4718592 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 4718592 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 4718592 0x1762D1: main (planner.cc:38)
+ n1: 2367488 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 2367488 0x1B7E27: allocate (allocator.h:198)
+   n1: 2367488 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 2367488 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 2367488 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 2367488 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 2367488 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 2367488 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 2367488 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 2367488 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 2367488 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 2367488 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 2367488 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 2367488 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 2359296 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 2359296 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 2359296 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 1583104 0x2665A3: allocate (new_allocator.h:151)
+  n1: 1583104 0x2665A3: allocate (allocator.h:198)
+   n1: 1583104 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 1583104 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 1583104 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 1583104 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 1583104 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 1577984 0x2ABF3E: insert (open_list.h:151)
+         n1: 1577984 0x2ABF3E: insert (open_list.h:146)
+          n1: 1577984 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 1577984 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 1577984 0x1762D1: main (planner.cc:38)
+        n0: 5120 in 1 place, below massif's threshold (1.00%)
+ n0: 383535 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=15
+#-----------
+time=5955464329
+mem_heap_B=20019579
+mem_heap_extra_B=71493
+mem_stacks_B=0
+heap_tree=detailed
+n6: 20019579 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 5242892 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 5242892 0x18CB4A: allocate (allocator.h:198)
+   n1: 5242892 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 5242892 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 5242892 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 5242892 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 5242892 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 5242892 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 5242892 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 5242892 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 5242892 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 5242892 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 5242892 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 5242892 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 5242892 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 5242892 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 5242892 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 5242892 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 5242892 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 5242892 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 5242892 0x1762D1: main (planner.cc:38)
+ n1: 5087232 0x1CA878: allocate (new_allocator.h:151)
+  n1: 5087232 0x1CA878: allocate (allocator.h:198)
+   n1: 5087232 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 5087232 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 5087232 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 5087232 0x1CA878: resize (segmented_vector.h:147)
+       n1: 5087232 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 5087232 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 5079040 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 5079040 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 5079040 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 5079040 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 5079040 0x18A3C8: allocate (allocator.h:198)
+   n1: 5079040 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 5079040 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 5079040 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 5079040 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 5079040 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 5079040 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 5079040 0x1762D1: main (planner.cc:38)
+ n1: 2547712 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 2547712 0x1B7E27: allocate (allocator.h:198)
+   n1: 2547712 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 2547712 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 2547712 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 2547712 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 2547712 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 2547712 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 2547712 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 2547712 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 2547712 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 2547712 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 2547712 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 2547712 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 2539520 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 2539520 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 2539520 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 1681408 0x2665A3: allocate (new_allocator.h:151)
+  n1: 1681408 0x2665A3: allocate (allocator.h:198)
+   n1: 1681408 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 1681408 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 1681408 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 1681408 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 1681408 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 1677824 0x2ABF3E: insert (open_list.h:151)
+         n1: 1677824 0x2ABF3E: insert (open_list.h:146)
+          n1: 1677824 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 1677824 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 1677824 0x1762D1: main (planner.cc:38)
+        n0: 3584 in 1 place, below massif's threshold (1.00%)
+ n0: 381295 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=16
+#-----------
+time=6264975897
+mem_heap_B=20658683
+mem_heap_extra_B=73029
+mem_stacks_B=0
+heap_tree=detailed
+n6: 20658683 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 5316608 0x1CA878: allocate (new_allocator.h:151)
+  n1: 5316608 0x1CA878: allocate (allocator.h:198)
+   n1: 5316608 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 5316608 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 5316608 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 5316608 0x1CA878: resize (segmented_vector.h:147)
+       n1: 5316608 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 5316608 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 5308416 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 5308416 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 5308416 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 5308416 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 5308416 0x18A3C8: allocate (allocator.h:198)
+   n1: 5308416 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 5308416 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 5308416 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 5308416 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 5308416 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 5308416 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 5308416 0x1762D1: main (planner.cc:38)
+ n1: 5242892 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 5242892 0x18CB4A: allocate (allocator.h:198)
+   n1: 5242892 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 5242892 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 5242892 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 5242892 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 5242892 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 5242892 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 5242892 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 5242892 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 5242892 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 5242892 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 5242892 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 5242892 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 5242892 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 5242892 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 5242892 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 5242892 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 5242892 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 5242892 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 5242892 0x1762D1: main (planner.cc:38)
+ n1: 2662400 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 2662400 0x1B7E27: allocate (allocator.h:198)
+   n1: 2662400 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 2662400 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 2662400 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 2662400 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 2662400 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 2662400 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 2662400 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 2662400 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 2662400 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 2662400 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 2662400 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 2662400 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 2654208 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 2654208 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 2654208 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 1743872 0x2665A3: allocate (new_allocator.h:151)
+  n1: 1743872 0x2665A3: allocate (allocator.h:198)
+   n1: 1743872 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 1743872 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 1743872 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 1743872 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 1743872 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 1739264 0x2ABF3E: insert (open_list.h:151)
+         n1: 1739264 0x2ABF3E: insert (open_list.h:146)
+          n1: 1739264 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 1739264 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 1739264 0x1762D1: main (planner.cc:38)
+        n0: 4608 in 1 place, below massif's threshold (1.00%)
+ n0: 384495 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=17
+#-----------
+time=6634821591
+mem_heap_B=21516095
+mem_heap_extra_B=75241
+mem_stacks_B=0
+heap_tree=detailed
+n6: 21516095 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 5619712 0x1CA878: allocate (new_allocator.h:151)
+  n1: 5619712 0x1CA878: allocate (allocator.h:198)
+   n1: 5619712 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 5619712 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 5619712 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 5619712 0x1CA878: resize (segmented_vector.h:147)
+       n1: 5619712 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 5619712 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 5611520 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 5611520 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 5611520 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 5611520 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 5611520 0x18A3C8: allocate (allocator.h:198)
+   n1: 5611520 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 5611520 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 5611520 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 5611520 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 5611520 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 5611520 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 5611520 0x1762D1: main (planner.cc:38)
+ n1: 5242892 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 5242892 0x18CB4A: allocate (allocator.h:198)
+   n1: 5242892 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 5242892 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 5242892 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 5242892 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 5242892 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 5242892 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 5242892 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 5242892 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 5242892 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 5242892 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 5242892 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 5242892 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 5242892 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 5242892 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 5242892 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 5242892 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 5242892 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 5242892 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 5242892 0x1762D1: main (planner.cc:38)
+ n1: 2809856 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 2809856 0x1B7E27: allocate (allocator.h:198)
+   n1: 2809856 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 2809856 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 2809856 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 2809856 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 2809856 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 2809856 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 2809856 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 2809856 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 2809856 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 2809856 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 2809856 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 2809856 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 2801664 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 2801664 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 2801664 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 1842688 0x2665A3: allocate (new_allocator.h:151)
+  n1: 1842688 0x2665A3: allocate (allocator.h:198)
+   n1: 1842688 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 1842688 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 1842688 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 1842688 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 1842688 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 1838080 0x2ABF3E: insert (open_list.h:151)
+         n1: 1838080 0x2ABF3E: insert (open_list.h:146)
+          n1: 1838080 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 1838080 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 1838080 0x1762D1: main (planner.cc:38)
+        n0: 4608 in 1 place, below massif's threshold (1.00%)
+ n0: 389427 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=18
+#-----------
+time=6877800387
+mem_heap_B=22193659
+mem_heap_extra_B=77133
+mem_stacks_B=0
+heap_tree=detailed
+n6: 22193659 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 5857280 0x1CA878: allocate (new_allocator.h:151)
+  n1: 5857280 0x1CA878: allocate (allocator.h:198)
+   n1: 5857280 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 5857280 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 5857280 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 5857280 0x1CA878: resize (segmented_vector.h:147)
+       n1: 5857280 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 5857280 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 5849088 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 5849088 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 5849088 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 5849088 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 5849088 0x18A3C8: allocate (allocator.h:198)
+   n1: 5849088 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 5849088 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 5849088 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 5849088 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 5849088 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 5849088 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 5849088 0x1762D1: main (planner.cc:38)
+ n1: 5242892 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 5242892 0x18CB4A: allocate (allocator.h:198)
+   n1: 5242892 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 5242892 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 5242892 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 5242892 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 5242892 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 5242892 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 5242892 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 5242892 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 5242892 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 5242892 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 5242892 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 5242892 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 5242892 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 5242892 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 5242892 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 5242892 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 5242892 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 5242892 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 5242892 0x1762D1: main (planner.cc:38)
+ n1: 2932736 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 2932736 0x1B7E27: allocate (allocator.h:198)
+   n1: 2932736 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 2932736 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 2932736 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 2932736 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 2932736 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 2932736 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 2932736 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 2932736 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 2932736 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 2932736 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 2932736 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 2932736 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 2924544 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 2924544 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 2924544 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 1922048 0x2665A3: allocate (new_allocator.h:151)
+  n1: 1922048 0x2665A3: allocate (allocator.h:198)
+   n1: 1922048 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 1922048 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 1922048 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 1922048 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 1922048 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 1917440 0x2ABF3E: insert (open_list.h:151)
+         n1: 1917440 0x2ABF3E: insert (open_list.h:146)
+          n1: 1917440 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 1917440 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 1917440 0x1762D1: main (planner.cc:38)
+        n0: 4608 in 1 place, below massif's threshold (1.00%)
+ n0: 389615 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=19
+#-----------
+time=7214056866
+mem_heap_B=22886843
+mem_heap_extra_B=78869
+mem_stacks_B=0
+heap_tree=detailed
+n6: 22886843 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 6111232 0x1CA878: allocate (new_allocator.h:151)
+  n1: 6111232 0x1CA878: allocate (allocator.h:198)
+   n1: 6111232 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 6111232 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 6111232 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 6111232 0x1CA878: resize (segmented_vector.h:147)
+       n1: 6111232 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 6111232 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 6103040 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 6103040 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 6103040 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 6103040 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 6103040 0x18A3C8: allocate (allocator.h:198)
+   n1: 6103040 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 6103040 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 6103040 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 6103040 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 6103040 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 6103040 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 6103040 0x1762D1: main (planner.cc:38)
+ n1: 5242892 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 5242892 0x18CB4A: allocate (allocator.h:198)
+   n1: 5242892 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 5242892 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 5242892 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 5242892 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 5242892 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 5242892 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 5242892 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 5242892 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 5242892 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 5242892 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 5242892 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 5242892 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 5242892 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 5242892 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 5242892 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 5242892 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 5242892 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 5242892 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 5242892 0x1762D1: main (planner.cc:38)
+ n1: 3055616 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 3055616 0x1B7E27: allocate (allocator.h:198)
+   n1: 3055616 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 3055616 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 3055616 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 3055616 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 3055616 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 3055616 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 3055616 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 3055616 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 3055616 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 3055616 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 3055616 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 3055616 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 3047424 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 3047424 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 3047424 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 1993728 0x2665A3: allocate (new_allocator.h:151)
+  n1: 1993728 0x2665A3: allocate (allocator.h:198)
+   n1: 1993728 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 1993728 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 1993728 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 1993728 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 1993728 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 1991168 0x2ABF3E: insert (open_list.h:151)
+         n1: 1991168 0x2ABF3E: insert (open_list.h:146)
+          n1: 1991168 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 1991168 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 1991168 0x1762D1: main (planner.cc:38)
+        n0: 2560 in 1 place, below massif's threshold (1.00%)
+ n0: 380335 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=20
+#-----------
+time=7478103711
+mem_heap_B=23382523
+mem_heap_extra_B=79989
+mem_stacks_B=0
+heap_tree=detailed
+n6: 23382523 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 6291456 0x1CA878: allocate (new_allocator.h:151)
+  n1: 6291456 0x1CA878: allocate (allocator.h:198)
+   n1: 6291456 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 6291456 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 6291456 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 6291456 0x1CA878: resize (segmented_vector.h:147)
+       n1: 6291456 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 6291456 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 6283264 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 6283264 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 6283264 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 6283264 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 6283264 0x18A3C8: allocate (allocator.h:198)
+   n1: 6283264 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 6283264 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 6283264 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 6283264 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 6283264 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 6283264 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 6283264 0x1762D1: main (planner.cc:38)
+ n1: 5242892 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 5242892 0x18CB4A: allocate (allocator.h:198)
+   n1: 5242892 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 5242892 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 5242892 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 5242892 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 5242892 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 5242892 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 5242892 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 5242892 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 5242892 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 5242892 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 5242892 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 5242892 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 5242892 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 5242892 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 5242892 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 5242892 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 5242892 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 5242892 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 5242892 0x1762D1: main (planner.cc:38)
+ n1: 3145728 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 3145728 0x1B7E27: allocate (allocator.h:198)
+   n1: 3145728 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 3145728 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 3145728 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 3145728 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 3145728 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 3145728 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 3145728 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 3145728 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 3145728 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 3145728 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 3145728 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 3145728 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 3137536 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 3137536 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 3137536 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 2037248 0x2665A3: allocate (new_allocator.h:151)
+  n1: 2037248 0x2665A3: allocate (allocator.h:198)
+   n1: 2037248 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 2037248 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 2037248 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 2037248 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 2037248 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 2034688 0x2ABF3E: insert (open_list.h:151)
+         n1: 2034688 0x2ABF3E: insert (open_list.h:146)
+          n1: 2034688 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 2034688 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 2034688 0x1762D1: main (planner.cc:38)
+        n0: 2560 in 1 place, below massif's threshold (1.00%)
+ n0: 381935 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=21
+#-----------
+time=7975243744
+mem_heap_B=24381051
+mem_heap_extra_B=82341
+mem_stacks_B=0
+heap_tree=detailed
+n6: 24381051 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 6651904 0x1CA878: allocate (new_allocator.h:151)
+  n1: 6651904 0x1CA878: allocate (allocator.h:198)
+   n1: 6651904 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 6651904 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 6651904 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 6651904 0x1CA878: resize (segmented_vector.h:147)
+       n1: 6651904 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 6651904 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 6643712 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 6643712 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 6643712 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 6643712 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 6643712 0x18A3C8: allocate (allocator.h:198)
+   n1: 6643712 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 6643712 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 6643712 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 6643712 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 6643712 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 6643712 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 6643712 0x1762D1: main (planner.cc:38)
+ n1: 5242892 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 5242892 0x18CB4A: allocate (allocator.h:198)
+   n1: 5242892 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 5242892 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 5242892 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 5242892 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 5242892 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 5242892 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 5242892 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 5242892 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 5242892 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 5242892 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 5242892 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 5242892 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 5242892 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 5242892 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 5242892 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 5242892 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 5242892 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 5242892 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 5242892 0x1762D1: main (planner.cc:38)
+ n1: 3325952 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 3325952 0x1B7E27: allocate (allocator.h:198)
+   n1: 3325952 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 3325952 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 3325952 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 3325952 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 3325952 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 3325952 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 3325952 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 3325952 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 3325952 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 3325952 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 3325952 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 3325952 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 3317760 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 3317760 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 3317760 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 2131456 0x2665A3: allocate (new_allocator.h:151)
+  n1: 2131456 0x2665A3: allocate (allocator.h:198)
+   n1: 2131456 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 2131456 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 2131456 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 2131456 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 2131456 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 2128896 0x2ABF3E: insert (open_list.h:151)
+         n1: 2128896 0x2ABF3E: insert (open_list.h:146)
+          n1: 2128896 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 2128896 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 2128896 0x1762D1: main (planner.cc:38)
+        n0: 2560 in 1 place, below massif's threshold (1.00%)
+ n0: 385135 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=22
+#-----------
+time=8249630012
+mem_heap_B=25061923
+mem_heap_extra_B=83965
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=8646803418
+mem_heap_B=26105547
+mem_heap_extra_B=86781
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=9113171487
+mem_heap_B=31902755
+mem_heap_extra_B=87877
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=9609281165
+mem_heap_B=32899235
+mem_heap_extra_B=90197
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=10006174783
+mem_heap_B=33731747
+mem_heap_extra_B=92165
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=10303836335
+mem_heap_B=34456451
+mem_heap_extra_B=94149
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=10700719663
+mem_heap_B=35540427
+mem_heap_extra_B=97037
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=11196828385
+mem_heap_B=36313507
+mem_heap_extra_B=98541
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=11723002774
+mem_heap_B=37334643
+mem_heap_extra_B=100893
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=11936741881
+mem_heap_B=37744331
+mem_heap_extra_B=101973
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=12296666332
+mem_heap_B=38573819
+mem_heap_extra_B=103933
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=12783209720
+mem_heap_B=39897915
+mem_heap_extra_B=107549
+mem_stacks_B=0
+heap_tree=detailed
+n6: 39897915 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 10485772 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 10485772 0x18CB4A: allocate (allocator.h:198)
+   n1: 10485772 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 10485772 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 10485772 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 10485772 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 10485772 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 10485772 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 10485772 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 10485772 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 10485772 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 10485772 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 10485772 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 10485772 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 10485772 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 10485772 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 10485772 0x1762D1: main (planner.cc:38)
+ n1: 10305536 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 10305536 0x18A3C8: allocate (allocator.h:198)
+   n1: 10305536 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 10305536 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 10305536 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 10305536 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 10305536 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 10305536 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 10305536 0x1762D1: main (planner.cc:38)
+ n1: 10305536 0x1CA878: allocate (new_allocator.h:151)
+  n1: 10305536 0x1CA878: allocate (allocator.h:198)
+   n1: 10305536 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 10305536 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 10305536 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 10305536 0x1CA878: resize (segmented_vector.h:147)
+       n1: 10305536 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 10305536 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 10297344 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 10297344 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 10297344 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 5152768 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 5152768 0x1B7E27: allocate (allocator.h:198)
+   n1: 5152768 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 5152768 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 5152768 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 5152768 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 5152768 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 5152768 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 5152768 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 5152768 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 5152768 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 5152768 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 5152768 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 5152768 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 5144576 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 5144576 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 5144576 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 3183104 0x2665A3: allocate (new_allocator.h:151)
+  n1: 3183104 0x2665A3: allocate (allocator.h:198)
+   n1: 3183104 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 3183104 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 3183104 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 3183104 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 3183104 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 3180544 0x2ABF3E: insert (open_list.h:151)
+         n1: 3180544 0x2ABF3E: insert (open_list.h:146)
+          n1: 3180544 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 3180544 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 3180544 0x1762D1: main (planner.cc:38)
+        n0: 2560 in 1 place, below massif's threshold (1.00%)
+ n0: 465199 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=34
+#-----------
+time=13052525316
+mem_heap_B=40308043
+mem_heap_extra_B=108461
+mem_stacks_B=0
+heap_tree=detailed
+n6: 40308043 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 10485772 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 10485772 0x18CB4A: allocate (allocator.h:198)
+   n1: 10485772 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 10485772 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 10485772 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 10485772 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 10485772 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 10485772 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 10485772 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 10485772 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 10485772 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 10485772 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 10485772 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 10485772 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 10485772 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 10485772 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 10485772 0x1762D1: main (planner.cc:38)
+ n1: 10461184 0x1CA878: allocate (new_allocator.h:151)
+  n1: 10461184 0x1CA878: allocate (allocator.h:198)
+   n1: 10461184 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 10461184 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 10461184 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 10461184 0x1CA878: resize (segmented_vector.h:147)
+       n1: 10461184 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 10461184 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 10452992 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 10452992 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 10452992 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 10452992 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 10452992 0x18A3C8: allocate (allocator.h:198)
+   n1: 10452992 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 10452992 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 10452992 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 10452992 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 10452992 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 10452992 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 10452992 0x1762D1: main (planner.cc:38)
+ n1: 5234688 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 5234688 0x1B7E27: allocate (allocator.h:198)
+   n1: 5234688 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 5234688 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 5234688 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 5234688 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 5234688 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 5234688 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 5234688 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 5234688 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 5234688 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 5234688 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 5234688 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 5234688 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 5226496 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 5226496 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 5226496 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 3205632 0x2665A3: allocate (new_allocator.h:151)
+  n1: 3205632 0x2665A3: allocate (allocator.h:198)
+   n1: 3205632 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 3205632 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 3205632 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 3205632 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 3205632 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 3203072 0x2ABF3E: insert (open_list.h:151)
+         n1: 3203072 0x2ABF3E: insert (open_list.h:146)
+          n1: 3203072 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 3203072 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 3203072 0x1762D1: main (planner.cc:38)
+        n0: 2560 in 1 place, below massif's threshold (1.00%)
+ n0: 467775 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=35
+#-----------
+time=13577064283
+mem_heap_B=41120527
+mem_heap_extra_B=110017
+mem_stacks_B=0
+heap_tree=detailed
+n6: 41120527 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 10764288 0x1CA878: allocate (new_allocator.h:151)
+  n1: 10764288 0x1CA878: allocate (allocator.h:198)
+   n1: 10764288 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 10764288 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 10764288 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 10764288 0x1CA878: resize (segmented_vector.h:147)
+       n1: 10764288 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 10764288 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 10756096 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 10756096 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 10756096 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 10756096 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 10756096 0x18A3C8: allocate (allocator.h:198)
+   n1: 10756096 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 10756096 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 10756096 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 10756096 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 10756096 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 10756096 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 10756096 0x1762D1: main (planner.cc:38)
+ n1: 10485772 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 10485772 0x18CB4A: allocate (allocator.h:198)
+   n1: 10485772 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 10485772 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 10485772 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 10485772 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 10485772 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 10485772 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 10485772 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 10485772 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 10485772 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 10485772 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 10485772 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 10485772 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 10485772 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 10485772 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 10485772 0x1762D1: main (planner.cc:38)
+ n1: 5382144 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 5382144 0x1B7E27: allocate (allocator.h:198)
+   n1: 5382144 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 5382144 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 5382144 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 5382144 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 5382144 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 5382144 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 5382144 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 5382144 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 5382144 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 5382144 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 5382144 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 5382144 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 5373952 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 5373952 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 5373952 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 3261440 0x2665A3: allocate (new_allocator.h:151)
+  n1: 3261440 0x2665A3: allocate (allocator.h:198)
+   n1: 3261440 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 3261440 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 3261440 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 3261440 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 3261440 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 3258880 0x2ABF3E: insert (open_list.h:151)
+         n1: 3258880 0x2ABF3E: insert (open_list.h:146)
+          n1: 3258880 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 3258880 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 3258880 0x1762D1: main (planner.cc:38)
+        n0: 2560 in 1 place, below massif's threshold (1.00%)
+ n0: 470787 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=36
+#-----------
+time=14004268741
+mem_heap_B=41977243
+mem_heap_extra_B=112085
+mem_stacks_B=0
+heap_tree=detailed
+n6: 41977243 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 11075584 0x1CA878: allocate (new_allocator.h:151)
+  n1: 11075584 0x1CA878: allocate (allocator.h:198)
+   n1: 11075584 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 11075584 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 11075584 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 11075584 0x1CA878: resize (segmented_vector.h:147)
+       n1: 11075584 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 11075584 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 11067392 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 11067392 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 11067392 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 11067392 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 11067392 0x18A3C8: allocate (allocator.h:198)
+   n1: 11067392 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 11067392 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 11067392 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 11067392 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 11067392 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 11067392 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 11067392 0x1762D1: main (planner.cc:38)
+ n1: 10485772 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 10485772 0x18CB4A: allocate (allocator.h:198)
+   n1: 10485772 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 10485772 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 10485772 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 10485772 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 10485772 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 10485772 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 10485772 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 10485772 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 10485772 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 10485772 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 10485772 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 10485772 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 10485772 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 10485772 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 10485772 0x1762D1: main (planner.cc:38)
+ n1: 5537792 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 5537792 0x1B7E27: allocate (allocator.h:198)
+   n1: 5537792 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 5537792 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 5537792 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 5537792 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 5537792 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 5537792 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 5537792 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 5537792 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 5537792 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 5537792 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 5537792 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 5537792 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 5529600 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 5529600 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 5529600 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 3337728 0x2665A3: allocate (new_allocator.h:151)
+  n1: 3337728 0x2665A3: allocate (allocator.h:198)
+   n1: 3337728 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 3337728 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 3337728 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 3337728 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 3337728 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 3335168 0x2ABF3E: insert (open_list.h:151)
+         n1: 3335168 0x2ABF3E: insert (open_list.h:146)
+          n1: 3335168 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 3335168 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 3335168 0x1762D1: main (planner.cc:38)
+        n0: 2560 in 1 place, below massif's threshold (1.00%)
+ n0: 472975 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=37
+#-----------
+time=14463892799
+mem_heap_B=42833371
+mem_heap_extra_B=113997
+mem_stacks_B=0
+heap_tree=detailed
+n6: 42833371 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 11386880 0x1CA878: allocate (new_allocator.h:151)
+  n1: 11386880 0x1CA878: allocate (allocator.h:198)
+   n1: 11386880 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 11386880 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 11386880 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 11386880 0x1CA878: resize (segmented_vector.h:147)
+       n1: 11386880 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 11386880 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 11378688 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 11378688 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 11378688 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 11378688 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 11378688 0x18A3C8: allocate (allocator.h:198)
+   n1: 11378688 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 11378688 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 11378688 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 11378688 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 11378688 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 11378688 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 11378688 0x1762D1: main (planner.cc:38)
+ n1: 10485772 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 10485772 0x18CB4A: allocate (allocator.h:198)
+   n1: 10485772 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 10485772 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 10485772 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 10485772 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 10485772 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 10485772 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 10485772 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 10485772 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 10485772 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 10485772 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 10485772 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 10485772 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 10485772 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 10485772 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 10485772 0x1762D1: main (planner.cc:38)
+ n1: 5693440 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 5693440 0x1B7E27: allocate (allocator.h:198)
+   n1: 5693440 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 5693440 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 5693440 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 5693440 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 5693440 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 5693440 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 5693440 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 5693440 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 5693440 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 5693440 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 5693440 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 5693440 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 5685248 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 5685248 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 5685248 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 3410432 0x2665A3: allocate (new_allocator.h:151)
+  n1: 3410432 0x2665A3: allocate (allocator.h:198)
+   n1: 3410432 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 3410432 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 3410432 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 3410432 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 3410432 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 3406848 0x2ABF3E: insert (open_list.h:151)
+         n1: 3406848 0x2ABF3E: insert (open_list.h:146)
+          n1: 3406848 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 3406848 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 3406848 0x1762D1: main (planner.cc:38)
+        n0: 3584 in 1 place, below massif's threshold (1.00%)
+ n0: 478159 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=38
+#-----------
+time=15035806732
+mem_heap_B=44154779
+mem_heap_extra_B=117309
+mem_stacks_B=0
+heap_tree=detailed
+n6: 44154779 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 11853824 0x1CA878: allocate (new_allocator.h:151)
+  n1: 11853824 0x1CA878: allocate (allocator.h:198)
+   n1: 11853824 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 11853824 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 11853824 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 11853824 0x1CA878: resize (segmented_vector.h:147)
+       n1: 11853824 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 11853824 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 11845632 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 11845632 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 11845632 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 11845632 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 11845632 0x18A3C8: allocate (allocator.h:198)
+   n1: 11845632 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 11845632 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 11845632 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 11845632 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 11845632 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 11845632 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 11845632 0x1762D1: main (planner.cc:38)
+ n1: 10485772 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 10485772 0x18CB4A: allocate (allocator.h:198)
+   n1: 10485772 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 10485772 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 10485772 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 10485772 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 10485772 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 10485772 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 10485772 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 10485772 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 10485772 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 10485772 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 10485772 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 10485772 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 10485772 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 10485772 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 10485772 0x1762D1: main (planner.cc:38)
+ n1: 5931008 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 5931008 0x1B7E27: allocate (allocator.h:198)
+   n1: 5931008 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 5931008 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 5931008 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 5931008 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 5931008 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 5931008 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 5931008 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 5931008 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 5931008 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 5931008 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 5931008 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 5931008 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 5922816 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 5922816 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 5922816 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 3550208 0x2665A3: allocate (new_allocator.h:151)
+  n1: 3550208 0x2665A3: allocate (allocator.h:198)
+   n1: 3550208 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 3550208 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 3550208 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 3550208 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 3550208 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 3546624 0x2ABF3E: insert (open_list.h:151)
+         n1: 3546624 0x2ABF3E: insert (open_list.h:146)
+          n1: 3546624 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 3546624 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 3546624 0x1762D1: main (planner.cc:38)
+        n0: 3584 in 1 place, below massif's threshold (1.00%)
+ n0: 488335 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=39
+#-----------
+time=15544941758
+mem_heap_B=45434219
+mem_heap_extra_B=120637
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=15962022462
+mem_heap_B=45976651
+mem_heap_extra_B=121501
+mem_stacks_B=0
+heap_tree=detailed
+n6: 45976651 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 12517376 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 12517376 0x18A3C8: allocate (allocator.h:198)
+   n1: 12517376 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 12517376 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 12517376 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 12517376 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 12517376 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 12517376 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 12517376 0x1762D1: main (planner.cc:38)
+ n1: 12517376 0x1CA878: allocate (new_allocator.h:151)
+  n1: 12517376 0x1CA878: allocate (allocator.h:198)
+   n1: 12517376 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 12517376 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 12517376 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 12517376 0x1CA878: resize (segmented_vector.h:147)
+       n1: 12517376 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 12517376 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 12509184 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 12509184 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 12509184 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 10485772 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 10485772 0x18CB4A: allocate (allocator.h:198)
+   n1: 10485772 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 10485772 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 10485772 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 10485772 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 10485772 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 10485772 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 10485772 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 10485772 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 10485772 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 10485772 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 10485772 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 10485772 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 10485772 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 10485772 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 10485772 0x1762D1: main (planner.cc:38)
+ n1: 6258688 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 6258688 0x1B7E27: allocate (allocator.h:198)
+   n1: 6258688 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 6258688 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 6258688 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 6258688 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 6258688 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 6258688 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 6258688 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 6258688 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 6258688 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 6258688 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 6258688 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 6258688 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 6250496 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 6250496 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 6250496 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 3726336 0x2665A3: allocate (new_allocator.h:151)
+  n1: 3726336 0x2665A3: allocate (allocator.h:198)
+   n1: 3726336 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 3726336 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 3726336 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 3726336 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 3726336 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 3724288 0x2ABF3E: insert (open_list.h:151)
+         n1: 3724288 0x2ABF3E: insert (open_list.h:146)
+          n1: 3724288 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 3724288 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 3724288 0x1762D1: main (planner.cc:38)
+        n0: 2048 in 1 place, below massif's threshold (1.00%)
+ n0: 471103 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=41
+#-----------
+time=16246179939
+mem_heap_B=46436571
+mem_heap_extra_B=122637
+mem_stacks_B=0
+heap_tree=detailed
+n6: 46436571 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 12689408 0x1CA878: allocate (new_allocator.h:151)
+  n1: 12689408 0x1CA878: allocate (allocator.h:198)
+   n1: 12689408 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 12689408 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 12689408 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 12689408 0x1CA878: resize (segmented_vector.h:147)
+       n1: 12689408 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 12689408 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 12681216 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 12681216 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 12681216 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 12681216 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 12681216 0x18A3C8: allocate (allocator.h:198)
+   n1: 12681216 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 12681216 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 12681216 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 12681216 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 12681216 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 12681216 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 12681216 0x1762D1: main (planner.cc:38)
+ n1: 10485772 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 10485772 0x18CB4A: allocate (allocator.h:198)
+   n1: 10485772 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 10485772 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 10485772 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 10485772 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 10485772 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 10485772 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 10485772 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 10485772 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 10485772 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 10485772 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 10485772 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 10485772 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 10485772 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 10485772 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 10485772 0x1762D1: main (planner.cc:38)
+ n1: 6348800 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 6348800 0x1B7E27: allocate (allocator.h:198)
+   n1: 6348800 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 6348800 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 6348800 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 6348800 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 6348800 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 6348800 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 6348800 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 6348800 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 6348800 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 6348800 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 6348800 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 6348800 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 6340608 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 6340608 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 6340608 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 3759616 0x2665A3: allocate (new_allocator.h:151)
+  n1: 3759616 0x2665A3: allocate (allocator.h:198)
+   n1: 3759616 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 3759616 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 3759616 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 3759616 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 3759616 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 3757568 0x2ABF3E: insert (open_list.h:151)
+         n1: 3757568 0x2ABF3E: insert (open_list.h:146)
+          n1: 3757568 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 3757568 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 3757568 0x1762D1: main (planner.cc:38)
+        n0: 2048 in 1 place, below massif's threshold (1.00%)
+ n0: 471759 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=42
+#-----------
+time=16665615587
+mem_heap_B=47216331
+mem_heap_extra_B=124165
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=17013196676
+mem_heap_B=47872619
+mem_heap_extra_B=125829
+mem_stacks_B=0
+heap_tree=detailed
+n6: 47872619 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 13213696 0x1CA878: allocate (new_allocator.h:151)
+  n1: 13213696 0x1CA878: allocate (allocator.h:198)
+   n1: 13213696 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 13213696 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 13213696 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 13213696 0x1CA878: resize (segmented_vector.h:147)
+       n1: 13213696 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 13213696 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 13205504 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 13205504 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 13205504 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 13205504 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 13205504 0x18A3C8: allocate (allocator.h:198)
+   n1: 13205504 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 13205504 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 13205504 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 13205504 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 13205504 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 13205504 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 13205504 0x1762D1: main (planner.cc:38)
+ n1: 10485772 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 10485772 0x18CB4A: allocate (allocator.h:198)
+   n1: 10485772 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 10485772 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 10485772 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 10485772 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 10485772 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 10485772 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 10485772 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 10485772 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 10485772 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 10485772 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 10485772 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 10485772 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 10485772 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 10485772 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 10485772 0x1762D1: main (planner.cc:38)
+ n1: 6610944 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 6610944 0x1B7E27: allocate (allocator.h:198)
+   n1: 6610944 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 6610944 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 6610944 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 6610944 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 6610944 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 6610944 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 6610944 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 6610944 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 6610944 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 6610944 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 6610944 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 6610944 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 6602752 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 6602752 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 6602752 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 3877888 0x2665A3: allocate (new_allocator.h:151)
+  n1: 3877888 0x2665A3: allocate (allocator.h:198)
+   n1: 3877888 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 3877888 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 3877888 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 3877888 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 3877888 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 3875328 0x2ABF3E: insert (open_list.h:151)
+         n1: 3875328 0x2ABF3E: insert (open_list.h:146)
+          n1: 3875328 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 3875328 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 3875328 0x1762D1: main (planner.cc:38)
+        n0: 2560 in 1 place, below massif's threshold (1.00%)
+ n0: 478815 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=44
+#-----------
+time=17521257571
+mem_heap_B=48860779
+mem_heap_extra_B=128069
+mem_stacks_B=0
+heap_tree=detailed
+n6: 48860779 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 13574144 0x1CA878: allocate (new_allocator.h:151)
+  n1: 13574144 0x1CA878: allocate (allocator.h:198)
+   n1: 13574144 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 13574144 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 13574144 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 13574144 0x1CA878: resize (segmented_vector.h:147)
+       n1: 13574144 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 13574144 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 13565952 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 13565952 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 13565952 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 13565952 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 13565952 0x18A3C8: allocate (allocator.h:198)
+   n1: 13565952 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 13565952 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 13565952 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 13565952 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 13565952 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 13565952 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 13565952 0x1762D1: main (planner.cc:38)
+ n1: 10485772 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 10485772 0x18CB4A: allocate (allocator.h:198)
+   n1: 10485772 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 10485772 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 10485772 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 10485772 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 10485772 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 10485772 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 10485772 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 10485772 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 10485772 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 10485772 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 10485772 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 10485772 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 10485772 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 10485772 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 10485772 0x1762D1: main (planner.cc:38)
+ n1: 6791168 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 6791168 0x1B7E27: allocate (allocator.h:198)
+   n1: 6791168 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 6791168 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 6791168 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 6791168 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 6791168 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 6791168 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 6791168 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 6791168 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 6791168 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 6791168 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 6791168 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 6791168 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 6782976 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 6782976 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 6782976 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 3964928 0x2665A3: allocate (new_allocator.h:151)
+  n1: 3964928 0x2665A3: allocate (allocator.h:198)
+   n1: 3964928 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 3964928 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 3964928 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 3964928 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 3964928 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 3962368 0x2ABF3E: insert (open_list.h:151)
+         n1: 3962368 0x2ABF3E: insert (open_list.h:146)
+          n1: 3962368 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 3962368 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 3962368 0x1762D1: main (planner.cc:38)
+        n0: 2560 in 1 place, below massif's threshold (1.00%)
+ n0: 478815 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=45
+#-----------
+time=17893010077
+mem_heap_B=49746451
+mem_heap_extra_B=130189
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=18309084485
+mem_heap_B=50889323
+mem_heap_extra_B=133525
+mem_stacks_B=0
+heap_tree=detailed
+n6: 50889323 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 14286848 0x1CA878: allocate (new_allocator.h:151)
+  n1: 14286848 0x1CA878: allocate (allocator.h:198)
+   n1: 14286848 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 14286848 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 14286848 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 14286848 0x1CA878: resize (segmented_vector.h:147)
+       n1: 14286848 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 14286848 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 14278656 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 14278656 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 14278656 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 14278656 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 14278656 0x18A3C8: allocate (allocator.h:198)
+   n1: 14278656 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 14278656 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 14278656 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 14278656 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 14278656 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 14278656 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 14278656 0x1762D1: main (planner.cc:38)
+ n1: 10485772 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 10485772 0x18CB4A: allocate (allocator.h:198)
+   n1: 10485772 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 10485772 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 10485772 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 10485772 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 10485772 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 10485772 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 10485772 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 10485772 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 10485772 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 10485772 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 10485772 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 10485772 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 10485772 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 10485772 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 10485772 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 10485772 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 10485772 0x1762D1: main (planner.cc:38)
+ n1: 7143424 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 7143424 0x1B7E27: allocate (allocator.h:198)
+   n1: 7143424 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 7143424 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 7143424 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 7143424 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 7143424 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 7143424 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 7143424 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 7143424 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 7143424 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 7143424 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 7143424 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 7143424 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 7135232 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 7135232 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 7135232 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 4203008 0x2665A3: allocate (new_allocator.h:151)
+  n1: 4203008 0x2665A3: allocate (allocator.h:198)
+   n1: 4203008 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 4203008 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 4203008 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 4203008 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 4203008 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 4199424 0x2ABF3E: insert (open_list.h:151)
+         n1: 4199424 0x2ABF3E: insert (open_list.h:146)
+          n1: 4199424 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 4199424 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 4199424 0x1762D1: main (planner.cc:38)
+        n0: 3584 in 1 place, below massif's threshold (1.00%)
+ n0: 491615 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=47
+#-----------
+time=18667066955
+mem_heap_B=51342383
+mem_heap_extra_B=134265
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=19063998548
+mem_heap_B=51884187
+mem_heap_extra_B=134989
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=19296919952
+mem_heap_B=72880359
+mem_heap_extra_B=139049
+mem_stacks_B=0
+heap_tree=detailed
+n6: 72880359 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 31457304 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 31457304 0x18CB4A: allocate (allocator.h:198)
+   n1: 31457304 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 31457304 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 31457304 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 31457304 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 31457304 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 31457304 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 31457304 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 31457304 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 31457304 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 31457304 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 31457304 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 31457304 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 31457304 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 31457304 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 31457304 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 31457304 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 31457304 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 31457304 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 31457304 0x1762D1: main (planner.cc:38)
+ n1: 14680064 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 14680064 0x18A3C8: allocate (allocator.h:198)
+   n1: 14680064 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 14680064 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 14680064 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 14680064 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 14680064 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 14680064 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 14680064 0x1762D1: main (planner.cc:38)
+ n1: 14680064 0x1CA878: allocate (new_allocator.h:151)
+  n1: 14680064 0x1CA878: allocate (allocator.h:198)
+   n1: 14680064 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 14680064 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 14680064 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 14680064 0x1CA878: resize (segmented_vector.h:147)
+       n1: 14680064 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 14680064 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 14671872 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 14671872 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 14671872 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 7340032 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 7340032 0x1B7E27: allocate (allocator.h:198)
+   n1: 7340032 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 7340032 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 7340032 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 7340032 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 7340032 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 7340032 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 7340032 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 7340032 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 7340032 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 7340032 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 7340032 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 7340032 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 7331840 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 7331840 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 7331840 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 4248576 0x2665A3: allocate (new_allocator.h:151)
+  n1: 4248576 0x2665A3: allocate (allocator.h:198)
+   n1: 4248576 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 4248576 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 4248576 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 4248576 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 4248576 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 4246016 0x2ABF3E: insert (open_list.h:151)
+         n1: 4246016 0x2ABF3E: insert (open_list.h:146)
+          n1: 4246016 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 4246016 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 4246016 0x1762D1: main (planner.cc:38)
+        n0: 2560 in 1 place, below massif's threshold (1.00%)
+ n0: 474319 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=50
+#-----------
+time=19510664011
+mem_heap_B=62737427
+mem_heap_extra_B=135693
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=19724403490
+mem_heap_B=63142395
+mem_heap_extra_B=136613
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=19938145509
+mem_heap_B=63532563
+mem_heap_extra_B=137477
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=20151886567
+mem_heap_B=63955683
+mem_heap_extra_B=138501
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=20365625687
+mem_heap_B=64340995
+mem_heap_extra_B=139437
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=20579364868
+mem_heap_B=64695423
+mem_heap_extra_B=140185
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=20793112338
+mem_heap_B=65116267
+mem_heap_extra_B=140989
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=21006851473
+mem_heap_B=65531155
+mem_heap_extra_B=141933
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=21220590672
+mem_heap_B=66069615
+mem_heap_extra_B=143385
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=21434331459
+mem_heap_B=66541795
+mem_heap_extra_B=144525
+mem_stacks_B=0
+heap_tree=detailed
+n6: 66541795 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 20971532 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 20971532 0x18CB4A: allocate (allocator.h:198)
+   n1: 20971532 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 20971532 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 20971532 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 20971532 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 20971532 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 20971532 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 20971532 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 20971532 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 20971532 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 20971532 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 20971532 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 20971532 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 20971532 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 20971532 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 20971532 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 20971532 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 20971532 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 20971532 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 20971532 0x1762D1: main (planner.cc:38)
+ n1: 16187392 0x1CA878: allocate (new_allocator.h:151)
+  n1: 16187392 0x1CA878: allocate (allocator.h:198)
+   n1: 16187392 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 16187392 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 16187392 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 16187392 0x1CA878: resize (segmented_vector.h:147)
+       n1: 16187392 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 16187392 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 16179200 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 16179200 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 16179200 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 16179200 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 16179200 0x18A3C8: allocate (allocator.h:198)
+   n1: 16179200 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 16179200 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 16179200 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 16179200 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 16179200 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 16179200 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 16179200 0x1762D1: main (planner.cc:38)
+ n1: 8093696 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 8093696 0x1B7E27: allocate (allocator.h:198)
+   n1: 8093696 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 8093696 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 8093696 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 8093696 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 8093696 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 8093696 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 8093696 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 8093696 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 8093696 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 8093696 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 8093696 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 8093696 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 8085504 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 8085504 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 8085504 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 4615680 0x2665A3: allocate (new_allocator.h:151)
+  n1: 4615680 0x2665A3: allocate (allocator.h:198)
+   n1: 4615680 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 4615680 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 4615680 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 4615680 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 4615680 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 4612096 0x2ABF3E: insert (open_list.h:151)
+         n1: 4612096 0x2ABF3E: insert (open_list.h:146)
+          n1: 4612096 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 4612096 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 4612096 0x1762D1: main (planner.cc:38)
+        n0: 3584 in 1 place, below massif's threshold (1.00%)
+ n0: 494295 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=60
+#-----------
+time=21648073936
+mem_heap_B=67049067
+mem_heap_extra_B=145813
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=21861813093
+mem_heap_B=67688063
+mem_heap_extra_B=147769
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=22075554054
+mem_heap_B=68073267
+mem_heap_extra_B=148613
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=22289299416
+mem_heap_B=68341603
+mem_heap_extra_B=148861
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=22503042249
+mem_heap_B=68643691
+mem_heap_extra_B=149349
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=22716781423
+mem_heap_B=68923275
+mem_heap_extra_B=149805
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=22930526942
+mem_heap_B=69224163
+mem_heap_extra_B=150261
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=23144274401
+mem_heap_B=69604579
+mem_heap_extra_B=151085
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=68
+#-----------
+time=23358014595
+mem_heap_B=70006891
+mem_heap_extra_B=151949
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=69
+#-----------
+time=23571754089
+mem_heap_B=70392635
+mem_heap_extra_B=152885
+mem_stacks_B=0
+heap_tree=detailed
+n6: 70392635 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 20971532 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 20971532 0x18CB4A: allocate (allocator.h:198)
+   n1: 20971532 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 20971532 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 20971532 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 20971532 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 20971532 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 20971532 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 20971532 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 20971532 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 20971532 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 20971532 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 20971532 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 20971532 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 20971532 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 20971532 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 20971532 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 20971532 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 20971532 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 20971532 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 20971532 0x1762D1: main (planner.cc:38)
+ n1: 17588224 0x1CA878: allocate (new_allocator.h:151)
+  n1: 17588224 0x1CA878: allocate (allocator.h:198)
+   n1: 17588224 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 17588224 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 17588224 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 17588224 0x1CA878: resize (segmented_vector.h:147)
+       n1: 17588224 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 17588224 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 17580032 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 17580032 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 17580032 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 17580032 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 17580032 0x18A3C8: allocate (allocator.h:198)
+   n1: 17580032 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 17580032 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 17580032 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 17580032 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 17580032 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 17580032 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 17580032 0x1762D1: main (planner.cc:38)
+ n1: 8798208 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 8798208 0x1B7E27: allocate (allocator.h:198)
+   n1: 8798208 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 8798208 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 8798208 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 8798208 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 8798208 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 8798208 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 8798208 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 8798208 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 8798208 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 8798208 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 8798208 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 8798208 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 8790016 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 8790016 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 8790016 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 4929024 0x2665A3: allocate (new_allocator.h:151)
+  n1: 4929024 0x2665A3: allocate (allocator.h:198)
+   n1: 4929024 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 4929024 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 4929024 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 4929024 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 4929024 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 4926464 0x2ABF3E: insert (open_list.h:151)
+         n1: 4926464 0x2ABF3E: insert (open_list.h:146)
+          n1: 4926464 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 4926464 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 4926464 0x1762D1: main (planner.cc:38)
+        n0: 2560 in 1 place, below massif's threshold (1.00%)
+ n0: 525615 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=70
+#-----------
+time=23785493249
+mem_heap_B=70818443
+mem_heap_extra_B=153925
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=71
+#-----------
+time=23999233338
+mem_heap_B=71151419
+mem_heap_extra_B=154501
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=72
+#-----------
+time=24212974976
+mem_heap_B=71493043
+mem_heap_extra_B=155101
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=73
+#-----------
+time=24426714204
+mem_heap_B=71905083
+mem_heap_extra_B=155957
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=74
+#-----------
+time=24640454014
+mem_heap_B=72307023
+mem_heap_extra_B=156985
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=75
+#-----------
+time=24854193200
+mem_heap_B=72843595
+mem_heap_extra_B=158269
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=76
+#-----------
+time=25067932379
+mem_heap_B=73301515
+mem_heap_extra_B=159613
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=77
+#-----------
+time=25192820491
+mem_heap_B=73591819
+mem_heap_extra_B=160309
+mem_stacks_B=0
+heap_tree=detailed
+n6: 73591819 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 20971532 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 20971532 0x18CB4A: allocate (allocator.h:198)
+   n1: 20971532 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 20971532 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 20971532 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 20971532 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 20971532 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 20971532 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 20971532 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 20971532 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 20971532 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 20971532 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 20971532 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 20971532 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 20971532 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 20971532 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 20971532 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 20971532 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 20971532 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 20971532 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 20971532 0x1762D1: main (planner.cc:38)
+ n1: 18743296 0x1CA878: allocate (new_allocator.h:151)
+  n1: 18743296 0x1CA878: allocate (allocator.h:198)
+   n1: 18743296 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 18743296 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 18743296 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 18743296 0x1CA878: resize (segmented_vector.h:147)
+       n1: 18743296 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 18743296 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 18735104 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 18735104 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 18735104 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 18735104 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 18735104 0x18A3C8: allocate (allocator.h:198)
+   n1: 18735104 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 18735104 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 18735104 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 18735104 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 18735104 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 18735104 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 18735104 0x1762D1: main (planner.cc:38)
+ n1: 9371648 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 9371648 0x1B7E27: allocate (allocator.h:198)
+   n1: 9371648 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 9371648 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 9371648 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 9371648 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 9371648 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 9371648 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 9371648 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 9371648 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 9371648 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 9371648 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 9371648 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 9371648 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 9363456 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 9363456 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 9363456 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 5210624 0x2665A3: allocate (new_allocator.h:151)
+  n1: 5210624 0x2665A3: allocate (allocator.h:198)
+   n1: 5210624 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 5210624 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 5210624 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 5210624 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 5210624 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 5207552 0x2ABF3E: insert (open_list.h:151)
+         n1: 5207552 0x2ABF3E: insert (open_list.h:146)
+          n1: 5207552 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 5207552 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 5207552 0x1762D1: main (planner.cc:38)
+        n0: 3072 in 1 place, below massif's threshold (1.00%)
+ n0: 559615 in 1465 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=78
+#-----------
+time=25406563220
+mem_heap_B=74100659
+mem_heap_extra_B=161485
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=79
+#-----------
+time=25483949434
+mem_heap_B=74333195
+mem_heap_extra_B=162293
+mem_stacks_B=0
+heap_tree=peak
+n6: 74333195 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 20971532 0x18CB4A: allocate (new_allocator.h:151)
+  n1: 20971532 0x18CB4A: allocate (allocator.h:198)
+   n1: 20971532 0x18CB4A: allocate (alloc_traits.h:482)
+    n1: 20971532 0x18CB4A: Allocate<4, std::allocator<int> > (gtl_base.hpp:908)
+     n1: 20971532 0x18CB4A: initialize_slots (phmap.hpp:2641)
+      n1: 20971532 0x18CB4A: resize (phmap.hpp:2677)
+       n1: 20971532 0x18CB4A: rehash_and_grow_if_necessary (phmap.hpp:2769)
+        n1: 20971532 0x18CB4A: gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::prepare_insert(unsigned long) (phmap.hpp:2877)
+         n1: 20971532 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2548)
+          n1: 20971532 0x1893AA: emplace_decomposable<int, int const&> (phmap.hpp:2545)
+           n1: 20971532 0x1893AA: operator()<int, int const&> (phmap.hpp:2559)
+            n1: 20971532 0x1893AA: DecomposeValue<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1254)
+             n1: 20971532 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:4760)
+              n1: 20971532 0x1893AA: apply<gtl::priv::raw_hash_set<gtl::priv::FlatHashSetPolicy<int>, PackedStateRegistry::StateIDSemanticHash, PackedStateRegistry::StateIDSemanticEqual, std::allocator<int> >::EmplaceDecomposable, int const&> (phmap.hpp:1386)
+               n1: 20971532 0x1893AA: emplace<int const&> (phmap.hpp:2072)
+                n1: 20971532 0x1893AA: insert<int> (phmap.hpp:1960)
+                 n1: 20971532 0x1893AA: PackedStateRegistry::insert_id_or_pop_state() (packed.cc:45)
+                  n1: 20971532 0x189F5F: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:124)
+                   n1: 20971532 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+                    n1: 20971532 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                     n0: 20971532 0x1762D1: main (planner.cc:38)
+ n1: 19005440 0x1CA878: allocate (new_allocator.h:151)
+  n1: 19005440 0x1CA878: allocate (allocator.h:198)
+   n1: 19005440 0x1CA878: allocate (alloc_traits.h:482)
+    n1: 19005440 0x1CA878: add_segment (segmented_vector.h:77)
+     n1: 19005440 0x1CA878: push_back (segmented_vector.h:126)
+      n1: 19005440 0x1CA878: resize (segmented_vector.h:147)
+       n1: 19005440 0x1CA878: operator[] (per_state_information.h:131)
+        n2: 19005440 0x1CA878: SearchSpace::get_node(State const&) (search_space.cc:118)
+         n1: 18997248 0x2ABE1A: eager_search::EagerSearch::step() (eager_search.cc:207)
+          n1: 18997248 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+           n0: 18997248 0x1762D1: main (planner.cc:38)
+         n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 18997248 0x18A3C8: allocate (new_allocator.h:151)
+  n1: 18997248 0x18A3C8: allocate (allocator.h:198)
+   n1: 18997248 0x18A3C8: allocate (alloc_traits.h:482)
+    n1: 18997248 0x18A3C8: add_segment (segmented_vector.h:176)
+     n1: 18997248 0x18A3C8: push_back (segmented_vector.h:243)
+      n1: 18997248 0x18A3C8: PackedStateRegistry::get_successor_state(State const&, OperatorProxy const&) (packed.cc:93)
+       n1: 18997248 0x2ABDBF: eager_search::EagerSearch::step() (eager_search.cc:203)
+        n1: 18997248 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+         n0: 18997248 0x1762D1: main (planner.cc:38)
+ n1: 9502720 0x1B7E27: allocate (new_allocator.h:151)
+  n1: 9502720 0x1B7E27: allocate (allocator.h:198)
+   n1: 9502720 0x1B7E27: allocate (alloc_traits.h:482)
+    n1: 9502720 0x1B7E27: add_segment (segmented_vector.h:77)
+     n1: 9502720 0x1B7E27: push_back (segmented_vector.h:126)
+      n1: 9502720 0x1B7E27: resize (segmented_vector.h:147)
+       n1: 9502720 0x1B7E27: PerStateInformation<Heuristic::HEntry>::operator[](State const&) (per_state_information.h:131)
+        n1: 9502720 0x1B3F21: Heuristic::compute_result(EvaluationContext&) (heuristic.cc:70)
+         n1: 9502720 0x1ACF99: EvaluationContext::get_evaluator_value_or_infinity(Evaluator*) (evaluation_context.cc:86)
+          n1: 9502720 0x279893: combining_evaluator::CombiningEvaluator::compute_result(EvaluationContext&) (combining_evaluator.cc:37)
+           n1: 9502720 0x1ACD79: get_result (evaluation_context.cc:48)
+            n1: 9502720 0x1ACD79: EvaluationContext::is_evaluator_value_infinite(Evaluator*) (evaluation_context.cc:77)
+             n1: 9502720 0x26A7DA: is_reliable_dead_end (tiebreaking_open_list.cc:136)
+              n2: 9502720 0x26A7DA: tiebreaking_open_list::TieBreakingOpenList<StateID>::is_dead_end(EvaluationContext&) const (tiebreaking_open_list.cc:118)
+               n1: 9494528 0x2ABED0: eager_search::EagerSearch::step() (eager_search.cc:232)
+                n1: 9494528 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+                 n0: 9494528 0x1762D1: main (planner.cc:38)
+               n0: 8192 in 1 place, below massif's threshold (1.00%)
+ n1: 5296640 0x2665A3: allocate (new_allocator.h:151)
+  n1: 5296640 0x2665A3: allocate (allocator.h:198)
+   n1: 5296640 0x2665A3: allocate (alloc_traits.h:482)
+    n1: 5296640 0x2665A3: _M_allocate_node (stl_deque.h:583)
+     n1: 5296640 0x2665A3: void std::deque<StateID, std::allocator<StateID> >::_M_push_back_aux<StateID const&>(StateID const&) (deque.tcc:497)
+      n1: 5296640 0x26E1BC: push_back (stl_deque.h:1548)
+       n2: 5296640 0x26E1BC: tiebreaking_open_list::TieBreakingOpenList<StateID>::do_insertion(EvaluationContext&, StateID const&) (tiebreaking_open_list.cc:71)
+        n1: 5293568 0x2ABF3E: insert (open_list.h:151)
+         n1: 5293568 0x2ABF3E: insert (open_list.h:146)
+          n1: 5293568 0x2ABF3E: eager_search::EagerSearch::step() (eager_search.cc:239)
+           n1: 5293568 0x1BEE28: SearchAlgorithm::search() (search_algorithm.cc:122)
+            n0: 5293568 0x1762D1: main (planner.cc:38)
+        n0: 3072 in 1 place, below massif's threshold (1.00%)
+ n0: 559615 in 1465 places, all below massif's threshold (1.00%)

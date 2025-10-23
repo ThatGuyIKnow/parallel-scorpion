@@ -117,7 +117,7 @@ class DTDB_S_PackedStateRegistry :
 
     valla::IndexedHashSet<valla::Slot<PackedStateBin>, PackedStateBin> tree_table;
     gtl::parallel_flat_hash_map<PackedStateBin, PackedStateBin> root_forward;
-    std::vector<PackedStateBin> root_backward;
+    segmented_vector::SegmentedVector<PackedStateBin> root_backward;
 
     const int_packer::IntPacker &state_packer;
     AxiomEvaluator &axiom_evaluator;
