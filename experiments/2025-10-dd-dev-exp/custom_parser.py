@@ -51,6 +51,14 @@ class CommonParser(Parser):
 
         self.add_function(search_from_bottom, file=file)
 
+def assign_memory_errors(content, props):
+    mem_err_codes = [
+        f"exitcode-{code}" for code in [250, ]
+    ]
+    if "error" not in props:
+        return
+    if props["error"] in mem_err_codes:
+        props["error"] = "search-out-of-memory"
 
 def get_parser():
     parser = CommonParser()
@@ -86,5 +94,7 @@ def get_parser():
     )
 
     parser.add_function(retrieve_avg_num_var)
+    parser.add_function(assign_memory_errors)
+
     return parser
 
