@@ -52,13 +52,10 @@ class CommonParser(Parser):
         self.add_function(search_from_bottom, file=file)
 
 def assign_memory_errors(content, props):
-    mem_err_codes = [
-        f"exitcode-{code}" for code in [250, ]
-    ]
-    if "error" not in props:
-        return
-    if props["error"] in mem_err_codes:
+    mem_err_codes = ["250", ]
+    if "planner_exit_code" in mem_err_codes:
         props["error"] = "search-out-of-memory"
+        props["unexplained_errors"] = []
 
 def get_parser():
     parser = CommonParser()
