@@ -394,9 +394,12 @@ SUITE_IPC_LEARNING = [
     'floortile_ipc2023_learning',
     'spanner_ipc2023_learning',
     'ferry_ipc2023_learning'
-] 
+]
 
-
+SUITE_CNOT = [
+    'cnot-synthesis-lifted',
+    'cnot-synthesis-lifted-hard',
+    'cnot-synthesis-lifted-map']
 
 
 SUITE_ABSTRACT_CONDITIONAL = [

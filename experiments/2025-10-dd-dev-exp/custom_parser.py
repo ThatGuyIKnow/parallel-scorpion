@@ -62,7 +62,7 @@ def get_parser():
     parser.add_function(add_planner_memory_score)
     parser.add_pattern(
         "state_set_size",
-        r"\[t=.+s, \d+ KB\] State set destroyed, size: (\d+) entries",
+        r"\[t=.+s, \d+ KB\] State size in bytes: (\d+)",
         type=int)
     parser.add_pattern(
         "size_per_entry",
@@ -87,6 +87,11 @@ def get_parser():
     parser.add_pattern(
         "memory_error",
         r"(Failed to allocate memory)",
+        type=bool,
+    )
+    parser.add_pattern(
+        "packed_variables",
+        r"Affinity-based packing complete: (\d+) bins used",
         type=bool,
     )
 
