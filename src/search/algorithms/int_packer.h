@@ -3,6 +3,9 @@
 
 #include <vector>
 
+class AbstractTask;
+class TaskProxy;
+
 /*
   Utility class to pack lots of unsigned integers (called "variables"
   in the code below) with a small domain {0, ..., range - 1}
@@ -23,10 +26,13 @@ class IntPacker {
 
     std::vector<VariableInfo> var_infos;
     int num_bins;
+    const AbstractTask *task;
 
     int pack_one_bin(const std::vector<int> &ranges,
                      std::vector<std::vector<int>> &bits_to_vars);
     void pack_bins(const std::vector<int> &ranges);
+    void pack_bins_simple(const std::vector<int> &ranges);
+    void pack_bins_affinity(const TaskProxy &task_proxy, const std::vector<int> &ranges);
 public:
     typedef unsigned int Bin;
 
@@ -37,12 +43,22 @@ public:
       a variable can take up at most 31 bits if int is 32-bit.
     */
     explicit IntPacker(const std::vector<int> &ranges);
+
+    /*
+      Constructor that takes a task_proxy. This allows the IntPacker to have
+      access to the task for future use.
+    */
+    IntPacker(const TaskProxy &task_proxy, const std::vector<int> &ranges);
+
     ~IntPacker();
 
     int get(const Bin *buffer, int var) const;
     void set(Bin *buffer, int var, int value) const;
 
     int get_num_bins() const {return num_bins;}
+
+    const AbstractTask *get_task() const {return task;}
+    TaskProxy get_task_proxy() const;
 };
 }
 

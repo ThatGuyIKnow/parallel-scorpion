@@ -14,3 +14,17 @@ __pycache__/
 perf.data
 /dependencies
 perf.data.old
+
+AFFINITY_BASED_PACKING.md
+
+INTPACKER_TASK_ACCESS.md
+
+profiling/.python-version
+
+profiling/profiling.py
+
+profiling/pyproject.toml
+
+profiling/sas_plan
+
+profiling/uv.lock

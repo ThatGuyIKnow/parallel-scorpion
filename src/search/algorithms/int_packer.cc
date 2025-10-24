@@ -1,6 +1,14 @@
 #include "int_packer.h"
 
+#include "../task_proxy.h"
+#include "../task_utils/causal_graph.h"
+#include "../utils/logging.h"
+
 #include <cassert>
+#include <algorithm>
+#include <unordered_map>
+#include <unordered_set>
+#include <limits>
 
 using namespace std;
 
@@ -71,7 +79,12 @@ public:
 
 
 IntPacker::IntPacker(const vector<int> &ranges)
-    : num_bins(0) {
+    : num_bins(0), task(nullptr) {
+    pack_bins(ranges);
+}
+
+IntPacker::IntPacker(const TaskProxy &task_proxy, const vector<int> &ranges)
+    : num_bins(0), task(&task_proxy.get_task()) {
     pack_bins(ranges);
 }
 
@@ -86,17 +99,156 @@ void IntPacker::set(Bin *buffer, int var, int value) const {
     var_infos[var].set(buffer, value);
 }
 
+TaskProxy IntPacker::get_task_proxy() const {
+    assert(task);
+    return TaskProxy(*task);
+}
+
+// Compute affinity between variables based on causal graph and operator co-occurrence
+static vector<unordered_map<int, int>> compute_affinity(const TaskProxy &task_proxy, int num_vars) {
+    vector<unordered_map<int, int>> affinity(num_vars);
+
+    // Get causal graph for structural relationships
+    const causal_graph::CausalGraph &cg = task_proxy.get_causal_graph();
+
+    // Add affinity from causal graph relationships
+    for (int v = 0; v < num_vars; ++v) {
+        // Variables that appear together in causal relationships have affinity
+        for (int u : cg.get_successors(v)) {
+            affinity[v][u]++;
+            affinity[u][v]++;
+        }
+        for (int u : cg.get_predecessors(v)) {
+            affinity[v][u]++;
+            affinity[u][v]++;
+        }
+    }
+
+    // Add affinity from operators: variables that appear together in preconditions/effects
+    for (OperatorProxy op : task_proxy.get_operators()) {
+        unordered_set<int> vars_in_op;
+
+        // Collect all variables in preconditions
+        for (FactProxy pre : op.get_preconditions()) {
+            vars_in_op.insert(pre.get_variable().get_id());
+        }
+
+        // Collect all variables in effects and effect conditions
+        for (EffectProxy eff : op.get_effects()) {
+            vars_in_op.insert(eff.get_fact().get_variable().get_id());
+            for (FactProxy cond : eff.get_conditions()) {
+                vars_in_op.insert(cond.get_variable().get_id());
+            }
+        }
+
+        // Add affinity between all pairs of variables in this operator
+        for (int v : vars_in_op) {
+            for (int u : vars_in_op) {
+                if (v != u) {
+                    affinity[v][u]++;
+                }
+            }
+        }
+    }
+
+    // Also consider axioms
+    for (OperatorProxy axiom : task_proxy.get_axioms()) {
+        unordered_set<int> vars_in_axiom;
+
+        for (FactProxy pre : axiom.get_preconditions()) {
+            vars_in_axiom.insert(pre.get_variable().get_id());
+        }
+
+        for (EffectProxy eff : axiom.get_effects()) {
+            vars_in_axiom.insert(eff.get_fact().get_variable().get_id());
+            for (FactProxy cond : eff.get_conditions()) {
+                vars_in_axiom.insert(cond.get_variable().get_id());
+            }
+        }
+
+        for (int v : vars_in_axiom) {
+            for (int u : vars_in_axiom) {
+                if (v != u) {
+                    affinity[v][u]++;
+                }
+            }
+        }
+    }
+
+    // Add affinity for goal variables
+    unordered_set<int> goal_vars;
+    for (FactProxy goal : task_proxy.get_goals()) {
+        goal_vars.insert(goal.get_variable().get_id());
+    }
+    for (int v : goal_vars) {
+        for (int u : goal_vars) {
+            if (v != u) {
+                affinity[v][u] += 2; // Higher weight for goal variables
+            }
+        }
+    }
+
+    return affinity;
+}
+
+// Structure to represent a bin during packing
+struct BinInfo {
+    unordered_set<int> vars;
+    int used_bits;
+
+    BinInfo() : used_bits(0) {}
+};
+
+// Compute how many bins the original greedy algorithm would use
+static int compute_original_bin_count(const vector<int> &bit_sizes) {
+    int num_vars = bit_sizes.size();
+
+    // Sort by descending bit size (original algorithm behavior)
+    vector<int> original_vars_sorted(num_vars);
+    for (int v = 0; v < num_vars; ++v) {
+        original_vars_sorted[v] = v;
+    }
+    sort(original_vars_sorted.begin(), original_vars_sorted.end(), [&](int v1, int v2) {
+        return bit_sizes[v1] > bit_sizes[v2];
+    });
+
+    // Simulate original greedy bin packing (First-Fit Decreasing)
+    int current_bin_bits = 0;
+    int original_bins = 1;
+    for (int v : original_vars_sorted) {
+        if (current_bin_bits + bit_sizes[v] > BITS_PER_BIN) {
+            // Need a new bin
+            original_bins++;
+            current_bin_bits = bit_sizes[v];
+        } else {
+            current_bin_bits += bit_sizes[v];
+        }
+    }
+
+    return original_bins;
+}
+
 void IntPacker::pack_bins(const vector<int> &ranges) {
     assert(var_infos.empty());
 
     int num_vars = ranges.size();
     var_infos.resize(num_vars);
 
-    // bits_to_vars[k] contains all variables that require exactly k
-    // bits to encode. Once a variable is packed into a bin, it is
-    // removed from this index.
-    // Loop over the variables in reverse order to prefer variables with
-    // low indices in case of ties. This might increase cache-locality.
+    // If no task available, fall back to simple greedy packing
+    if (!task) {
+        pack_bins_simple(ranges);
+        return;
+    }
+
+    // Use affinity-based packing
+    TaskProxy task_proxy(*task);
+    pack_bins_affinity(task_proxy, ranges);
+}
+
+// Simple greedy packing (original algorithm)
+void IntPacker::pack_bins_simple(const vector<int> &ranges) {
+    int num_vars = ranges.size();
+
     vector<vector<int>> bits_to_vars(BITS_PER_BIN + 1);
     for (int var = num_vars - 1; var >= 0; --var) {
         int bits = get_bit_size_for_range(ranges[var]);
@@ -143,4 +295,215 @@ int IntPacker::pack_one_bin(const vector<int> &ranges,
         ++num_vars_in_bin;
     }
 }
+
+// Affinity-based packing
+void IntPacker::pack_bins_affinity(const TaskProxy &task_proxy, const vector<int> &ranges) {
+    int num_vars = ranges.size();
+
+    utils::g_log << "Starting affinity-based bin packing for " << num_vars << " variables" << endl;
+
+    // Step 0: Compute bit sizes and affinity
+    utils::g_log << "Computing bit sizes for all variables..." << endl;
+    vector<int> bit_sizes(num_vars);
+    for (int v = 0; v < num_vars; ++v) {
+        bit_sizes[v] = get_bit_size_for_range(ranges[v]);
+    }
+
+    utils::g_log << "Computing variable affinity from task structure..." << endl;
+    vector<unordered_map<int, int>> affinity = compute_affinity(task_proxy, num_vars);
+
+    // Compute total affinity for each variable
+    vector<int> total_affinity(num_vars, 0);
+    for (int v = 0; v < num_vars; ++v) {
+        for (const auto &pair : affinity[v]) {
+            total_affinity[v] += pair.second;
+        }
+    }
+
+    utils::g_log << "Affinity computation complete." << endl;
+
+    // Sort variables by descending bit size (primary) and descending total affinity (secondary)
+    utils::g_log << "Sorting variables by bit size and affinity..." << endl;
+    vector<int> vars_sorted(num_vars);
+    for (int v = 0; v < num_vars; ++v) {
+        vars_sorted[v] = v;
+    }
+
+    sort(vars_sorted.begin(), vars_sorted.end(), [&](int v1, int v2) {
+        if (bit_sizes[v1] != bit_sizes[v2]) {
+            return bit_sizes[v1] > bit_sizes[v2]; // Descending bit size
+        }
+        return total_affinity[v1] > total_affinity[v2]; // Descending total affinity
+    });
+
+    // Step 1: Greedy bin packing with affinity tie-breaks
+    utils::g_log << "Step 1: Greedy bin packing with affinity tie-breaks..." << endl;
+    vector<BinInfo> bins;
+    unordered_map<int, int> bin_of; // var -> bin index
+
+    for (int v : vars_sorted) {
+        int best_bin_idx = -1;
+        int best_fill = -1;
+        int best_aff = numeric_limits<int>::min();
+
+        for (size_t i = 0; i < bins.size(); ++i) {
+            BinInfo &bin = bins[i];
+            if (bin.used_bits + bit_sizes[v] > BITS_PER_BIN) {
+                continue;
+            }
+
+            int remaining = BITS_PER_BIN - (bin.used_bits + bit_sizes[v]);
+            int fill = BITS_PER_BIN - remaining; // total used after adding v
+
+            // Compute affinity gain if we place v here
+            int aff_gain = 0;
+            for (int w : bin.vars) {
+                aff_gain += affinity[v][w];
+            }
+
+            // Primary: maximize fill (minimize remaining space)
+            // Secondary: maximize affinity gain
+            if (best_bin_idx == -1 || fill > best_fill ||
+                (fill == best_fill && aff_gain > best_aff)) {
+                best_bin_idx = i;
+                best_fill = fill;
+                best_aff = aff_gain;
+            }
+        }
+
+        if (best_bin_idx != -1) {
+            // Place v into best existing bin
+            bins[best_bin_idx].vars.insert(v);
+            bins[best_bin_idx].used_bits += bit_sizes[v];
+            bin_of[v] = best_bin_idx;
+        } else {
+            // Open a new bin
+            BinInfo new_bin;
+            new_bin.vars.insert(v);
+            new_bin.used_bits = bit_sizes[v];
+            bin_of[v] = bins.size();
+            bins.push_back(new_bin);
+        }
+    }
+
+    utils::g_log << "Initial packing complete: " << bins.size() << " bins created" << endl;
+
+    // Step 2: Optional local improvement pass
+    utils::g_log << "Step 2: Local improvement pass (max 10 iterations)..." << endl;
+    // Try moving variables to improve affinity without increasing bin count
+    bool improved = true;
+    int max_iterations = 10;
+    int iteration = 0;
+
+    while (improved && iteration < max_iterations) {
+        improved = false;
+        iteration++;
+
+        for (int v = 0; v < num_vars; ++v) {
+            int current_bin_idx = bin_of[v];
+            BinInfo &current_bin = bins[current_bin_idx];
+
+            // Compute current affinity contribution
+            int current_affinity = 0;
+            for (int w : current_bin.vars) {
+                if (w != v) {
+                    current_affinity += affinity[v][w];
+                }
+            }
+
+            // Try moving to other bins
+            int best_new_bin_idx = -1;
+            int best_new_affinity = current_affinity;
+
+            for (size_t i = 0; i < bins.size(); ++i) {
+                if ((int)i == current_bin_idx) continue;
+
+                BinInfo &other_bin = bins[i];
+
+                // Check if v fits in other_bin after removing it from current bin
+                int other_used_without_v = other_bin.used_bits;
+                if (other_used_without_v + bit_sizes[v] > BITS_PER_BIN) {
+                    continue;
+                }
+
+                // Compute new affinity if we move v to this bin
+                int new_affinity = 0;
+                for (int w : other_bin.vars) {
+                    new_affinity += affinity[v][w];
+                }
+
+                if (new_affinity > best_new_affinity) {
+                    best_new_bin_idx = i;
+                    best_new_affinity = new_affinity;
+                }
+            }
+
+            // Move if beneficial
+            if (best_new_bin_idx != -1) {
+                // Remove from current bin
+                current_bin.vars.erase(v);
+                current_bin.used_bits -= bit_sizes[v];
+
+                // Add to new bin
+                bins[best_new_bin_idx].vars.insert(v);
+                bins[best_new_bin_idx].used_bits += bit_sizes[v];
+                bin_of[v] = best_new_bin_idx;
+
+                improved = true;
+            }
+        }
+    }
+
+    utils::g_log << "Local improvement converged after " << iteration << " iterations" << endl;
+
+    // Remove empty bins
+    utils::g_log << "Cleaning up empty bins..." << endl;
+    vector<BinInfo> non_empty_bins;
+    unordered_map<int, int> old_to_new_bin;
+    for (size_t i = 0; i < bins.size(); ++i) {
+        if (!bins[i].vars.empty()) {
+            old_to_new_bin[i] = non_empty_bins.size();
+            non_empty_bins.push_back(bins[i]);
+        }
+    }
+    bins = non_empty_bins;
+
+    // Update bin_of with new indices
+    for (auto &pair : bin_of) {
+        pair.second = old_to_new_bin[pair.second];
+    }
+
+    // Assign variables to bins and create VariableInfo
+    utils::g_log << "Finalizing bin assignments..." << endl;
+    num_bins = bins.size();
+
+    for (size_t bin_idx = 0; bin_idx < bins.size(); ++bin_idx) {
+        int shift = 0;
+        // Sort variables in each bin by descending bit size for consistent packing
+        vector<int> vars_in_bin(bins[bin_idx].vars.begin(), bins[bin_idx].vars.end());
+        sort(vars_in_bin.begin(), vars_in_bin.end(), [&](int v1, int v2) {
+            return bit_sizes[v1] > bit_sizes[v2];
+        });
+
+        for (int v : vars_in_bin) {
+            var_infos[v] = VariableInfo(ranges[v], bin_idx, shift);
+            shift += bit_sizes[v];
+        }
+    }
+
+    utils::g_log << "Affinity-based packing complete: " << num_bins << " bins used" << endl;
+
+    // Compute what the original greedy packing would have used for comparison
+    int original_bins = compute_original_bin_count(bit_sizes);
+
+    utils::g_log << "Original greedy packing would have used: " << original_bins << " bins" << endl;
+    if (num_bins < original_bins) {
+        utils::g_log << "Affinity-based packing saved " << (original_bins - num_bins) << " bins!" << endl;
+    } else if (num_bins == original_bins) {
+        utils::g_log << "Affinity-based packing used the same number of bins (but with better locality)" << endl;
+    } else {
+        utils::g_log << "Affinity-based packing used " << (num_bins - original_bins) << " more bins for improved locality" << endl;
+    }
+}
+
 }

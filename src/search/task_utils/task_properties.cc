@@ -174,7 +174,7 @@ void dump_task(const TaskProxy &task_proxy) {
             for (VariableProxy var : variables) {
                 variable_ranges.push_back(var.get_domain_size());
             }
-            return make_unique<int_packer::IntPacker>(variable_ranges);
+            return make_unique<int_packer::IntPacker>(task_proxy, variable_ranges);
         }
         );
 }

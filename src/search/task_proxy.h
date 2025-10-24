@@ -657,6 +657,10 @@ public:
         : task(&task) {}
     ~TaskProxy() = default;
 
+    const AbstractTask &get_task() const {
+        return *task;
+    }
+
     TaskID get_id() const {
         return TaskID(task);
     }
