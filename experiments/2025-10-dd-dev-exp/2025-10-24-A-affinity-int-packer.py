@@ -41,7 +41,7 @@ if project.REMOTE:
         memory_per_cpu="9G",
     )
     TIME_LIMIT = 15 * 60 #15 minutes
-    MEMORY_LIMIT = "4G"
+    MEMORY_LIMIT = "8G"
 
     base_path = Path(os.environ.get("DOWNWARD_BENCHMARKS")) / "pddl-benchmarks"
 
@@ -52,7 +52,7 @@ if project.REMOTE:
        #  ("mine-pddl", SUITE_MINEPDDL),
        #  ("htg-domains", SUITE_HTG),
        #  ("ipc2023-learning", SUITE_IPC_LEARNING),
-        ("cnot", SUITE_CNOT)
+        ("cnot-synthesis", SUITE_CNOT)
     ]
 
     BASE_SUITES = [
@@ -99,7 +99,7 @@ heuristics = [
 ]
 
 CONFIGS = [
-    (f"{index:02d}-{h_nick}-{s_nick}", ["--search", f"astar({h}, state_registry={s})"])
+    (f"{index:02d}-{h_nick}-{s_nick}", ["--search", f"astar({h}, state_registry={s})")
     for index, ((s_nick, s), (h_nick, h)) in enumerate(
         product(state_registries, heuristics),
         start=1,
