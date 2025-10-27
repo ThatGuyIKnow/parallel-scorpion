@@ -99,7 +99,7 @@ heuristics = [
 ]
 
 CONFIGS = [
-    (f"{index:02d}-{h_nick}-{s_nick}", ["--search", f"astar({h}, state_registry={s})")
+    (f"{index:02d}-{h_nick}-{s_nick}", ["--search", f"astar({h}, state_registry={s})"])
     for index, ((s_nick, s), (h_nick, h)) in enumerate(
         product(state_registries, heuristics),
         start=1,
