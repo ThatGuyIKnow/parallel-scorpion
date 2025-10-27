@@ -51,7 +51,8 @@ if project.REMOTE:
         ("pushworld", SUITE_PUSHWORLD),
         ("mine-pddl", SUITE_MINEPDDL),
         ("htg-domains", SUITE_HTG),
-        ("ipc2023-learning", SUITE_IPC_LEARNING)
+        ("ipc2023-learning", SUITE_IPC_LEARNING),
+        ("cnot-synthesis", SUITE_CNOT)
     ]
 
     BASE_SUITES = [
@@ -83,8 +84,8 @@ DRIVER_OPTIONS = [
 ]
 state_registries = [
     # ("unpck", "unpacked"),
-    ("pck", "packed"),
-    # ("dtdb_s_dev_dd", "dtdb_s_packed"),
+    # ("pck", "packed"),
+    ("dtdb_s_dev_dd", "dtdb_s_packed"),
     # ("dtdb_h_dev_dd", "dtdb_h_packed"),
     # ("fixed_unpck", "fixed_tree_unpacked"),
     # ("fixed_pck", "fixed_tree_packed"),
@@ -94,7 +95,7 @@ state_registries = [
 
 heuristics = [
     ("blind", "blind(cache_estimates=false)"),
-    ("scp", "scp([projections(systematic(2))], saturator=perimstar, max_time=10, diversify=true, max_optimization_time=0, orders=greedy_orders(), cache_estimates=false)")
+    ("scp", "scp([projections(systematic(2), create_complete_transition_system=true)], saturator=perimstar, max_time=10, diversify=true, max_optimization_time=0, orders=greedy_orders(), cache_estimates=false)")
 ]
 
 CONFIGS = [
