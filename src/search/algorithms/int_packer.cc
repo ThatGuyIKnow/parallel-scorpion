@@ -196,7 +196,7 @@ int IntPacker::pack_one_bin(const Affinity& affinity,
         bin_vars.push_back(seed);
         var_infos[seed] = VariableInfo(ranges[seed], bin_index, used_bits);
         used_bits += get_bit_size_for_range(ranges[seed]);
-        auto& bit_vars = bits_to_vars[ranges[seed]];
+        auto& bit_vars = bits_to_vars[get_bit_size_for_range(ranges[seed])];
         bit_vars.erase(std::find(bit_vars.begin(), bit_vars.end(), seed));
         ++num_vars_in_bin;
         unpacked_vars.erase(seed);
@@ -216,8 +216,17 @@ int IntPacker::pack_one_bin(const Affinity& affinity,
             return num_vars_in_bin;
         }
 
+        // Determine variables that fit
+        auto fit_unpacked_vars = std::vector<int>{};
+        for (int var : unpacked_vars) {
+            if (get_bit_size_for_range(ranges[var]) <= bits) {
+                fit_unpacked_vars.push_back(var);
+            }
+        }
+
+        // Compute gain of adding variable into current bin
         auto gain = std::vector<int>(num_vars, 0);
-        for (int var : unpacked_vars) 
+        for (int var : fit_unpacked_vars) 
         {
             for (int bin_var : bin_vars) 
             {
@@ -225,7 +234,8 @@ int IntPacker::pack_one_bin(const Affinity& affinity,
             }
         }
 
-        const auto next_var = *std::max_element(unpacked_vars.begin(), unpacked_vars.end(),
+        // Chose variable that maximizes gain, break ties in favor of degree
+        const auto next_var = *std::max_element(fit_unpacked_vars.begin(), fit_unpacked_vars.end(),
             [&](int var_lhs, int var_rhs) {
                 assert(utils::in_bounds(var_lhs, gain) && utils::in_bounds(var_rhs, gain));
                 if (gain[var_lhs] == gain[var_rhs]) 
@@ -238,7 +248,7 @@ int IntPacker::pack_one_bin(const Affinity& affinity,
         bin_vars.push_back(next_var);
         var_infos[next_var] = VariableInfo(ranges[next_var], bin_index, used_bits);
         used_bits += get_bit_size_for_range(ranges[next_var]);
-        auto& bit_vars = bits_to_vars[ranges[next_var]];
+        auto& bit_vars = bits_to_vars[get_bit_size_for_range(ranges[next_var])];
         bit_vars.erase(std::find(bit_vars.begin(), bit_vars.end(), next_var));
         ++num_vars_in_bin;
         unpacked_vars.erase(next_var);
