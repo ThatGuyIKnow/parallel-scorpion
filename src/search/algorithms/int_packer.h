@@ -2,6 +2,7 @@
 #define ALGORITHMS_INT_PACKER_H
 
 #include <vector>
+#include <unordered_set>
 
 class AbstractTask;
 class TaskProxy;
@@ -21,6 +22,9 @@ class TaskProxy;
   details.)
 */
 namespace int_packer {
+
+using Affinity = std::vector<std::vector<int>>;
+
 class IntPacker {
     class VariableInfo;
 
@@ -28,11 +32,12 @@ class IntPacker {
     int num_bins;
     const AbstractTask *task;
 
-    int pack_one_bin(const std::vector<int> &ranges,
-                     std::vector<std::vector<int>> &bits_to_vars);
+    int pack_one_bin(const Affinity& affinity, 
+                    std::unordered_set<int>& unpacked_vars,
+                    const std::vector<int> &ranges,
+                    std::vector<std::vector<int>> &bits_to_vars);
     void pack_bins(const std::vector<int> &ranges);
-    void pack_bins_simple(const std::vector<int> &ranges);
-    void pack_bins_affinity(const TaskProxy &task_proxy, const std::vector<int> &ranges);
+
 public:
     typedef unsigned int Bin;
 
