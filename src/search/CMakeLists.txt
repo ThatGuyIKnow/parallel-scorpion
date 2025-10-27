@@ -62,6 +62,7 @@ create_fast_downward_library(
     SOURCES
         state_registry
         state_registries/packed
+        state_registries/unpacked
         state_registries/dtdb_h_packed
         state_registries/dtdb_s_packed
     CORE_LIBRARY
