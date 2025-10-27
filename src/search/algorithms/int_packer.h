@@ -32,6 +32,8 @@ class IntPacker {
     int num_bins;
     const AbstractTask *task;
 
+    bool debug;
+
     int pack_one_bin(const Affinity& affinity, 
                     std::unordered_set<int>& unpacked_vars,
                     const std::vector<int> &ranges,

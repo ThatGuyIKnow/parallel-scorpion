@@ -80,12 +80,12 @@ public:
 
 
 IntPacker::IntPacker(const vector<int> &ranges)
-    : num_bins(0), task(nullptr) {
+    : num_bins(0), task(nullptr), debug(true) {
     pack_bins(ranges);
 }
 
 IntPacker::IntPacker(const TaskProxy &task_proxy, const vector<int> &ranges)
-    : num_bins(0), task(&task_proxy.get_task()) {
+    : num_bins(0), task(&task_proxy.get_task()), debug(true) {
     pack_bins(ranges);
 }
 
@@ -180,6 +180,9 @@ int IntPacker::pack_one_bin(const Affinity& affinity,
         return deg;
     };
 
+    if (debug)
+        std::cout << "Packing bin [" << num_bins << "]" << std::endl;
+
     ++num_bins;
     int bin_index = num_bins - 1;
     int used_bits = 0;
@@ -191,6 +194,10 @@ int IntPacker::pack_one_bin(const Affinity& affinity,
         [&](int var_lhs, int var_rhs) {
             return degree(affinity, var_lhs) < degree(affinity, var_rhs);
         });
+
+    if (debug) {
+        std::cout << "Choosing seed [" << seed << "] with degree [" << degree(affinity, seed) << "]" << std::endl;
+    }
 
     {
         bin_vars.push_back(seed);
@@ -244,6 +251,10 @@ int IntPacker::pack_one_bin(const Affinity& affinity,
                 }
                 return gain[var_lhs] < gain[var_rhs];
             });
+
+        if (debug) {
+            std::cout << "Choosing var [" << next_var << "] with gain [" << gain[next_var] << "] (and degree [" << degree(affinity, next_var) << "])" << std::endl;
+        }
 
         bin_vars.push_back(next_var);
         var_infos[next_var] = VariableInfo(ranges[next_var], bin_index, used_bits);
