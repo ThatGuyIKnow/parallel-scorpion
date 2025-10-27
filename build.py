@@ -160,7 +160,7 @@ def main():
         config_names.append(DEFAULT_CONFIG_NAME)
     
     # Build dependencies before building any configuration
-    build_dependencies()
+    # build_dependencies()
     
     for config_name in config_names:
         build(config_name, CONFIGS[config_name], build_parameters)
