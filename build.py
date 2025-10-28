@@ -96,13 +96,21 @@ def try_run(cmd):
 
 def build_dependencies():
     """Build and install project dependencies."""
-    print("Building dependencies...")
-    
     project_root = get_project_root_path()
     dependencies_source = os.path.join(project_root, "dependencies")
     dependencies_build = os.path.join(project_root, "dependencies", "build")
     dependencies_install = os.path.join(project_root, "dependencies", "installs")
     
+    # Check if dependencies are already built
+    if os.path.exists(dependencies_install) and os.path.isdir(dependencies_install):
+        # Check if the install directory has content (lib, include folders)
+        install_contents = os.listdir(dependencies_install)
+        if install_contents:
+            print("Dependencies already built. Skipping build step.")
+            return
+
+    print("Building dependencies...")
+
     # Configure dependencies
     configure_cmd = [
         CMAKE, 
@@ -160,7 +168,7 @@ def main():
         config_names.append(DEFAULT_CONFIG_NAME)
     
     # Build dependencies before building any configuration
-    # build_dependencies()
+    build_dependencies()
     
     for config_name in config_names:
         build(config_name, CONFIGS[config_name], build_parameters)
