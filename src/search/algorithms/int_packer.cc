@@ -11,6 +11,9 @@
 #include <limits>
 #include <set>
 
+#include "int_packer_analysis.h"
+#include "int_packer_partition.h"
+
 using namespace std;
 
 namespace int_packer {
@@ -76,6 +79,18 @@ public:
         Bin &bin = buffer[bin_index];
         bin = (bin & clear_mask) | (value << shift);
     }
+
+    int get_bin_index() const {
+        return bin_index;
+    }
+
+    int get_shift() const {
+        return shift;
+    }
+
+    int get_range() const {
+        return range;
+    }
 };
 
 
@@ -136,7 +151,6 @@ void IntPacker::pack_bins(const vector<int> &ranges) {
     int num_vars = ranges.size();
     var_infos.resize(num_vars);
 
-    var_infos.resize(num_vars);
 
     // bits_to_vars[k] contains all variables that require exactly k
     // bits to encode. Once a variable is packed into a bin, it is
@@ -163,6 +177,19 @@ void IntPacker::pack_bins(const vector<int> &ranges) {
     int packed_vars = 0;
     while (packed_vars != num_vars)
         packed_vars += pack_one_bin(affinity, unpacked_vars, ranges, bits_to_vars);
+
+    // Compare Greedy vs Affinity bin packing strategies
+    auto original_var_info = int_packer_analysis::compute_greedy_bin_packing(task_proxy);
+
+    if (debug) {
+        std::cout << "\n=== Bin Packing Comparison ===" << std::endl;
+        std::cout << "\n[1] Original Greedy (bit-size based):" << std::endl;
+        int_packer_analysis::analyze_operator_bin_touches(task_proxy, original_var_info, std::cout);
+
+        std::cout << "\n[2] Affinity-based (current implementation):" << std::endl;
+        int_packer_analysis::analyze_operator_bin_touches(task_proxy, var_infos, std::cout);
+        std::cout << std::endl;
+    }
 }
 
 int IntPacker::pack_one_bin(const Affinity& affinity, 
