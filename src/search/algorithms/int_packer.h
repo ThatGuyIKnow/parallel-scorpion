@@ -34,10 +34,11 @@ class IntPacker {
 
     bool debug;
 
-    int pack_one_bin(const Affinity& affinity, 
-                    std::unordered_set<int>& unpacked_vars,
-                    const std::vector<int> &ranges,
-                    std::vector<std::vector<int>> &bits_to_vars);
+    int pack_one_bin(const Affinity &affinity,
+                     std::unordered_set<int> &unpacked_vars,
+                     const std::vector<int> &ranges,
+                     std::vector<std::vector<int>> &bits_to_vars,
+                     std::vector<int> &bin_vars);
     void pack_bins(const std::vector<int> &ranges);
 
 public:

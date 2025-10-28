@@ -122,6 +122,15 @@ static auto compute_affinity(const TaskProxy &task_proxy, int num_vars) {
     return affinity;
 }
 
+    static auto compute_degree(const Affinity& affinity, int var)
+    {
+        int deg = 0;
+        for (int val : affinity[var]) {
+            deg += val;
+        }
+        return deg;
+    }
+
 // Structure to represent a bin during packing
 struct BinInfo {
     unordered_set<int> vars;
@@ -161,24 +170,26 @@ void IntPacker::pack_bins(const vector<int> &ranges) {
     }
 
     int packed_vars = 0;
-    while (packed_vars != num_vars)
-        packed_vars += pack_one_bin(affinity, unpacked_vars, ranges, bits_to_vars);
+    auto bin_vars = vector<int>();
+    while (packed_vars != num_vars) {
+        bool is_even = num_bins % 2 == 0;
+        if (is_even) {
+            packed_vars += pack_one_bin(affinity, unpacked_vars, ranges, bits_to_vars, bin_vars);
+        } else {
+            packed_vars += pack_one_bin(affinity, unpacked_vars, ranges, bits_to_vars, bin_vars);
+            bin_vars.clear();
+        }
+    }
 }
 
-int IntPacker::pack_one_bin(const Affinity& affinity, 
+
+int IntPacker::pack_one_bin(const Affinity& affinity,
                             std::unordered_set<int>& unpacked_vars,
                             const vector<int> &ranges,
-                            vector<vector<int>> &bits_to_vars) {
-    int num_vars = ranges.size();
-
-    auto degree = [](const Affinity& affinity, int var) 
+                            vector<vector<int>> &bits_to_vars,
+                            std::vector<int>& bin_vars)
     {
-        int deg = 0;
-        for (int val : affinity[var]) {
-            deg += val;
-        }
-        return deg;
-    };
+    int num_vars = ranges.size();
 
     if (debug)
         std::cout << "Packing bin [" << num_bins << "]" << std::endl;
@@ -188,25 +199,24 @@ int IntPacker::pack_one_bin(const Affinity& affinity,
     int used_bits = 0;
     int num_vars_in_bin = 0;
 
-    auto bin_vars = vector<int>();
 
-    const auto seed = *std::max_element(unpacked_vars.begin(), unpacked_vars.end(),
-        [&](int var_lhs, int var_rhs) {
-            return degree(affinity, var_lhs) < degree(affinity, var_rhs);
-        });
-
-    if (debug) {
-        std::cout << "Choosing seed [" << seed << "] with degree [" << degree(affinity, seed) << "]" << std::endl;
-    }
-
-    {
-        bin_vars.push_back(seed);
+    // If there are no variable for consideration, seed a new variable
+    if (bin_vars.empty()) {
+        const int seed = *std::max_element(unpacked_vars.begin(), unpacked_vars.end(),
+                                     [&](int var_lhs, int var_rhs) {
+                                         return compute_degree(affinity, var_lhs) < compute_degree(affinity, var_rhs);
+                                     });
         var_infos[seed] = VariableInfo(ranges[seed], bin_index, used_bits);
         used_bits += get_bit_size_for_range(ranges[seed]);
         auto& bit_vars = bits_to_vars[get_bit_size_for_range(ranges[seed])];
         bit_vars.erase(std::find(bit_vars.begin(), bit_vars.end(), seed));
         ++num_vars_in_bin;
+        bin_vars.push_back(seed);
         unpacked_vars.erase(seed);
+
+        if (debug) {
+            std::cout << "Choosing seed [" << seed << "] with degree [" << compute_degree(affinity, seed) << "]" << std::endl;
+        }
     }
 
     while (true) 
@@ -247,13 +257,13 @@ int IntPacker::pack_one_bin(const Affinity& affinity,
                 assert(utils::in_bounds(var_lhs, gain) && utils::in_bounds(var_rhs, gain));
                 if (gain[var_lhs] == gain[var_rhs]) 
                 {
-                    return degree(affinity, var_lhs) < degree(affinity, var_rhs);
+                    return compute_degree(affinity, var_lhs) < compute_degree(affinity, var_rhs);
                 }
                 return gain[var_lhs] < gain[var_rhs];
             });
 
         if (debug) {
-            std::cout << "Choosing var [" << next_var << "] with gain [" << gain[next_var] << "] (and degree [" << degree(affinity, next_var) << "])" << std::endl;
+            std::cout << "Choosing var [" << next_var << "] with gain [" << gain[next_var] << "] (and degree [" << compute_degree(affinity, next_var) << "])" << std::endl;
         }
 
         bin_vars.push_back(next_var);
