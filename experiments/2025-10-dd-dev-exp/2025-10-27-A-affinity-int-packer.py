@@ -40,7 +40,7 @@ if project.REMOTE:
         extra_options="#SBATCH -A naiss2025-22-1329",
         memory_per_cpu="9G",
     )
-    TIME_LIMIT = 15 * 60 #15 minutes
+    TIME_LIMIT = 1 * 60 * 60 #1 hour
     MEMORY_LIMIT = "8G"
 
     base_path = Path(os.environ.get("DOWNWARD_BENCHMARKS")) / "pddl-benchmarks"
@@ -57,7 +57,7 @@ if project.REMOTE:
 
     BASE_SUITES = [
         ("ipc2024-optimal-strips", SUITE_IPC_OPTIMAL_STRIPS),
-        ("ipc2024-optimal-adl", SUITE_IPC_OPTIMAL_ADL),
+        # ("ipc2024-optimal-adl", SUITE_IPC_OPTIMAL_ADL),
     ]
 
     SUITE = []
