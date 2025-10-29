@@ -11,7 +11,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Minimize number of bins used by each operator
-#minimize { 1@1, touched_node(O, B) : touched_node(O, B) }.
+#minimize { 1@2, touched_node(O, N) : touched_node(O, N) }.
+#minimize { 1@1 : touched_node(N)}.
 
 % Generate available bins .
 bin(0..max_bins-1).
@@ -21,6 +22,9 @@ bin(0..max_bins-1).
 
 % Define used nodes by operator O
 touched_node(O, B / 2) :- operator(O), effect(O,V), throw(V,B).
+
+% Define used node by any operator O
+touched_node(B / 2) :- variable(V), bin(B), throw(V, B).
 
 % Ensure that variables fit into bin
 :- bin(B), #sum { W,V : throw(V,B), bit_width(V,W) } > bin_bit_width.

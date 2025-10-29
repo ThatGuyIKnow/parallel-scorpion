@@ -1,8 +1,10 @@
 #ifndef ALGORITHMS_INT_PACKER_H
 #define ALGORITHMS_INT_PACKER_H
 
+#include <optional>
 #include <vector>
 #include <unordered_set>
+#include <bits/basic_string.h>
 
 class AbstractTask;
 class TaskProxy;
@@ -33,6 +35,8 @@ class IntPacker {
     bool debug;
 
     int get_min_bins(const std::vector<int> &ranges) const;
+
+    std::optional<std::vector<std::pair<int, int>>> solve_packing_problem(const TaskProxy &task_proxy, const std::vector<int> &ranges, int num_bins);
 
     std::vector<std::pair<int, int>> find_min_operator_variable_packing(const std::vector<int> &ranges);
 

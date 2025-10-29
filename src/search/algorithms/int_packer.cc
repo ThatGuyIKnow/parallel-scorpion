@@ -11,6 +11,7 @@
 #include <limits>
 #include <set>
 #include <clingo.hh>
+#include <optional>
 #include <sstream>
 
 using namespace std;
@@ -178,11 +179,27 @@ static std::string generate_fact_sheet(const vector<int> &ranges,
     return fact_sheet.str();
 }
 
-vector<pair<int, int>> IntPacker::find_min_operator_variable_packing(const vector<int> &ranges) {
+int extract_touched_node_count(Clingo::SymbolVector symbols) {
+    auto touched_count = 0;
+    for (auto &atom : symbols) {
+        if (atom.type() == Clingo::SymbolType::Function &&
+            std::string(atom.name()) == "touched_node") {
+            auto args = atom.arguments();
+            if (args.size() == 1) {
+                // touched_node(N) - single argument
+                touched_count++;
+            }
+        }
+    }
+    return touched_count;
+}
 
-    const auto task_proxy = get_task_proxy();
+optional<vector<pair<int, int>>> IntPacker::solve_packing_problem(
+    const TaskProxy& task_proxy,
+    const vector<int>& ranges,
+    const int num_bins)
+    {
     const auto fact_sheet = generate_fact_sheet(ranges, task_proxy, num_bins, sizeof(Bin) * 8);
-
     Clingo::Logger logger = [](Clingo::WarningCode, char const *msg) {
         std::cerr << "Warning: " << msg << std::endl;
     };
@@ -199,10 +216,11 @@ vector<pair<int, int>> IntPacker::find_min_operator_variable_packing(const vecto
     ctl.ground({{"base", {}}});
     // Storage for results
     vector<pair<int, int>> throw_pairs;
-
+    auto found_solution = false;
     std::cout << " === Solving === " << std::endl;
     for (auto &model : ctl.solve()) {
         throw_pairs.clear();
+        found_solution = true;
         std::cout << "Iterating..." << std::endl;
 
         for (auto &atom : model.symbols(Clingo::ShowType::Shown)) {
@@ -218,9 +236,17 @@ vector<pair<int, int>> IntPacker::find_min_operator_variable_packing(const vecto
             }
         }
 
-        std::cout << " - Optimal: " << (model.optimality_proven() ? "YES" : "NO") << std::endl;
+        int touched_count = extract_touched_node_count(model.symbols(Clingo::ShowType::Atoms));
+        std::cout << " - Optimal: " << (model.optimality_proven() ? "YES" : "NO")
+            << " - Total touched nodes: " << touched_count << std::endl;
+
         if (model.optimality_proven())
             break;
+    }
+
+    if (!found_solution) {
+        std::cout << "No solution found for packing problem for num bins " << num_bins << std::endl;
+        return nullopt;
     }
 
     std::cout << "Throw pairs: [ ";
@@ -229,6 +255,49 @@ vector<pair<int, int>> IntPacker::find_min_operator_variable_packing(const vecto
     }
     std::cout << "]" << std::endl;
     return throw_pairs;
+}
+
+vector<pair<int, int>> clean_solution(const vector<pair<int, int>> &solution) {
+    // Clean solution by ensuring by shifting bins indices to ensure that there are no "non existent" bins
+    unordered_set<int> used_bins;
+    for (const auto& [var_idx, bin_idx] : solution) {
+        used_bins.insert(bin_idx);
+    }
+
+    // Create mapping from old bin indices to new consecutive indices
+    vector<int> sorted_bins(used_bins.begin(), used_bins.end());
+    sort(sorted_bins.begin(), sorted_bins.end());
+
+    unordered_map<int, int> bin_mapping;
+    for (int i = 0; i < sorted_bins.size(); ++i) {
+        bin_mapping[sorted_bins[i]] = i;
+    }
+
+    // Apply the mapping
+    vector<pair<int, int>> cleaned_solution;
+    cleaned_solution.reserve(solution.size());
+    for (const auto& [var_idx, bin_idx] : solution) {
+        cleaned_solution.emplace_back(var_idx, bin_mapping[bin_idx]);
+    }
+
+    return cleaned_solution;
+}
+
+vector<pair<int, int>> IntPacker::find_min_operator_variable_packing(const vector<int> &ranges) {
+
+    const auto task_proxy = get_task_proxy();
+
+    int it_num_bins = 1;
+    while (true) {
+        const auto solution = solve_packing_problem(task_proxy, ranges, it_num_bins);
+        if (solution.has_value()) {
+            num_bins = it_num_bins;
+            return clean_solution(solution.value());
+        }
+        it_num_bins = it_num_bins << 1;
+    }
+
+
 }
 
 void IntPacker::pack_bins(const vector<int> &ranges) {
