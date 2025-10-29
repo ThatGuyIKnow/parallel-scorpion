@@ -253,7 +253,8 @@ create_fast_downward_library(
     HELP "Greedy bin packing algorithm to pack integer variables with small domains tightly into memory"
     SOURCES
         algorithms/int_packer
-    DEPENDENCY_ONLY
+    DEPENDS
+        libclingo
 )
 
 create_fast_downward_library(
@@ -1133,12 +1134,19 @@ if(valla_FOUND)
   message(STATUS "Found valla: ${valla_DIR} (found version ${valla_VERSION})")
 endif()
 
+
+find_package(Clingo REQUIRED PATHS ${CMAKE_PREFIX_PATH})
+if(Clingo_FOUND)
+  message(STATUS "Found Clingo: ${Clingo_DIR}")
+endif()
+
 target_link_libraries(downward
   PUBLIC
     Threads::Threads
     valla::core
     absl::flat_hash_set
-    absl::flat_hash_map  
+    absl::flat_hash_map
     TBB::tbb
     fmt::fmt
+    libclingo
 )

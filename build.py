@@ -108,9 +108,9 @@ def build_dependencies():
         if install_contents:
             print("Dependencies already built. Skipping build step.")
             return
-
+    
     print("Building dependencies...")
-
+    
     # Configure dependencies
     configure_cmd = [
         CMAKE, 
