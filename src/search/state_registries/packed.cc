@@ -154,13 +154,47 @@ size_t PackedStateRegistry::get_occupied_memory_usage() const {
 }
 
 void PackedStateRegistry::print_statistics(utils::LogProxy &log) const {
-    log << "Number of registered states: " << size() << endl;
-    log << "Closed list load factor: " << registered_states.size()
-        << "/" << registered_states.capacity() << " = "
-        << registered_states.load_factor() << endl;
-    log << "State size in bytes: " << get_state_size_in_bytes() << endl;
-    utils::g_log << "State set destroyed, size: " << size() << " entries"<< std::endl;
-    utils::g_log << "State set destroyed, size per entry: " << get_bins_per_state() << " blocks"<< std::endl;
-    utils::g_log << "State set destroyed, byte size: " << get_occupied_memory_usage() << "B" << std::endl;
-    utils::g_log << "State set destroyed, byte capacity: " << get_memory_usage() << "B" << std::endl;
+    // Avg bins per state
+    log << "Number of registered states: " << registered_states.size() << endl;
+    log << "Entries in state set: " << registered_states.size() << endl;
+    const int bins_per_entry = state_packer.get_num_bins();
+    log << "Bins per entry: " << bins_per_entry << endl;
+    log << "Average bins per state: " << bins_per_entry << endl;
+
+    // State set size
+    log << "State set size: " << get_memory_usage() << " B" << endl;
+    log << "Lookup structure size: " << (registered_states.capacity() * (sizeof(int) + 1)) << " B" << endl;
+    log << "State set size: " << get_state_size_in_bytes() << " B" << endl;
+
+    // State size in bins
+    log << "Number of bins in state: " << get_bins_per_state() << endl;
+
+    // Number of bins the operators touch
+    log << "Number of operators: " << task_proxy.get_operators().size() << endl;
+
+    int num_fluents = 0;
+    int num_derived = 0;
+    for (const auto& var : task_proxy.get_variables()) {
+        num_fluents += !var.is_derived();
+        num_derived += var.is_derived();
+    }
+    log << "Number of fluents: " << num_fluents << endl;
+    log << "Number of derived: " << num_derived << endl;
+
+    log << "Number of operator touches nodes: [";
+    uint32_t touches = 0;
+    for (const auto& op : task_proxy.get_operators()) {
+        unordered_set<int> touched_bins;
+        for (const auto& eff : op.get_effects()) {
+            const int var_id = eff.get_fact().get_variable().get_id();
+            const int bin_id = state_packer.get_bin(var_id) / 2;
+            touched_bins.insert(bin_id);
+            log << bin_id << ", ";
+        }
+        touches += touched_bins.size();
+    }
+    log << "]" << endl;
+    log << "Total number of operator touches: " << touches << endl;
+    log << "Average number of operator touches: " << static_cast<double>(touches) / task_proxy.get_operators().size() << endl;
+
 }

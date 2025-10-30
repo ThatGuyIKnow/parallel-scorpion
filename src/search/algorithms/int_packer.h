@@ -43,6 +43,10 @@ public:
     void set(Bin *buffer, int var, int value) const;
 
     int get_num_bins() const {return num_bins;}
+
+    int get_bin(int var_id) const;
+
+    int get_range(int var_id) const;
 };
 }
 
