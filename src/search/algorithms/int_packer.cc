@@ -44,7 +44,7 @@ static int get_bit_size_for_range(int range) {
 }
 
 class IntPacker::VariableInfo {
-    int range;
+    int range = 0;
     int bin_index;
     int shift;
     Bin read_mask;
@@ -76,6 +76,14 @@ public:
         Bin &bin = buffer[bin_index];
         bin = (bin & clear_mask) | (value << shift);
     }
+
+    int get_range() const {
+        return range;
+    }
+
+    int get_bin_index() const {
+        return bin_index;
+    }
 };
 
 
@@ -105,6 +113,7 @@ TaskProxy IntPacker::get_task_proxy() const {
     return TaskProxy(*task);
 }
 
+
 static auto compute_affinity(const TaskProxy &task_proxy, int num_vars) {
     auto affinity = Affinity(num_vars, vector<int>(num_vars, 0));
 
@@ -112,7 +121,7 @@ static auto compute_affinity(const TaskProxy &task_proxy, int num_vars) {
         for (const auto eff_lhs : op.get_effects()) {
             for (const auto eff_rhs : op.get_effects()) {
                 if (eff_lhs.get_fact().get_variable().get_id() == eff_rhs.get_fact().get_variable().get_id()) continue;
-                
+
                 affinity[eff_lhs.get_fact().get_variable().get_id()]
                         [eff_rhs.get_fact().get_variable().get_id()] += 1;
             }
@@ -139,47 +148,47 @@ struct BinInfo {
     BinInfo() : used_bits(0) {}
 };
 
+
 void IntPacker::pack_bins(const vector<int> &ranges) {
     assert(var_infos.empty());
 
     int num_vars = ranges.size();
     var_infos.resize(num_vars);
 
-    var_infos.resize(num_vars);
-
+    const auto task_proxy = TaskProxy(*task);
     // bits_to_vars[k] contains all variables that require exactly k
     // bits to encode. Once a variable is packed into a bin, it is
     // removed from this index.
     // Loop over the variables in reverse order to prefer variables with
     // low indices in case of ties. This might increase cache-locality.
     vector<vector<int>> bits_to_vars(BITS_PER_BIN + 1);
-    for (int var = num_vars - 1; var >= 0; --var) {
-        int bits = get_bit_size_for_range(ranges[var]);
+    auto unpacked_vars = unordered_set<int>();
+    for (const auto& var : task_proxy.get_variables()) {
+        if (var.is_derived())
+            continue;
+        int bits = get_bit_size_for_range(ranges[var.get_id()]);
         assert(bits <= BITS_PER_BIN);
-        bits_to_vars[bits].push_back(var);
+        bits_to_vars[bits].push_back(var.get_id());
+        unpacked_vars.insert(var.get_id());
     }
 
-    const auto task_proxy = TaskProxy(*task);
 
     // Step 1: Compute pairwise affinities
     auto affinity = compute_affinity(task_proxy, num_vars);
 
-    auto unpacked_vars = unordered_set<int>();
-    for (int v = 0; v < num_vars; ++v) {
-        unpacked_vars.insert(v);
-    }
-
-    int packed_vars = 0;
     auto bin_vars = vector<int>();
-    while (packed_vars != num_vars) {
+    while (!unpacked_vars.empty()) {
         bool is_even = num_bins % 2 == 0;
         if (is_even) {
-            packed_vars += pack_one_bin(affinity, unpacked_vars, ranges, bits_to_vars, bin_vars);
+            pack_one_bin(affinity, unpacked_vars, ranges, bits_to_vars, bin_vars);
         } else {
-            packed_vars += pack_one_bin(affinity, unpacked_vars, ranges, bits_to_vars, bin_vars);
+            pack_one_bin(affinity, unpacked_vars, ranges, bits_to_vars, bin_vars);
             bin_vars.clear();
         }
     }
+
+    // Since derived variables are not relevant to consider in the affinity, we have seperate logic for it
+    pack_derived_maxwidth(ranges, task_proxy);
 }
 
 
@@ -189,8 +198,6 @@ int IntPacker::pack_one_bin(const Affinity& affinity,
                             vector<vector<int>> &bits_to_vars,
                             std::vector<int>& bin_vars)
     {
-    int num_vars = ranges.size();
-
     if (debug)
         std::cout << "Packing bin [" << num_bins << "]" << std::endl;
 
@@ -242,7 +249,7 @@ int IntPacker::pack_one_bin(const Affinity& affinity,
         }
 
         // Compute gain of adding variable into current bin
-        auto gain = std::vector<int>(num_vars, 0);
+        auto gain = std::vector<int>(affinity.size(), 0);
         for (int var : fit_unpacked_vars) 
         {
             for (int bin_var : bin_vars) 
@@ -276,4 +283,128 @@ int IntPacker::pack_one_bin(const Affinity& affinity,
     }
 }
 
+vector<int> IntPacker::get_bins_used_bits() {
+    vector<int> bins_used_bits(num_bins, 0);
+
+    for (size_t var = 0; var < var_infos.size(); ++var) {
+        const auto& info = var_infos[var];
+
+        if (info.get_range() == 0) {
+            continue;
+        }
+
+        int bit_size = get_bit_size_for_range(info.get_range());
+        bins_used_bits[info.get_bin_index()] += bit_size;
+    }
+
+    return bins_used_bits;
+}
+
+unordered_map<int, vector<int>> IntPacker::collect_derived_variables_by_bit_size(
+    const vector<int>& ranges,
+    const TaskProxy& task_proxy) {
+
+    unordered_map<int, vector<int>> derived_bit_to_vars;
+
+    for (const auto& var : task_proxy.get_variables()) {
+        if (var.is_derived()) {
+            int var_id = var.get_id();
+            int bit_size = get_bit_size_for_range(ranges[var_id]);
+            derived_bit_to_vars[bit_size].push_back(var_id);
+        }
+    }
+
+    return derived_bit_to_vars;
+}
+
+int IntPacker::fill_bin_with_derived_variables(
+    int bin_index,
+    int initial_used_bits,
+    const vector<int>& ranges,
+    unordered_map<int, vector<int>>& bit_to_vars) {
+
+    int used_bits = initial_used_bits;
+    int variables_packed = 0;
+
+    while (true) {
+        int available_bits = BITS_PER_BIN - used_bits;
+
+        while (available_bits > 0 && bit_to_vars[available_bits].empty()) {
+            --available_bits;
+        }
+
+        if (available_bits == 0) {
+            break;
+        }
+
+        int var_id = bit_to_vars[available_bits].back();
+        bit_to_vars[available_bits].pop_back();
+
+        var_infos[var_id] = VariableInfo(ranges[var_id], bin_index, used_bits);
+
+        if (debug) {
+            cout << "Packing derived variable [" << var_id
+                 << "] into bin [" << bin_index << "]" << " with shift [" << used_bits << "]" << endl;
+        }
+
+        used_bits += available_bits;
+        ++variables_packed;
+    }
+
+    return variables_packed;
+}
+
+int IntPacker::pack_derived_into_existing_bins(
+    const vector<int>& ranges,
+    unordered_map<int, vector<int>>& bit_to_vars) {
+
+    vector<int> bins_used_bits = get_bins_used_bits();
+
+    int total_packed = 0;
+
+    for (size_t bin_index = 0; bin_index < bins_used_bits.size(); ++bin_index) {
+        int packed = fill_bin_with_derived_variables(
+            bin_index,
+            bins_used_bits[bin_index],
+            ranges,
+            bit_to_vars);
+        total_packed += packed;
+    }
+
+    return total_packed;
+}
+
+int IntPacker::pack_derived_into_new_bin(
+    const vector<int>& ranges,
+    unordered_map<int, vector<int>>& bit_to_vars) {
+
+    int bin_index = num_bins;
+    int variables_packed = fill_bin_with_derived_variables(
+        bin_index,
+        0,
+        ranges,
+        bit_to_vars);
+
+    ++num_bins;
+    return variables_packed;
+}
+
+void IntPacker::pack_derived_maxwidth(
+    const vector<int>& ranges,
+    const TaskProxy& task_proxy) {
+
+    unordered_map<int, vector<int>> bit_to_vars =
+        collect_derived_variables_by_bit_size(ranges, task_proxy);
+
+
+    int remaining_derived = 0;
+    for (const auto& [bit_size, vars] : bit_to_vars) {
+        remaining_derived += vars.size();
+    }
+
+    remaining_derived -= pack_derived_into_existing_bins(ranges, bit_to_vars);
+
+    while (remaining_derived > 0)
+        remaining_derived -= pack_derived_into_new_bin(ranges, bit_to_vars);
+}
 }
