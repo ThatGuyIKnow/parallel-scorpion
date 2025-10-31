@@ -89,7 +89,7 @@ public:
 
     int get_num_bins() const {return num_bins;}
 
-    int get_bin(int var_id) const;
+    int get_bin_index(int var_id) const;
 
     int get_range(int var_id) const;
 
