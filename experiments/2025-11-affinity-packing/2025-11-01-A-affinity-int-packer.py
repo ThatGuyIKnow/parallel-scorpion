@@ -40,23 +40,24 @@ if project.REMOTE:
         extra_options="#SBATCH -A naiss2025-22-1329",
         memory_per_cpu="9G",
     )
-    TIME_LIMIT = 5 * 60 * 60 #15 minutes
+    TIME_LIMIT = 1 * 60 * 60 #1 hour
     MEMORY_LIMIT = "8G"
 
     base_path = Path(os.environ.get("DOWNWARD_BENCHMARKS")) / "pddl-benchmarks"
 
     SUITE_SPECS = [
        # ("autoscale-benchmarks-main/21.11-optimal-strips", SUITE_AUTOSCALE_OPTIMAL_STRIPS),
-        ("beluga2025", SUITE_BELUGA2025_SCALABILITY_DETERMINISTIC),
-        ("pushworld", SUITE_PUSHWORLD),
-        ("mine-pddl", SUITE_MINEPDDL),
-        ("htg-domains", SUITE_HTG),
-        ("ipc2023-learning", SUITE_IPC_LEARNING)
+       #  ("beluga2025", SUITE_BELUGA2025_SCALABILITY_DETERMINISTIC),
+       #  ("pushworld", SUITE_PUSHWORLD),
+       #  ("mine-pddl", SUITE_MINEPDDL),
+       #  ("htg-domains", SUITE_HTG),
+       #  ("ipc2023-learning", SUITE_IPC_LEARNING),
+       #  ("cnot-synthesis", SUITE_CNOT)
     ]
 
     BASE_SUITES = [
         ("ipc2024-optimal-strips", SUITE_IPC_OPTIMAL_STRIPS),
-        ("ipc2024-optimal-adl", SUITE_IPC_OPTIMAL_ADL),
+        # ("ipc2024-optimal-adl", SUITE_IPC_OPTIMAL_ADL),
     ]
 
     SUITE = []
@@ -82,10 +83,10 @@ DRIVER_OPTIONS = [
     MEMORY_LIMIT,
 ]
 state_registries = [
-    ("unpck", "unpacked"),
+    # ("unpck", "unpacked"),
     # ("pck", "packed"),
-    # ("dtdb_s_dev_dd", "dtdb_s_packed"),
-    # ("dtdb_h_dev_dd", "dtdb_h_packed"),
+    ("dtdb_s_dev_dd", "dtdb_s_packed"),
+    ("dtdb_h_dev_dd", "dtdb_h_packed"),
     # ("fixed_unpck", "fixed_tree_unpacked"),
     # ("fixed_pck", "fixed_tree_packed"),
     # ("huffman_tree", "huffman"),
@@ -94,7 +95,7 @@ state_registries = [
 
 heuristics = [
     ("blind", "blind(cache_estimates=false)"),
-    ("scp", "scp([projections(systematic(2))], saturator=perimstar, max_time=10, diversify=true, max_optimization_time=0, orders=greedy_orders(), cache_estimates=false)")
+    ("scp", "scp([projections(systematic(2), create_complete_transition_system=true)], saturator=perimstar, max_time=10, diversify=true, max_optimization_time=0, orders=greedy_orders(), cache_estimates=false)")
 ]
 
 CONFIGS = [
@@ -104,7 +105,7 @@ CONFIGS = [
         start=1,
     )
 ]
-REV_NICKS = [("dev-dd-tree-packed", "")]
+REV_NICKS = [("affinity-int-packer", "affinity-int-packer"), ("dev-dd-tree-packed", "dev-dd-tree-packed")]
 ATTRIBUTES = [
     "coverage",
     "error",
@@ -119,16 +120,25 @@ ATTRIBUTES = [
     "total_time",
     "translator_memory",
     "translator_time_done",
-    "num_slots",
+    "score_planner_memory",
+    "entries_in_state_set",
+    "bins_per_entry",
+    "avg_bins_per_state",
+    "state_set_size",
+    "lookup_structure_size",
+    "state_registry_size",
+    "bins_per_state",
+    "num_operators",
+    "num_fluents",
+    "num_derived",
+    "operator_touches_sum",
+    "operator_touches_avg",
     "num_atoms",
     "registered_states",
-    "avg_edges_per_state",
-    "state_set_occupied_tree",
-    "state_set_allocated_tree",
-    "state_set_size",
-    "score_planner_memory"
+    "memory_error",
 ]
-def build_exp(additional_options=[], nick=None): # this is for running seperate experiments with both pruning and no
+
+def build_exp(additional_options=[], nick=None, rev=None, rev_nick=None): # this is for running seperate experiments with both pruning and no
     if nick is not None:
         exp_path = get_default_data_dir() + "/" + _get_default_experiment_name() + "-" + nick
         print(exp_path)
@@ -139,24 +149,22 @@ def build_exp(additional_options=[], nick=None): # this is for running seperate 
 
     exp = Experiment(environment=ENV, path=exp_path)
 
-    for rev, rev_nick in REV_NICKS:
-        cached_rev = CachedFastDownwardRevision(REVISION_CACHE, project.get_repo_base(), rev, BUILD_OPTIONS)
-        cached_rev.cache()
-        exp.add_resource("", cached_rev.path, cached_rev.get_relative_exp_path())
-        for config_nick, config in CONFIGS:
-            print(rev_nick)
-            algo_name = f"{rev_nick}-{config_nick}" if rev_nick else config_nick
+    cached_rev = CachedFastDownwardRevision(REVISION_CACHE, project.get_repo_base(), rev, BUILD_OPTIONS)
+    cached_rev.cache()
+    exp.add_resource("", cached_rev.path, cached_rev.get_relative_exp_path())
+    for config_nick, config in CONFIGS:
+        print(rev_nick)
+        algo_name = f"{rev_nick}-{config_nick}" if rev_nick else config_nick
 
-            bounds = {}
-            for task in SUITE:
-                algo = FastDownwardAlgorithm(
-                    algo_name,
-                    cached_rev,
-                    DRIVER_OPTIONS,
-                    additional_options + config,
-                    )
-                run = FastDownwardRun(exp, algo, task)
-                exp.add_run(run)
+        for task in SUITE:
+            algo = FastDownwardAlgorithm(
+                algo_name,
+                cached_rev,
+                DRIVER_OPTIONS,
+                additional_options + config,
+                )
+            run = FastDownwardRun(exp, algo, task)
+            exp.add_run(run)
 
     exp.add_parser(FastDownwardExperiment.EXITCODE_PARSER)
     exp.add_parser(FastDownwardExperiment.TRANSLATOR_PARSER)
@@ -173,11 +181,12 @@ def build_exp(additional_options=[], nick=None): # this is for running seperate 
 
 
 
-exp = build_exp()
-project.add_report(
-    exp,
-    attributes=ATTRIBUTES
-)
-project.add_compress_exp_dir_step(exp)
+for rev, rev_nick in REV_NICKS:
+    exp = build_exp(nick=rev_nick, rev=rev, rev_nick=rev_nick)
+    project.add_report(
+        exp,
+        attributes=ATTRIBUTES
+    )
+    project.add_compress_exp_dir_step(exp)
 
 exp.run_steps()

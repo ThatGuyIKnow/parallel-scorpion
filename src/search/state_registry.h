@@ -16,8 +16,9 @@
 
 enum StateRegistryType {
     PACKED = 0,
-    DTDB_S_PACKED = 1,
-    DTDB_H_PACKED = 2
+    UNPACKED = 1,
+    DTDB_S_PACKED = 2,
+    DTDB_H_PACKED = 3
 };
 
 class StateRegistry : public subscriber::SubscriberService<StateRegistry>{

@@ -89,6 +89,10 @@ public:
 
     int get_num_bins() const {return num_bins;}
 
+    int get_bin(int var_id) const;
+
+    int get_range(int var_id) const;
+
     const AbstractTask *get_task() const {return task;}
     TaskProxy get_task_proxy() const;
 };

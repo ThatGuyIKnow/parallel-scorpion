@@ -1,4 +1,4 @@
-#include "packed.h"
+#include "unpacked.h"
 
 #include "../per_state_information.h"
 #include "../task_proxy.h"
@@ -8,33 +8,28 @@
 
 using namespace std;
 
-// int packed_state_variable_reader(const int index, void* context) {
-//     auto* state_packer = static_cast<int_packer::IntPacker*>(context);
-//     return state_packer->get(registered_states, var);
-// }
-
-PackedStateRegistry::PackedStateRegistry(const TaskProxy &task_proxy)
+UnpackedStateRegistry::UnpackedStateRegistry(const TaskProxy &task_proxy)
     : IStateRegistry(task_proxy), state_packer(task_properties::g_state_packers[task_proxy]),
       axiom_evaluator(g_axiom_evaluators[task_proxy]),
       num_variables(task_proxy.get_variables().size()),
-      state_data_pool(get_bins_per_state()),
+      state_data_pool(num_variables),
       registered_states(
           0,
-          StateIDSemanticHash(state_data_pool, get_bins_per_state()),
-          StateIDSemanticEqual(state_data_pool, get_bins_per_state())) {
+          StateIDSemanticHash(state_data_pool, num_variables),
+          StateIDSemanticEqual(state_data_pool, num_variables)) {
 
     State::get_variable_value =
         [this](const StateID& id) {
             std::vector<int> state_data(num_variables);
-            const unsigned *buffer = state_data_pool[id.value];
+            const int *buffer = state_data_pool[id.value];
             for (int i = 0; i < num_variables; ++i) {
-                state_data[i] = state_packer.get(buffer, i);
+                state_data[i] = buffer[i];
             }
             return state_data;
         };
 }
 
-StateID PackedStateRegistry::insert_id_or_pop_state() {
+StateID UnpackedStateRegistry::insert_id_or_pop_state() {
     /*
       Attempt to insert a StateID for the last state of state_data_pool
       if none is present yet. If this fails (another entry for this state
@@ -51,27 +46,27 @@ StateID PackedStateRegistry::insert_id_or_pop_state() {
     return StateID(*result.first);
 }
 
-State PackedStateRegistry::lookup_state(StateID id) const {
+State UnpackedStateRegistry::lookup_state(StateID id) const {
     return task_proxy.create_state(*this, id);
 }
 
-State PackedStateRegistry::lookup_state(
+State UnpackedStateRegistry::lookup_state(
     StateID id, vector<int> &&state_values) const {
     return task_proxy.create_state(*this, id, std::move(state_values));
 }
 
-const State &PackedStateRegistry::get_initial_state() {
+const State &UnpackedStateRegistry::get_initial_state() {
     if (!cached_initial_state) {
-        int num_bins = get_bins_per_state();
-        unique_ptr<PackedStateBin[]> buffer(new PackedStateBin[num_bins]);
-        // Avoid garbage values in half-full bins.
-        fill_n(buffer.get(), num_bins, 0);
 
         State initial_state = task_proxy.get_initial_state();
-        for (size_t i = 0; i < initial_state.size(); ++i) {
-            state_packer.set(buffer.get(), i, initial_state[i].get_value());
-        }
-        state_data_pool.push_back(buffer.get());
+        // unique_ptr<int[]> buffer(new int[num_variables]);
+        // // Initialize all values to zero.
+        // fill_n(buffer.get(), num_variables, 0);
+        // for (size_t i = 0; i < initial_state.size(); ++i) {
+        //     buffer[i] = initial_state[i].get_value();
+        // }
+        initial_state.unpack();
+        state_data_pool.push_back(initial_state.get_unpacked_values().data());
         StateID id = insert_id_or_pop_state();
         cached_initial_state = make_unique<State>(lookup_state(id));
     }
@@ -79,9 +74,9 @@ const State &PackedStateRegistry::get_initial_state() {
 }
 
 //TODO it would be nice to move the actual state creation (and operator application)
-//     out of the PackedStateRegistry. This could for example be done by global functions
-//     operating on state buffers (PackedStateBin *).
-State PackedStateRegistry::get_successor_state(const State &predecessor, const OperatorProxy &op) {
+//     out of the UnpackedStateRegistry. This could for example be done by global functions
+//     operating on state buffers (int *).
+State UnpackedStateRegistry::get_successor_state(const State &predecessor, const OperatorProxy &op) {
     assert(!op.is_axiom());
     /*
       TODO: ideally, we would not modify state_data_pool here and in
@@ -89,15 +84,15 @@ State PackedStateRegistry::get_successor_state(const State &predecessor, const O
       buffer becoming a dangling pointer. This used to be a bug before being
       fixed in https://issues.fast-downward.org/issue1115.
     */
-    auto packed_pred = state_data_pool[predecessor.get_id().value];
-    state_data_pool.push_back(packed_pred);
-    PackedStateBin *buffer = state_data_pool[state_data_pool.size() - 1];
+    auto unpacked_pred = state_data_pool[predecessor.get_id().value];
+    state_data_pool.push_back(unpacked_pred);
+    int *buffer = state_data_pool[state_data_pool.size() - 1];
 
     /* Experiments for issue348 showed that for tasks with axioms it's faster
        to compute successor states using unpacked data. */
     if (task_properties::has_axioms(task_proxy)) {
         predecessor.unpack();
-        vector<int> new_values = predecessor.get_unpacked_values();
+        static vector<int> new_values = predecessor.get_unpacked_values();
         for (EffectProxy effect : op.get_effects()) {
             if (does_fire(effect, predecessor)) {
                 FactPair effect_pair = effect.get_fact().get_pair();
@@ -106,7 +101,7 @@ State PackedStateRegistry::get_successor_state(const State &predecessor, const O
         }
         axiom_evaluator.evaluate(new_values);
         for (size_t i = 0; i < new_values.size(); ++i) {
-            state_packer.set(buffer, i, new_values[i]);
+            buffer[i] = new_values[i];
         }
         /*
           NOTE: insert_id_or_pop_state possibly invalidates buffer, hence
@@ -118,7 +113,7 @@ State PackedStateRegistry::get_successor_state(const State &predecessor, const O
         for (EffectProxy effect : op.get_effects()) {
             if (does_fire(effect, predecessor)) {
                 FactPair effect_pair = effect.get_fact().get_pair();
-                state_packer.set(buffer, effect_pair.var, effect_pair.value);
+                buffer[effect_pair.var] = effect_pair.value;
             }
         }
         StateID id = insert_id_or_pop_state();
@@ -126,15 +121,11 @@ State PackedStateRegistry::get_successor_state(const State &predecessor, const O
     }
 }
 
-int PackedStateRegistry::get_bins_per_state() const {
-    return state_packer.get_num_bins();
+int UnpackedStateRegistry::get_state_size_in_bytes() const {
+    return num_variables * sizeof(int);
 }
 
-int PackedStateRegistry::get_state_size_in_bytes() const {
-    return get_bins_per_state() * sizeof(PackedStateBin);
-}
-
-size_t PackedStateRegistry::get_memory_usage() const
+size_t UnpackedStateRegistry::get_memory_usage() const
 {
     size_t usage = 0;
 
@@ -144,7 +135,7 @@ size_t PackedStateRegistry::get_memory_usage() const
     return usage;
 }
 
-size_t PackedStateRegistry::get_occupied_memory_usage() const {
+size_t UnpackedStateRegistry::get_occupied_memory_usage() const {
     size_t usage = 0;
 
     usage += state_data_pool.size() * get_state_size_in_bytes();
@@ -153,11 +144,11 @@ size_t PackedStateRegistry::get_occupied_memory_usage() const {
     return usage;
 }
 
-void PackedStateRegistry::print_statistics(utils::LogProxy &log) const {
+void UnpackedStateRegistry::print_statistics(utils::LogProxy &log) const {
     // Avg bins per state
     log << "Number of registered states: " << registered_states.size() << endl;
     log << "Entries in state set: " << registered_states.size() << endl;
-    const int bins_per_entry = state_packer.get_num_bins();
+    const int bins_per_entry = num_variables;
     log << "Bins per entry: " << bins_per_entry << endl;
     log << "Average bins per state: " << bins_per_entry << endl;
 
@@ -167,7 +158,7 @@ void PackedStateRegistry::print_statistics(utils::LogProxy &log) const {
     log << "State set size: " << get_state_size_in_bytes() << " B" << endl;
 
     // State size in bins
-    log << "Number of bins in state: " << get_bins_per_state() << endl;
+    log << "Number of bins in state: " << num_variables << endl;
 
     // Number of bins the operators touch
     log << "Number of operators: " << task_proxy.get_operators().size() << endl;
@@ -196,5 +187,5 @@ void PackedStateRegistry::print_statistics(utils::LogProxy &log) const {
     log << "]" << endl;
     log << "Total number of operator touches: " << touches << endl;
     log << "Average number of operator touches: " << static_cast<double>(touches) / task_proxy.get_operators().size() << endl;
-
 }
+

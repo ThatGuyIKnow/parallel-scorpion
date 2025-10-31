@@ -20,6 +20,7 @@ class StateID {
 
     friend class StateRegistry;
     friend class PackedStateRegistry;
+    friend class UnpackedStateRegistry;
     friend class DTDB_S_PackedStateRegistry;
     friend class DTDB_H_PackedStateRegistry;
 

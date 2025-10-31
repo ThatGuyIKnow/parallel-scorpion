@@ -108,6 +108,14 @@ void IntPacker::set(Bin *buffer, int var, int value) const {
     var_infos[var].set(buffer, value);
 }
 
+int IntPacker::get_bin(int var_id) const {
+    return var_infos[var_id].get_bin();
+}
+
+int IntPacker::get_range(int var_id) const {
+    return var_infos[var_id].get_range();
+}
+
 TaskProxy IntPacker::get_task_proxy() const {
     assert(task);
     return TaskProxy(*task);
