@@ -180,9 +180,9 @@ void UnpackedStateRegistry::print_statistics(utils::LogProxy &log) const {
             const int var_id = eff.get_fact().get_variable().get_id();
             const int bin_id = state_packer.get_bin(var_id) / 2;
             touched_bins.insert(bin_id);
-            log << bin_id << ", ";
         }
         touches += touched_bins.size();
+        log << touched_bins.size() << ", ";
     }
     log << "]" << endl;
     log << "Total number of operator touches: " << touches << endl;
