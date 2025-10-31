@@ -148,7 +148,7 @@ void DTDB_S_PackedStateRegistry::print_statistics(utils::LogProxy &log) const {
     log << "State set size: " << tree_table.mem_usage() << " B" << endl;
     log << "Lookup structure size: " << root_backward.mem_usage() +
         (root_forward.capacity() * (sizeof(PackedStateBin))) << " B" << endl;
-    log << "State set size: " << get_state_size_in_bytes() << " B" << endl;
+    log << "State registry size: " << get_state_size_in_bytes() << " B" << endl;
 
     // State size in bins
     log << "Number of bins in state: " << get_bins_per_state() << endl;

@@ -138,7 +138,7 @@ ATTRIBUTES = [
     "memory_error",
 ]
 
-def build_exp(additional_options=[], nick=None, rev=None, rev_nick=None): # this is for running seperate experiments with both pruning and no
+def build_exp(additional_options=[], nick=None): # this is for running seperate experiments with both pruning and no
     if nick is not None:
         exp_path = get_default_data_dir() + "/" + _get_default_experiment_name() + "-" + nick
         print(exp_path)
@@ -149,22 +149,23 @@ def build_exp(additional_options=[], nick=None, rev=None, rev_nick=None): # this
 
     exp = Experiment(environment=ENV, path=exp_path)
 
-    cached_rev = CachedFastDownwardRevision(REVISION_CACHE, project.get_repo_base(), rev, BUILD_OPTIONS)
-    cached_rev.cache()
-    exp.add_resource("", cached_rev.path, cached_rev.get_relative_exp_path())
-    for config_nick, config in CONFIGS:
-        print(rev_nick)
-        algo_name = f"{rev_nick}-{config_nick}" if rev_nick else config_nick
+    for rev, rev_nick in REV_NICKS:
+        cached_rev = CachedFastDownwardRevision(REVISION_CACHE, project.get_repo_base(), rev, BUILD_OPTIONS)
+        cached_rev.cache()
+        exp.add_resource("", cached_rev.path, cached_rev.get_relative_exp_path())
+        for config_nick, config in CONFIGS:
+            print(rev_nick)
+            algo_name = f"{rev_nick}-{config_nick}" if rev_nick else config_nick
 
-        for task in SUITE:
-            algo = FastDownwardAlgorithm(
-                algo_name,
-                cached_rev,
-                DRIVER_OPTIONS,
-                additional_options + config,
-                )
-            run = FastDownwardRun(exp, algo, task)
-            exp.add_run(run)
+            for task in SUITE:
+                algo = FastDownwardAlgorithm(
+                    algo_name,
+                    cached_rev,
+                    DRIVER_OPTIONS,
+                    additional_options + config,
+                    )
+                run = FastDownwardRun(exp, algo, task)
+                exp.add_run(run)
 
     exp.add_parser(FastDownwardExperiment.EXITCODE_PARSER)
     exp.add_parser(FastDownwardExperiment.TRANSLATOR_PARSER)
@@ -181,12 +182,11 @@ def build_exp(additional_options=[], nick=None, rev=None, rev_nick=None): # this
 
 
 
-for rev, rev_nick in REV_NICKS:
-    exp = build_exp(nick=rev_nick, rev=rev, rev_nick=rev_nick)
-    project.add_report(
-        exp,
-        attributes=ATTRIBUTES
-    )
-    project.add_compress_exp_dir_step(exp)
+exp = build_exp()
+project.add_report(
+    exp,
+    attributes=ATTRIBUTES
+)
+project.add_compress_exp_dir_step(exp)
 
 exp.run_steps()
