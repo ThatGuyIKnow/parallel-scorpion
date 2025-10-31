@@ -40,7 +40,7 @@ if project.REMOTE:
         extra_options="#SBATCH -A naiss2025-22-1329",
         memory_per_cpu="9G",
     )
-    TIME_LIMIT = 1 * 60 * 60 #1 hour
+    TIME_LIMIT = 5 * 60 * 60 #1 hour
     MEMORY_LIMIT = "8G"
 
     base_path = Path(os.environ.get("DOWNWARD_BENCHMARKS")) / "pddl-benchmarks"
@@ -154,7 +154,6 @@ def build_exp(additional_options=[], nick=None): # this is for running seperate 
         cached_rev.cache()
         exp.add_resource("", cached_rev.path, cached_rev.get_relative_exp_path())
         for config_nick, config in CONFIGS:
-            print(rev_nick)
             algo_name = f"{rev_nick}-{config_nick}" if rev_nick else config_nick
 
             for task in SUITE:
