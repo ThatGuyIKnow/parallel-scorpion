@@ -437,6 +437,81 @@ def check_search_started(run):
             tools.add_unexplained_error(run, f"search not started due to {error}")
     return True
 
+def check_git_sync(rev_nicks):
+    """Check if local and remote branch heads match for each revision.
+    
+    Only checks revisions that are branch names (not commit SHAs).
+    Fails immediately if they don't match, ensuring experiments
+    are run with the expected code version.
+    
+    Args:
+        rev_nicks: List of (revision, nickname) tuples from REV_NICKS
+    """
+    repo_base = get_repo_base()
+    
+    def is_commit_sha(rev):
+        """Check if a revision string is a full commit SHA (40 hex chars)."""
+        return len(rev) == 40 and all(c in '0123456789abcdef' for c in rev.lower())
+    
+    for rev, rev_nick in rev_nicks:
+        # Skip if it's a commit SHA
+        if is_commit_sha(rev):
+            print(f"Skipping sync check for '{rev_nick}' (commit SHA: {rev[:8]}...)")
+            continue
+        
+        # It's a branch name, so check if it's in sync
+        print(f"Checking sync for revision '{rev_nick}' (branch: {rev})...")
+        
+        # Fetch latest remote info for this branch
+        try:
+            subprocess.run(
+                ["git", "fetch", "origin", rev],
+                cwd=repo_base,
+                capture_output=True,
+                check=True
+            )
+        except subprocess.CalledProcessError:
+            print(f"WARNING: Could not fetch remote branch '{rev}'. Skipping sync check.")
+            continue
+        
+        # Get local commit for this branch/ref
+        try:
+            result = subprocess.run(
+                ["git", "rev-parse", rev],
+                cwd=repo_base,
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            local_head = result.stdout.strip()
+        except subprocess.CalledProcessError:
+            print(f"WARNING: Could not resolve local ref '{rev}'. Skipping sync check.")
+            continue
+        
+        # Get remote HEAD for this branch
+        try:
+            result = subprocess.run(
+                ["git", "rev-parse", f"origin/{rev}"],
+                cwd=repo_base,
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            remote_head = result.stdout.strip()
+        except subprocess.CalledProcessError:
+            print(f"WARNING: Could not resolve remote branch 'origin/{rev}'. Skipping sync check.")
+            continue
+        
+        if local_head != remote_head:
+            print(f"\nERROR: Local and remote branch heads do not match for '{rev_nick}'!")
+            print(f"  Branch:      {rev}")
+            print(f"  Local HEAD:  {local_head}")
+            print(f"  Remote HEAD: {remote_head}")
+            print(f"\nPlease sync branch '{rev}' before running experiments.")
+            sys.exit(1)
+        
+        print(f"Branch '{rev}' is in sync (HEAD: {local_head[:8]})")
+
 
 class OptimalityCheckFilter:
     """Check that all algorithms have the same cost for commonly solved tasks.
