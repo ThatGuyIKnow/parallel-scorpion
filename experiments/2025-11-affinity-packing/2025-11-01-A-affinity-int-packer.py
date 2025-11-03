@@ -37,7 +37,7 @@ if project.REMOTE:
     ENV = TetralithEnvironment(
         setup=TetralithEnvironment.DEFAULT_SETUP,
         email="olijo92@liu.se",
-        extra_options="#SBATCH -A naiss2025-22-1329",
+        extra_options="#SBATCH -A naiss2025-5-382",
         memory_per_cpu="9G",
     )
     TIME_LIMIT = 5 * 60 * 60 #1 hour
