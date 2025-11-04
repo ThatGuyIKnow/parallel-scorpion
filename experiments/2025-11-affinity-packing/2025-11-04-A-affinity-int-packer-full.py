@@ -39,7 +39,7 @@ if project.REMOTE:
     ENV = TetralithEnvironment(
         setup=TetralithEnvironment.DEFAULT_SETUP,
         email="olijo92@liu.se",
-        extra_options="#SBATCH -A naiss2025-22-1329",
+        extra_options="#SBATCH -A naiss2025-5-382",
         memory_per_cpu="9G",
     )
     TIME_LIMIT = 5 * 60 * 60 #5 hours
@@ -48,18 +48,17 @@ if project.REMOTE:
     base_path = Path(os.environ.get("DOWNWARD_BENCHMARKS")) / "pddl-benchmarks"
 
     SUITE_SPECS = [
-       # ("autoscale-benchmarks-main/21.11-optimal-strips", SUITE_AUTOSCALE_OPTIMAL_STRIPS),
-       #  ("beluga2025", SUITE_BELUGA2025_SCALABILITY_DETERMINISTIC),
-       #  ("pushworld", SUITE_PUSHWORLD),
-       #  ("mine-pddl", SUITE_MINEPDDL),
-       #  ("htg-domains", SUITE_HTG),
-       #  ("ipc2023-learning", SUITE_IPC_LEARNING),
-       #  ("cnot-synthesis", SUITE_CNOT)
+        ("beluga2025", SUITE_BELUGA2025_SCALABILITY_DETERMINISTIC),
+        ("pushworld", SUITE_PUSHWORLD),
+        ("mine-pddl", SUITE_MINEPDDL),
+        ("htg-domains", SUITE_HTG),
+        ("ipc2023-learning", SUITE_IPC_LEARNING),
+        ("cnot-synthesis", SUITE_CNOT)
     ]
 
     BASE_SUITES = [
-        ("ipc2024-optimal-strips", SUITE_IPC_OPTIMAL_STRIPS),
-        # ("ipc2024-optimal-adl", SUITE_IPC_OPTIMAL_ADL),
+        # ("ipc2024-optimal-strips", SUITE_IPC_OPTIMAL_STRIPS),
+        ("ipc2024-optimal-adl", SUITE_IPC_OPTIMAL_ADL),
     ]
 
     SUITE = []
@@ -108,7 +107,7 @@ CONFIGS = [
     )
 ]
 REV_NICKS = [
-    # ("affinity-int-packer", "affinity-int-packer"), 
+    ("affinity-int-packer", "affinity-int-packer"), 
     ("dev-dd-tree-packed", "dev-dd-tree-packed")
 ]
 ATTRIBUTES = [
