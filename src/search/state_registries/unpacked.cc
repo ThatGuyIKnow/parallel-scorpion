@@ -178,7 +178,7 @@ void UnpackedStateRegistry::print_statistics(utils::LogProxy &log) const {
         unordered_set<int> touched_bins;
         for (const auto& eff : op.get_effects()) {
             const int var_id = eff.get_fact().get_variable().get_id();
-            const int bin_id = state_packer.get_bin_index(var_id) / 2;
+            const int bin_id = var_id / 2;
             touched_bins.insert(bin_id);
         }
         touches += touched_bins.size();
