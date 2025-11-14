@@ -219,7 +219,12 @@ int IntPacker::pack_one_bin(const Affinity& affinity,
     if (bin_vars.empty()) {
         const int seed = *std::max_element(unpacked_vars.begin(), unpacked_vars.end(),
                                      [&](int var_lhs, int var_rhs) {
-                                         return compute_degree(affinity, var_lhs) < compute_degree(affinity, var_rhs);
+                                         const auto degree_lhs = compute_degree(affinity, var_lhs);
+                                         const auto degree_rhs = compute_degree(affinity, var_rhs);
+                                         if (degree_lhs == degree_rhs) {
+                                             return ranges[var_lhs] < ranges[var_rhs];
+                                         }
+                                         return degree_lhs < degree_rhs;
                                      });
         var_infos[seed] = VariableInfo(ranges[seed], bin_index, used_bits);
         used_bits += get_bit_size_for_range(ranges[seed]);
@@ -230,7 +235,7 @@ int IntPacker::pack_one_bin(const Affinity& affinity,
         unpacked_vars.erase(seed);
 
         if (debug) {
-            std::cout << "Choosing seed [" << seed << "] with degree [" << compute_degree(affinity, seed) << "]" << std::endl;
+            std::cout << "Choosing seed [" << seed << "] derived? [" << TaskProxy(*task).get_variables()[seed].is_derived() << "] with domain size [" << ranges[seed] << "] with degree [" << compute_degree(affinity, seed) << "]" << std::endl;
         }
     }
 
@@ -272,13 +277,18 @@ int IntPacker::pack_one_bin(const Affinity& affinity,
                 assert(utils::in_bounds(var_lhs, gain) && utils::in_bounds(var_rhs, gain));
                 if (gain[var_lhs] == gain[var_rhs]) 
                 {
-                    return compute_degree(affinity, var_lhs) < compute_degree(affinity, var_rhs);
+                    const auto degree_lhs = compute_degree(affinity, var_lhs);
+                    const auto degree_rhs = compute_degree(affinity, var_rhs);
+                    if (degree_lhs == degree_rhs) {
+                        return ranges[var_lhs] < ranges[var_rhs];
+                    }
+                    return degree_lhs < degree_rhs;
                 }
                 return gain[var_lhs] < gain[var_rhs];
             });
 
         if (debug) {
-            std::cout << "Choosing var [" << next_var << "] with gain [" << gain[next_var] << "] (and degree [" << compute_degree(affinity, next_var) << "])" << std::endl;
+            std::cout << "Choosing var [" << next_var << "] derived? [" << TaskProxy(*task).get_variables()[next_var].is_derived() << "] with domain size [" << ranges[next_var] <<  "] and gain [" << gain[next_var] << "] (and degree [" << compute_degree(affinity, next_var) << "])" << std::endl;
         }
 
         bin_vars.push_back(next_var);

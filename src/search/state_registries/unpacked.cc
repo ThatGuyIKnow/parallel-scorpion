@@ -92,7 +92,7 @@ State UnpackedStateRegistry::get_successor_state(const State &predecessor, const
        to compute successor states using unpacked data. */
     if (task_properties::has_axioms(task_proxy)) {
         predecessor.unpack();
-        static vector<int> new_values = predecessor.get_unpacked_values();
+        vector<int> new_values = predecessor.get_unpacked_values();
         for (EffectProxy effect : op.get_effects()) {
             if (does_fire(effect, predecessor)) {
                 FactPair effect_pair = effect.get_fact().get_pair();
