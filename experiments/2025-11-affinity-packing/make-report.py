@@ -18,27 +18,44 @@ ATTRIBUTES = [
     "total_time",
     "translator_memory",
     "translator_time_done",
-    "num_slots",
-#    "num_atoms",
-    "registered_states",
-    "avg_edges_per_state",
-    "state_set_occupied_tree",
-    "state_set_allocated_tree",
-    "state_set_size",
     "score_planner_memory",
-    "num_atoms"
+    "entries_in_state_set",
+    "bins_per_entry",
+    "avg_bins_per_state",
+    "state_set_size",
+    "lookup_structure_size",
+    "state_registry_size",
+    "bins_per_state",
+    "num_operators",
+    "num_fluents",
+    "num_derived",
+    "operator_touches_sum",
+    "operator_touches_avg",
+    "num_atoms",
+    "registered_states",
+    "memory_error",
 ]
-
 
 import pathlib
 BASE_PATH = pathlib.Path(__file__).parent.resolve() / 'data'
 
 exp = Experiment(BASE_PATH)
-# 2025-10-22-A-tree-compression-dbdt_s_short-eval
-exp.add_fetcher(f'{BASE_PATH}/2025-10-22-A-tree-compression-dbdt_s_short-eval/', merge=True)
+# 2025-11-01-A-affinity-int-packer
+exp.add_fetcher(f'{BASE_PATH}/2025-11-01-A-affinity-int-packer-eval/', merge=True, filter_algorithm=[
+    "affinity-int-packer-01-blind-dtdb_s_dev_dd", 
+    "affinity-int-packer-02-scp-dtdb_s_dev_dd", 
+    "affinity-int-packer-03-blind-dtdb_h_dev_dd", 
+    "affinity-int-packer-04-scp-dtdb_h_dev_dd"
+])
 
-# 2025-10-22-A-tree-compression-packed_short
-exp.add_fetcher(f'{BASE_PATH}/2025-10-22-A-tree-compression-packed_short-eval/', merge=True)
+# 2025-11-03-A-affinity-int-packer-dev-dd
+exp.add_fetcher(f'{BASE_PATH}/2025-11-03-A-affinity-int-packer-dev-dd-eval/', merge=True)
+
+# 2025-11-04-A-affinity-int-packer-full
+exp.add_fetcher(f'{BASE_PATH}/2025-11-04-A-affinity-int-packer-full-eval/', merge=True)
+
+# 2025-11-06-A-packed-unpacked-eval
+exp.add_fetcher(f'{BASE_PATH}/2025-11-06-A-packed-unpacked-eval/', merge=True)
 
 exp.add_report(AbsoluteReport(attributes=ATTRIBUTES))
 
