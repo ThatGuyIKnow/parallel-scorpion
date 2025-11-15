@@ -41,7 +41,7 @@ BASE_PATH = pathlib.Path(__file__).parent.resolve() / 'data'
 
 exp = Experiment(BASE_PATH)
 # 2025-11-01-A-affinity-int-packer
-exp.add_fetcher(f'{BASE_PATH}/2025-11-01-A-affinity-int-packer-eval/', merge=True, filter_algorithm=[
+exp.add_fetcher(f'{BASE_PATH}/2025-11-01-A-affinity-int-packer-eval/', filter_algorithm=[
     "affinity-int-packer-01-blind-dtdb_s_dev_dd", 
     "affinity-int-packer-02-scp-dtdb_s_dev_dd", 
     "affinity-int-packer-03-blind-dtdb_h_dev_dd", 
@@ -56,6 +56,14 @@ exp.add_fetcher(f'{BASE_PATH}/2025-11-04-A-affinity-int-packer-full-eval/', merg
 
 # 2025-11-06-A-packed-unpacked-eval
 exp.add_fetcher(f'{BASE_PATH}/2025-11-06-A-packed-unpacked-eval/', merge=True)
+
+# 2025-11-06-A-packed-unpacked-eval
+exp.add_fetcher(f'{BASE_PATH}/2025-11-06-A-packed-unpacked-eval/', merge=True, filter_algorithm=[
+    "affinity-int-packer-03-blind-pck",
+    "affinity-int-packer-04-scp-pck"])
+
+# 2025-11-14-A-packed-unpacked-eval
+exp.add_fetcher(f'{BASE_PATH}/2025-11-14-A-packed-unpacked-eval/', merge=True)
 
 exp.add_report(AbsoluteReport(attributes=ATTRIBUTES))
 
