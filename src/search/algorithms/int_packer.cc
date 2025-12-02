@@ -226,28 +226,26 @@ int IntPacker::pack_one_bin(const TaskProxy& task,
 
     determine_unpacked_fit_vars(BITS_PER_BIN - used_bits, ranges, unpacked_vars, fit_unpacked_vars);
 
-
     // If there are no variable for consideration, seed a new variable
     if (bin_vars.empty()) {
         const int seed = *std::max_element(fit_unpacked_vars.begin(), fit_unpacked_vars.end(),
                                      [&](int var_lhs, int var_rhs) {
-                                        // First sort: fluent wins over derived
-                                        const auto lhs_derived = task.get_variables()[var_lhs].is_derived();
-                                        const auto rhs_derived = task.get_variables()[var_rhs].is_derived();
-                                        
-                                        if (lhs_derived == rhs_derived) {
-                                            // Second sort: highest range that fits wins
-                                            if (ranges[var_lhs] == ranges[var_rhs]) {
+                                        // First sort: highest range that fits wins
+                                        if (ranges[var_lhs] == ranges[var_rhs]) {
+                                            const auto lhs_derived = task.get_variables()[var_lhs].is_derived();
+                                            const auto rhs_derived = task.get_variables()[var_rhs].is_derived();
+                                            // Second sort: fluent wins over derived
+                                            if (lhs_derived == rhs_derived) {
                                                 const auto degree_lhs = compute_degree(affinity, var_lhs);
                                                 const auto degree_rhs = compute_degree(affinity, var_rhs);
                                                 // Third sort: highest degree wins
                                                 return degree_lhs < degree_rhs;
                                             }
-                                            return ranges[var_lhs] < ranges[var_rhs];
+                                            return lhs_derived > rhs_derived;
                                         }
-
-                                        return lhs_derived > rhs_derived;
+                                        return ranges[var_lhs] < ranges[var_rhs];
                                      });
+
         var_infos[seed] = VariableInfo(ranges[seed], bin_index, used_bits);
         used_bits += get_bit_size_for_range(ranges[seed]);
         auto& bit_vars = bits_to_vars[get_bit_size_for_range(ranges[seed])];
@@ -283,14 +281,13 @@ int IntPacker::pack_one_bin(const TaskProxy& task,
 
         const auto next_var = *std::max_element(fit_unpacked_vars.begin(), fit_unpacked_vars.end(),
             [&](int var_lhs, int var_rhs) {
-                // First sort: fluent wins over derived
-                const auto lhs_derived = task.get_variables()[var_lhs].is_derived();
-                const auto rhs_derived = task.get_variables()[var_rhs].is_derived();
-
-                if (lhs_derived == rhs_derived) {
-                    // Second sort: highest range that fits wins
-                    if (ranges[var_lhs] == ranges[var_rhs]) 
-                    {
+                
+                // First sort: highest range that fits wins
+                if (ranges[var_lhs] == ranges[var_rhs]) {                
+                    // Second sort: fluent wins over derived
+                    const auto lhs_derived = task.get_variables()[var_lhs].is_derived();
+                    const auto rhs_derived = task.get_variables()[var_rhs].is_derived();
+                    if (lhs_derived == rhs_derived) {
                         // Third sort: highest gain wins
                         if (gain[var_lhs] == gain[var_rhs]) {
                             const auto degree_lhs = compute_degree(affinity, var_lhs);
@@ -300,9 +297,9 @@ int IntPacker::pack_one_bin(const TaskProxy& task,
                         }
                         return gain[var_lhs] < gain[var_rhs];
                     }
-                    return ranges[var_lhs] < ranges[var_rhs];
-                }
-                return lhs_derived > rhs_derived;
+                    return lhs_derived > rhs_derived;
+                }        
+                return ranges[var_lhs] < ranges[var_rhs];
             });
 
         if (debug) {
