@@ -35,33 +35,13 @@ class IntPacker {
 
     bool debug;
 
-    int pack_one_bin(const Affinity &affinity,
+    int pack_one_bin(const TaskProxy& task, 
+                     const Affinity &affinity,
                      std::unordered_set<int> &unpacked_vars,
                      const std::vector<int> &ranges,
                      std::vector<std::vector<int>> &bits_to_vars,
-                     std::vector<int> &bin_vars);
-
-    std::vector<int> get_bins_used_bits();
-
-    std::unordered_map<int, std::vector<int>> collect_derived_variables_by_bit_size(
-        const std::vector<int> &ranges,
-        const TaskProxy &task_proxy);
-
-    int fill_bin_with_derived_variables(
-        int bin_index,
-        int initial_used_bits,
-        const std::vector<int> &ranges,
-        std::unordered_map<int, std::vector<int>> &vars_by_bit_size);
-
-    int pack_derived_into_existing_bins(
-        const std::vector<int> &ranges,
-        std::unordered_map<int, std::vector<int>> &vars_by_bit_size);
-
-    int pack_derived_into_new_bin(
-        const std::vector<int> &ranges,
-        std::unordered_map<int, std::vector<int>> &vars_by_bit_size);
-
-    void pack_derived_maxwidth(const std::vector<int> &ranges, const TaskProxy &task_proxy);
+                     std::vector<int> &bin_vars,
+                     std::unordered_set<int>& fit_vars);
 
     void pack_bins(const std::vector<int> &ranges);
 

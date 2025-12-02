@@ -8,12 +8,14 @@ from downward.suites import build_suite
 from downward.cached_revision import CachedFastDownwardRevision
 from lab.experiment import Experiment
 from lab.environments import TetralithEnvironment, LocalEnvironment
-from benchmarks import *
 import custom_parser
 from lab import environments, tools
 import project
 from itertools import product
 import subprocess
+from suite import SUITE_IPC_OPTIMAL_STRIPS, SUITE_IPC_OPTIMAL_ADL, SUITE_BELUGA2025_SCALABILITY_DETERMINISTIC, SUITE_PUSHWORLD, SUITE_MINEPDDL, SUITE_HTG, SUITE_IPC_LEARNING, SUITE_CNOT_SYNTHESIS
+from suite_test import SUITE_IPC_OPTIMAL_STRIPS_TEST, SUITE_IPC_OPTIMAL_ADL_TEST, SUITE_BELUGA2025_SCALABILITY_DETERMINISTIC_TEST, SUITE_PUSHWORLD_TEST, SUITE_MINEPDDL_TEST, SUITE_HTG_TEST, SUITE_IPC_LEARNING_TEST, SUITE_CNOT_SYNTHESIS_TEST
+
 
 def get_default_data_dir():
     """E.g. "ham/spam/eggs.py" => "ham/spam/data/"."""
@@ -30,7 +32,7 @@ def _get_default_experiment_name():
 
 
 REVISION_CACHE = (
-        os.environ.get("DOWNWARD_REVISION_CACHE") or project.DIR / "data" / "revision-cache"
+    os.environ.get("DOWNWARD_REVISION_CACHE") or project.DIR / "data" / "revision-cache"
 )
 BUILD_OPTIONS = []
 if project.REMOTE:
@@ -43,43 +45,53 @@ if project.REMOTE:
     TIME_LIMIT = 5 * 60 * 60 #1 hour
     MEMORY_LIMIT = "8G"
 
-    base_path = Path(os.environ.get("DOWNWARD_BENCHMARKS")) / "pddl-benchmarks"
-
-    SUITE_SPECS = [
-       # ("autoscale-benchmarks-main/21.11-optimal-strips", SUITE_AUTOSCALE_OPTIMAL_STRIPS),
-       #  ("beluga2025", SUITE_BELUGA2025_SCALABILITY_DETERMINISTIC),
-       #  ("pushworld", SUITE_PUSHWORLD),
-       #  ("mine-pddl", SUITE_MINEPDDL),
-       #  ("htg-domains", SUITE_HTG),
-       #  ("ipc2023-learning", SUITE_IPC_LEARNING),
-       #  ("cnot-synthesis", SUITE_CNOT)
-    ]
+    base_path = Path(os.environ.get("BENCHMARKS_PDDL"))
 
     BASE_SUITES = [
-        ("ipc2024-optimal-strips", SUITE_IPC_OPTIMAL_STRIPS),
-        # ("ipc2024-optimal-adl", SUITE_IPC_OPTIMAL_ADL),
+        ("downward-benchmarks", SUITE_IPC_OPTIMAL_STRIPS),
+        ("downward-benchmarks", SUITE_IPC_OPTIMAL_ADL),
+        # ("beluga2025", SUITE_BELUGA2025_SCALABILITY_DETERMINISTIC),
+        # ("pushworld", SUITE_PUSHWORLD),
+        # ("mine-pddl", SUITE_MINEPDDL),
+        # ("htg-domains", SUITE_HTG),
+        # ("ipc2023-learning", SUITE_IPC_LEARNING),
+        # ("cnot-synthesis", SUITE_CNOT_SYNTHESIS),
     ]
 
     SUITE = []
-    for rel_path, suite in SUITE_SPECS:
-        SUITE += list(build_suite(base_path / rel_path, suite))
     for rel_path, suite in BASE_SUITES:
-        SUITE += list(build_suite(os.environ.get("DOWNWARD_BENCHMARKS"), suite))
+        SUITE += list(build_suite(base_path / rel_path, suite))
 else:
-    ENV = LocalEnvironment(processes=1)
+    ENV = LocalEnvironment(processes=16)
     MEMORY_LIMIT = "6G"
-    TIME_LIMIT = 5 * 60
-    SUITE = build_suite(
-         os.environ.get("DOWNWARD_BENCHMARKS"),
-        ["depot:p01.pddl", "grid:prob01.pddl", "gripper:prob01.pddl"]
-    )
+    TIME_LIMIT = 5
 
+    base_path = Path(os.environ.get("BENCHMARKS_PDDL"))
+
+    BASE_SUITES = [
+        ("downward-benchmarks", SUITE_IPC_OPTIMAL_STRIPS_TEST),
+        ("downward-benchmarks", SUITE_IPC_OPTIMAL_ADL_TEST),
+        # ("beluga2025", SUITE_BELUGA2025_SCALABILITY_DETERMINISTIC_TEST),
+        # ("pushworld", SUITE_PUSHWORLD_TEST),
+        # ("mine-pddl", SUITE_MINEPDDL_TEST),
+        # ("htg-domains", SUITE_HTG),
+        # ("ipc2023-learning", SUITE_IPC_LEARNING_TEST),
+        # ("cnot-synthesis", SUITE_CNOT_SYNTHESIS_TEST),
+    ]
+
+    SUITE = []
+    for rel_path, suite in BASE_SUITES:
+        SUITE += list(build_suite(base_path / rel_path, suite))
 
 
 DRIVER_OPTIONS = [
     "--overall-time-limit",
     f"{TIME_LIMIT}s",
     "--overall-memory-limit",
+    MEMORY_LIMIT,
+    "--search-time-limit",   
+    f"{TIME_LIMIT}s",
+    "--search-memory-limit", 
     MEMORY_LIMIT,
 ]
 state_registries = [
@@ -105,7 +117,8 @@ CONFIGS = [
         start=1,
     )
 ]
-REV_NICKS = [("affinity-int-packer", "affinity-int-packer"), ("dev-dd-tree-packed", "dev-dd-tree-packed")]
+REV_NICKS = [("affinity-int-packer", "affinity-int-packer"), ("scorpion", "scorpion")
+             ]
 ATTRIBUTES = [
     "coverage",
     "error",
