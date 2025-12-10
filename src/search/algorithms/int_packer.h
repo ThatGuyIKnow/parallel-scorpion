@@ -1,9 +1,12 @@
 #ifndef ALGORITHMS_INT_PACKER_H
 #define ALGORITHMS_INT_PACKER_H
 
+#include <cstdint>
 #include <unordered_map>
 #include <vector>
 #include <unordered_set>
+
+#include <gtl/phmap.hpp>
 
 class AbstractTask;
 class TaskProxy;
@@ -24,7 +27,7 @@ class TaskProxy;
 */
 namespace int_packer {
 
-using Affinity = std::vector<std::vector<int>>;
+using Affinity = gtl::flat_hash_map<int, gtl::flat_hash_map<int, uint8_t>>;
 
 class IntPacker {
     class VariableInfo;
@@ -35,13 +38,13 @@ class IntPacker {
 
     bool debug;
 
-    int pack_one_bin(const TaskProxy& task, 
+    int pack_one_bin(const TaskProxy& task,
                      const Affinity &affinity,
-                     std::unordered_set<int> &unpacked_vars,
+                     gtl::flat_hash_set<int> &unpacked_vars,
                      const std::vector<int> &ranges,
                      std::vector<std::vector<int>> &bits_to_vars,
                      std::vector<int> &bin_vars,
-                     std::unordered_set<int>& fit_vars);
+                     gtl::flat_hash_set<int>& fit_vars);
 
     void pack_bins(const std::vector<int> &ranges);
 

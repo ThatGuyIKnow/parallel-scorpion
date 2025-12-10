@@ -4,6 +4,8 @@
 #include "../task_utils/causal_graph.h"
 #include "../utils/logging.h"
 
+#include <gtl/phmap.hpp>
+
 #include <cassert>
 #include <algorithm>
 #include <unordered_map>
@@ -123,15 +125,16 @@ TaskProxy IntPacker::get_task_proxy() const {
 
 
 static auto compute_affinity(const TaskProxy &task_proxy, int num_vars) {
-    auto affinity = Affinity(num_vars, vector<int>(num_vars, 0));
+    auto affinity = Affinity();
 
     for (const auto op : task_proxy.get_operators()) {
         for (const auto eff_lhs : op.get_effects()) {
             for (const auto eff_rhs : op.get_effects()) {
-                if (eff_lhs.get_fact().get_variable().get_id() == eff_rhs.get_fact().get_variable().get_id()) continue;
+                int var_lhs = eff_lhs.get_fact().get_variable().get_id();
+                int var_rhs = eff_rhs.get_fact().get_variable().get_id();
+                if (var_lhs == var_rhs) continue;
 
-                affinity[eff_lhs.get_fact().get_variable().get_id()]
-                        [eff_rhs.get_fact().get_variable().get_id()] += 1;
+                affinity[var_lhs][var_rhs] += 1;
             }
         }
     }
@@ -142,8 +145,11 @@ static auto compute_affinity(const TaskProxy &task_proxy, int num_vars) {
 static auto compute_degree(const Affinity& affinity, int var)
 {
     int deg = 0;
-    for (int val : affinity[var]) {
-        deg += val;
+    auto it = affinity.find(var);
+    if (it != affinity.end()) {
+        for (const auto& pair : it->second) {
+            deg += pair.second;
+        }
     }
     return deg;
 }
@@ -170,7 +176,7 @@ void IntPacker::pack_bins(const vector<int> &ranges) {
     // Loop over the variables in reverse order to prefer variables with
     // low indices in case of ties. This might increase cache-locality.
     vector<vector<int>> bits_to_vars(BITS_PER_BIN + 1);
-    auto unpacked_vars = unordered_set<int>();
+    auto unpacked_vars = gtl::flat_hash_set<int>();
     for (const auto& var : task_proxy.get_variables()) {
         int bits = get_bit_size_for_range(ranges[var.get_id()]);
         assert(bits <= BITS_PER_BIN);
@@ -183,7 +189,7 @@ void IntPacker::pack_bins(const vector<int> &ranges) {
     auto affinity = compute_affinity(task_proxy, num_vars);
 
     auto bin_vars = vector<int>();
-    auto fit_unpacked_vars = std::unordered_set<int>();
+    auto fit_unpacked_vars = gtl::flat_hash_set<int>();
     while (!unpacked_vars.empty()) {
         bool is_even = num_bins % 2 == 0;
         if (is_even) {
@@ -196,13 +202,13 @@ void IntPacker::pack_bins(const vector<int> &ranges) {
 }
 
 
-int IntPacker::pack_one_bin(const TaskProxy& task, 
+int IntPacker::pack_one_bin(const TaskProxy& task,
                             const Affinity& affinity,
-                            std::unordered_set<int>& unpacked_vars,
+                            gtl::flat_hash_set<int>& unpacked_vars,
                             const vector<int> &ranges,
                             vector<vector<int>> &bits_to_vars,
                             std::vector<int>& bin_vars,
-                            std::unordered_set<int>& fit_unpacked_vars)
+                            gtl::flat_hash_set<int>& fit_unpacked_vars)
     {
     if (debug)
         std::cout << "Packing bin [" << num_bins << "]" << std::endl;
@@ -212,8 +218,8 @@ int IntPacker::pack_one_bin(const TaskProxy& task,
     int used_bits = 0;
     int num_vars_in_bin = 0;
 
-    // Determine variables that fit into 
-    auto determine_unpacked_fit_vars = [](int available_bits, const vector<int> &ranges, const std::unordered_set<int>& unpacked_vars, std::unordered_set<int>& fit_unpacked_vars) {
+    // Determine variables that fit into
+    auto determine_unpacked_fit_vars = [](int available_bits, const vector<int> &ranges, const gtl::flat_hash_set<int>& unpacked_vars, gtl::flat_hash_set<int>& fit_unpacked_vars) {
         fit_unpacked_vars.clear();
         {
             for (const auto& var : unpacked_vars) {
@@ -260,7 +266,8 @@ int IntPacker::pack_one_bin(const TaskProxy& task,
         }
     }
 
-    while (true) 
+    auto gain = std::vector<int>(affinity.size(), 0);
+    while (true)
     {
         // Determine size of largest variable that still fits into the bin.
 
@@ -270,12 +277,18 @@ int IntPacker::pack_one_bin(const TaskProxy& task,
         }
 
         // Compute gain of adding variable into current bin
-        auto gain = std::vector<int>(affinity.size(), 0);
-        for (int var : fit_unpacked_vars) 
+        std::fill(gain.begin(), gain.end(), 0);
+        for (int var : fit_unpacked_vars)
         {
-            for (int bin_var : bin_vars) 
-            {
-                gain[var] += affinity[var][bin_var];
+            auto it_var = affinity.find(var);
+            if (it_var != affinity.end()) {
+                for (int bin_var : bin_vars)
+                {
+                    auto it_bin = it_var->second.find(bin_var);
+                    if (it_bin != it_var->second.end()) {
+                        gain[var] += it_bin->second;
+                    }
+                }
             }
         }
 
