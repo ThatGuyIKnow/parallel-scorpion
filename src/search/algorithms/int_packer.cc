@@ -90,12 +90,12 @@ public:
 
 
 IntPacker::IntPacker(const vector<int> &ranges)
-    : num_bins(0), task(nullptr), debug(true) {
+    : num_bins(0), task(nullptr), debug(false) {
     pack_bins(ranges);
 }
 
 IntPacker::IntPacker(const TaskProxy &task_proxy, const vector<int> &ranges)
-    : num_bins(0), task(&task_proxy.get_task()), debug(true) {
+    : num_bins(0), task(&task_proxy.get_task()), debug(false) {
     pack_bins(ranges);
 }
 
