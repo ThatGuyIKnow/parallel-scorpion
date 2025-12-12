@@ -27,7 +27,8 @@ class TaskProxy;
 */
 namespace int_packer {
 
-using Affinity = gtl::flat_hash_map<int, gtl::flat_hash_map<int, uint8_t>>;
+using Affinity = gtl::flat_hash_map<std::pair<int, int>, uint16_t>;
+using DegreeMap = gtl::flat_hash_map<int, int>;
 
 class IntPacker {
     class VariableInfo;
@@ -40,6 +41,7 @@ class IntPacker {
 
     int pack_one_bin(const TaskProxy& task,
                      const Affinity &affinity,
+                     const DegreeMap& degree_map,
                      gtl::flat_hash_set<int> &unpacked_vars,
                      const std::vector<int> &ranges,
                      std::vector<std::vector<int>> &bits_to_vars,

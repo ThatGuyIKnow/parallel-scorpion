@@ -124,8 +124,9 @@ TaskProxy IntPacker::get_task_proxy() const {
 }
 
 
-static auto compute_affinity(const TaskProxy &task_proxy, int num_vars) {
+static auto compute_affinity(const TaskProxy &task_proxy) {
     auto affinity = Affinity();
+    auto degree_map = DegreeMap();
 
     for (const auto op : task_proxy.get_operators()) {
         for (const auto eff_lhs : op.get_effects()) {
@@ -134,24 +135,23 @@ static auto compute_affinity(const TaskProxy &task_proxy, int num_vars) {
                 int var_rhs = eff_rhs.get_fact().get_variable().get_id();
                 if (var_lhs == var_rhs) continue;
 
-                affinity[var_lhs][var_rhs] += 1;
+                affinity[{var_lhs, var_rhs}] += 1;
+                degree_map[var_lhs] += 1;
+                degree_map[var_rhs] += 1;
             }
         }
     }
 
-    return affinity;
+    return std::make_pair(affinity, degree_map);
 }
 
-static auto compute_degree(const Affinity& affinity, int var)
+static auto compute_degree(const DegreeMap& degree_map, int var)
 {
-    int deg = 0;
-    auto it = affinity.find(var);
-    if (it != affinity.end()) {
-        for (const auto& pair : it->second) {
-            deg += pair.second;
-        }
+    auto it = degree_map.find(var);
+    if (it != degree_map.end()) {
+        return it->second;
     }
-    return deg;
+    return 0;
 }
 
 // Structure to represent a bin during packing
@@ -186,16 +186,16 @@ void IntPacker::pack_bins(const vector<int> &ranges) {
 
 
     // Step 1: Compute pairwise affinities
-    auto affinity = compute_affinity(task_proxy, num_vars);
+    auto [affinity, degree_map] = compute_affinity(task_proxy);
 
     auto bin_vars = vector<int>();
     auto fit_unpacked_vars = gtl::flat_hash_set<int>();
     while (!unpacked_vars.empty()) {
         bool is_even = num_bins % 2 == 0;
         if (is_even) {
-            pack_one_bin(task_proxy, affinity, unpacked_vars, ranges, bits_to_vars, bin_vars, fit_unpacked_vars);
+            pack_one_bin(task_proxy, affinity, degree_map, unpacked_vars, ranges, bits_to_vars, bin_vars, fit_unpacked_vars);
         } else {
-            pack_one_bin(task_proxy, affinity, unpacked_vars, ranges, bits_to_vars, bin_vars, fit_unpacked_vars);
+            pack_one_bin(task_proxy, affinity, degree_map, unpacked_vars, ranges, bits_to_vars, bin_vars, fit_unpacked_vars);
             bin_vars.clear();
         }
     }
@@ -204,6 +204,7 @@ void IntPacker::pack_bins(const vector<int> &ranges) {
 
 int IntPacker::pack_one_bin(const TaskProxy& task,
                             const Affinity& affinity,
+                            const DegreeMap& degree_map,
                             gtl::flat_hash_set<int>& unpacked_vars,
                             const vector<int> &ranges,
                             vector<vector<int>> &bits_to_vars,
@@ -242,8 +243,8 @@ int IntPacker::pack_one_bin(const TaskProxy& task,
                                             const auto rhs_derived = task.get_variables()[var_rhs].is_derived();
                                             // Second sort: fluent wins over derived
                                             if (lhs_derived == rhs_derived) {
-                                                const auto degree_lhs = compute_degree(affinity, var_lhs);
-                                                const auto degree_rhs = compute_degree(affinity, var_rhs);
+                                                const auto degree_lhs = compute_degree(degree_map, var_lhs);
+                                                const auto degree_rhs = compute_degree(degree_map, var_rhs);
                                                 // Third sort: highest degree wins
                                                 return degree_lhs < degree_rhs;
                                             }
@@ -262,11 +263,11 @@ int IntPacker::pack_one_bin(const TaskProxy& task,
         fit_unpacked_vars.erase(seed);
 
         if (debug) {
-            std::cout << "Choosing seed [" << seed << "] derived? [" << task.get_variables()[seed].is_derived() << "] with domain size [" << ranges[seed] << "] with degree [" << compute_degree(affinity, seed) << "]" << std::endl;
+            std::cout << "Choosing seed [" << seed << "] derived? [" << task.get_variables()[seed].is_derived() << "] with domain size [" << ranges[seed] << "] with degree [" << compute_degree(degree_map, seed) << "]" << std::endl;
         }
     }
 
-    auto gain = std::vector<int>(affinity.size(), 0);
+    auto gain = std::vector<int>(ranges.size(), 0);
     while (true)
     {
         // Determine size of largest variable that still fits into the bin.
@@ -278,20 +279,15 @@ int IntPacker::pack_one_bin(const TaskProxy& task,
 
         // Compute gain of adding variable into current bin
         std::fill(gain.begin(), gain.end(), 0);
-        for (int var : fit_unpacked_vars)
-        {
-            auto it_var = affinity.find(var);
-            if (it_var != affinity.end()) {
-                for (int bin_var : bin_vars)
-                {
-                    auto it_bin = it_var->second.find(bin_var);
-                    if (it_bin != it_var->second.end()) {
-                        gain[var] += it_bin->second;
-                    }
+        for (int var : fit_unpacked_vars) {
+            for (int bin_var : bin_vars)
+            {
+                auto it_bin = affinity.find({var , bin_var});
+                if (it_bin != affinity.end()) {
+                    gain[var] += it_bin->second;
                 }
             }
         }
-
         const auto next_var = *std::max_element(fit_unpacked_vars.begin(), fit_unpacked_vars.end(),
             [&](int var_lhs, int var_rhs) {
                 
@@ -303,8 +299,8 @@ int IntPacker::pack_one_bin(const TaskProxy& task,
                     if (lhs_derived == rhs_derived) {
                         // Third sort: highest gain wins
                         if (gain[var_lhs] == gain[var_rhs]) {
-                            const auto degree_lhs = compute_degree(affinity, var_lhs);
-                            const auto degree_rhs = compute_degree(affinity, var_rhs);
+                            const auto degree_lhs = compute_degree(degree_map, var_lhs);
+                            const auto degree_rhs = compute_degree(degree_map, var_rhs);
                             // Fourth sort: highest degree wins
                             return degree_lhs < degree_rhs;
                         }
@@ -316,7 +312,7 @@ int IntPacker::pack_one_bin(const TaskProxy& task,
             });
 
         if (debug) {
-            std::cout << "Choosing var [" << next_var << "] derived? [" << task.get_variables()[next_var].is_derived() << "] with domain size [" << ranges[next_var] <<  "] and gain [" << gain[next_var] << "] (and degree [" << compute_degree(affinity, next_var) << "])" << std::endl;
+            std::cout << "Choosing var [" << next_var << "] derived? [" << task.get_variables()[next_var].is_derived() << "] with domain size [" << ranges[next_var] <<  "] and gain [" << gain[next_var] << "] (and degree [" << compute_degree(degree_map, next_var) << "])" << std::endl;
         }
 
         bin_vars.push_back(next_var);
