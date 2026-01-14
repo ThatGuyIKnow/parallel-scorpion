@@ -96,7 +96,7 @@ state_registries = [
 
 heuristics = [
     ("blind", "blind(cache_estimates=false)"),
-    ("scp", "scp([projections(systematic(2), create_complete_transition_system=true)], saturator=perimstar, max_time=10, diversify=true, max_optimization_time=0, orders=greedy_orders(), cache_estimates=false)")
+    # ("scp", "scp([projections(systematic(2), create_complete_transition_system=true)], saturator=perimstar, max_time=10, diversify=true, max_optimization_time=0, orders=greedy_orders(), cache_estimates=false)")
 ]
 
 CONFIGS = [
