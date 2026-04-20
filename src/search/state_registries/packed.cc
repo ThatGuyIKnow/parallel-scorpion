@@ -159,12 +159,12 @@ void PackedStateRegistry::print_statistics(utils::LogProxy &log) const {
     log << "Entries in state set: " << registered_states.size() << endl;
     const int bins_per_entry = state_packer.get_num_bins();
     log << "Bins per entry: " << bins_per_entry << endl;
-    log << "Average bins per state: " << bins_per_entry << endl;
+    log << "Average bins per state: " << static_cast<double>(bins_per_entry) << endl;
 
     // State set size
-    log << "State set size: " << get_memory_usage() << " B" << endl;
+    log << "State set size: " << state_data_pool.capacity() * get_state_size_in_bytes() << " B" << endl;
     log << "Lookup structure size: " << (registered_states.capacity() * (sizeof(int) + 1)) << " B" << endl;
-    log << "State set size: " << get_state_size_in_bytes() << " B" << endl;
+    log << "State registry size: " << get_memory_usage() << " B" << endl;
 
     // State size in bins
     log << "Number of bins in state: " << get_bins_per_state() << endl;
