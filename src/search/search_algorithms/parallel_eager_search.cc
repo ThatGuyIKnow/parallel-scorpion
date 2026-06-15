@@ -719,6 +719,26 @@ SearchStatus ParallelEagerSearch::terminate(SearchStatus status){
     MPI_Barrier(MPI_COMM_WORLD);
     // log << "Terminating process: " << processor_info.rank << endl << std::flush;
 
+    // Aggregate communication / search statistics across all ranks and report
+    // them on rank 0. The off-parent transfer rate is the paper's communication
+    // overhead (CO = generated nodes sent to a different rank / generated
+    // nodes); the expansion total lets the parser sum expansions across ranks.
+    long local_stats[3] = {
+        off_parent_transfers,
+        (long) statistics.get_generated(),
+        (long) statistics.get_expanded()
+    };
+    long global_stats[3] = {0, 0, 0};
+    MPI_Reduce(local_stats, global_stats, 3, MPI_LONG, MPI_SUM, 0, MPI_COMM_WORLD);
+    if (processor_info.rank == 0) {
+        long transfers = global_stats[0];
+        long generated = global_stats[1];
+        double rate = generated > 0 ? (double) transfers / (double) generated : 0.0;
+        log << "Off-parent transfer rate: " << transfers << "/" << generated
+            << " = " << rate << endl;
+        log << "Total expansions: " << global_stats[2] << endl;
+    }
+
     // flush_outgoing_buffer(MPIMessageType::NODE);
     // flush_outgoing_buffer(MPIMessageType::TERMINATE);
     // flush_outgoing_buffer(MPIMessageType::FOUND_GOAL);
@@ -781,6 +801,7 @@ bool ParallelEagerSearch::lookup_assigned_rank(SearchNode parent, OperatorProxy 
         );
 
         ++awaited_ack;
+        ++off_parent_transfers;
         return true;
     }
     return false;

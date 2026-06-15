@@ -105,6 +105,10 @@ class ParallelEagerSearch : public SearchAlgorithm {
 	
     unsigned char* mpi_buffer; // used for MPI_Buffer_attach.
     unsigned int awaited_ack = 0;
+    // Number of generated nodes whose hash-owner is a different rank (they are
+    // transferred "off-parent"). Reduced across ranks at termination to report
+    // the paper's communication overhead = transfers / generated.
+    long off_parent_transfers = 0;
     int goal_state_id;
     int lowest_g = INT_MAX;
     bool plan_found = false;
