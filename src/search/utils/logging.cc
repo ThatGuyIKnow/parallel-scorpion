@@ -5,6 +5,7 @@
 
 #include "../plugins/plugin.h"
 
+#include <cstdint>
 #include <iomanip>
 #include <iostream>
 #include <vector>
