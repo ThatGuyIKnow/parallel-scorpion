@@ -16,6 +16,7 @@ Run, e.g.:
   DOWNWARD_BENCHMARKS=/home/workbox/Projects/downward-projects/benchmarks \
       uv run experiments/2024-12-parallel/2026-06-15-htg-gbfs-ff.py build start parse fetch
 """
+import json
 import os
 import sys
 
@@ -42,6 +43,34 @@ def search_string(hash_fn):
         "peager(alt([single(h), single(h, pref_only=true)], boost=1000), "
         "preferred=[h], reopen_closed=false, f_eval=h, hash=" + hash_fn + ")"
     )
+
+
+# The single-worker config; its expansions are the baseline for search overhead.
+BASELINE_ALGO = "gbfs-ff-1"
+
+
+def add_additional_expansions(eval_dir):
+    """Search overhead (= the paper's SO): for each task, additional_expansions
+    of a multi-worker run = total_expansions / total_expansions(1 worker) - 1.
+    Computed by pairing each run with its single-worker baseline on the same
+    (domain, problem); written back into the report's properties file."""
+    props_path = os.path.join(eval_dir, "properties")
+    with open(props_path) as f:
+        props = json.load(f)
+
+    baseline = {}
+    for run in props.values():
+        if run.get("algorithm") == BASELINE_ALGO and run.get("total_expansions"):
+            baseline[(run.get("domain"), run.get("problem"))] = run["total_expansions"]
+
+    for run in props.values():
+        expansions = run.get("total_expansions")
+        base = baseline.get((run.get("domain"), run.get("problem")))
+        if expansions is not None and base:
+            run["additional_expansions"] = expansions / base - 1.0
+
+    with open(props_path, "w") as f:
+        json.dump(props, f, indent=2, sort_keys=True)
 
 
 # All HTG domains (subdirectories of htg-domains), used for the full remote run.
@@ -95,6 +124,7 @@ ATTRIBUTES = [
     "oom",
     "oot",
     "total_expansions",
+    "additional_expansions",
     "off_parent_transfer_rate",
     "num_off_parent_transfers",
     "num_generated_co",
@@ -133,6 +163,7 @@ exp.add_step("build", exp.build)
 exp.add_step("start", exp.start_runs)
 exp.add_step("parse", exp.parse)
 exp.add_fetcher(name="fetch")
+exp.add_step("additional-expansions", add_additional_expansions, exp.eval_dir)
 project.add_absolute_report(exp, attributes=ATTRIBUTES)
 
 exp.run_steps()
