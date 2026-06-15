@@ -10,8 +10,9 @@
 
 #include <iostream>
 #include <fstream>
+#include <map>
 #include <string>
-#include <random>   
+#include <random>
 
 
 using namespace std;
@@ -94,6 +95,34 @@ namespace distribution_hash {
             result.push_back(transitions[i].target->value);
         }
 
+    }
+
+    std::vector<WeightedEdge> MapBasedHash::get_weighted_dtg_edges(unsigned int var) {
+        domain_transition_graph::DomainTransitionGraph* dtg = transition_graphs[var].get();
+        // Accumulate undirected edge weights, combining both transition
+        // directions between a pair of values. The weight of a transition is the
+        // number of ground operators (labels) that induce it — the paper's
+        // "# ground actions which correspond to the transition" (the global
+        // "/ total ground actions" normalization is a positive constant that
+        // cancels in the sparsity argmax, so raw counts suffice).
+        std::map<std::pair<int, int>, double> weights;
+        for (size_t u = 0; u < dtg->nodes.size(); ++u) {
+            for (const domain_transition_graph::ValueTransition &t : dtg->nodes[u].transitions) {
+                int v = t.target->value;
+                if ((int) u == v) {
+                    continue;
+                }
+                int a = std::min((int) u, v);
+                int b = std::max((int) u, v);
+                weights[{a, b}] += (double) t.labels.size();
+            }
+        }
+        std::vector<WeightedEdge> edges;
+        edges.reserve(weights.size());
+        for (const auto &entry : weights) {
+            edges.push_back(WeightedEdge{entry.first.first, entry.first.second, entry.second});
+        }
+        return edges;
     }
 
     // TODO: This method is messy. As it is not the core of this program, ill let it for now.
@@ -637,6 +666,52 @@ AdaptiveAbstractionHash::AdaptiveAbstractionHash(const double abstraction_ratio,
 
 
 
+    GraphPartitioningStructuredZobristHash::GraphPartitioningStructuredZobristHash(
+            const int abstraction, bool is_polynomial) :
+            MapBasedHash(is_polynomial),
+            abstraction(abstraction) {
+        unsigned int whole_variable_space_size = 1;
+        for (size_t i = 0; i < map.size(); ++i) {
+            whole_variable_space_size += map[i].size();
+        }
+        unsigned int abstraction_size = whole_variable_space_size * abstraction;
+        unsigned int current_size = 1;
+
+        std::mt19937 rng(717);
+        std::uniform_int_distribution<uint32_t> dist(0, UINT32_MAX);
+
+        for (size_t i = 0; i < map.size(); ++i) {
+            if (map[i].size() <= 2) {
+                continue;
+            }
+            current_size += map[i].size();
+            if (current_size > abstraction_size) {
+                break;
+            }
+            // Partition this variable's DTG into two abstract features by the
+            // sparsest cut (GRAZHDA*), then give each side one shared random hash
+            // value so intra-feature transitions don't change the state hash.
+            std::vector<WeightedEdge> edges = get_weighted_dtg_edges(i);
+            std::vector<bool> side = sparsest_cut_bisection((int) map[i].size(), edges);
+            unsigned int r0 = dist(rng);
+            unsigned int r1 = dist(rng);
+            for (size_t v = 0; v < map[i].size(); ++v) {
+                map[i][v] = side[v] ? r1 : r0;
+            }
+        }
+
+        // Variables left unpartitioned (binary or beyond the abstraction budget)
+        // get a distinct random value per domain value, i.e. plain Zobrist
+        // hashing for those variables.
+        for (size_t i = 0; i < map.size(); ++i) {
+            for (size_t j = 0; j < map[i].size(); ++j) {
+                if (map[i][j] == 0) {
+                    map[i][j] = dist(rng);
+                }
+            }
+        }
+    }
+
     template<typename T>
     concept HasHashName = requires {
         { T::hash_name() } -> std::convertible_to<const char*>;
@@ -676,5 +751,6 @@ AdaptiveAbstractionHash::AdaptiveAbstractionHash(const double abstraction_ratio,
         static plugins::FeaturePlugin<MapBasedHashPlugin<AbstractionHash>> _plugin_abstraction;
         static plugins::FeaturePlugin<MapBasedHashPlugin<FeatureBasedStructuredZobristHash>> _plugin_feature_structured_zobrist;
         static plugins::FeaturePlugin<MapBasedHashPlugin<ActionBasedStructuredZobristHash>> _plugin_action_structured_zobrist;
+        static plugins::FeaturePlugin<MapBasedHashPlugin<GraphPartitioningStructuredZobristHash>> _plugin_grazhda;
 
 }

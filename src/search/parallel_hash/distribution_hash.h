@@ -12,6 +12,8 @@
 
 #include "../task_proxy.h"
 
+#include "sparsest_cut.h"
+
 #include <vector>
 
 namespace domain_transition_graph {
@@ -45,6 +47,10 @@ namespace distribution_hash {
         std::vector<int> reverse_iter_to_val(std::vector<int> in);
         void divideIntoTwo(unsigned int var,
                 std::vector<std::vector<unsigned int> >& structures);
+        // Undirected, ground-action-weighted edges of variable `var`'s domain
+        // transition graph (edge weight = #ground actions inducing the
+        // transition). Used by GRAZHDA* to compute the sparsest cut.
+        std::vector<WeightedEdge> get_weighted_dtg_edges(unsigned int var);
         std::vector<std::vector<unsigned int> > map;
 
     };
@@ -89,6 +95,20 @@ namespace distribution_hash {
     public:
         ActionBasedStructuredZobristHash(const int abstraction, bool is_polynomial);
         static constexpr const char* hash_name() { return "astructured";} ;
+    private:
+        int abstraction;
+    };
+
+    // GRAZHDA*/sparsity (Jinnai & Fukunaga, HSDIP-17): abstract-Zobrist hashing
+    // where each variable's domain transition graph is partitioned into two
+    // abstract features by the *sparsest cut* (maximizing |S1||S2| / cut-weight,
+    // edge weights = #ground actions per transition), rather than the greedy
+    // connectivity bisection used by `fstructured` (GreedyAFG). This balances
+    // communication and search overhead, the paper's best work distribution.
+    class GraphPartitioningStructuredZobristHash: public MapBasedHash {
+    public:
+        GraphPartitioningStructuredZobristHash(const int abstraction, bool is_polynomial);
+        static constexpr const char* hash_name() { return "grazhda"; };
     private:
         int abstraction;
     };

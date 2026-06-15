@@ -1,6 +1,7 @@
 #ifndef CARTESIAN_ABSTRACTIONS_TYPES_H
 #define CARTESIAN_ABSTRACTIONS_TYPES_H
 
+#include <cstdint>
 #include <deque>
 #include <limits>
 #include <memory>
