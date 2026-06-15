@@ -47,6 +47,7 @@ namespace parallel {
         StateID parent_id;
         StateID state_id;
         int sender;
+        std::vector<unsigned char> parent_packed;
     };
 
 
@@ -90,6 +91,10 @@ class ParallelEagerSearch : public SearchAlgorithm {
     using StateHashMap = phmap::flat_hash_map<int, unsigned int>;
     NodeMessageMap node_messages;
     StateHashMap state_hash_map;
+    // For every node received from another rank, the packed state of its parent
+    // (which is owned by the sender). Used during plan reconstruction to address
+    // the parent portably across ranks (rank-local StateIDs are not portable).
+    phmap::flat_hash_map<int, std::vector<unsigned char>> received_parent_states;
     MPI_Op MPI_ARG_MIN;
 
     const bool reopen_closed_nodes;
@@ -133,14 +138,29 @@ class ParallelEagerSearch : public SearchAlgorithm {
     void retrieve_nodes_from_queue();   
     SearchStatus terminate(SearchStatus status);
 
-    // Handles external node processing
-    bool process_external_node(State &current_state, int &external_state_id, unsigned int &assigned_rank, std::vector<OperatorID> &path);
+    // Walks the local search space from `current` toward the root, appending the
+    // creating operator of each visited node to `path`. Returns true if the
+    // initial state (root) was reached. Returns false if a node received from
+    // another rank was reached; then `next_rank` is that node's sender (which
+    // owns the parent) and `next_parent_packed` is the parent's packed state to
+    // continue reconstruction from.
+    bool walk_local_segment(State current, std::vector<OperatorID> &path,
+                            unsigned int &next_rank,
+                            std::vector<unsigned char> &next_parent_packed);
 
-    // Parses the message received for an external node
-    bool parse_external_message(const std::vector<int> &message, State &current_state, int &external_state_id, unsigned int &assigned_rank, std::vector<OperatorID> &path);
+    // Resolves a packed state (portable across ranks) to a local State via the
+    // state registry. The state must already be registered on this rank.
+    State state_from_packed(const unsigned char *buffer);
 
-    // Handles internal node processing
-    bool process_internal_node(State &current_state, unsigned int &assigned_rank, int &external_state_id, std::vector<OperatorID> &path);
+    // Asks `rank` to reconstruct the local segment starting at the state encoded
+    // by `parent_packed`, appending its operators to `path`. Returns true if that
+    // segment reached the root; otherwise sets next_rank/next_parent_packed for
+    // the following hop.
+    bool request_external_segment(unsigned int rank,
+                                  const std::vector<unsigned char> &parent_packed,
+                                  std::vector<OperatorID> &path,
+                                  unsigned int &next_rank,
+                                  std::vector<unsigned char> &next_parent_packed);
     void flush_outgoing_buffer(MPIMessageType tag);
     bool is_idle();
     bool check_and_progress_termination(

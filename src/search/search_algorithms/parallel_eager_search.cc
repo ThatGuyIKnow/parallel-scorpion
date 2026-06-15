@@ -51,7 +51,7 @@ ParallelEagerSearch::ParallelEagerSearch(
 ) : SearchAlgorithm(cost_type, bound, max_time, description, verbosity),
       reopen_closed_nodes(reopen_closed),
       state_byte_size(state_registry.get_state_size_in_bytes()),
-      node_byte_size(state_byte_size + sizeof(int) * 7),
+      node_byte_size(state_byte_size * 2 + sizeof(int) * 7),
       open_list(open->create_state_open_list()),
       f_evaluator(f_eval),
       preferred_operator_evaluators(preferred),
@@ -219,172 +219,182 @@ bool ParallelEagerSearch::check_and_progress_termination(
 }
 
 void ParallelEagerSearch::construct_plan(SearchNode goal_node) {
-    // log << "(Process " << processor_info.rank << ") Starting construct_plan." << endl;
-
-    State current_state = goal_node.get_state();
-    int external_state_id = current_state.get_id().value;
+    // Reconstruct the plan by walking parent links from the goal back to the
+    // initial state. Within a rank we follow the local parent_state_id chain;
+    // when we reach a node received from another rank we hand its parent's
+    // *packed state* (portable across ranks) to the sender, which owns the
+    // parent and continues the walk. Rank-local StateIDs are never sent over the
+    // wire for lookup, since they collide across independent per-rank registries.
     std::vector<OperatorID> path;
-    unsigned int assigned_rank = processor_info.rank;
+    unsigned int next_rank = processor_info.rank;
+    std::vector<unsigned char> next_parent_packed;
 
-    while (true) {
-        // log << "(Process " << processor_info.rank << ") Current state ID: " << external_state_id << ", Assigned rank: " << assigned_rank << endl;
+    // Defense-in-depth against the pre-existing search-corruption race: bound the
+    // number of cross-rank hops by the set of distinct parent states visited.
+    // A repeat means a cross-rank parent cycle (corruption); abort so the run
+    // fails cleanly instead of ping-ponging forever and deadlocking the workers.
+    phmap::flat_hash_set<std::string> visited_parents;
+    bool aborted = false;
 
-        if (processor_info.rank != assigned_rank) {
-            if (process_external_node(current_state, external_state_id, assigned_rank, path)) {
-                // log << "(Process " << processor_info.rank << ") External node processed, ending loop." << endl;
-                break;
-            }
+    bool terminal = walk_local_segment(
+        goal_node.get_state(), path, next_rank, next_parent_packed);
+    while (!terminal) {
+        std::string key(next_parent_packed.begin(), next_parent_packed.end());
+        if (!visited_parents.insert(key).second) {
+            std::cerr << "WARNING: cross-rank cycle during plan reconstruction; "
+                         "aborting (search-state corruption)." << std::endl;
+            aborted = true;
+            break;
+        }
+        if (next_rank == processor_info.rank) {
+            // The parent is owned by this rank; continue the walk locally.
+            terminal = walk_local_segment(
+                state_from_packed(next_parent_packed.data()),
+                path, next_rank, next_parent_packed);
         } else {
-            if (process_internal_node(current_state, assigned_rank, external_state_id, path)) {
-                // log << "(Process " << processor_info.rank << ") Internal node processed, ending loop." << endl;
-                break;
-            }
+            terminal = request_external_segment(
+                next_rank, next_parent_packed, path, next_rank, next_parent_packed);
         }
     }
+    (void) aborted;
 
-    int term_signal[] = {1, 0};
+    // Tell every other rank to stop serving reconstruction requests.
+    std::vector<unsigned char> terminate_msg(sizeof(int));
+    *reinterpret_cast<int*>(terminate_msg.data()) = 1;
     for (unsigned int i = 1; i < processor_info.world_size; i++) {
         int rank = (processor_info.rank + i) % processor_info.world_size;
-        MPI_Bsend(term_signal, 2, MPI_INT, rank, MPIMessageType::CONSTRUCT_PLAN, MPI_COMM_WORLD);
-        // log << "(Process " << processor_info.rank << ") Sent termination signal to process " << rank << endl;
+        MPI_Bsend(terminate_msg.data(), terminate_msg.size(), MPI_BYTE, rank,
+                  MPIMessageType::CONSTRUCT_PLAN, MPI_COMM_WORLD);
     }
 
     std::reverse(path.begin(), path.end());
     set_plan(path);
-    // log << "(Process " << processor_info.rank << ") Plan constructed and set." << endl;
 }
 
-// Sub-function to handle external nodes
-bool ParallelEagerSearch::process_external_node(State &current_state, int &external_state_id, unsigned int &assigned_rank, std::vector<OperatorID> &path) {
-    // log << "(Process " << processor_info.rank << ") Processing external node with state ID: " << external_state_id << endl;
-
-    // Send request for the parent node
-    int buffer[2] = {0, external_state_id};
-    MPI_Send(buffer, 2, MPI_INT, assigned_rank, MPIMessageType::CONSTRUCT_PLAN, MPI_COMM_WORLD);
-    // log << "(Process " << processor_info.rank << ") Sent request to process " << assigned_rank << " for state ID: " << external_state_id << endl;
-
-    // Probe for message size
-    MPI_Status status;
-    int package_size;
-    MPI_Probe(assigned_rank, MPIMessageType::CONSTRUCT_PLAN, MPI_COMM_WORLD, &status);
-    MPI_Get_count(&status, MPI_INT, &package_size);
-
-    // Receive the message
-    std::vector<int> message(package_size);
-    MPI_Recv(message.data(), package_size, MPI_INT, assigned_rank, MPIMessageType::CONSTRUCT_PLAN, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-    // log << "(Process " << processor_info.rank << ") Received message from process " << assigned_rank << endl;
-
-    // Parse the received message
-    return parse_external_message(message, current_state, external_state_id, assigned_rank, path);
+// Resolve a packed state (portable across ranks) to a local State. The state
+// must already be registered on this rank (it is, for any state this rank owns
+// and was therefore asked to reconstruct from).
+State ParallelEagerSearch::state_from_packed(const unsigned char *buffer) {
+    state_registry.state_data_pool.push_back(
+        reinterpret_cast<const PackedStateBin*>(buffer));
+    StateID id = state_registry.insert_id_or_pop_state();
+    return state_registry.lookup_state(id);
 }
 
-// Sub-function to parse received messages for external nodes
-bool ParallelEagerSearch::parse_external_message(const std::vector<int> &message, State &current_state, int &external_state_id, unsigned int &assigned_rank, std::vector<OperatorID> &path) {
-    // log << "(Process " << processor_info.rank << ") Parsing external message." << endl;
-
-    assigned_rank = message[0];
-    external_state_id = message[1];
-    int segment_length = message[2];
-
-    if (assigned_rank == processor_info.rank) {
-        current_state = state_registry.lookup_state(StateID(external_state_id));
-        // log << "(Process " << processor_info.rank << ") Updated current state from state registry." << endl;
-    }
-
-    for (int i = 0; i < segment_length; i++) {
-        OperatorID op_id = OperatorID(message[3 + i]);
-        if (op_id == OperatorID::no_operator) {
-            // log << "(Process " << processor_info.rank << ") End of plan segment detected." << endl;
+bool ParallelEagerSearch::walk_local_segment(
+        State current, std::vector<OperatorID> &path,
+        unsigned int &next_rank, std::vector<unsigned char> &next_parent_packed) {
+    // Defense-in-depth: a pre-existing data race in the distributed search can
+    // occasionally corrupt a node's g/parent bookkeeping (observable as bogus
+    // g-values even without reconstruction). A corrupted parent link could form
+    // a cycle; without this guard the walk would loop forever and deadlock the
+    // collective reconstruction. If we revisit a state, abort the walk so the
+    // run fails cleanly (invalid/no plan) instead of hanging.
+    phmap::flat_hash_set<int> visited;
+    for (;;) {
+        if (!visited.insert(current.get_id().value).second) {
+            std::cerr << "WARNING: cycle in parent links during plan "
+                         "reconstruction on rank " << processor_info.rank
+                      << "; aborting reconstruction (search-state corruption)."
+                      << std::endl;
             return true;
         }
-        path.push_back(op_id);
+        const SearchNodeInfo &info = search_space.search_node_infos[current];
+        if (info.creating_operator == OperatorID::no_operator) {
+            assert(info.parent_state_id == StateID::no_state);
+            return true; // reached the initial state (root)
+        }
+        path.push_back(info.creating_operator);
+
+        auto it = received_parent_states.find(current.get_id().value);
+        if (it != received_parent_states.end()) {
+            // `current` was received from another rank, which owns its parent.
+            // Continue there using the parent's packed state.
+            next_rank = node_messages[current.get_id().value].sender;
+            next_parent_packed = it->second;
+            return false;
+        }
+        // Locally generated node: parent_state_id is a valid id in this rank's
+        // own registry, so we can follow it directly.
+        current = state_registry.lookup_state(info.parent_state_id);
     }
-    return false;
 }
 
-// Sub-function to process internal nodes
-bool ParallelEagerSearch::process_internal_node(State &current_state, unsigned int &assigned_rank, int &external_state_id, std::vector<OperatorID> &path) {
-    // log << "(Process " << processor_info.rank << ") Processing internal node with state ID: " << current_state.get_id().value << endl;
+bool ParallelEagerSearch::request_external_segment(
+        unsigned int rank, const std::vector<unsigned char> &parent_packed,
+        std::vector<OperatorID> &path,
+        unsigned int &next_rank, std::vector<unsigned char> &next_parent_packed) {
+    // Request: [int control=0][parent packed state].
+    std::vector<unsigned char> request(sizeof(int) + state_byte_size);
+    *reinterpret_cast<int*>(request.data()) = 0;
+    std::copy(parent_packed.begin(), parent_packed.end(),
+              request.begin() + sizeof(int));
+    MPI_Send(request.data(), request.size(), MPI_BYTE, rank,
+             MPIMessageType::CONSTRUCT_PLAN, MPI_COMM_WORLD);
 
-    const SearchNodeInfo &info = search_space.search_node_infos[current_state];
-    if (info.creating_operator == OperatorID::no_operator) {
-        assert(info.parent_state_id == StateID::no_state);
-        // log << "(Process " << processor_info.rank << ") Reached root node." << endl;
-        return true; // End of plan construction
+    // Response: [int terminal][int seglen][int next_rank][seglen ints: ops]
+    //           [parent packed state, only if !terminal].
+    MPI_Status status;
+    int response_size;
+    MPI_Probe(rank, MPIMessageType::CONSTRUCT_PLAN, MPI_COMM_WORLD, &status);
+    MPI_Get_count(&status, MPI_BYTE, &response_size);
+    std::vector<unsigned char> response(response_size);
+    MPI_Recv(response.data(), response_size, MPI_BYTE, rank,
+             MPIMessageType::CONSTRUCT_PLAN, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+
+    const int *header = reinterpret_cast<const int*>(response.data());
+    bool terminal = header[0] != 0;
+    int segment_length = header[1];
+    next_rank = static_cast<unsigned int>(header[2]);
+    for (int i = 0; i < segment_length; i++) {
+        path.push_back(OperatorID(header[3 + i]));
     }
-
-    path.push_back(info.creating_operator);
-    // log << "(Process " << processor_info.rank << ") Added operator to path." << endl;
-
-    if (node_messages.contains(info.parent_state_id.value)) {
-        // log << "(Process " << processor_info.rank << ") Node messages contains ID." << endl;
-
-        assigned_rank = node_messages[info.parent_state_id.value].sender;
-        external_state_id = node_messages[info.parent_state_id.value].state_id;
-        // log << "(Process " << processor_info.rank << ") Parent state is external, assigned to rank " << assigned_rank << endl;
-    } else {
-        current_state = state_registry.lookup_state(info.parent_state_id);
-        // log << "(Process " << processor_info.rank << ") Parent state is internal, updated current state." << endl;
+    if (!terminal) {
+        const unsigned char *parent =
+            response.data() + sizeof(int) * (3 + segment_length);
+        next_parent_packed.assign(parent, parent + state_byte_size);
     }
-
-    return false;
+    return terminal;
 }
 
 void ParallelEagerSearch::construct_plan_worker(int constructor_rank) {
-    // log << "(Process " << processor_info.rank << ") Starting construct_plan_worker." << endl;
-
-    unsigned int term_signal;
-    int request_state_or_terminate[2];
-    std::vector<int> path;
-    int assigned_rank = processor_info.rank;
-
     for (;;) {
-        MPI_Recv(&request_state_or_terminate, 2, MPI_INT, constructor_rank, MPIMessageType::CONSTRUCT_PLAN, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-        // log << "(Process " << processor_info.rank << ") Received message from constructor rank " << constructor_rank << endl;
+        MPI_Status status;
+        int request_size;
+        MPI_Probe(constructor_rank, MPIMessageType::CONSTRUCT_PLAN,
+                  MPI_COMM_WORLD, &status);
+        MPI_Get_count(&status, MPI_BYTE, &request_size);
+        std::vector<unsigned char> request(request_size);
+        MPI_Recv(request.data(), request_size, MPI_BYTE, constructor_rank,
+                 MPIMessageType::CONSTRUCT_PLAN, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 
-        term_signal = request_state_or_terminate[0];
-
-        if (term_signal != 0) {
-            // log << "(Process " << processor_info.rank << ") Termination signal received." << endl;
-            break;
+        if (*reinterpret_cast<const int*>(request.data()) != 0) {
+            break; // termination signal
         }
 
-        StateID state_id = StateID(request_state_or_terminate[1]);
-        State current_state = state_registry.lookup_state(state_id);
-        int external_state_id = current_state.get_id().value;
+        State current = state_from_packed(request.data() + sizeof(int));
+        std::vector<OperatorID> path;
+        unsigned int next_rank = processor_info.rank;
+        std::vector<unsigned char> next_parent_packed;
+        bool terminal =
+            walk_local_segment(current, path, next_rank, next_parent_packed);
 
-        for (;;) {
-            const SearchNodeInfo &info = search_space.search_node_infos[current_state];
-            if (info.creating_operator == OperatorID::no_operator) {
-                assert(info.parent_state_id == StateID::no_state);
-                path.push_back(OperatorID::no_operator.get_index());
-                // log << "(Process " << processor_info.rank << ") Root node reached, ending loop." << endl;
-                break;
-            }
-            path.push_back(info.creating_operator.get_index());
-
-            if (node_messages.contains(current_state.get_id().value)) {
-                assigned_rank = node_messages[current_state.get_id().value].sender;
-                external_state_id = node_messages[current_state.get_id().value].state_id;
-                // log << "(Process " << processor_info.rank << ") Transitioned to external node " << external_state_id << " for rank " << assigned_rank << "." << endl;
-                break;
-            }
-            current_state = state_registry.lookup_state(info.parent_state_id);
-            // log << "(Process " << processor_info.rank << ") Transitioned to internal parent node." << endl;
+        int segment_length = static_cast<int>(path.size());
+        std::vector<unsigned char> response(
+            sizeof(int) * (3 + segment_length) + (terminal ? 0 : state_byte_size));
+        int *header = reinterpret_cast<int*>(response.data());
+        header[0] = terminal ? 1 : 0;
+        header[1] = segment_length;
+        header[2] = static_cast<int>(next_rank);
+        for (int i = 0; i < segment_length; i++) {
+            header[3 + i] = path[i].get_index();
         }
-
-        int message_size = 3 + path.size();
-        std::vector<int> out_buffer(message_size); // Use std::vector for safe buffer management
-
-        out_buffer[0] = assigned_rank;
-        out_buffer[1] = external_state_id;
-        out_buffer[2] = path.size();
-        std::copy(path.begin(), path.end(), out_buffer.begin() + 3); // Copy path into the buffer
-
-        MPI_Send(out_buffer.data(), message_size, MPI_INT, constructor_rank, MPIMessageType::CONSTRUCT_PLAN, MPI_COMM_WORLD);
-        // log << "(Process " << processor_info.rank << ") Sent constructed plan segment to constructor rank." << endl;
-
-        path.clear();
+        if (!terminal) {
+            std::copy(next_parent_packed.begin(), next_parent_packed.end(),
+                      response.data() + sizeof(int) * (3 + segment_length));
+        }
+        MPI_Send(response.data(), response.size(), MPI_BYTE, constructor_rank,
+                 MPIMessageType::CONSTRUCT_PLAN, MPI_COMM_WORLD);
     }
 }
 
@@ -484,13 +494,16 @@ void ParallelEagerSearch::to_byte(parallel::StatusMessage message, unsigned char
     out[1] = (encoded_message >> CHAR_BIT) && UCHAR_MAX;
 }   
 std::vector<unsigned char> ParallelEagerSearch::to_byte_message(SearchNode parent, OperatorProxy op, State state) {
-    // Create a vector to hold the serialized data
-    std::vector<unsigned char> package(state_byte_size + sizeof(int) * 6);
+    // Layout: [successor packed state][6 ints metadata][parent packed state].
+    // The parent's packed state is shipped so the receiver can later address the
+    // parent portably during plan reconstruction (rank-local StateIDs collide
+    // across ranks and must never be sent over the wire for lookup).
+    std::vector<unsigned char> package(state_byte_size * 2 + sizeof(int) * 6);
 
     // Copy the state buffer into the beginning of the vector
     std::copy((unsigned char*)state.get_buffer(), (unsigned char*)state.get_buffer() + state_byte_size, package.begin());
 
-    
+
     // Prepare the metadata as integers
     int g = parent.get_g() + get_adjusted_cost(op);
     int state_id = state.get_id().value;
@@ -517,6 +530,11 @@ std::vector<unsigned char> ParallelEagerSearch::to_byte_message(SearchNode paren
     std::copy(reinterpret_cast<const unsigned char*>(info.data()),
               reinterpret_cast<const unsigned char*>(info.data()) + sizeof(int) * info.size(),
               metadata_start);
+
+    // Append the parent's packed state after the metadata.
+    const unsigned char* parent_buffer = (const unsigned char*) parent.get_state().get_buffer();
+    std::copy(parent_buffer, parent_buffer + state_byte_size,
+              package.data() + state_byte_size + sizeof(int) * 6);
 
     return package;
 }
@@ -561,6 +579,7 @@ parallel::NodeMessage ParallelEagerSearch::to_node_message(unsigned char* buffer
         search_space.search_node_infos[state].parent_state_id = parent_id;
     }
 
+    const unsigned char* parent_buffer = buffer + state_byte_size + sizeof(int) * 6;
     parallel::NodeMessage parsed_message = {
         node,
         g,
@@ -569,7 +588,8 @@ parallel::NodeMessage ParallelEagerSearch::to_node_message(unsigned char* buffer
         distributed_hash,
         parent_id,
         state_id,
-        sender
+        sender,
+        std::vector<unsigned char>(parent_buffer, parent_buffer + state_byte_size)
     };
 
     return parsed_message;
@@ -582,7 +602,7 @@ void ParallelEagerSearch::retrieve_nodes_from_queue() {
     // Dynamic buffer for variable-sized messages (initially empty)
     std::vector<unsigned char> buffer;
 
-    int serialized_size = state_byte_size + sizeof(int) * 6;
+    int serialized_size = state_byte_size * 2 + sizeof(int) * 6;
     do {
         MPI_Iprobe(MPI_ANY_SOURCE, MPIMessageType::NODE, MPI_COMM_WORLD, 
                    &has_received, &mpi_status);
@@ -633,8 +653,9 @@ void ParallelEagerSearch::retrieve_nodes_from_queue() {
 
                 // Add to node messages and the open list
                 node_messages.insert_or_assign(
-                    state.get_id().value, 
+                    state.get_id().value,
                     parallel::ExternalStateMessage{message.state_id.value, message.sender});
+                received_parent_states[state.get_id().value] = message.parent_packed;
 
                 open_list->insert(eval_context, state.get_id());
             }
@@ -679,7 +700,7 @@ unsigned int ParallelEagerSearch::select_constructor_rank() {
 
 SearchStatus ParallelEagerSearch::terminate(SearchStatus status){
 
-    if (status == SearchStatus::SOLVED) { 
+    if (status == SearchStatus::SOLVED) {
         MPI_Barrier(MPI_COMM_WORLD);
         log.set_sync(true);
         unsigned int constructor_rank = select_constructor_rank();
@@ -966,9 +987,17 @@ SearchStatus ParallelEagerSearch::step() {
 
                 open_list->insert(succ_eval_context, succ_state.get_id());
 
+                // The node's parent is now local again; drop its external linkage
+                // so reconstruction follows the reopened local parent.
                 node_messages.erase(succ_state.get_id().value);
+                received_parent_states.erase(succ_state.get_id().value);
             } else {
                 succ_node.update_closed_node_parent(*node, op, get_adjusted_cost(op));
+                // Parent is now a local node; drop any stale external linkage so
+                // reconstruction follows this local parent rather than a foreign
+                // (sender-local) StateID.
+                node_messages.erase(succ_state.get_id().value);
+                received_parent_states.erase(succ_state.get_id().value);
             }
         }
     }
